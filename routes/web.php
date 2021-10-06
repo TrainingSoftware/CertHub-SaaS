@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -31,4 +32,9 @@ Route::get('/set-password', function () {
 
 Route::get('/verify', function () {
     return view('auth.verify-email');
+});
+
+// Dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
