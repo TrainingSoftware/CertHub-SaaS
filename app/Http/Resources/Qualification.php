@@ -19,7 +19,7 @@ class Qualification extends JsonResource
             'regno' => $this->regno,
             'price' => $this->price,
             'slug' => $this->slug,
-            'expiry_date' => $this->expiry_date,
+            'expiry_date' => $this->expiry_date->format('d/m/Y'),
             'status' => $this->status,
         ];
     }

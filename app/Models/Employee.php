@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Employee extends Model
 {
     use HasFactory;
+    protected $dates = [
+        'start_date',
+        'end_date'
+    ];
+
     protected $fillable = [
         'title',
         'firstname',

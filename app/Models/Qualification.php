@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Qualification extends Model
 {
     use HasFactory;
+
+    protected $dates = [
+        'expiry_date',
+    ];
+
     protected $fillable = [
         'user_id',
         'qualificationtype_id',
