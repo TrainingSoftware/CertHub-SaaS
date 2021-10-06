@@ -1,0 +1,76 @@
+<?php
+
+namespace App\Http\Controllers\API;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController as BaseController;
+use Validator;
+use App\Models\QualificationType;
+use App\Http\Resources\QualificationType as QualificationTypeResource;
+
+class QualificationTypeController extends BaseController
+{
+
+    public function index()
+    {
+        $qualificationtypes = QualificationType::all();
+        return $this->sendResponse(QualificationTypeResource::collection($qualificationtypes), 'Qualification Types fetched.');
+    }
+
+
+    public function store(Request $request)
+    {
+        $input = $request->all();
+        $validator = Validator::make($input, [
+            'name' => 'required',
+            'body' => '',
+            'user_id' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors());
+        }
+        $qualificationtype = QualificationType::create($input);
+        return $this->sendResponse(new QualificationTypeResource($qualificationtype), 'Qualification Type created.');
+    }
+
+
+    public function show($id)
+    {
+        $qualificationtype = QualificationType::find($id);
+        if (is_null($qualificationtype)) {
+            return $this->sendError('Qualification Type does not exist.');
+        }
+        return $this->sendResponse(new QualificationTypeResource($qualificationtype), 'Qualification Type fetched.');
+    }
+
+
+    public function update(Request $request, QualificationType $qualificationtype)
+    {
+        $input = $request->all();
+
+        $validator = Validator::make($input, [
+            'name' => '',
+            'body' => '',
+            'user_id' => ''
+        ]);
+
+        if ($validator->fails()) {
+            return $this->sendError($validator->errors());
+        }
+
+        $qualificationtype->name = $input['name'];
+        $qualificationtype->body = $input['body'];
+        $qualificationtype->user_id = $input['user_id'];
+
+        $qualificationtype->save();
+
+        return $this->sendResponse(new QualificationTypeResource($qualificationtype), 'Qualification Type updated.');
+    }
+
+
+    public function destroy(QualificationType $qualificationtype)
+    {
+        $qualificationtype->delete();
+        return $this->sendResponse([], 'Qualification Type deleted.');
+    }
+}
