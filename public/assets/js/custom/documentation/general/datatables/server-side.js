@@ -1,33 +1,364 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+var __webpack_exports__ = {};
+/*!************************************************************************!*\
+  !*** ../src/js/custom/documentation/general/datatables/server-side.js ***!
+  \************************************************************************/
 
-/***/ "./resources/src/js/custom/documentation/general/datatables/server-side.js":
-/*!*********************************************************************************!*\
-  !*** ./resources/src/js/custom/documentation/general/datatables/server-side.js ***!
-  \*********************************************************************************/
-/***/ (() => {
 
-eval(" // Class definition\n\nvar KTDatatablesServerSide = function () {\n  // Shared variables\n  var table;\n  var dt;\n  var filterPayment; // Private functions\n\n  var initDatatable = function initDatatable() {\n    dt = $(\"#kt_datatable_example_1\").DataTable({\n      searchDelay: 500,\n      processing: true,\n      serverSide: true,\n      order: [[5, 'desc']],\n      stateSave: true,\n      select: {\n        style: 'os',\n        selector: 'td:first-child',\n        className: 'row-selected'\n      },\n      ajax: {\n        url: \"https://preview.keenthemes.com/api/datatables.php\"\n      },\n      columns: [{\n        data: 'RecordID'\n      }, {\n        data: 'Name'\n      }, {\n        data: 'Email'\n      }, {\n        data: 'Company'\n      }, {\n        data: 'CreditCardNumber'\n      }, {\n        data: 'Datetime'\n      }, {\n        data: null\n      }],\n      columnDefs: [{\n        targets: 0,\n        orderable: false,\n        render: function render(data) {\n          return \"\\n                            <div class=\\\"form-check form-check-sm form-check-custom form-check-solid\\\">\\n                                <input class=\\\"form-check-input\\\" type=\\\"checkbox\\\" value=\\\"\".concat(data, \"\\\" />\\n                            </div>\");\n        }\n      }, {\n        targets: 4,\n        render: function render(data, type, row) {\n          return \"<img src=\\\"\".concat(hostUrl, \"media/svg/card-logos/\").concat(row.CreditCardType, \".svg\\\" class=\\\"w-35px me-3\\\" alt=\\\"\").concat(row.CreditCardType, \"\\\">\") + data;\n        }\n      }, {\n        targets: -1,\n        data: null,\n        orderable: false,\n        className: 'text-end',\n        render: function render(data, type, row) {\n          return \"\\n                            <a href=\\\"#\\\" class=\\\"btn btn-light btn-active-light-primary btn-sm\\\" data-kt-menu-trigger=\\\"click\\\" data-kt-menu-placement=\\\"bottom-end\\\" data-kt-menu-flip=\\\"top-end\\\">\\n                                Actions\\n                                <span class=\\\"svg-icon svg-icon-5 m-0\\\">\\n                                    <svg xmlns=\\\"http://www.w3.org/2000/svg\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\" width=\\\"24px\\\" height=\\\"24px\\\" viewBox=\\\"0 0 24 24\\\" version=\\\"1.1\\\">\\n                                        <g stroke=\\\"none\\\" stroke-width=\\\"1\\\" fill=\\\"none\\\" fill-rule=\\\"evenodd\\\">\\n                                            <polygon points=\\\"0 0 24 0 24 24 0 24\\\"></polygon>\\n                                            <path d=\\\"M6.70710678,15.7071068 C6.31658249,16.0976311 5.68341751,16.0976311 5.29289322,15.7071068 C4.90236893,15.3165825 4.90236893,14.6834175 5.29289322,14.2928932 L11.2928932,8.29289322 C11.6714722,7.91431428 12.2810586,7.90106866 12.6757246,8.26284586 L18.6757246,13.7628459 C19.0828436,14.1360383 19.1103465,14.7686056 18.7371541,15.1757246 C18.3639617,15.5828436 17.7313944,15.6103465 17.3242754,15.2371541 L12.0300757,10.3841378 L6.70710678,15.7071068 Z\\\" fill=\\\"#000000\\\" fill-rule=\\\"nonzero\\\" transform=\\\"translate(12.000003, 11.999999) rotate(-180.000000) translate(-12.000003, -11.999999)\\\"></path>\\n                                        </g>\\n                                    </svg>\\n                                </span>\\n                            </a>\\n                            <!--begin::Menu-->\\n                            <div class=\\\"menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4\\\" data-kt-menu=\\\"true\\\">\\n                                <!--begin::Menu item-->\\n                                <div class=\\\"menu-item px-3\\\">\\n                                    <a href=\\\"#\\\" class=\\\"menu-link px-3\\\" data-kt-docs-table-filter=\\\"edit_row\\\">\\n                                        Edit\\n                                    </a>\\n                                </div>\\n                                <!--end::Menu item-->\\n                                \\n                                <!--begin::Menu item-->\\n                                <div class=\\\"menu-item px-3\\\">\\n                                    <a href=\\\"#\\\" class=\\\"menu-link px-3\\\" data-kt-docs-table-filter=\\\"delete_row\\\">\\n                                        Delete\\n                                    </a>\\n                                </div>\\n                                <!--end::Menu item-->\\n                            </div>\\n                            <!--end::Menu-->\\n                        \";\n        }\n      }],\n      // Add data-filter attribute\n      createdRow: function createdRow(row, data, dataIndex) {\n        $(row).find('td:eq(4)').attr('data-filter', data.CreditCardType);\n      }\n    });\n    table = dt.$; // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw\n\n    dt.on('draw', function () {\n      initToggleToolbar();\n      toggleToolbars();\n      handleDeleteRows();\n      KTMenu.createInstances();\n    });\n  }; // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()\n\n\n  var handleSearchDatatable = function handleSearchDatatable() {\n    var filterSearch = document.querySelector('[data-kt-docs-table-filter=\"search\"]');\n    filterSearch.addEventListener('keyup', function (e) {\n      dt.search(e.target.value).draw();\n    });\n  }; // Filter Datatable\n\n\n  var handleFilterDatatable = function handleFilterDatatable() {\n    // Select filter options\n    filterPayment = document.querySelectorAll('[data-kt-docs-table-filter=\"payment_type\"] [name=\"payment_type\"]');\n    var filterButton = document.querySelector('[data-kt-docs-table-filter=\"filter\"]'); // Filter datatable on submit\n\n    filterButton.addEventListener('click', function () {\n      // Get filter values\n      var paymentValue = ''; // Get payment value\n\n      filterPayment.forEach(function (r) {\n        if (r.checked) {\n          paymentValue = r.value;\n        } // Reset payment value if \"All\" is selected\n\n\n        if (paymentValue === 'all') {\n          paymentValue = '';\n        }\n      }); // Filter datatable --- official docs reference: https://datatables.net/reference/api/search()\n\n      dt.search(paymentValue).draw();\n    });\n  }; // Delete customer\n\n\n  var handleDeleteRows = function handleDeleteRows() {\n    // Select all delete buttons\n    var deleteButtons = document.querySelectorAll('[data-kt-docs-table-filter=\"delete_row\"]');\n    deleteButtons.forEach(function (d) {\n      // Delete button on click\n      d.addEventListener('click', function (e) {\n        e.preventDefault(); // Select parent row\n\n        var parent = e.target.closest('tr'); // Get customer name\n\n        var customerName = parent.querySelectorAll('td')[1].innerText; // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/\n\n        Swal.fire({\n          text: \"Are you sure you want to delete \" + customerName + \"?\",\n          icon: \"warning\",\n          showCancelButton: true,\n          buttonsStyling: false,\n          confirmButtonText: \"Yes, delete!\",\n          cancelButtonText: \"No, cancel\",\n          customClass: {\n            confirmButton: \"btn fw-bold btn-danger\",\n            cancelButton: \"btn fw-bold btn-active-light-primary\"\n          }\n        }).then(function (result) {\n          if (result.value) {\n            // Simulate delete request -- for demo purpose only\n            Swal.fire({\n              text: \"Deleting \" + customerName,\n              icon: \"info\",\n              buttonsStyling: false,\n              showConfirmButton: false,\n              timer: 2000\n            }).then(function () {\n              Swal.fire({\n                text: \"You have deleted \" + customerName + \"!.\",\n                icon: \"success\",\n                buttonsStyling: false,\n                confirmButtonText: \"Ok, got it!\",\n                customClass: {\n                  confirmButton: \"btn fw-bold btn-primary\"\n                }\n              }).then(function () {\n                // delete row data from server and re-draw datatable\n                dt.draw();\n              });\n            });\n          } else if (result.dismiss === 'cancel') {\n            Swal.fire({\n              text: customerName + \" was not deleted.\",\n              icon: \"error\",\n              buttonsStyling: false,\n              confirmButtonText: \"Ok, got it!\",\n              customClass: {\n                confirmButton: \"btn fw-bold btn-primary\"\n              }\n            });\n          }\n        });\n      });\n    });\n  }; // Reset Filter\n\n\n  var handleResetForm = function handleResetForm() {\n    // Select reset button\n    var resetButton = document.querySelector('[data-kt-docs-table-filter=\"reset\"]'); // Reset datatable\n\n    resetButton.addEventListener('click', function () {\n      // Reset payment type\n      filterPayment[0].checked = true; // Reset datatable --- official docs reference: https://datatables.net/reference/api/search()\n\n      dt.search('').draw();\n    });\n  }; // Init toggle toolbar\n\n\n  var initToggleToolbar = function initToggleToolbar() {\n    // Toggle selected action toolbar\n    // Select all checkboxes\n    var container = document.querySelector('#kt_datatable_example_1');\n    var checkboxes = container.querySelectorAll('[type=\"checkbox\"]'); // Select elements\n\n    var deleteSelected = document.querySelector('[data-kt-docs-table-select=\"delete_selected\"]'); // Toggle delete selected toolbar\n\n    checkboxes.forEach(function (c) {\n      // Checkbox on click event\n      c.addEventListener('click', function () {\n        setTimeout(function () {\n          toggleToolbars();\n        }, 50);\n      });\n    }); // Deleted selected rows\n\n    deleteSelected.addEventListener('click', function () {\n      // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/\n      Swal.fire({\n        text: \"Are you sure you want to delete selected customers?\",\n        icon: \"warning\",\n        showCancelButton: true,\n        buttonsStyling: false,\n        showLoaderOnConfirm: true,\n        confirmButtonText: \"Yes, delete!\",\n        cancelButtonText: \"No, cancel\",\n        customClass: {\n          confirmButton: \"btn fw-bold btn-danger\",\n          cancelButton: \"btn fw-bold btn-active-light-primary\"\n        }\n      }).then(function (result) {\n        if (result.value) {\n          // Simulate delete request -- for demo purpose only\n          Swal.fire({\n            text: \"Deleting selected customers\",\n            icon: \"info\",\n            buttonsStyling: false,\n            showConfirmButton: false,\n            timer: 2000\n          }).then(function () {\n            Swal.fire({\n              text: \"You have deleted all selected customers!.\",\n              icon: \"success\",\n              buttonsStyling: false,\n              confirmButtonText: \"Ok, got it!\",\n              customClass: {\n                confirmButton: \"btn fw-bold btn-primary\"\n              }\n            }).then(function () {\n              // delete row data from server and re-draw datatable\n              dt.draw();\n            }); // Remove header checked box\n\n            var headerCheckbox = container.querySelectorAll('[type=\"checkbox\"]')[0];\n            headerCheckbox.checked = false;\n          });\n        } else if (result.dismiss === 'cancel') {\n          Swal.fire({\n            text: \"Selected customers was not deleted.\",\n            icon: \"error\",\n            buttonsStyling: false,\n            confirmButtonText: \"Ok, got it!\",\n            customClass: {\n              confirmButton: \"btn fw-bold btn-primary\"\n            }\n          });\n        }\n      });\n    });\n  }; // Toggle toolbars\n\n\n  var toggleToolbars = function toggleToolbars() {\n    // Define variables\n    var container = document.querySelector('#kt_datatable_example_1');\n    var toolbarBase = document.querySelector('[data-kt-docs-table-toolbar=\"base\"]');\n    var toolbarSelected = document.querySelector('[data-kt-docs-table-toolbar=\"selected\"]');\n    var selectedCount = document.querySelector('[data-kt-docs-table-select=\"selected_count\"]'); // Select refreshed checkbox DOM elements \n\n    var allCheckboxes = container.querySelectorAll('tbody [type=\"checkbox\"]'); // Detect checkboxes state & count\n\n    var checkedState = false;\n    var count = 0; // Count checked boxes\n\n    allCheckboxes.forEach(function (c) {\n      if (c.checked) {\n        checkedState = true;\n        count++;\n      }\n    }); // Toggle toolbars\n\n    if (checkedState) {\n      selectedCount.innerHTML = count;\n      toolbarBase.classList.add('d-none');\n      toolbarSelected.classList.remove('d-none');\n    } else {\n      toolbarBase.classList.remove('d-none');\n      toolbarSelected.classList.add('d-none');\n    }\n  }; // Public methods\n\n\n  return {\n    init: function init() {\n      initDatatable();\n      handleSearchDatatable();\n      initToggleToolbar();\n      handleFilterDatatable();\n      handleDeleteRows();\n      handleResetForm();\n    }\n  };\n}(); // On document ready\n\n\nKTUtil.onDOMContentLoaded(function () {\n  KTDatatablesServerSide.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9kb2N1bWVudGF0aW9uL2dlbmVyYWwvZGF0YXRhYmxlcy9zZXJ2ZXItc2lkZS5qcy5qcyIsIm1hcHBpbmdzIjoiQ0FFQTs7QUFDQSxJQUFJQSxzQkFBc0IsR0FBRyxZQUFZO0FBQ3JDO0FBQ0EsTUFBSUMsS0FBSjtBQUNBLE1BQUlDLEVBQUo7QUFDQSxNQUFJQyxhQUFKLENBSnFDLENBTXJDOztBQUNBLE1BQUlDLGFBQWEsR0FBRyxTQUFoQkEsYUFBZ0IsR0FBWTtBQUM1QkYsSUFBQUEsRUFBRSxHQUFHRyxDQUFDLENBQUMseUJBQUQsQ0FBRCxDQUE2QkMsU0FBN0IsQ0FBdUM7QUFDeENDLE1BQUFBLFdBQVcsRUFBRSxHQUQyQjtBQUV4Q0MsTUFBQUEsVUFBVSxFQUFFLElBRjRCO0FBR3hDQyxNQUFBQSxVQUFVLEVBQUUsSUFINEI7QUFJeENDLE1BQUFBLEtBQUssRUFBRSxDQUFDLENBQUMsQ0FBRCxFQUFJLE1BQUosQ0FBRCxDQUppQztBQUt4Q0MsTUFBQUEsU0FBUyxFQUFFLElBTDZCO0FBTXhDQyxNQUFBQSxNQUFNLEVBQUU7QUFDSkMsUUFBQUEsS0FBSyxFQUFFLElBREg7QUFFSkMsUUFBQUEsUUFBUSxFQUFFLGdCQUZOO0FBR0pDLFFBQUFBLFNBQVMsRUFBRTtBQUhQLE9BTmdDO0FBV3hDQyxNQUFBQSxJQUFJLEVBQUU7QUFDRkMsUUFBQUEsR0FBRyxFQUFFO0FBREgsT0FYa0M7QUFjeENDLE1BQUFBLE9BQU8sRUFBRSxDQUNMO0FBQUVDLFFBQUFBLElBQUksRUFBRTtBQUFSLE9BREssRUFFTDtBQUFFQSxRQUFBQSxJQUFJLEVBQUU7QUFBUixPQUZLLEVBR0w7QUFBRUEsUUFBQUEsSUFBSSxFQUFFO0FBQVIsT0FISyxFQUlMO0FBQUVBLFFBQUFBLElBQUksRUFBRTtBQUFSLE9BSkssRUFLTDtBQUFFQSxRQUFBQSxJQUFJLEVBQUU7QUFBUixPQUxLLEVBTUw7QUFBRUEsUUFBQUEsSUFBSSxFQUFFO0FBQVIsT0FO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QUM3QixPQUFOLEVBQWU7QUFDWHFDLFFBQUFBLFlBQVksR0FBRyxJQUFmO0FBQ0FDLFFBQUFBLEtBQUs7QUFDUjtBQUNKLEtBTEQsRUFmNkIsQ0FzQjdCOztBQUNBLFFBQUlELFlBQUosRUFBa0I7QUFDZEYsTUFBQUEsYUFBYSxDQUFDSSxTQUFkLEdBQTBCRCxLQUExQjtBQUNBTCxNQUFBQSxXQUFXLENBQUNPLFNBQVosQ0FBc0JDLEdBQXRCLENBQTBCLFFBQTFCO0FBQ0FQLE1BQUFBLGVBQWUsQ0FBQ00sU0FBaEIsQ0FBMEJFLE1BQTFCLENBQWlDLFFBQWpDO0FBQ0gsS0FKRCxNQUlPO0FBQ0hULE1BQUFBLFdBQVcsQ0FBQ08sU0FBWixDQUFzQkUsTUFBdEIsQ0FBNkIsUUFBN0I7QUFDQVIsTUFBQUEsZUFBZSxDQUFDTSxTQUFoQixDQUEwQkMsR0FBMUIsQ0FBOEIsUUFBOUI7QUFDSDtBQUNKLEdBL0JELENBOVNxQyxDQStVckM7OztBQUNBLFNBQU87QUFDSEUsSUFBQUEsSUFBSSxFQUFFLGdCQUFZO0FBQ2Q3RixNQUFBQSxhQUFhO0FBQ2JrQyxNQUFBQSxxQkFBcUI7QUFDckJMLE1BQUFBLGlCQUFpQjtBQUNqQmUsTUFBQUEscUJBQXFCO0FBQ3JCYixNQUFBQSxnQkFBZ0I7QUFDaEIyQyxNQUFBQSxlQUFlO0FBQ2xCO0FBUkUsR0FBUDtBQVVILENBMVY0QixFQUE3QixDLENBNFZBOzs7QUFDQW9CLE1BQU0sQ0FBQ0Msa0JBQVAsQ0FBMEIsWUFBWTtBQUNsQ25HLEVBQUFBLHNCQUFzQixDQUFDaUcsSUFBdkI7QUFDSCxDQUZEIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3NyYy9qcy9jdXN0b20vZG9jdW1lbnRhdGlvbi9nZW5lcmFsL2RhdGF0YWJsZXMvc2VydmVyLXNpZGUuanM/NTE2OSJdLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcclxuXHJcbi8vIENsYXNzIGRlZmluaXRpb25cclxudmFyIEtURGF0YXRhYmxlc1NlcnZlclNpZGUgPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAvLyBTaGFyZWQgdmFyaWFibGVzXHJcbiAgICB2YXIgdGFibGU7XHJcbiAgICB2YXIgZHQ7XHJcbiAgICB2YXIgZmlsdGVyUGF5bWVudDtcclxuXHJcbiAgICAvLyBQcml2YXRlIGZ1bmN0aW9uc1xyXG4gICAgdmFyIGluaXREYXRhdGFibGUgPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgZHQgPSAkKFwiI2t0X2RhdGF0YWJsZV9leGFtcGxlXzFcIikuRGF0YVRhYmxlKHtcclxuICAgICAgICAgICAgc2VhcmNoRGVsYXk6IDUwMCxcclxuICAgICAgICAgICAgcHJvY2Vzc2luZzogdHJ1ZSxcclxuICAgICAgICAgICAgc2VydmVyU2lkZTogdHJ1ZSxcclxuICAgICAgICAgICAgb3JkZXI6IFtbNSwgJ2Rlc2MnXV0sXHJcbiAgICAgICAgICAgIHN0YXRlU2F2ZTogdHJ1ZSxcclxuICAgICAgICAgICAgc2VsZWN0OiB7XHJcbiAgICAgICAgICAgICAgICBzdHlsZTogJ29zJyxcclxuICAgICAgICAgICAgICAgIHNlbGVjdG9yOiAndGQ6Zmlyc3QtY2hpbGQnLFxyXG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lOiAncm93LXNlbGVjdGVkJ1xyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBhamF4OiB7XHJcbiAgICAgICAgICAgICAgICB1cmw6IFwiaHR0cHM6Ly9wcmV2aWV3LmtlZW50aGVtZXMuY29tL2FwaS9kYXRhdGFibGVzLnBocFwiLFxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBjb2x1bW5zOiBbXHJcbiAgICAgICAgICAgICAgICB7IGRhdGE6ICdSZWNvcmRJRCcgfSxcclxuICAgICAgICAgICAgICAgIHsgZGF0YTogJ05hbWUnIH0sXHJcbiAgICAgICAgICAgICAgICB7IGRhdGE6ICdFbWFpbCcgfSxcclxuICAgICAgICAgICAgICAgIHsgZGF0YTogJ0NvbXBhbnknIH0sXHJcbiAgICAgICAgICAgICAgICB7IGRhdGE6ICdDcmVkaXRDYXJkTnVtYmVyJyB9LFxyXG4gICAgICAgICAgICAgICAgeyBkYXRhOiAnRGF0ZXRpbWUnIH0sXHJcbiAgICAgICAgICAgICAgICB7IGRhdGE6IG51bGwgfSxcclxuICAgICAgICAgICAgXSxcclxuICAgICAgICAgICAgY29sdW1uRGVmczogW1xyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIHRhcmdldHM6IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgb3JkZXJhYmxlOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICByZW5kZXI6IGZ1bmN0aW9uIChkYXRhKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiBgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwiZm9ybS1jaGVjayBmb3JtLWNoZWNrLXNtIGZvcm0tY2hlY2stY3VzdG9tIGZvcm0tY2hlY2stc29saWRcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgY2xhc3M9XCJmb3JtLWNoZWNrLWlucHV0XCIgdHlwZT1cImNoZWNrYm94XCIgdmFsdWU9XCIke2RhdGF9XCIgLz5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PmA7XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0YXJnZXRzOiA0LFxyXG4gICAgICAgICAgICAgICAgICAgIHJlbmRlcjogZnVuY3Rpb24gKGRhdGEsIHR5cGUsIHJvdykge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gYDxpbWcgc3JjPVwiJHtob3N0VXJsfW1lZGlhL3N2Zy9jYXJkLWxvZ29zLyR7cm93LkNyZWRpdENhcmRUeXBlfS5zdmdcIiBjbGFzcz1cInctMzVweCBtZS0zXCIgYWx0PVwiJHtyb3cuQ3JlZGl0Q2FyZFR5cGV9XCI+YCArIGRhdGE7XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0YXJnZXRzOiAtMSxcclxuICAgICAgICAgICAgICAgICAgICBkYXRhOiBudWxsLFxyXG4gICAgICAgICAgICAgICAgICAgIG9yZGVyYWJsZTogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiAndGV4dC1lbmQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHJlbmRlcjogZnVuY3Rpb24gKGRhdGEsIHR5cGUsIHJvdykge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gYFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEgaHJlZj1cIiNcIiBjbGFzcz1cImJ0biBidG4tbGlnaHQgYnRuLWFjdGl2ZS1saWdodC1wcmltYXJ5IGJ0bi1zbVwiIGRhdGEta3QtbWVudS10cmlnZ2VyPVwiY2xpY2tcIiBkYXRhLWt0LW1lbnUtcGxhY2VtZW50PVwiYm90dG9tLWVuZFwiIGRhdGEta3QtbWVudS1mbGlwPVwidG9wLWVuZFwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEFjdGlvbnNcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz1cInN2Zy1pY29uIHN2Zy1pY29uLTUgbS0wXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxzdmcgeG1sbnM9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Z1wiIHhtbG5zOnhsaW5rPVwiaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGlua1wiIHdpZHRoPVwiMjRweFwiIGhlaWdodD1cIjI0cHhcIiB2aWV3Qm94PVwiMCAwIDI0IDI0XCIgdmVyc2lvbj1cIjEuMVwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgc3Ryb2tlPVwibm9uZVwiIHN0cm9rZS13aWR0aD1cIjFcIiBmaWxsPVwibm9uZVwiIGZpbGwtcnVsZT1cImV2ZW5vZGRcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cG9seWdvbiBwb2ludHM9XCIwIDAgMjQgMCAyNCAyNCAwIDI0XCI+PC9wb2x5Z29uPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9XCJNNi43MDcxMDY3OCwxNS43MDcxMDY4IEM2LjMxNjU4MjQ5LDE2LjA5NzYzMTEgNS42ODM0MTc1MSwxNi4wOTc2MzExIDUuMjkyODkzMjIsMTUuNzA3MTA2OCBDNC45MDIzNjg5MywxNS4zMTY1ODI1IDQuOTAyMzY4OTMsMTQuNjgzNDE3NSA1LjI5Mjg5MzIyLDE0LjI5Mjg5MzIgTDExLjI5Mjg5MzIsOC4yOTI4OTMyMiBDMTEuNjcxNDcyMiw3LjkxNDMxNDI4IDEyLjI4MTA1ODYsNy45MDEwNjg2NiAxMi42NzU3MjQ2LDguMjYyODQ1ODYgTDE4LjY3NTcyNDYsMTMuNzYyODQ1OSBDMTkuMDgyODQzNiwxNC4xMzYwMzgzIDE5LjExMDM0NjUsMTQuNzY4NjA1NiAxOC43MzcxNTQxLDE1LjE3NTcyNDYgQzE4LjM2Mzk2MTcsMTUuNTgyODQzNiAxNy43MzEzOTQ0LDE1LjYxMDM0NjUgMTcuMzI0Mjc1NCwxNS4yMzcxNTQxIEwxMi4wMzAwNzU3LDEwLjM4NDEzNzggTDYuNzA3MTA2NzgsMTUuNzA3MTA2OCBaXCIgZmlsbD1cIiMwMDAwMDBcIiBmaWxsLXJ1bGU9XCJub256ZXJvXCIgdHJhbnNmb3JtPVwidHJhbnNsYXRlKDEyLjAwMDAwMywgMTEuOTk5OTk5KSByb3RhdGUoLTE4MC4wMDAwMDApIHRyYW5zbGF0ZSgtMTIuMDAwMDAzLCAtMTEuOTk5OTk5KVwiPjwvcGF0aD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9zdmc+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPCEtLWJlZ2luOjpNZW51LS0+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVwibWVudSBtZW51LXN1YiBtZW51LXN1Yi1kcm9wZG93biBtZW51LWNvbHVtbiBtZW51LXJvdW5kZWQgbWVudS1ncmF5LTYwMCBtZW51LXN0YXRlLWJnLWxpZ2h0LXByaW1hcnkgZnctYm9sZCBmcy03IHctMTI1cHggcHktNFwiIGRhdGEta3QtbWVudT1cInRydWVcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8IS0tYmVnaW46Ok1lbnUgaXRlbS0tPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJtZW51LWl0ZW0gcHgtM1wiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YSBocmVmPVwiI1wiIGNsYXNzPVwibWVudS1saW5rIHB4LTNcIiBkYXRhLWt0LWRvY3MtdGFibGUtZmlsdGVyPVwiZWRpdF9yb3dcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVkaXRcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwhLS1lbmQ6Ok1lbnUgaXRlbS0tPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwhLS1iZWdpbjo6TWVudSBpdGVtLS0+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz1cIm1lbnUtaXRlbSBweC0zXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxhIGhyZWY9XCIjXCIgY2xhc3M9XCJtZW51LWxpbmsgcHgtM1wiIGRhdGEta3QtZG9jcy10YWJsZS1maWx0ZXI9XCJkZWxldGVfcm93XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBEZWxldGVcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9hPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwhLS1lbmQ6Ok1lbnUgaXRlbS0tPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8IS0tZW5kOjpNZW51LS0+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGA7XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIF0sXHJcbiAgICAgICAgICAgIC8vIEFkZCBkYXRhLWZpbHRlciBhdHRyaWJ1dGVcclxuICAgICAgICAgICAgY3JlYXRlZFJvdzogZnVuY3Rpb24gKHJvdywgZGF0YSwgZGF0YUluZGV4KSB7XHJcbiAgICAgICAgICAgICAgICAkKHJvdykuZmluZCgndGQ6ZXEoNCknKS5hdHRyKCdkYXRhLWZpbHRlcicsIGRhdGEuQ3JlZGl0Q2FyZFR5cGUpO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfSk7XHJcblxyXG4gICAgICAgIHRhYmxlID0gZHQuJDtcclxuXHJcbiAgICAgICAgLy8gUmUtaW5pdCBmdW5jdGlvbnMgb24gZXZlcnkgdGFibGUgcmUtZHJhdyAtLSBtb3JlIGluZm86IGh0dHBzOi8vZGF0YXRhYmxlcy5uZXQvcmVmZXJlbmNlL2V2ZW50L2RyYXdcclxuICAgICAgICBkdC5vbignZHJhdycsIGZ1bmN0aW9uICgpIHtcclxuICAgICAgICAgICAgaW5pdFRvZ2dsZVRvb2xiYXIoKTtcclxuICAgICAgICAgICAgdG9nZ2xlVG9vbGJhcnMoKTtcclxuICAgICAgICAgICAgaGFuZGxlRGVsZXRlUm93cygpO1xyXG4gICAgICAgICAgICBLVE1lbnUuY3JlYXRlSW5zdGFuY2VzKCk7XHJcbiAgICAgICAgfSk7XHJcbiAgICB9XHJcblxyXG4gICAgLy8gU2VhcmNoIERhdGF0YWJsZSAtLS0gb2ZmaWNpYWwgZG9jcyByZWZlcmVuY2U6IGh0dHBzOi8vZGF0YXRhYmxlcy5uZXQvcmVmZXJlbmNlL2FwaS9zZWFyY2goKVxyXG4gICAgdmFyIGhhbmRsZVNlYXJjaERhdGF0YWJsZSA9IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICBjb25zdCBmaWx0ZXJTZWFyY2ggPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCdbZGF0YS1rdC1kb2NzLXRhYmxlLWZpbHRlcj1cInNlYXJjaFwiXScpO1xyXG4gICAgICAgIGZpbHRlclNlYXJjaC5hZGRFdmVudExpc3RlbmVyKCdrZXl1cCcsIGZ1bmN0aW9uIChlKSB7XHJcbiAgICAgICAgICAgIGR0LnNlYXJjaChlLnRhcmdldC52YWx1ZSkuZHJhdygpO1xyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIC8vIEZpbHRlciBEYXRhdGFibGVcclxuICAgIHZhciBoYW5kbGVGaWx0ZXJEYXRhdGFibGUgPSAoKSA9PiB7XHJcbiAgICAgICAgLy8gU2VsZWN0IGZpbHRlciBvcHRpb25zXHJcbiAgICAgICAgZmlsdGVyUGF5bWVudCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ1tkYXRhLWt0LWRvY3MtdGFibGUtZmlsdGVyPVwicGF5bWVudF90eXBlXCJdIFtuYW1lPVwicGF5bWVudF90eXBlXCJdJyk7XHJcbiAgICAgICAgY29uc3QgZmlsdGVyQnV0dG9uID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignW2RhdGEta3QtZG9jcy10YWJsZS1maWx0ZXI9XCJmaWx0ZXJcIl0nKTtcclxuXHJcbiAgICAgICAgLy8gRmlsdGVyIGRhdGF0YWJsZSBvbiBzdWJtaXRcclxuICAgICAgICBmaWx0ZXJCdXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgICAgIC8vIEdldCBmaWx0ZXIgdmFsdWVzXHJcbiAgICAgICAgICAgIGxldCBwYXltZW50VmFsdWUgPSAnJztcclxuXHJcbiAgICAgICAgICAgIC8vIEdldCBwYXltZW50IHZhbHVlXHJcbiAgICAgICAgICAgIGZpbHRlclBheW1lbnQuZm9yRWFjaChyID0+IHtcclxuICAgICAgICAgICAgICAgIGlmIChyLmNoZWNrZWQpIHtcclxuICAgICAgICAgICAgICAgICAgICBwYXltZW50VmFsdWUgPSByLnZhbHVlO1xyXG4gICAgICAgICAgICAgICAgfVxyXG5cclxuICAgICAgICAgICAgICAgIC8vIFJlc2V0IHBheW1lbnQgdmFsdWUgaWYgXCJBbGxcIiBpcyBzZWxlY3RlZFxyXG4gICAgICAgICAgICAgICAgaWYgKHBheW1lbnRWYWx1ZSA9PT0gJ2FsbCcpIHtcclxuICAgICAgICAgICAgICAgICAgICBwYXltZW50VmFsdWUgPSAnJztcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSk7XHJcblxyXG4gICAgICAgICAgICAvLyBGaWx0ZXIgZGF0YXRhYmxlIC0tLSBvZmZpY2lhbCBkb2NzIHJlZmVyZW5jZTogaHR0cHM6Ly9kYXRhdGFibGVzLm5ldC9yZWZlcmVuY2UvYXBpL3NlYXJjaCgpXHJcbiAgICAgICAgICAgIGR0LnNlYXJjaChwYXltZW50VmFsdWUpLmRyYXcoKTtcclxuICAgICAgICB9KTtcclxuICAgIH1cclxuXHJcbiAgICAvLyBEZWxldGUgY3VzdG9tZXJcclxuICAgIHZhciBoYW5kbGVEZWxldGVSb3dzID0gKCkgPT4ge1xyXG4gICAgICAgIC8vIFNlbGVjdCBhbGwgZGVsZXRlIGJ1dHRvbnNcclxuICAgICAgICBjb25zdCBkZWxldGVCdXR0b25zID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnW2RhdGEta3QtZG9jcy10YWJsZS1maWx0ZXI9XCJkZWxldGVfcm93XCJdJyk7XHJcblxyXG4gICAgICAgIGRlbGV0ZUJ1dHRvbnMuZm9yRWFjaChkID0+IHtcclxuICAgICAgICAgICAgLy8gRGVsZXRlIGJ1dHRvbiBvbiBjbGlja1xyXG4gICAgICAgICAgICBkLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24gKGUpIHtcclxuICAgICAgICAgICAgICAgIGUucHJldmVudERlZmF1bHQoKTtcclxuXHJcbiAgICAgICAgICAgICAgICAvLyBTZWxlY3QgcGFyZW50IHJvd1xyXG4gICAgICAgICAgICAgICAgY29uc3QgcGFyZW50ID0gZS50YXJnZXQuY2xvc2VzdCgndHInKTtcclxuXHJcbiAgICAgICAgICAgICAgICAvLyBHZXQgY3VzdG9tZXIgbmFtZVxyXG4gICAgICAgICAgICAgICAgY29uc3QgY3VzdG9tZXJOYW1lID0gcGFyZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ3RkJylbMV0uaW5uZXJUZXh0O1xyXG5cclxuICAgICAgICAgICAgICAgIC8vIFN3ZWV0QWxlcnQyIHBvcCB1cCAtLS0gb2ZmaWNpYWwgZG9jcyByZWZlcmVuY2U6IGh0dHBzOi8vc3dlZXRhbGVydDIuZ2l0aHViLmlvL1xyXG4gICAgICAgICAgICAgICAgU3dhbC5maXJlKHtcclxuICAgICAgICAgICAgICAgICAgICB0ZXh0OiBcIkFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byBkZWxldGUgXCIgKyBjdXN0b21lck5hbWUgKyBcIj9cIixcclxuICAgICAgICAgICAgICAgICAgICBpY29uOiBcIndhcm5pbmdcIixcclxuICAgICAgICAgICAgICAgICAgICBzaG93Q2FuY2VsQnV0dG9uOiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgICAgIGJ1dHRvbnNTdHlsaW5nOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBjb25maXJtQnV0dG9uVGV4dDogXCJZZXMsIGRlbGV0ZSFcIixcclxuICAgICAgICAgICAgICAgICAgICBjYW5jZWxCdXR0b25UZXh0OiBcIk5vLCBjYW5jZWxcIixcclxuICAgICAgICAgICAgICAgICAgICBjdXN0b21DbGFzczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb25maXJtQnV0dG9uOiBcImJ0biBmdy1ib2xkIGJ0bi1kYW5nZXJcIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgY2FuY2VsQnV0dG9uOiBcImJ0biBmdy1ib2xkIGJ0bi1hY3RpdmUtbGlnaHQtcHJpbWFyeVwiXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSkudGhlbihmdW5jdGlvbiAocmVzdWx0KSB7XHJcbiAgICAgICAgICAgICAgICAgICAgaWYgKHJlc3VsdC52YWx1ZSkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAvLyBTaW11bGF0ZSBkZWxldGUgcmVxdWVzdCAtLSBmb3IgZGVtbyBwdXJwb3NlIG9ubHlcclxuICAgICAgICAgICAgICAgICAgICAgICAgU3dhbC5maXJlKHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRleHQ6IFwiRGVsZXRpbmcgXCIgKyBjdXN0b21lck5hbWUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpY29uOiBcImluZm9cIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJ1dHRvbnNTdHlsaW5nOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNob3dDb25maXJtQnV0dG9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRpbWVyOiAyMDAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH0pLnRoZW4oZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgU3dhbC5maXJlKHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0OiBcIllvdSBoYXZlIGRlbGV0ZWQgXCIgKyBjdXN0b21lck5hbWUgKyBcIiEuXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWNvbjogXCJzdWNjZXNzXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnV0dG9uc1N0eWxpbmc6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbmZpcm1CdXR0b25UZXh0OiBcIk9rLCBnb3QgaXQhXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY3VzdG9tQ2xhc3M6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29uZmlybUJ1dHRvbjogXCJidG4gZnctYm9sZCBidG4tcHJpbWFyeVwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0pLnRoZW4oZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8vIGRlbGV0ZSByb3cgZGF0YSBmcm9tIHNlcnZlciBhbmQgcmUtZHJhdyBkYXRhdGFibGVcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkdC5kcmF3KCk7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9KTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgICAgICAgICAgfSBlbHNlIGlmIChyZXN1bHQuZGlzbWlzcyA9PT0gJ2NhbmNlbCcpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgU3dhbC5maXJlKHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRleHQ6IGN1c3RvbWVyTmFtZSArIFwiIHdhcyBub3QgZGVsZXRlZC5cIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGljb246IFwiZXJyb3JcIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJ1dHRvbnNTdHlsaW5nOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbmZpcm1CdXR0b25UZXh0OiBcIk9rLCBnb3QgaXQhXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjdXN0b21DbGFzczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbmZpcm1CdXR0b246IFwiYnRuIGZ3LWJvbGQgYnRuLXByaW1hcnlcIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgIH0pXHJcbiAgICAgICAgfSk7XHJcbiAgICB9XHJcblxyXG4gICAgLy8gUmVzZXQgRmlsdGVyXHJcbiAgICB2YXIgaGFuZGxlUmVzZXRGb3JtID0gKCkgPT4ge1xyXG4gICAgICAgIC8vIFNlbGVjdCByZXNldCBidXR0b25cclxuICAgICAgICBjb25zdCByZXNldEJ1dHRvbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ1tkYXRhLWt0LWRvY3MtdGFibGUtZmlsdGVyPVwicmVzZXRcIl0nKTtcclxuXHJcbiAgICAgICAgLy8gUmVzZXQgZGF0YXRhYmxlXHJcbiAgICAgICAgcmVzZXRCdXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgICAgIC8vIFJlc2V0IHBheW1lbnQgdHlwZVxyXG4gICAgICAgICAgICBmaWx0ZXJQYXltZW50WzBdLmNoZWNrZWQgPSB0cnVlO1xyXG5cclxuICAgICAgICAgICAgLy8gUmVzZXQgZGF0YXRhYmxlIC0tLSBvZmZpY2lhbCBkb2NzIHJlZmVyZW5jZTogaHR0cHM6Ly9kYXRhdGFibGVzLm5ldC9yZWZlcmVuY2UvYXBpL3NlYXJjaCgpXHJcbiAgICAgICAgICAgIGR0LnNlYXJjaCgnJykuZHJhdygpO1xyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIC8vIEluaXQgdG9nZ2xlIHRvb2xiYXJcclxuICAgIHZhciBpbml0VG9nZ2xlVG9vbGJhciA9IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICAvLyBUb2dnbGUgc2VsZWN0ZWQgYWN0aW9uIHRvb2xiYXJcclxuICAgICAgICAvLyBTZWxlY3QgYWxsIGNoZWNrYm94ZXNcclxuICAgICAgICBjb25zdCBjb250YWluZXIgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcja3RfZGF0YXRhYmxlX2V4YW1wbGVfMScpO1xyXG4gICAgICAgIGNvbnN0IGNoZWNrYm94ZXMgPSBjb250YWluZXIucXVlcnlTZWxlY3RvckFsbCgnW3R5cGU9XCJjaGVja2JveFwiXScpO1xyXG5cclxuICAgICAgICAvLyBTZWxlY3QgZWxlbWVudHNcclxuICAgICAgICBjb25zdCBkZWxldGVTZWxlY3RlZCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ1tkYXRhLWt0LWRvY3MtdGFibGUtc2VsZWN0PVwiZGVsZXRlX3NlbGVjdGVkXCJdJyk7XHJcblxyXG4gICAgICAgIC8vIFRvZ2dsZSBkZWxldGUgc2VsZWN0ZWQgdG9vbGJhclxyXG4gICAgICAgIGNoZWNrYm94ZXMuZm9yRWFjaChjID0+IHtcclxuICAgICAgICAgICAgLy8gQ2hlY2tib3ggb24gY2xpY2sgZXZlbnRcclxuICAgICAgICAgICAgYy5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uICgpIHtcclxuICAgICAgICAgICAgICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAgICAgICAgIHRvZ2dsZVRvb2xiYXJzKCk7XHJcbiAgICAgICAgICAgICAgICB9LCA1MCk7XHJcbiAgICAgICAgICAgIH0pO1xyXG4gICAgICAgIH0pO1xyXG5cclxuICAgICAgICAvLyBEZWxldGVkIHNlbGVjdGVkIHJvd3NcclxuICAgICAgICBkZWxldGVTZWxlY3RlZC5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uICgpIHtcclxuICAgICAgICAgICAgLy8gU3dlZXRBbGVydDIgcG9wIHVwIC0tLSBvZmZpY2lhbCBkb2NzIHJlZmVyZW5jZTogaHR0cHM6Ly9zd2VldGFsZXJ0Mi5naXRodWIuaW8vXHJcbiAgICAgICAgICAgIFN3YWwuZmlyZSh7XHJcbiAgICAgICAgICAgICAgICB0ZXh0OiBcIkFyZSB5b3Ugc3VyZSB5b3Ugd2FudCB0byBkZWxldGUgc2VsZWN0ZWQgY3VzdG9tZXJzP1wiLFxyXG4gICAgICAgICAgICAgICAgaWNvbjogXCJ3YXJuaW5nXCIsXHJcbiAgICAgICAgICAgICAgICBzaG93Q2FuY2VsQnV0dG9uOiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgYnV0dG9uc1N0eWxpbmc6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgc2hvd0xvYWRlck9uQ29uZmlybTogdHJ1ZSxcclxuICAgICAgICAgICAgICAgIGNvbmZpcm1CdXR0b25UZXh0OiBcIlllcywgZGVsZXRlIVwiLFxyXG4gICAgICAgICAgICAgICAgY2FuY2VsQnV0dG9uVGV4dDogXCJObywgY2FuY2VsXCIsXHJcbiAgICAgICAgICAgICAgICBjdXN0b21DbGFzczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNvbmZpcm1CdXR0b246IFwiYnRuIGZ3LWJvbGQgYnRuLWRhbmdlclwiLFxyXG4gICAgICAgICAgICAgICAgICAgIGNhbmNlbEJ1dHRvbjogXCJidG4gZnctYm9sZCBidG4tYWN0aXZlLWxpZ2h0LXByaW1hcnlcIlxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgfSkudGhlbihmdW5jdGlvbiAocmVzdWx0KSB7XHJcbiAgICAgICAgICAgICAgICBpZiAocmVzdWx0LnZhbHVlKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgLy8gU2ltdWxhdGUgZGVsZXRlIHJlcXVlc3QgLS0gZm9yIGRlbW8gcHVycG9zZSBvbmx5XHJcbiAgICAgICAgICAgICAgICAgICAgU3dhbC5maXJlKHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdGV4dDogXCJEZWxldGluZyBzZWxlY3RlZCBjdXN0b21lcnNcIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgaWNvbjogXCJpbmZvXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJ1dHRvbnNTdHlsaW5nOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvd0NvbmZpcm1CdXR0b246IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB0aW1lcjogMjAwMFxyXG4gICAgICAgICAgICAgICAgICAgIH0pLnRoZW4oZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBTd2FsLmZpcmUoe1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdGV4dDogXCJZb3UgaGF2ZSBkZWxldGVkIGFsbCBzZWxlY3RlZCBjdXN0b21lcnMhLlwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaWNvbjogXCJzdWNjZXNzXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBidXR0b25zU3R5bGluZzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25maXJtQnV0dG9uVGV4dDogXCJPaywgZ290IGl0IVwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY3VzdG9tQ2xhc3M6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25maXJtQnV0dG9uOiBcImJ0biBmdy1ib2xkIGJ0bi1wcmltYXJ5XCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH0pLnRoZW4oZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgLy8gZGVsZXRlIHJvdyBkYXRhIGZyb20gc2VydmVyIGFuZCByZS1kcmF3IGRhdGF0YWJsZVxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZHQuZHJhdygpO1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9KTtcclxuXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIC8vIFJlbW92ZSBoZWFkZXIgY2hlY2tlZCBib3hcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29uc3QgaGVhZGVyQ2hlY2tib3ggPSBjb250YWluZXIucXVlcnlTZWxlY3RvckFsbCgnW3R5cGU9XCJjaGVja2JveFwiXScpWzBdO1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBoZWFkZXJDaGVja2JveC5jaGVja2VkID0gZmFsc2U7XHJcbiAgICAgICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgICAgICB9IGVsc2UgaWYgKHJlc3VsdC5kaXNtaXNzID09PSAnY2FuY2VsJykge1xyXG4gICAgICAgICAgICAgICAgICAgIFN3YWwuZmlyZSh7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHRleHQ6IFwiU2VsZWN0ZWQgY3VzdG9tZXJzIHdhcyBub3QgZGVsZXRlZC5cIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgaWNvbjogXCJlcnJvclwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBidXR0b25zU3R5bGluZzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGNvbmZpcm1CdXR0b25UZXh0OiBcIk9rLCBnb3QgaXQhXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGN1c3RvbUNsYXNzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25maXJtQnV0dG9uOiBcImJ0biBmdy1ib2xkIGJ0bi1wcmltYXJ5XCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9KTtcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgfSk7XHJcbiAgICB9XHJcblxyXG4gICAgLy8gVG9nZ2xlIHRvb2xiYXJzXHJcbiAgICB2YXIgdG9nZ2xlVG9vbGJhcnMgPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgLy8gRGVmaW5lIHZhcmlhYmxlc1xyXG4gICAgICAgIGNvbnN0IGNvbnRhaW5lciA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJyNrdF9kYXRhdGFibGVfZXhhbXBsZV8xJyk7XHJcbiAgICAgICAgY29uc3QgdG9vbGJhckJhc2UgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCdbZGF0YS1rdC1kb2NzLXRhYmxlLXRvb2xiYXI9XCJiYXNlXCJdJyk7XHJcbiAgICAgICAgY29uc3QgdG9vbGJhclNlbGVjdGVkID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignW2RhdGEta3QtZG9jcy10YWJsZS10b29sYmFyPVwic2VsZWN0ZWRcIl0nKTtcclxuICAgICAgICBjb25zdCBzZWxlY3RlZENvdW50ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignW2RhdGEta3QtZG9jcy10YWJsZS1zZWxlY3Q9XCJzZWxlY3RlZF9jb3VudFwiXScpO1xyXG5cclxuICAgICAgICAvLyBTZWxlY3QgcmVmcmVzaGVkIGNoZWNrYm94IERPTSBlbGVtZW50cyBcclxuICAgICAgICBjb25zdCBhbGxDaGVja2JveGVzID0gY29udGFpbmVyLnF1ZXJ5U2VsZWN0b3JBbGwoJ3Rib2R5IFt0eXBlPVwiY2hlY2tib3hcIl0nKTtcclxuXHJcbiAgICAgICAgLy8gRGV0ZWN0IGNoZWNrYm94ZXMgc3RhdGUgJiBjb3VudFxyXG4gICAgICAgIGxldCBjaGVja2VkU3RhdGUgPSBmYWxzZTtcclxuICAgICAgICBsZXQgY291bnQgPSAwO1xyXG5cclxuICAgICAgICAvLyBDb3VudCBjaGVja2VkIGJveGVzXHJcbiAgICAgICAgYWxsQ2hlY2tib3hlcy5mb3JFYWNoKGMgPT4ge1xyXG4gICAgICAgICAgICBpZiAoYy5jaGVja2VkKSB7XHJcbiAgICAgICAgICAgICAgICBjaGVja2VkU3RhdGUgPSB0cnVlO1xyXG4gICAgICAgICAgICAgICAgY291bnQrKztcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH0pO1xyXG5cclxuICAgICAgICAvLyBUb2dnbGUgdG9vbGJhcnNcclxuICAgICAgICBpZiAoY2hlY2tlZFN0YXRlKSB7XHJcbiAgICAgICAgICAgIHNlbGVjdGVkQ291bnQuaW5uZXJIVE1MID0gY291bnQ7XHJcbiAgICAgICAgICAgIHRvb2xiYXJCYXNlLmNsYXNzTGlzdC5hZGQoJ2Qtbm9uZScpO1xyXG4gICAgICAgICAgICB0b29sYmFyU2VsZWN0ZWQuY2xhc3NMaXN0LnJlbW92ZSgnZC1ub25lJyk7XHJcbiAgICAgICAgfSBlbHNlIHtcclxuICAgICAgICAgICAgdG9vbGJhckJhc2UuY2xhc3NMaXN0LnJlbW92ZSgnZC1ub25lJyk7XHJcbiAgICAgICAgICAgIHRvb2xiYXJTZWxlY3RlZC5jbGFzc0xpc3QuYWRkKCdkLW5vbmUnKTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcblxyXG4gICAgLy8gUHVibGljIG1ldGhvZHNcclxuICAgIHJldHVybiB7XHJcbiAgICAgICAgaW5pdDogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICBpbml0RGF0YXRhYmxlKCk7XHJcbiAgICAgICAgICAgIGhhbmRsZVNlYXJjaERhdGF0YWJsZSgpO1xyXG4gICAgICAgICAgICBpbml0VG9nZ2xlVG9vbGJhcigpO1xyXG4gICAgICAgICAgICBoYW5kbGVGaWx0ZXJEYXRhdGFibGUoKTtcclxuICAgICAgICAgICAgaGFuZGxlRGVsZXRlUm93cygpO1xyXG4gICAgICAgICAgICBoYW5kbGVSZXNldEZvcm0oKTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbn0oKTtcclxuXHJcbi8vIE9uIGRvY3VtZW50IHJlYWR5XHJcbktUVXRpbC5vbkRPTUNvbnRlbnRMb2FkZWQoZnVuY3Rpb24gKCkge1xyXG4gICAgS1REYXRhdGFibGVzU2VydmVyU2lkZS5pbml0KCk7XHJcbn0pOyJdLCJuYW1lcyI6WyJLVERhdGF0YWJsZXNTZXJ2ZXJTaWRlIiwidGFibGUiLCJkdCIsImZpbHRlclBheW1lbnQiLCJpbml0RGF0YXRhYmxlIiwiJCIsIkRhdGFUYWJsZSIsInNlYXJjaERlbGF5IiwicHJvY2Vzc2luZyIsInNlcnZlclNpZGUiLCJvcmRlciIsInN0YXRlU2F2ZSIsInNlbGVjdCIsInN0eWxlIiwic2VsZWN0b3IiLCJjbGFzc05hbWUiLCJhamF4IiwidXJsIiwiY29sdW1ucyIsImRhdGEiLCJjb2x1bW5EZWZzIiwidGFyZ2V0cyIsIm9yZGVyYWJsZSIsInJlbmRlciIsInR5cGUiLCJyb3ciLCJob3N0VXJsIiwiQ3JlZGl0Q2FyZFR5cGUiLCJjcmVhdGVkUm93IiwiZGF0YUluZGV4IiwiZmluZCIsImF0dHIiLCJvbiIsImluaXRUb2dnbGVUb29sYmFyIiwidG9nZ2xlVG9vbGJhcnMiLCJoYW5kbGVEZWxldGVSb3dzIiwiS1RNZW51IiwiY3JlYXRlSW5zdGFuY2VzIiwiaGFuZGxlU2VhcmNoRGF0YXRhYmxlIiwiZmlsdGVyU2VhcmNoIiwiZG9jdW1lbnQiLCJxdWVyeVNlbGVjdG9yIiwiYWRkRXZlbnRMaXN0ZW5lciIsImUiLCJzZWFyY2giLCJ0YXJnZXQiLCJ2YWx1ZSIsImRyYXciLCJoYW5kbGVGaWx0ZXJEYXRhdGFibGUiLCJxdWVyeVNlbGVjdG9yQWxsIiwiZmlsdGVyQnV0dG9uIiwicGF5bWVudFZhbHVlIiwiZm9yRWFjaCIsInIiLCJjaGVja2VkIiwiZGVsZXRlQnV0dG9ucyIsImQiLCJwcmV2ZW50RGVmYXVsdCIsInBhcmVudCIsImNsb3Nlc3QiLCJjdXN0b21lck5hbWUiLCJpbm5lclRleHQiLCJTd2FsIiwiZmlyZSIsInRleHQiLCJpY29uIiwic2hvd0NhbmNlbEJ1dHRvbiIsImJ1dHRvbnNTdHlsaW5nIiwiY29uZmlybUJ1dHRvblRleHQiLCJjYW5jZWxCdXR0b25UZXh0IiwiY3VzdG9tQ2xhc3MiLCJjb25maXJtQnV0dG9uIiwiY2FuY2VsQnV0dG9uIiwidGhlbiIsInJlc3VsdCIsInNob3dDb25maXJtQnV0dG9uIiwidGltZXIiLCJkaXNtaXNzIiwiaGFuZGxlUmVzZXRGb3JtIiwicmVzZXRCdXR0b24iLCJjb250YWluZXIiLCJjaGVja2JveGVzIiwiZGVsZXRlU2VsZWN0ZWQiLCJjIiwic2V0VGltZW91dCIsInNob3dMb2FkZXJPbkNvbmZpcm0iLCJoZWFkZXJDaGVja2JveCIsInRvb2xiYXJCYXNlIiwidG9vbGJhclNlbGVjdGVkIiwic2VsZWN0ZWRDb3VudCIsImFsbENoZWNrYm94ZXMiLCJjaGVja2VkU3RhdGUiLCJjb3VudCIsImlubmVySFRNTCIsImNsYXNzTGlzdCIsImFkZCIsInJlbW92ZSIsImluaXQiLCJLVFV0aWwiLCJvbkRPTUNvbnRlbnRMb2FkZWQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/src/js/custom/documentation/general/datatables/server-side.js\n");
+// Class definition
+var KTDatatablesServerSide = function () {
+    // Shared variables
+    var table;
+    var dt;
+    var filterPayment;
 
-/***/ })
+    // Private functions
+    var initDatatable = function () {
+        dt = $("#kt_datatable_example_1").DataTable({
+            searchDelay: 500,
+            processing: true,
+            serverSide: true,
+            order: [[5, 'desc']],
+            stateSave: true,
+            select: {
+                style: 'os',
+                selector: 'td:first-child',
+                className: 'row-selected'
+            },
+            ajax: {
+                url: "https://preview.keenthemes.com/api/datatables.php",
+            },
+            columns: [
+                { data: 'RecordID' },
+                { data: 'Name' },
+                { data: 'Email' },
+                { data: 'Company' },
+                { data: 'CreditCardNumber' },
+                { data: 'Datetime' },
+                { data: null },
+            ],
+            columnDefs: [
+                {
+                    targets: 0,
+                    orderable: false,
+                    render: function (data) {
+                        return `
+                            <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                <input class="form-check-input" type="checkbox" value="${data}" />
+                            </div>`;
+                    }
+                },
+                {
+                    targets: 4,
+                    render: function (data, type, row) {
+                        return `<img src="${hostUrl}media/svg/card-logos/${row.CreditCardType}.svg" class="w-35px me-3" alt="${row.CreditCardType}">` + data;
+                    }
+                },
+                {
+                    targets: -1,
+                    data: null,
+                    orderable: false,
+                    className: 'text-end',
+                    render: function (data, type, row) {
+                        return `
+                            <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-flip="top-end">
+                                Actions
+                                <span class="svg-icon svg-icon-5 m-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <polygon points="0 0 24 0 24 24 0 24"></polygon>
+                                            <path d="M6.70710678,15.7071068 C6.31658249,16.0976311 5.68341751,16.0976311 5.29289322,15.7071068 C4.90236893,15.3165825 4.90236893,14.6834175 5.29289322,14.2928932 L11.2928932,8.29289322 C11.6714722,7.91431428 12.2810586,7.90106866 12.6757246,8.26284586 L18.6757246,13.7628459 C19.0828436,14.1360383 19.1103465,14.7686056 18.7371541,15.1757246 C18.3639617,15.5828436 17.7313944,15.6103465 17.3242754,15.2371541 L12.0300757,10.3841378 L6.70710678,15.7071068 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000003, 11.999999) rotate(-180.000000) translate(-12.000003, -11.999999)"></path>
+                                        </g>
+                                    </svg>
+                                </span>
+                            </a>
+                            <!--begin::Menu-->
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a href="#" class="menu-link px-3" data-kt-docs-table-filter="edit_row">
+                                        Edit
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                                
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a href="#" class="menu-link px-3" data-kt-docs-table-filter="delete_row">
+                                        Delete
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                            </div>
+                            <!--end::Menu-->
+                        `;
+                    },
+                },
+            ],
+            // Add data-filter attribute
+            createdRow: function (row, data, dataIndex) {
+                $(row).find('td:eq(4)').attr('data-filter', data.CreditCardType);
+            }
+        });
 
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./resources/src/js/custom/documentation/general/datatables/server-side.js"]();
-/******/ 	
+        table = dt.$;
+
+        // Re-init functions on every table re-draw -- more info: https://datatables.net/reference/event/draw
+        dt.on('draw', function () {
+            initToggleToolbar();
+            toggleToolbars();
+            handleDeleteRows();
+            KTMenu.createInstances();
+        });
+    }
+
+    // Search Datatable --- official docs reference: https://datatables.net/reference/api/search()
+    var handleSearchDatatable = function () {
+        const filterSearch = document.querySelector('[data-kt-docs-table-filter="search"]');
+        filterSearch.addEventListener('keyup', function (e) {
+            dt.search(e.target.value).draw();
+        });
+    }
+
+    // Filter Datatable
+    var handleFilterDatatable = () => {
+        // Select filter options
+        filterPayment = document.querySelectorAll('[data-kt-docs-table-filter="payment_type"] [name="payment_type"]');
+        const filterButton = document.querySelector('[data-kt-docs-table-filter="filter"]');
+
+        // Filter datatable on submit
+        filterButton.addEventListener('click', function () {
+            // Get filter values
+            let paymentValue = '';
+
+            // Get payment value
+            filterPayment.forEach(r => {
+                if (r.checked) {
+                    paymentValue = r.value;
+                }
+
+                // Reset payment value if "All" is selected
+                if (paymentValue === 'all') {
+                    paymentValue = '';
+                }
+            });
+
+            // Filter datatable --- official docs reference: https://datatables.net/reference/api/search()
+            dt.search(paymentValue).draw();
+        });
+    }
+
+    // Delete customer
+    var handleDeleteRows = () => {
+        // Select all delete buttons
+        const deleteButtons = document.querySelectorAll('[data-kt-docs-table-filter="delete_row"]');
+
+        deleteButtons.forEach(d => {
+            // Delete button on click
+            d.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Select parent row
+                const parent = e.target.closest('tr');
+
+                // Get customer name
+                const customerName = parent.querySelectorAll('td')[1].innerText;
+
+                // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/
+                Swal.fire({
+                    text: "Are you sure you want to delete " + customerName + "?",
+                    icon: "warning",
+                    showCancelButton: true,
+                    buttonsStyling: false,
+                    confirmButtonText: "Yes, delete!",
+                    cancelButtonText: "No, cancel",
+                    customClass: {
+                        confirmButton: "btn fw-bold btn-danger",
+                        cancelButton: "btn fw-bold btn-active-light-primary"
+                    }
+                }).then(function (result) {
+                    if (result.value) {
+                        // Simulate delete request -- for demo purpose only
+                        Swal.fire({
+                            text: "Deleting " + customerName,
+                            icon: "info",
+                            buttonsStyling: false,
+                            showConfirmButton: false,
+                            timer: 2000
+                        }).then(function () {
+                            Swal.fire({
+                                text: "You have deleted " + customerName + "!.",
+                                icon: "success",
+                                buttonsStyling: false,
+                                confirmButtonText: "Ok, got it!",
+                                customClass: {
+                                    confirmButton: "btn fw-bold btn-primary",
+                                }
+                            }).then(function () {
+                                // delete row data from server and re-draw datatable
+                                dt.draw();
+                            });
+                        });
+                    } else if (result.dismiss === 'cancel') {
+                        Swal.fire({
+                            text: customerName + " was not deleted.",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn fw-bold btn-primary",
+                            }
+                        });
+                    }
+                });
+            })
+        });
+    }
+
+    // Reset Filter
+    var handleResetForm = () => {
+        // Select reset button
+        const resetButton = document.querySelector('[data-kt-docs-table-filter="reset"]');
+
+        // Reset datatable
+        resetButton.addEventListener('click', function () {
+            // Reset payment type
+            filterPayment[0].checked = true;
+
+            // Reset datatable --- official docs reference: https://datatables.net/reference/api/search()
+            dt.search('').draw();
+        });
+    }
+
+    // Init toggle toolbar
+    var initToggleToolbar = function () {
+        // Toggle selected action toolbar
+        // Select all checkboxes
+        const container = document.querySelector('#kt_datatable_example_1');
+        const checkboxes = container.querySelectorAll('[type="checkbox"]');
+
+        // Select elements
+        const deleteSelected = document.querySelector('[data-kt-docs-table-select="delete_selected"]');
+
+        // Toggle delete selected toolbar
+        checkboxes.forEach(c => {
+            // Checkbox on click event
+            c.addEventListener('click', function () {
+                setTimeout(function () {
+                    toggleToolbars();
+                }, 50);
+            });
+        });
+
+        // Deleted selected rows
+        deleteSelected.addEventListener('click', function () {
+            // SweetAlert2 pop up --- official docs reference: https://sweetalert2.github.io/
+            Swal.fire({
+                text: "Are you sure you want to delete selected customers?",
+                icon: "warning",
+                showCancelButton: true,
+                buttonsStyling: false,
+                showLoaderOnConfirm: true,
+                confirmButtonText: "Yes, delete!",
+                cancelButtonText: "No, cancel",
+                customClass: {
+                    confirmButton: "btn fw-bold btn-danger",
+                    cancelButton: "btn fw-bold btn-active-light-primary"
+                },
+            }).then(function (result) {
+                if (result.value) {
+                    // Simulate delete request -- for demo purpose only
+                    Swal.fire({
+                        text: "Deleting selected customers",
+                        icon: "info",
+                        buttonsStyling: false,
+                        showConfirmButton: false,
+                        timer: 2000
+                    }).then(function () {
+                        Swal.fire({
+                            text: "You have deleted all selected customers!.",
+                            icon: "success",
+                            buttonsStyling: false,
+                            confirmButtonText: "Ok, got it!",
+                            customClass: {
+                                confirmButton: "btn fw-bold btn-primary",
+                            }
+                        }).then(function () {
+                            // delete row data from server and re-draw datatable
+                            dt.draw();
+                        });
+
+                        // Remove header checked box
+                        const headerCheckbox = container.querySelectorAll('[type="checkbox"]')[0];
+                        headerCheckbox.checked = false;
+                    });
+                } else if (result.dismiss === 'cancel') {
+                    Swal.fire({
+                        text: "Selected customers was not deleted.",
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn fw-bold btn-primary",
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    // Toggle toolbars
+    var toggleToolbars = function () {
+        // Define variables
+        const container = document.querySelector('#kt_datatable_example_1');
+        const toolbarBase = document.querySelector('[data-kt-docs-table-toolbar="base"]');
+        const toolbarSelected = document.querySelector('[data-kt-docs-table-toolbar="selected"]');
+        const selectedCount = document.querySelector('[data-kt-docs-table-select="selected_count"]');
+
+        // Select refreshed checkbox DOM elements 
+        const allCheckboxes = container.querySelectorAll('tbody [type="checkbox"]');
+
+        // Detect checkboxes state & count
+        let checkedState = false;
+        let count = 0;
+
+        // Count checked boxes
+        allCheckboxes.forEach(c => {
+            if (c.checked) {
+                checkedState = true;
+                count++;
+            }
+        });
+
+        // Toggle toolbars
+        if (checkedState) {
+            selectedCount.innerHTML = count;
+            toolbarBase.classList.add('d-none');
+            toolbarSelected.classList.remove('d-none');
+        } else {
+            toolbarBase.classList.remove('d-none');
+            toolbarSelected.classList.add('d-none');
+        }
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            initDatatable();
+            handleSearchDatatable();
+            initToggleToolbar();
+            handleFilterDatatable();
+            handleDeleteRows();
+            handleResetForm();
+        }
+    }
+}();
+
+// On document ready
+KTUtil.onDOMContentLoaded(function () {
+    KTDatatablesServerSide.init();
+});
 /******/ })()
 ;
+//# sourceMappingURL=server-side.js.map

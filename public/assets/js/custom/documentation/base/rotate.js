@@ -1,33 +1,59 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+var __webpack_exports__ = {};
+/*!*****************************************************!*\
+  !*** ../src/js/custom/documentation/base/rotate.js ***!
+  \*****************************************************/
 
-/***/ "./resources/src/js/custom/documentation/base/rotate.js":
-/*!**************************************************************!*\
-  !*** ./resources/src/js/custom/documentation/base/rotate.js ***!
-  \**************************************************************/
-/***/ (() => {
 
-eval(" // Class definition\n\nvar KTBaseRotateDemos = function () {\n  // Private functions\n  var _example1 = function _example1(element) {\n    // Element to indecate\n    var button = document.querySelector(\"#kt_button_1\"); // Handle button click event\n\n    button.addEventListener(\"click\", function () {\n      button.classList.toggle(\"active\");\n    });\n  };\n\n  var _example2 = function _example2(element) {\n    // Element to indecate\n    var button = document.querySelector(\"#kt_button_2\"); // Handle button click event\n\n    button.addEventListener(\"click\", function () {\n      button.classList.toggle(\"active\");\n    });\n  };\n\n  var _example3 = function _example3(element) {\n    // Element to indecate\n    var button = document.querySelector(\"#kt_button_3\"); // Handle button click event\n\n    button.addEventListener(\"click\", function () {\n      button.classList.toggle(\"active\");\n    });\n  };\n\n  return {\n    // Public Functions\n    init: function init(element) {\n      _example1();\n\n      _example2();\n\n      _example3();\n    }\n  };\n}(); // On document ready\n\n\nKTUtil.onDOMContentLoaded(function () {\n  KTBaseRotateDemos.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9kb2N1bWVudGF0aW9uL2Jhc2Uvcm90YXRlLmpzLmpzIiwibWFwcGluZ3MiOiJDQUVBOztBQUNBLElBQUlBLGlCQUFpQixHQUFHLFlBQVc7QUFDL0I7QUFDQSxNQUFJQyxTQUFTLEdBQUcsU0FBWkEsU0FBWSxDQUFTQyxPQUFULEVBQWtCO0FBQzlCO0FBQ0EsUUFBSUMsTUFBTSxHQUFHQyxRQUFRLENBQUNDLGFBQVQsQ0FBdUIsY0FBdkIsQ0FBYixDQUY4QixDQUk5Qjs7QUFDQUYsSUFBQUEsTUFBTSxDQUFDRyxnQkFBUCxDQUF3QixPQUF4QixFQUFpQyxZQUFXO0FBQ3hDSCxNQUFBQSxNQUFNLENBQUNJLFNBQVAsQ0FBaUJDLE1BQWpCLENBQXdCLFFBQXhCO0FBQ0gsS0FGRDtBQUdILEdBUkQ7O0FBVUEsTUFBSUMsU0FBUyxHQUFHLFNBQVpBLFNBQVksQ0FBU1AsT0FBVCxFQUFrQjtBQUM5QjtBQUNBLFFBQUlDLE1BQU0sR0FBR0MsUUFBUSxDQUFDQyxhQUFULENBQXVCLGNBQXZCLENBQWIsQ0FGOEIsQ0FJOUI7O0FBQ0FGLElBQUFBLE1BQU0sQ0FBQ0csZ0JBQVAsQ0FBd0IsT0FBeEIsRUFBaUMsWUFBVztBQUN4Q0gsTUFBQUEsTUFBTSxDQUFDSSxTQUFQLENBQWlCQyxNQUFqQixDQUF3QixRQUF4QjtBQUNILEtBRkQ7QUFHSCxHQVJEOztBQVVBLE1BQUlFLFNBQVMsR0FBRyxTQUFaQSxTQUFZLENBQVNSLE9BQVQsRUFBa0I7QUFDOUI7QUFDQSxRQUFJQyxNQUFNLEdBQUdDLFFBQVEsQ0FBQ0MsYUFBVCxDQUF1QixjQUF2QixDQUFiLENBRjhCLENBSTlCOztBQUNBRixJQUFBQSxNQUFNLENBQUNHLGdCQUFQLENBQXdCLE9BQXhCLEVBQWlDLFlBQVc7QUFDeENILE1BQUFBLE1BQU0sQ0FBQ0ksU0FBUCxDQUFpQkMsTUFBakIsQ0FBd0IsUUFBeEI7QUFDSCxLQUZEO0FBR0gsR0FSRDs7QUFXQSxTQUFPO0FBQ0g7QUFDQUcsSUFBQUEsSUFBSSxFQUFFLGNBQVNULE9BQVQsRUFBa0I7QUFDcEJELE1BQUFBLFNBQVM7O0FBQ1RRLE1BQUFBLFNBQVM7O0FBQ1RDLE1BQUFBLFNBQVM7QUFDWjtBQU5FLEdBQVA7QUFRSCxDQXpDdUIsRUFBeEIsQyxDQTJDQTs7O0FBQ0FFLE1BQU0sQ0FBQ0Msa0JBQVAsQ0FBMEIsWUFBVztBQUNqQ2IsRUFBQUEsaUJBQWlCLENBQUNXLElBQWxCO0FBQ0gsQ0FGRCIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zcmMvanMvY3VzdG9tL2RvY3VtZW50YXRpb24vYmFzZS9yb3RhdGUuanM/Nzk0YyJdLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcclxuXHJcbi8vIENsYXNzIGRlZmluaXRpb25cclxudmFyIEtUQmFzZVJvdGF0ZURlbW9zID0gZnVuY3Rpb24oKSB7XHJcbiAgICAvLyBQcml2YXRlIGZ1bmN0aW9uc1xyXG4gICAgdmFyIF9leGFtcGxlMSA9IGZ1bmN0aW9uKGVsZW1lbnQpIHtcclxuICAgICAgICAvLyBFbGVtZW50IHRvIGluZGVjYXRlXHJcbiAgICAgICAgdmFyIGJ1dHRvbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIja3RfYnV0dG9uXzFcIik7XHJcblxyXG4gICAgICAgIC8vIEhhbmRsZSBidXR0b24gY2xpY2sgZXZlbnRcclxuICAgICAgICBidXR0b24uYWRkRXZlbnRMaXN0ZW5lcihcImNsaWNrXCIsIGZ1bmN0aW9uKCkge1xyXG4gICAgICAgICAgICBidXR0b24uY2xhc3NMaXN0LnRvZ2dsZShcImFjdGl2ZVwiKTsgICAgICAgICAgICAgIFxyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIHZhciBfZXhhbXBsZTIgPSBmdW5jdGlvbihlbGVtZW50KSB7XHJcbiAgICAgICAgLy8gRWxlbWVudCB0byBpbmRlY2F0ZVxyXG4gICAgICAgIHZhciBidXR0b24gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiI2t0X2J1dHRvbl8yXCIpO1xyXG5cclxuICAgICAgICAvLyBIYW5kbGUgYnV0dG9uIGNsaWNrIGV2ZW50XHJcbiAgICAgICAgYnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoXCJjbGlja1wiLCBmdW5jdGlvbigpIHtcclxuICAgICAgICAgICAgYnV0dG9uLmNsYXNzTGlzdC50b2dnbGUoXCJhY3RpdmVcIik7ICAgICAgICAgICAgICAgXHJcbiAgICAgICAgfSk7XHJcbiAgICB9XHJcblxyXG4gICAgdmFyIF9leGFtcGxlMyA9IGZ1bmN0aW9uKGVsZW1lbnQpIHtcclxuICAgICAgICAvLyBFbGVtZW50IHRvIGluZGVjYXRlXHJcbiAgICAgICAgdmFyIGJ1dHRvbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIja3RfYnV0dG9uXzNcIik7XHJcblxyXG4gICAgICAgIC8vIEhhbmRsZSBidXR0b24gY2xpY2sgZXZlbnRcclxuICAgICAgICBidXR0b24uYWRkRXZlbnRMaXN0ZW5lcihcImNsaWNrXCIsIGZ1bmN0aW9uKCkge1xyXG4gICAgICAgICAgICBidXR0b24uY2xhc3NMaXN0LnRvZ2dsZShcImFjdGl2ZVwiKTsgICAgICAgICAgICAgIFxyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG4gICAgXHJcblxyXG4gICAgcmV0dXJuIHtcclxuICAgICAgICAvLyBQdWJsaWMgRnVuY3Rpb25zXHJcbiAgICAgICAgaW5pdDogZnVuY3Rpb24oZWxlbWVudCkge1xyXG4gICAgICAgICAgICBfZXhhbXBsZTEoKTtcclxuICAgICAgICAgICAgX2V4YW1wbGUyKCk7XHJcbiAgICAgICAgICAgIF9leGFtcGxlMygpO1xyXG4gICAgICAgIH1cclxuICAgIH07XHJcbn0oKTtcclxuXHJcbi8vIE9uIGRvY3VtZW50IHJlYWR5XHJcbktUVXRpbC5vbkRPTUNvbnRlbnRMb2FkZWQoZnVuY3Rpb24oKSB7XHJcbiAgICBLVEJhc2VSb3RhdGVEZW1vcy5pbml0KCk7XHJcbn0pOyJdLCJuYW1lcyI6WyJLVEJhc2VSb3RhdGVEZW1vcyIsIl9leGFtcGxlMSIsImVsZW1lbnQiLCJidXR0b24iLCJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3IiLCJhZGRFdmVudExpc3RlbmVyIiwiY2xhc3NMaXN0IiwidG9nZ2xlIiwiX2V4YW1wbGUyIiwiX2V4YW1wbGUzIiwiaW5pdCIsIktUVXRpbCIsIm9uRE9NQ29udGVudExvYWRlZCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/src/js/custom/documentation/base/rotate.js\n");
+// Class definition
+var KTBaseRotateDemos = function() {
+    // Private functions
+    var _example1 = function(element) {
+        // Element to indecate
+        var button = document.querySelector("#kt_button_1");
 
-/***/ })
+        // Handle button click event
+        button.addEventListener("click", function() {
+            button.classList.toggle("active");              
+        });
+    }
 
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./resources/src/js/custom/documentation/base/rotate.js"]();
-/******/ 	
+    var _example2 = function(element) {
+        // Element to indecate
+        var button = document.querySelector("#kt_button_2");
+
+        // Handle button click event
+        button.addEventListener("click", function() {
+            button.classList.toggle("active");               
+        });
+    }
+
+    var _example3 = function(element) {
+        // Element to indecate
+        var button = document.querySelector("#kt_button_3");
+
+        // Handle button click event
+        button.addEventListener("click", function() {
+            button.classList.toggle("active");              
+        });
+    }
+    
+
+    return {
+        // Public Functions
+        init: function(element) {
+            _example1();
+            _example2();
+            _example3();
+        }
+    };
+}();
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTBaseRotateDemos.init();
+});
 /******/ })()
 ;
+//# sourceMappingURL=rotate.js.map

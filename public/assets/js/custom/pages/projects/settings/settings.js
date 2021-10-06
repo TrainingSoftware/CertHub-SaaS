@@ -1,33 +1,114 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+var __webpack_exports__ = {};
+/*!**********************************************************************************************!*\
+  !*** ../../../themes/metronic/html/demo10/src/js/custom/pages/projects/settings/settings.js ***!
+  \**********************************************************************************************/
 
-/***/ "./resources/src/js/custom/pages/projects/settings/settings.js":
-/*!*********************************************************************!*\
-  !*** ./resources/src/js/custom/pages/projects/settings/settings.js ***!
-  \*********************************************************************/
-/***/ (() => {
 
-eval(" // Class definition\n\nvar KTProjectSettings = function () {\n  // Private functions\n  var handleForm = function handleForm() {\n    // Init Datepicker --- For more info, please check Flatpickr's official documentation: https://flatpickr.js.org/\n    $(\"#kt_datepicker_1\").flatpickr(); // Form validation\n\n    var validation;\n\n    var _form = document.getElementById('kt_project_settings_form');\n\n    var submitButton = _form.querySelector('#kt_project_settings_submit'); // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/\n\n\n    validation = FormValidation.formValidation(_form, {\n      fields: {\n        name: {\n          validators: {\n            notEmpty: {\n              message: 'Project name is required'\n            }\n          }\n        },\n        type: {\n          validators: {\n            notEmpty: {\n              message: 'Project type is required'\n            }\n          }\n        },\n        description: {\n          validators: {\n            notEmpty: {\n              message: 'Project Description is required'\n            }\n          }\n        },\n        date: {\n          validators: {\n            notEmpty: {\n              message: 'Due Date is required'\n            }\n          }\n        }\n      },\n      plugins: {\n        trigger: new FormValidation.plugins.Trigger(),\n        submitButton: new FormValidation.plugins.SubmitButton(),\n        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(), // Uncomment this line to enable normal button submit after form validation\n        bootstrap: new FormValidation.plugins.Bootstrap5({\n          rowSelector: '.fv-row'\n        })\n      }\n    });\n    submitButton.addEventListener('click', function (e) {\n      e.preventDefault();\n      validation.validate().then(function (status) {\n        if (status == 'Valid') {\n          swal.fire({\n            text: \"Thank you! You've updated your project settings\",\n            icon: \"success\",\n            buttonsStyling: false,\n            confirmButtonText: \"Ok, got it!\",\n            customClass: {\n              confirmButton: \"btn fw-bold btn-light-primary\"\n            }\n          });\n        } else {\n          swal.fire({\n            text: \"Sorry, looks like there are some errors detected, please try again.\",\n            icon: \"error\",\n            buttonsStyling: false,\n            confirmButtonText: \"Ok, got it!\",\n            customClass: {\n              confirmButton: \"btn fw-bold btn-light-primary\"\n            }\n          });\n        }\n      });\n    });\n  }; // Public methods\n\n\n  return {\n    init: function init() {\n      handleForm();\n    }\n  };\n}(); // On document ready\n\n\nKTUtil.onDOMContentLoaded(function () {\n  KTProjectSettings.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9wYWdlcy9wcm9qZWN0cy9zZXR0aW5ncy9zZXR0aW5ncy5qcy5qcyIsIm1hcHBpbmdzIjoiQ0FFQTs7QUFDQSxJQUFJQSxpQkFBaUIsR0FBRyxZQUFZO0FBRWhDO0FBQ0EsTUFBSUMsVUFBVSxHQUFHLFNBQWJBLFVBQWEsR0FBWTtBQUN6QjtBQUNBQyxJQUFBQSxDQUFDLENBQUMsa0JBQUQsQ0FBRCxDQUFzQkMsU0FBdEIsR0FGeUIsQ0FJekI7O0FBQ0EsUUFBSUMsVUFBSjs7QUFDQSxRQUFJQyxLQUFLLEdBQUdDLFFBQVEsQ0FBQ0MsY0FBVCxDQUF3QiwwQkFBeEIsQ0FBWjs7QUFDQSxRQUFJQyxZQUFZLEdBQUdILEtBQUssQ0FBQ0ksYUFBTixDQUFvQiw2QkFBcEIsQ0FBbkIsQ0FQeUIsQ0FTekI7OztBQUNBTCxJQUFBQSxVQUFVLEdBQUdNLGNBQWMsQ0FBQ0MsY0FBZixDQUNUTixLQURTLEVBRVQ7QUFDSU8sTUFBQUEsTUFBTSxFQUFFO0FBQ0pDLFFBQUFBLElBQUksRUFBRTtBQUNGQyxVQUFBQSxVQUFVLEVBQUU7QUFDUkMsWUFBQUEsUUFBUSxFQUFFO0FBQ05DLGNBQUFBLE9BQU8sRUFBRTtBQURIO0FBREY7QUFEVixTQURGO0FBUUpDLFFBQUFBLElBQUksRUFBRTtBQUNGSCxVQUFBQSxVQUFVLEVBQUU7QUFDUkMsWUFBQUEsUUFBUSxFQUFFO0FBQ05DLGNBQUFBLE9BQU8sRUFBRTtBQURIO0FBREY7QUFEVixTQVJGO0FBZUpFLFFBQUFBLFdBQVcsRUFBRTtBQUNUSixVQUFBQSxVQUFVLEVBQUU7QUFDUkMsWUFBQUEsUUFBUSxFQUFFO0FBQ05DLGNBQUFBLE9BQU8sRUFBRTtBQURIO0FBREY7QUFESCxTQWZUO0FBc0JKRyxRQUFBQSxJQUFJLEVBQUU7QUFDRkwsVUFBQUEsVUFBVSxFQUFFO0FBQ1JDLFlBQUFBLFFBQVEsRUFBRTtBQUNOQyxjQUFBQSxPQUFPLEVBQUU7QUFESDtBQURGO0FBRFY7QUF0QkYsT0FEWjtBQStCSUksTUFBQUEsT0FBTyxFQUFFO0FBQ0xDLFFBQUFBLE9BQU8sRUFBRSxJQUFJWCxjQUFjLENBQUNVLE9BQWYsQ0FBdUJFLE9BQTNCLEVBREo7QUFFTGQsUUFBQUEsWUFBWSxFQUFFLElBQUlFLGNBQWMsQ0FBQ1UsT0FBZixDQUF1QkcsWUFBM0IsRUFGVDtBQUdMO0FBQ0FDLFFBQUFBLFNBQVMsRUFBRSxJQUFJZCxjQUFjLENBQUNVLE9BQWYsQ0FBdUJLLFVBQTNCLENBQXNDO0FBQzdDQyxVQUFBQSxXQUFXLEVBQUU7QUFEZ0MsU0FBdEM7QUFKTjtBQS9CYixLQUZTLENBQWI7QUE0Q0FsQixJQUFBQSxZQUFZLENBQUNtQixnQkFBYixDQUE4QixPQUE5QixFQUF1QyxVQUFVQyxDQUFWLEVBQWE7QUFDaERBLE1BQUFBLENBQUMsQ0FBQ0MsY0FBRjtBQUVBekIsTUFBQUEsVUFBVSxDQUFDMEIsUUFBWCxHQUFzQkMsSUFBdEIsQ0FBMkIsVUFBVUMsTUFBVixFQUFrQjtBQUN6QyxZQUFJQSxNQUFNLElBQUksT0FBZCxFQUF1QjtBQUVuQkMsVUFBQUEsSUFBSSxDQUFDQyxJQUFMLENBQVU7QUFDTkMsWUFBQUEsSUFBSSxFQUFFLGlEQURBO0FBRU5DLFlBQUFBLElBQUksRUFBRSxTQUZBO0FBR05DLFlBQUFBLGNBQWMsRUFBRSxLQUhWO0FBSU5DLFlBQUFBLGlCQUFpQixFQUFFLGFBSmI7QUFLTkMsWUFBQUEsV0FBVyxFQUFFO0FBQ1RDLGNBQUFBLGFBQWEsRUFBRTtBQUROO0FBTFAsV0FBVjtBQVVILFNBWkQsTUFZTztBQUNIUCxVQUFBQSxJQUFJLENBQUNDLElBQUwsQ0FBVTtBQUNOQyxZQUFBQSxJQUFJLEVBQUUscUVBREE7QUFFTkMsWUFBQUEsSUFBSSxFQUFFLE9BRkE7QUFHTkMsWUFBQUEsY0FBYyxFQUFFLEtBSFY7QUFJTkMsWUFBQUEsaUJBQWlCLEVBQUUsYUFKYjtBQUtOQyxZQUFBQSxXQUFXLEVBQUU7QUFDVEMsY0FBQUEsYUFBYSxFQUFFO0FBRE47QUFMUCxXQUFWO0FBU0g7QUFDSixPQXhCRDtBQXlCSCxLQTVCRDtBQTZCSCxHQW5GRCxDQUhnQyxDQXdGaEM7OztBQUNBLFNBQU87QUFDSEMsSUFBQUEsSUFBSSxFQUFFLGdCQUFZO0FBQ2R4QyxNQUFBQSxVQUFVO0FBQ2I7QUFIRSxHQUFQO0FBS0gsQ0E5RnVCLEVBQXhCLEMsQ0FpR0E7OztBQUNBeUMsTUFBTSxDQUFDQyxrQkFBUCxDQUEwQixZQUFXO0FBQ2pDM0MsRUFBQUEsaUJBQWlCLENBQUN5QyxJQUFsQjtBQUNILENBRkQiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9wYWdlcy9wcm9qZWN0cy9zZXR0aW5ncy9zZXR0aW5ncy5qcz83OTA2Il0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xyXG5cclxuLy8gQ2xhc3MgZGVmaW5pdGlvblxyXG52YXIgS1RQcm9qZWN0U2V0dGluZ3MgPSBmdW5jdGlvbiAoKSB7XHJcblxyXG4gICAgLy8gUHJpdmF0ZSBmdW5jdGlvbnNcclxuICAgIHZhciBoYW5kbGVGb3JtID0gZnVuY3Rpb24gKCkge1xyXG4gICAgICAgIC8vIEluaXQgRGF0ZXBpY2tlciAtLS0gRm9yIG1vcmUgaW5mbywgcGxlYXNlIGNoZWNrIEZsYXRwaWNrcidzIG9mZmljaWFsIGRvY3VtZW50YXRpb246IGh0dHBzOi8vZmxhdHBpY2tyLmpzLm9yZy9cclxuICAgICAgICAkKFwiI2t0X2RhdGVwaWNrZXJfMVwiKS5mbGF0cGlja3IoKTtcclxuXHJcbiAgICAgICAgLy8gRm9ybSB2YWxpZGF0aW9uXHJcbiAgICAgICAgdmFyIHZhbGlkYXRpb247XHJcbiAgICAgICAgdmFyIF9mb3JtID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2t0X3Byb2plY3Rfc2V0dGluZ3NfZm9ybScpO1xyXG4gICAgICAgIHZhciBzdWJtaXRCdXR0b24gPSBfZm9ybS5xdWVyeVNlbGVjdG9yKCcja3RfcHJvamVjdF9zZXR0aW5nc19zdWJtaXQnKTtcclxuXHJcbiAgICAgICAgLy8gSW5pdCBmb3JtIHZhbGlkYXRpb24gcnVsZXMuIEZvciBtb3JlIGluZm8gY2hlY2sgdGhlIEZvcm1WYWxpZGF0aW9uIHBsdWdpbidzIG9mZmljaWFsIGRvY3VtZW50YXRpb246aHR0cHM6Ly9mb3JtdmFsaWRhdGlvbi5pby9cclxuICAgICAgICB2YWxpZGF0aW9uID0gRm9ybVZhbGlkYXRpb24uZm9ybVZhbGlkYXRpb24oXHJcbiAgICAgICAgICAgIF9mb3JtLFxyXG4gICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICBmaWVsZHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBuYW1lOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbGlkYXRvcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5vdEVtcHR5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbWVzc2FnZTogJ1Byb2plY3QgbmFtZSBpcyByZXF1aXJlZCdcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgdHlwZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWxpZGF0b3JzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBub3RFbXB0eToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1lc3NhZ2U6ICdQcm9qZWN0IHR5cGUgaXMgcmVxdWlyZWQnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbGlkYXRvcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5vdEVtcHR5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbWVzc2FnZTogJ1Byb2plY3QgRGVzY3JpcHRpb24gaXMgcmVxdWlyZWQnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGRhdGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdmFsaWRhdG9yczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgbm90RW1wdHk6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlOiAnRHVlIERhdGUgaXMgcmVxdWlyZWQnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHBsdWdpbnM6IHtcclxuICAgICAgICAgICAgICAgICAgICB0cmlnZ2VyOiBuZXcgRm9ybVZhbGlkYXRpb24ucGx1Z2lucy5UcmlnZ2VyKCksXHJcbiAgICAgICAgICAgICAgICAgICAgc3VibWl0QnV0dG9uOiBuZXcgRm9ybVZhbGlkYXRpb24ucGx1Z2lucy5TdWJtaXRCdXR0b24oKSxcclxuICAgICAgICAgICAgICAgICAgICAvL2RlZmF1bHRTdWJtaXQ6IG5ldyBGb3JtVmFsaWRhdGlvbi5wbHVnaW5zLkRlZmF1bHRTdWJtaXQoKSwgLy8gVW5jb21tZW50IHRoaXMgbGluZSB0byBlbmFibGUgbm9ybWFsIGJ1dHRvbiBzdWJtaXQgYWZ0ZXIgZm9ybSB2YWxpZGF0aW9uXHJcbiAgICAgICAgICAgICAgICAgICAgYm9vdHN0cmFwOiBuZXcgRm9ybVZhbGlkYXRpb24ucGx1Z2lucy5Cb290c3RyYXA1KHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgcm93U2VsZWN0b3I6ICcuZnYtcm93J1xyXG4gICAgICAgICAgICAgICAgICAgIH0pXHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICApO1xyXG5cclxuICAgICAgICBzdWJtaXRCdXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbiAoZSkge1xyXG4gICAgICAgICAgICBlLnByZXZlbnREZWZhdWx0KCk7XHJcblxyXG4gICAgICAgICAgICB2YWxpZGF0aW9uLnZhbGlkYXRlKCkudGhlbihmdW5jdGlvbiAoc3RhdHVzKSB7XHJcbiAgICAgICAgICAgICAgICBpZiAoc3RhdHVzID09ICdWYWxpZCcpIHtcclxuXHJcbiAgICAgICAgICAgICAgICAgICAgc3dhbC5maXJlKHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdGV4dDogXCJUaGFuayB5b3UhIFlvdSd2ZSB1cGRhdGVkIHlvdXIgcHJvamVjdCBzZXR0aW5nc1wiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBpY29uOiBcInN1Y2Nlc3NcIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgYnV0dG9uc1N0eWxpbmc6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb25maXJtQnV0dG9uVGV4dDogXCJPaywgZ290IGl0IVwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBjdXN0b21DbGFzczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29uZmlybUJ1dHRvbjogXCJidG4gZnctYm9sZCBidG4tbGlnaHQtcHJpbWFyeVwiXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9KTtcclxuXHJcbiAgICAgICAgICAgICAgICB9IGVsc2Uge1xyXG4gICAgICAgICAgICAgICAgICAgIHN3YWwuZmlyZSh7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHRleHQ6IFwiU29ycnksIGxvb2tzIGxpa2UgdGhlcmUgYXJlIHNvbWUgZXJyb3JzIGRldGVjdGVkLCBwbGVhc2UgdHJ5IGFnYWluLlwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBpY29uOiBcImVycm9yXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJ1dHRvbnNTdHlsaW5nOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29uZmlybUJ1dHRvblRleHQ6IFwiT2ssIGdvdCBpdCFcIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgY3VzdG9tQ2xhc3M6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbmZpcm1CdXR0b246IFwiYnRuIGZ3LWJvbGQgYnRuLWxpZ2h0LXByaW1hcnlcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0pO1xyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIC8vIFB1YmxpYyBtZXRob2RzXHJcbiAgICByZXR1cm4ge1xyXG4gICAgICAgIGluaXQ6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICAgICAgaGFuZGxlRm9ybSgpO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxufSgpO1xyXG5cclxuXHJcbi8vIE9uIGRvY3VtZW50IHJlYWR5XHJcbktUVXRpbC5vbkRPTUNvbnRlbnRMb2FkZWQoZnVuY3Rpb24oKSB7XHJcbiAgICBLVFByb2plY3RTZXR0aW5ncy5pbml0KCk7XHJcbn0pO1xyXG4iXSwibmFtZXMiOlsiS1RQcm9qZWN0U2V0dGluZ3MiLCJoYW5kbGVGb3JtIiwiJCIsImZsYXRwaWNrciIsInZhbGlkYXRpb24iLCJfZm9ybSIsImRvY3VtZW50IiwiZ2V0RWxlbWVudEJ5SWQiLCJzdWJtaXRCdXR0b24iLCJxdWVyeVNlbGVjdG9yIiwiRm9ybVZhbGlkYXRpb24iLCJmb3JtVmFsaWRhdGlvbiIsImZpZWxkcyIsIm5hbWUiLCJ2YWxpZGF0b3JzIiwibm90RW1wdHkiLCJtZXNzYWdlIiwidHlwZSIsImRlc2NyaXB0aW9uIiwiZGF0ZSIsInBsdWdpbnMiLCJ0cmlnZ2VyIiwiVHJpZ2dlciIsIlN1Ym1pdEJ1dHRvbiIsImJvb3RzdHJhcCIsIkJvb3RzdHJhcDUiLCJyb3dTZWxlY3RvciIsImFkZEV2ZW50TGlzdGVuZXIiLCJlIiwicHJldmVudERlZmF1bHQiLCJ2YWxpZGF0ZSIsInRoZW4iLCJzdGF0dXMiLCJzd2FsIiwiZmlyZSIsInRleHQiLCJpY29uIiwiYnV0dG9uc1N0eWxpbmciLCJjb25maXJtQnV0dG9uVGV4dCIsImN1c3RvbUNsYXNzIiwiY29uZmlybUJ1dHRvbiIsImluaXQiLCJLVFV0aWwiLCJvbkRPTUNvbnRlbnRMb2FkZWQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/src/js/custom/pages/projects/settings/settings.js\n");
+// Class definition
+var KTProjectSettings = function () {
 
-/***/ })
+    // Private functions
+    var handleForm = function () {
+        // Init Datepicker --- For more info, please check Flatpickr's official documentation: https://flatpickr.js.org/
+        $("#kt_datepicker_1").flatpickr();
 
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./resources/src/js/custom/pages/projects/settings/settings.js"]();
-/******/ 	
+        // Form validation
+        var validation;
+        var _form = document.getElementById('kt_project_settings_form');
+        var submitButton = _form.querySelector('#kt_project_settings_submit');
+
+        // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
+        validation = FormValidation.formValidation(
+            _form,
+            {
+                fields: {
+                    name: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Project name is required'
+                            }
+                        }
+                    },
+                    type: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Project type is required'
+                            }
+                        }
+                    },
+                    description: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Project Description is required'
+                            }
+                        }
+                    },
+                    date: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Due Date is required'
+                            }
+                        }
+                    },
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    //defaultSubmit: new FormValidation.plugins.DefaultSubmit(), // Uncomment this line to enable normal button submit after form validation
+                    bootstrap: new FormValidation.plugins.Bootstrap5({
+                        rowSelector: '.fv-row'
+                    })
+                }
+            }
+        );
+
+        submitButton.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            validation.validate().then(function (status) {
+                if (status == 'Valid') {
+
+                    swal.fire({
+                        text: "Thank you! You've updated your project settings",
+                        icon: "success",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn fw-bold btn-light-primary"
+                        }
+                    });
+
+                } else {
+                    swal.fire({
+                        text: "Sorry, looks like there are some errors detected, please try again.",
+                        icon: "error",
+                        buttonsStyling: false,
+                        confirmButtonText: "Ok, got it!",
+                        customClass: {
+                            confirmButton: "btn fw-bold btn-light-primary"
+                        }
+                    });
+                }
+            });
+        });
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            handleForm();
+        }
+    }
+}();
+
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTProjectSettings.init();
+});
+
 /******/ })()
 ;
+//# sourceMappingURL=settings.js.map

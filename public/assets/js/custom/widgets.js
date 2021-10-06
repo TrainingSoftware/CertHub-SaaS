@@ -1,22 +1,3112 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./resources/src/js/custom/widgets.js":
-/*!********************************************!*\
-  !*** ./resources/src/js/custom/widgets.js ***!
-  \********************************************/
+/***/ "../../../themes/metronic/html/demo10/src/js/custom/widgets.js":
+/*!*********************************************************************!*\
+  !*** ../../../themes/metronic/html/demo10/src/js/custom/widgets.js ***!
+  \*********************************************************************/
 /***/ ((module) => {
 
-eval(" // Class definition\n\nvar KTWidgets = function () {\n  // Statistics widgets\n  var initStatisticsWidget3 = function initStatisticsWidget3() {\n    var charts = document.querySelectorAll('.statistics-widget-3-chart');\n    [].slice.call(charts).map(function (element) {\n      var height = parseInt(KTUtil.css(element, 'height'));\n\n      if (!element) {\n        return;\n      }\n\n      var color = element.getAttribute('data-kt-chart-color');\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');\n      var baseColor = KTUtil.getCssVariableValue('--bs-' + color);\n      var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);\n      var options = {\n        series: [{\n          name: 'Net Profit',\n          data: [30, 45, 32, 70, 40]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'area',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          zoom: {\n            enabled: false\n          },\n          sparkline: {\n            enabled: true\n          }\n        },\n        plotOptions: {},\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        fill: {\n          type: 'solid',\n          opacity: 0.3\n        },\n        stroke: {\n          curve: 'smooth',\n          show: true,\n          width: 3,\n          colors: [baseColor]\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          },\n          crosshairs: {\n            show: false,\n            position: 'front',\n            stroke: {\n              color: '#E4E6EF',\n              width: 1,\n              dashArray: 3\n            }\n          },\n          tooltip: {\n            enabled: true,\n            formatter: undefined,\n            offsetY: 0,\n            style: {\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 80,\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          }\n        },\n        colors: [baseColor],\n        markers: {\n          colors: [baseColor],\n          strokeColor: [lightColor],\n          strokeWidth: 3\n        }\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initStatisticsWidget4 = function initStatisticsWidget4() {\n    var charts = document.querySelectorAll('.statistics-widget-4-chart');\n    [].slice.call(charts).map(function (element) {\n      var height = parseInt(KTUtil.css(element, 'height'));\n\n      if (!element) {\n        return;\n      }\n\n      var color = element.getAttribute('data-kt-chart-color');\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');\n      var baseColor = KTUtil.getCssVariableValue('--bs-' + color);\n      var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);\n      var options = {\n        series: [{\n          name: 'Net Profit',\n          data: [40, 40, 30, 30, 35, 35, 50]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'area',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          zoom: {\n            enabled: false\n          },\n          sparkline: {\n            enabled: true\n          }\n        },\n        plotOptions: {},\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        fill: {\n          type: 'solid',\n          opacity: 0.3\n        },\n        stroke: {\n          curve: 'smooth',\n          show: true,\n          width: 3,\n          colors: [baseColor]\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          },\n          crosshairs: {\n            show: false,\n            position: 'front',\n            stroke: {\n              color: '#E4E6EF',\n              width: 1,\n              dashArray: 3\n            }\n          },\n          tooltip: {\n            enabled: true,\n            formatter: undefined,\n            offsetY: 0,\n            style: {\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 60,\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          }\n        },\n        colors: [baseColor],\n        markers: {\n          colors: [baseColor],\n          strokeColor: [lightColor],\n          strokeWidth: 3\n        }\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  }; // Charts widgets\n\n\n  var initChartsWidget1 = function initChartsWidget1() {\n    var element = document.getElementById(\"kt_charts_widget_1_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var baseColor = KTUtil.getCssVariableValue('--bs-primary');\n    var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      series: [{\n        name: 'Net Profit',\n        data: [44, 55, 57, 56, 61, 58]\n      }, {\n        name: 'Revenue',\n        data: [76, 85, 101, 98, 87, 105]\n      }],\n      chart: {\n        fontFamily: 'inherit',\n        type: 'bar',\n        height: height,\n        toolbar: {\n          show: false\n        }\n      },\n      plotOptions: {\n        bar: {\n          horizontal: false,\n          columnWidth: ['30%'],\n          borderRadius: 4\n        }\n      },\n      legend: {\n        show: false\n      },\n      dataLabels: {\n        enabled: false\n      },\n      stroke: {\n        show: true,\n        width: 2,\n        colors: ['transparent']\n      },\n      xaxis: {\n        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n        axisBorder: {\n          show: false\n        },\n        axisTicks: {\n          show: false\n        },\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      yaxis: {\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      fill: {\n        opacity: 1\n      },\n      states: {\n        normal: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        hover: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        active: {\n          allowMultipleDataPointsSelection: false,\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        }\n      },\n      tooltip: {\n        style: {\n          fontSize: '12px'\n        },\n        y: {\n          formatter: function formatter(val) {\n            return \"$\" + val + \" thousands\";\n          }\n        }\n      },\n      colors: [baseColor, secondaryColor],\n      grid: {\n        borderColor: borderColor,\n        strokeDashArray: 4,\n        yaxis: {\n          lines: {\n            show: true\n          }\n        }\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  };\n\n  var initChartsWidget2 = function initChartsWidget2() {\n    var element = document.getElementById(\"kt_charts_widget_2_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var baseColor = KTUtil.getCssVariableValue('--bs-warning');\n    var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      series: [{\n        name: 'Net Profit',\n        data: [44, 55, 57, 56, 61, 58]\n      }, {\n        name: 'Revenue',\n        data: [76, 85, 101, 98, 87, 105]\n      }],\n      chart: {\n        fontFamily: 'inherit',\n        type: 'bar',\n        height: height,\n        toolbar: {\n          show: false\n        }\n      },\n      plotOptions: {\n        bar: {\n          horizontal: false,\n          columnWidth: ['30%'],\n          borderRadius: 4\n        }\n      },\n      legend: {\n        show: false\n      },\n      dataLabels: {\n        enabled: false\n      },\n      stroke: {\n        show: true,\n        width: 2,\n        colors: ['transparent']\n      },\n      xaxis: {\n        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n        axisBorder: {\n          show: false\n        },\n        axisTicks: {\n          show: false\n        },\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      yaxis: {\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      fill: {\n        opacity: 1\n      },\n      states: {\n        normal: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        hover: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        active: {\n          allowMultipleDataPointsSelection: false,\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        }\n      },\n      tooltip: {\n        style: {\n          fontSize: '12px'\n        },\n        y: {\n          formatter: function formatter(val) {\n            return \"$\" + val + \" thousands\";\n          }\n        }\n      },\n      colors: [baseColor, secondaryColor],\n      grid: {\n        borderColor: borderColor,\n        strokeDashArray: 4,\n        yaxis: {\n          lines: {\n            show: true\n          }\n        }\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  };\n\n  var initChartsWidget3 = function initChartsWidget3() {\n    var element = document.getElementById(\"kt_charts_widget_3_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var baseColor = KTUtil.getCssVariableValue('--bs-info');\n    var lightColor = KTUtil.getCssVariableValue('--bs-light-info');\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      series: [{\n        name: 'Net Profit',\n        data: [30, 40, 40, 90, 90, 70, 70]\n      }],\n      chart: {\n        fontFamily: 'inherit',\n        type: 'area',\n        height: 350,\n        toolbar: {\n          show: false\n        }\n      },\n      plotOptions: {},\n      legend: {\n        show: false\n      },\n      dataLabels: {\n        enabled: false\n      },\n      fill: {\n        type: 'solid',\n        opacity: 1\n      },\n      stroke: {\n        curve: 'smooth',\n        show: true,\n        width: 3,\n        colors: [baseColor]\n      },\n      xaxis: {\n        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],\n        axisBorder: {\n          show: false\n        },\n        axisTicks: {\n          show: false\n        },\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        },\n        crosshairs: {\n          position: 'front',\n          stroke: {\n            color: baseColor,\n            width: 1,\n            dashArray: 3\n          }\n        },\n        tooltip: {\n          enabled: true,\n          formatter: undefined,\n          offsetY: 0,\n          style: {\n            fontSize: '12px'\n          }\n        }\n      },\n      yaxis: {\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      states: {\n        normal: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        hover: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        active: {\n          allowMultipleDataPointsSelection: false,\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        }\n      },\n      tooltip: {\n        style: {\n          fontSize: '12px'\n        },\n        y: {\n          formatter: function formatter(val) {\n            return \"$\" + val + \" thousands\";\n          }\n        }\n      },\n      colors: [lightColor],\n      grid: {\n        borderColor: borderColor,\n        strokeDashArray: 4,\n        yaxis: {\n          lines: {\n            show: true\n          }\n        }\n      },\n      markers: {\n        strokeColor: baseColor,\n        strokeWidth: 3\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  };\n\n  var initChartsWidget4 = function initChartsWidget4() {\n    var element = document.getElementById(\"kt_charts_widget_4_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var baseColor = KTUtil.getCssVariableValue('--bs-success');\n    var baseLightColor = KTUtil.getCssVariableValue('--bs-light-success');\n    var secondaryColor = KTUtil.getCssVariableValue('--bs-warning');\n    var secondaryLightColor = KTUtil.getCssVariableValue('--bs-light-warning');\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      series: [{\n        name: 'Net Profit',\n        data: [60, 50, 80, 40, 100, 60]\n      }, {\n        name: 'Revenue',\n        data: [70, 60, 110, 40, 50, 70]\n      }],\n      chart: {\n        fontFamily: 'inherit',\n        type: 'area',\n        height: 350,\n        toolbar: {\n          show: false\n        }\n      },\n      plotOptions: {},\n      legend: {\n        show: false\n      },\n      dataLabels: {\n        enabled: false\n      },\n      fill: {\n        type: 'solid',\n        opacity: 1\n      },\n      stroke: {\n        curve: 'smooth'\n      },\n      xaxis: {\n        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n        axisBorder: {\n          show: false\n        },\n        axisTicks: {\n          show: false\n        },\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        },\n        crosshairs: {\n          position: 'front',\n          stroke: {\n            color: labelColor,\n            width: 1,\n            dashArray: 3\n          }\n        },\n        tooltip: {\n          enabled: true,\n          formatter: undefined,\n          offsetY: 0,\n          style: {\n            fontSize: '12px'\n          }\n        }\n      },\n      yaxis: {\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      states: {\n        normal: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        hover: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        active: {\n          allowMultipleDataPointsSelection: false,\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        }\n      },\n      tooltip: {\n        style: {\n          fontSize: '12px'\n        },\n        y: {\n          formatter: function formatter(val) {\n            return \"$\" + val + \" thousands\";\n          }\n        }\n      },\n      colors: [baseColor, secondaryColor],\n      grid: {\n        borderColor: borderColor,\n        strokeDashArray: 4,\n        yaxis: {\n          lines: {\n            show: true\n          }\n        }\n      },\n      markers: {\n        colors: [baseLightColor, secondaryLightColor],\n        strokeColor: [baseLightColor, secondaryLightColor],\n        strokeWidth: 3\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  };\n\n  var initChartsWidget5 = function initChartsWidget5() {\n    var element = document.getElementById(\"kt_charts_widget_5_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var baseColor = KTUtil.getCssVariableValue('--bs-primary');\n    var secondaryColor = KTUtil.getCssVariableValue('--bs-info');\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      series: [{\n        name: 'Net Profit',\n        data: [40, 50, 65, 70, 50, 30]\n      }, {\n        name: 'Revenue',\n        data: [-30, -40, -55, -60, -40, -20]\n      }],\n      chart: {\n        fontFamily: 'inherit',\n        type: 'bar',\n        stacked: true,\n        height: 350,\n        toolbar: {\n          show: false\n        }\n      },\n      plotOptions: {\n        bar: {\n          horizontal: false,\n          columnWidth: ['12%'],\n          borderRadius: 4\n        }\n      },\n      legend: {\n        show: false\n      },\n      dataLabels: {\n        enabled: false\n      },\n      stroke: {\n        show: true,\n        width: 2,\n        colors: ['transparent']\n      },\n      xaxis: {\n        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n        axisBorder: {\n          show: false\n        },\n        axisTicks: {\n          show: false\n        },\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      yaxis: {\n        min: -80,\n        max: 80,\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      fill: {\n        opacity: 1\n      },\n      states: {\n        normal: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        hover: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        active: {\n          allowMultipleDataPointsSelection: false,\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        }\n      },\n      tooltip: {\n        style: {\n          fontSize: '12px'\n        },\n        y: {\n          formatter: function formatter(val) {\n            return \"$\" + val + \" thousands\";\n          }\n        }\n      },\n      colors: [baseColor, secondaryColor],\n      grid: {\n        borderColor: borderColor,\n        strokeDashArray: 4,\n        yaxis: {\n          lines: {\n            show: true\n          }\n        }\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  };\n\n  var initChartsWidget6 = function initChartsWidget6() {\n    var element = document.getElementById(\"kt_charts_widget_6_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var baseColor = KTUtil.getCssVariableValue('--bs-primary');\n    var baseLightColor = KTUtil.getCssVariableValue('--bs-light-primary');\n    var secondaryColor = KTUtil.getCssVariableValue('--bs-info');\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      series: [{\n        name: 'Net Profit',\n        type: 'bar',\n        stacked: true,\n        data: [40, 50, 65, 70, 50, 30]\n      }, {\n        name: 'Revenue',\n        type: 'bar',\n        stacked: true,\n        data: [20, 20, 25, 30, 30, 20]\n      }, {\n        name: 'Expenses',\n        type: 'area',\n        data: [50, 80, 60, 90, 50, 70]\n      }],\n      chart: {\n        fontFamily: 'inherit',\n        stacked: true,\n        height: 350,\n        toolbar: {\n          show: false\n        }\n      },\n      plotOptions: {\n        bar: {\n          stacked: true,\n          horizontal: false,\n          borderRadius: 4,\n          columnWidth: ['12%']\n        }\n      },\n      legend: {\n        show: false\n      },\n      dataLabels: {\n        enabled: false\n      },\n      stroke: {\n        curve: 'smooth',\n        show: true,\n        width: 2,\n        colors: ['transparent']\n      },\n      xaxis: {\n        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n        axisBorder: {\n          show: false\n        },\n        axisTicks: {\n          show: false\n        },\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      yaxis: {\n        max: 120,\n        labels: {\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      fill: {\n        opacity: 1\n      },\n      states: {\n        normal: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        hover: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        active: {\n          allowMultipleDataPointsSelection: false,\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        }\n      },\n      tooltip: {\n        style: {\n          fontSize: '12px'\n        },\n        y: {\n          formatter: function formatter(val) {\n            return \"$\" + val + \" thousands\";\n          }\n        }\n      },\n      colors: [baseColor, secondaryColor, baseLightColor],\n      grid: {\n        borderColor: borderColor,\n        strokeDashArray: 4,\n        yaxis: {\n          lines: {\n            show: true\n          }\n        },\n        padding: {\n          top: 0,\n          right: 0,\n          bottom: 0,\n          left: 0\n        }\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  };\n\n  var initChartsWidget7 = function initChartsWidget7() {\n    var element = document.getElementById(\"kt_charts_widget_7_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var strokeColor = KTUtil.getCssVariableValue('--bs-gray-300');\n    var color1 = KTUtil.getCssVariableValue('--bs-warning');\n    var color1Light = KTUtil.getCssVariableValue('--bs-light-warning');\n    var color2 = KTUtil.getCssVariableValue('--bs-success');\n    var color2Light = KTUtil.getCssVariableValue('--bs-light-success');\n    var color3 = KTUtil.getCssVariableValue('--bs-primary');\n    var color3Light = KTUtil.getCssVariableValue('--bs-light-primary');\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      series: [{\n        name: 'Net Profit',\n        data: [30, 30, 50, 50, 35, 35]\n      }, {\n        name: 'Revenue',\n        data: [55, 20, 20, 20, 70, 70]\n      }, {\n        name: 'Expenses',\n        data: [60, 60, 40, 40, 30, 30]\n      }],\n      chart: {\n        fontFamily: 'inherit',\n        type: 'area',\n        height: height,\n        toolbar: {\n          show: false\n        },\n        zoom: {\n          enabled: false\n        },\n        sparkline: {\n          enabled: true\n        }\n      },\n      plotOptions: {},\n      legend: {\n        show: false\n      },\n      dataLabels: {\n        enabled: false\n      },\n      fill: {\n        type: 'solid',\n        opacity: 1\n      },\n      stroke: {\n        curve: 'smooth',\n        show: true,\n        width: 2,\n        colors: [color1, 'transparent', 'transparent']\n      },\n      xaxis: {\n        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n        axisBorder: {\n          show: false\n        },\n        axisTicks: {\n          show: false\n        },\n        labels: {\n          show: false,\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        },\n        crosshairs: {\n          show: false,\n          position: 'front',\n          stroke: {\n            color: strokeColor,\n            width: 1,\n            dashArray: 3\n          }\n        },\n        tooltip: {\n          enabled: true,\n          formatter: undefined,\n          offsetY: 0,\n          style: {\n            fontSize: '12px'\n          }\n        }\n      },\n      yaxis: {\n        labels: {\n          show: false,\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      states: {\n        normal: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        hover: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        active: {\n          allowMultipleDataPointsSelection: false,\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        }\n      },\n      tooltip: {\n        style: {\n          fontSize: '12px'\n        },\n        y: {\n          formatter: function formatter(val) {\n            return \"$\" + val + \" thousands\";\n          }\n        }\n      },\n      colors: [color1, color2, color3],\n      grid: {\n        borderColor: borderColor,\n        strokeDashArray: 4,\n        yaxis: {\n          lines: {\n            show: true\n          }\n        }\n      },\n      markers: {\n        colors: [color1Light, color2Light, color3Light],\n        strokeColor: [color1, color2, color3],\n        strokeWidth: 3\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  };\n\n  var initChartsWidget8 = function initChartsWidget8() {\n    var element = document.getElementById(\"kt_charts_widget_8_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var strokeColor = KTUtil.getCssVariableValue('--bs-gray-300');\n    var color1 = KTUtil.getCssVariableValue('--bs-warning');\n    var color1Light = KTUtil.getCssVariableValue('--bs-light-warning');\n    var color2 = KTUtil.getCssVariableValue('--bs-success');\n    var color2Light = KTUtil.getCssVariableValue('--bs-light-success');\n    var color3 = KTUtil.getCssVariableValue('--bs-primary');\n    var color3Light = KTUtil.getCssVariableValue('--bs-light-primary');\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      series: [{\n        name: 'Net Profit',\n        data: [30, 30, 50, 50, 35, 35]\n      }, {\n        name: 'Revenue',\n        data: [55, 20, 20, 20, 70, 70]\n      }, {\n        name: 'Expenses',\n        data: [60, 60, 40, 40, 30, 30]\n      }],\n      chart: {\n        fontFamily: 'inherit',\n        type: 'area',\n        height: height,\n        toolbar: {\n          show: false\n        },\n        zoom: {\n          enabled: false\n        },\n        sparkline: {\n          enabled: true\n        }\n      },\n      plotOptions: {},\n      legend: {\n        show: false\n      },\n      dataLabels: {\n        enabled: false\n      },\n      fill: {\n        type: 'solid',\n        opacity: 1\n      },\n      stroke: {\n        curve: 'smooth',\n        show: true,\n        width: 2,\n        colors: [color1, color2, color3]\n      },\n      xaxis: {\n        x: 0,\n        offsetX: 0,\n        offsetY: 0,\n        padding: {\n          left: 0,\n          right: 0,\n          top: 0\n        },\n        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n        axisBorder: {\n          show: false\n        },\n        axisTicks: {\n          show: false\n        },\n        labels: {\n          show: false,\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        },\n        crosshairs: {\n          show: false,\n          position: 'front',\n          stroke: {\n            color: strokeColor,\n            width: 1,\n            dashArray: 3\n          }\n        },\n        tooltip: {\n          enabled: true,\n          formatter: undefined,\n          offsetY: 0,\n          style: {\n            fontSize: '12px'\n          }\n        }\n      },\n      yaxis: {\n        y: 0,\n        offsetX: 0,\n        offsetY: 0,\n        padding: {\n          left: 0,\n          right: 0\n        },\n        labels: {\n          show: false,\n          style: {\n            colors: labelColor,\n            fontSize: '12px'\n          }\n        }\n      },\n      states: {\n        normal: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        hover: {\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        },\n        active: {\n          allowMultipleDataPointsSelection: false,\n          filter: {\n            type: 'none',\n            value: 0\n          }\n        }\n      },\n      tooltip: {\n        style: {\n          fontSize: '12px'\n        },\n        y: {\n          formatter: function formatter(val) {\n            return \"$\" + val + \" thousands\";\n          }\n        }\n      },\n      colors: [color1Light, color2Light, color3Light],\n      grid: {\n        borderColor: borderColor,\n        strokeDashArray: 4,\n        padding: {\n          top: 0,\n          bottom: 0,\n          left: 0,\n          right: 0\n        }\n      },\n      markers: {\n        colors: [color1, color2, color3],\n        strokeColor: [color1, color2, color3],\n        strokeWidth: 3\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  }; // Mixed widgets\n\n\n  var initMixedWidget2 = function initMixedWidget2() {\n    var charts = document.querySelectorAll('.mixed-widget-2-chart');\n    var color;\n    var strokeColor;\n    var height;\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var options;\n    var chart;\n    [].slice.call(charts).map(function (element) {\n      height = parseInt(KTUtil.css(element, 'height'));\n      color = KTUtil.getCssVariableValue('--bs-' + element.getAttribute(\"data-kt-color\"));\n      strokeColor = KTUtil.colorDarken(color, 15);\n      options = {\n        series: [{\n          name: 'Net Profit',\n          data: [30, 45, 32, 70, 40, 40, 40]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'area',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          zoom: {\n            enabled: false\n          },\n          sparkline: {\n            enabled: true\n          },\n          dropShadow: {\n            enabled: true,\n            enabledOnSeries: undefined,\n            top: 5,\n            left: 0,\n            blur: 3,\n            color: strokeColor,\n            opacity: 0.5\n          }\n        },\n        plotOptions: {},\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        fill: {\n          type: 'solid',\n          opacity: 0\n        },\n        stroke: {\n          curve: 'smooth',\n          show: true,\n          width: 3,\n          colors: [strokeColor]\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          },\n          crosshairs: {\n            show: false,\n            position: 'front',\n            stroke: {\n              color: borderColor,\n              width: 1,\n              dashArray: 3\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 80,\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          },\n          marker: {\n            show: false\n          }\n        },\n        colors: ['transparent'],\n        markers: {\n          colors: [color],\n          strokeColor: [strokeColor],\n          strokeWidth: 3\n        }\n      };\n      chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget3 = function initMixedWidget3() {\n    var charts = document.querySelectorAll('.mixed-widget-3-chart');\n    [].slice.call(charts).map(function (element) {\n      var height = parseInt(KTUtil.css(element, 'height'));\n\n      if (!element) {\n        return;\n      }\n\n      var color = element.getAttribute('data-kt-chart-color');\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');\n      var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');\n      var baseColor = KTUtil.getCssVariableValue('--bs-' + color);\n      var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);\n      var options = {\n        series: [{\n          name: 'Net Profit',\n          data: [30, 25, 45, 30, 55, 55]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'area',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          zoom: {\n            enabled: false\n          },\n          sparkline: {\n            enabled: true\n          }\n        },\n        plotOptions: {},\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        fill: {\n          type: 'solid',\n          opacity: 1\n        },\n        stroke: {\n          curve: 'smooth',\n          show: true,\n          width: 3,\n          colors: [baseColor]\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          },\n          crosshairs: {\n            show: false,\n            position: 'front',\n            stroke: {\n              color: strokeColor,\n              width: 1,\n              dashArray: 3\n            }\n          },\n          tooltip: {\n            enabled: true,\n            formatter: undefined,\n            offsetY: 0,\n            style: {\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 60,\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          }\n        },\n        colors: [lightColor],\n        markers: {\n          colors: [lightColor],\n          strokeColor: [baseColor],\n          strokeWidth: 3\n        }\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget4 = function initMixedWidget4() {\n    var charts = document.querySelectorAll('.mixed-widget-4-chart');\n    [].slice.call(charts).map(function (element) {\n      var height = parseInt(KTUtil.css(element, 'height'));\n\n      if (!element) {\n        return;\n      }\n\n      var color = element.getAttribute('data-kt-chart-color');\n      var baseColor = KTUtil.getCssVariableValue('--bs-' + color);\n      var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-700');\n      var options = {\n        series: [74],\n        chart: {\n          fontFamily: 'inherit',\n          height: height,\n          type: 'radialBar'\n        },\n        plotOptions: {\n          radialBar: {\n            hollow: {\n              margin: 0,\n              size: \"65%\"\n            },\n            dataLabels: {\n              showOn: \"always\",\n              name: {\n                show: false,\n                fontWeight: '700'\n              },\n              value: {\n                color: labelColor,\n                fontSize: \"30px\",\n                fontWeight: '700',\n                offsetY: 12,\n                show: true,\n                formatter: function formatter(val) {\n                  return val + '%';\n                }\n              }\n            },\n            track: {\n              background: lightColor,\n              strokeWidth: '100%'\n            }\n          }\n        },\n        colors: [baseColor],\n        stroke: {\n          lineCap: \"round\"\n        },\n        labels: [\"Progress\"]\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget5 = function initMixedWidget5() {\n    var charts = document.querySelectorAll('.mixed-widget-5-chart');\n    [].slice.call(charts).map(function (element) {\n      var height = parseInt(KTUtil.css(element, 'height'));\n\n      if (!element) {\n        return;\n      }\n\n      var color = element.getAttribute('data-kt-chart-color');\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');\n      var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');\n      var baseColor = KTUtil.getCssVariableValue('--bs-' + color);\n      var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);\n      var options = {\n        series: [{\n          name: 'Net Profit',\n          data: [30, 30, 60, 25, 25, 40]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'area',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          zoom: {\n            enabled: false\n          },\n          sparkline: {\n            enabled: true\n          }\n        },\n        plotOptions: {},\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        fill: {\n          type: 'solid',\n          opacity: 1\n        },\n        fill1: {\n          type: 'gradient',\n          opacity: 1,\n          gradient: {\n            type: \"vertical\",\n            shadeIntensity: 0.5,\n            gradientToColors: undefined,\n            inverseColors: true,\n            opacityFrom: 1,\n            opacityTo: 0.375,\n            stops: [25, 50, 100],\n            colorStops: []\n          }\n        },\n        stroke: {\n          curve: 'smooth',\n          show: true,\n          width: 3,\n          colors: [baseColor]\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          },\n          crosshairs: {\n            show: false,\n            position: 'front',\n            stroke: {\n              color: strokeColor,\n              width: 1,\n              dashArray: 3\n            }\n          },\n          tooltip: {\n            enabled: true,\n            formatter: undefined,\n            offsetY: 0,\n            style: {\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 65,\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          }\n        },\n        colors: [lightColor],\n        markers: {\n          colors: [lightColor],\n          strokeColor: [baseColor],\n          strokeWidth: 3\n        }\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget6 = function initMixedWidget6() {\n    var charts = document.querySelectorAll('.mixed-widget-6-chart');\n    [].slice.call(charts).map(function (element) {\n      var height = parseInt(KTUtil.css(element, 'height'));\n\n      if (!element) {\n        return;\n      }\n\n      var color = element.getAttribute('data-kt-chart-color');\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');\n      var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');\n      var baseColor = KTUtil.getCssVariableValue('--bs-' + color);\n      var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);\n      var options = {\n        series: [{\n          name: 'Net Profit',\n          data: [30, 25, 45, 30, 55, 55]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'area',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          zoom: {\n            enabled: false\n          },\n          sparkline: {\n            enabled: true\n          }\n        },\n        plotOptions: {},\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        fill: {\n          type: 'solid',\n          opacity: 1\n        },\n        stroke: {\n          curve: 'smooth',\n          show: true,\n          width: 3,\n          colors: [baseColor]\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          },\n          crosshairs: {\n            show: false,\n            position: 'front',\n            stroke: {\n              color: strokeColor,\n              width: 1,\n              dashArray: 3\n            }\n          },\n          tooltip: {\n            enabled: true,\n            formatter: undefined,\n            offsetY: 0,\n            style: {\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 60,\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          }\n        },\n        colors: [lightColor],\n        markers: {\n          colors: [lightColor],\n          strokeColor: [baseColor],\n          strokeWidth: 3\n        }\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget7 = function initMixedWidget7() {\n    var charts = document.querySelectorAll('.mixed-widget-7-chart');\n    [].slice.call(charts).map(function (element) {\n      var height = parseInt(KTUtil.css(element, 'height'));\n\n      if (!element) {\n        return;\n      }\n\n      var color = element.getAttribute('data-kt-chart-color');\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');\n      var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');\n      var baseColor = KTUtil.getCssVariableValue('--bs-' + color);\n      var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);\n      var options = {\n        series: [{\n          name: 'Net Profit',\n          data: [15, 25, 15, 40, 20, 50]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'area',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          zoom: {\n            enabled: false\n          },\n          sparkline: {\n            enabled: true\n          }\n        },\n        plotOptions: {},\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        fill: {\n          type: 'solid',\n          opacity: 1\n        },\n        stroke: {\n          curve: 'smooth',\n          show: true,\n          width: 3,\n          colors: [baseColor]\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          },\n          crosshairs: {\n            show: false,\n            position: 'front',\n            stroke: {\n              color: strokeColor,\n              width: 1,\n              dashArray: 3\n            }\n          },\n          tooltip: {\n            enabled: true,\n            formatter: undefined,\n            offsetY: 0,\n            style: {\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 60,\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          }\n        },\n        colors: [lightColor],\n        markers: {\n          colors: [lightColor],\n          strokeColor: [baseColor],\n          strokeWidth: 3\n        }\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget10 = function initMixedWidget10() {\n    var charts = document.querySelectorAll('.mixed-widget-10-chart');\n    var color;\n    var height;\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var baseLightColor;\n    var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');\n    var baseColor;\n    var options;\n    var chart;\n    [].slice.call(charts).map(function (element) {\n      color = element.getAttribute(\"data-kt-color\");\n      height = parseInt(KTUtil.css(element, 'height'));\n      baseColor = KTUtil.getCssVariableValue('--bs-' + color);\n      options = {\n        series: [{\n          name: 'Net Profit',\n          data: [50, 60, 70, 80, 60, 50, 70, 60]\n        }, {\n          name: 'Revenue',\n          data: [50, 60, 70, 80, 60, 50, 70, 60]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'bar',\n          height: height,\n          toolbar: {\n            show: false\n          }\n        },\n        plotOptions: {\n          bar: {\n            horizontal: false,\n            columnWidth: ['50%'],\n            borderRadius: 4\n          }\n        },\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        stroke: {\n          show: true,\n          width: 2,\n          colors: ['transparent']\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          y: 0,\n          offsetX: 0,\n          offsetY: 0,\n          labels: {\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        fill: {\n          type: 'solid'\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" revenue\";\n            }\n          }\n        },\n        colors: [baseColor, secondaryColor],\n        grid: {\n          padding: {\n            top: 10\n          },\n          borderColor: borderColor,\n          strokeDashArray: 4,\n          yaxis: {\n            lines: {\n              show: true\n            }\n          }\n        }\n      };\n      chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget12 = function initMixedWidget12() {\n    var charts = document.querySelectorAll('.mixed-widget-12-chart');\n    var color;\n    var strokeColor;\n    var height;\n    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');\n    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');\n    var options;\n    var chart;\n    [].slice.call(charts).map(function (element) {\n      height = parseInt(KTUtil.css(element, 'height'));\n      var options = {\n        series: [{\n          name: 'Net Profit',\n          data: [35, 65, 75, 55, 45, 60, 55]\n        }, {\n          name: 'Revenue',\n          data: [40, 70, 80, 60, 50, 65, 60]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          type: 'bar',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          sparkline: {\n            enabled: true\n          }\n        },\n        plotOptions: {\n          bar: {\n            horizontal: false,\n            columnWidth: ['30%'],\n            borderRadius: 2\n          }\n        },\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        stroke: {\n          show: true,\n          width: 1,\n          colors: ['transparent']\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 100,\n          labels: {\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        fill: {\n          type: ['solid', 'solid'],\n          opacity: [0.25, 1]\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          },\n          marker: {\n            show: false\n          }\n        },\n        colors: ['#ffffff', '#ffffff'],\n        grid: {\n          borderColor: borderColor,\n          strokeDashArray: 4,\n          yaxis: {\n            lines: {\n              show: true\n            }\n          },\n          padding: {\n            left: 20,\n            right: 20\n          }\n        }\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget13 = function initMixedWidget13() {\n    var height;\n    var charts = document.querySelectorAll('.mixed-widget-13-chart');\n    [].slice.call(charts).map(function (element) {\n      height = parseInt(KTUtil.css(element, 'height'));\n\n      if (!element) {\n        return;\n      }\n\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');\n      var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');\n      var options = {\n        series: [{\n          name: 'Net Profit',\n          data: [15, 25, 15, 40, 20, 50]\n        }],\n        grid: {\n          show: false,\n          padding: {\n            top: 0,\n            bottom: 0,\n            left: 0,\n            right: 0\n          }\n        },\n        chart: {\n          fontFamily: 'inherit',\n          type: 'area',\n          height: height,\n          toolbar: {\n            show: false\n          },\n          zoom: {\n            enabled: false\n          },\n          sparkline: {\n            enabled: true\n          }\n        },\n        plotOptions: {},\n        legend: {\n          show: false\n        },\n        dataLabels: {\n          enabled: false\n        },\n        fill: {\n          type: 'gradient',\n          gradient: {\n            opacityFrom: 0.4,\n            opacityTo: 0,\n            stops: [20, 120, 120, 120]\n          }\n        },\n        stroke: {\n          curve: 'smooth',\n          show: true,\n          width: 3,\n          colors: ['#FFFFFF']\n        },\n        xaxis: {\n          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          },\n          crosshairs: {\n            show: false,\n            position: 'front',\n            stroke: {\n              color: strokeColor,\n              width: 1,\n              dashArray: 3\n            }\n          },\n          tooltip: {\n            enabled: true,\n            formatter: undefined,\n            offsetY: 0,\n            style: {\n              fontSize: '12px'\n            }\n          }\n        },\n        yaxis: {\n          min: 0,\n          max: 60,\n          labels: {\n            show: false,\n            style: {\n              colors: labelColor,\n              fontSize: '12px'\n            }\n          }\n        },\n        states: {\n          normal: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          hover: {\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          },\n          active: {\n            allowMultipleDataPointsSelection: false,\n            filter: {\n              type: 'none',\n              value: 0\n            }\n          }\n        },\n        tooltip: {\n          style: {\n            fontSize: '12px'\n          },\n          y: {\n            formatter: function formatter(val) {\n              return \"$\" + val + \" thousands\";\n            }\n          }\n        },\n        colors: ['#ffffff'],\n        markers: {\n          colors: [labelColor],\n          strokeColor: [strokeColor],\n          strokeWidth: 3\n        }\n      };\n      var chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget14 = function initMixedWidget14() {\n    var charts = document.querySelectorAll('.mixed-widget-14-chart');\n    var options;\n    var chart;\n    var height;\n    [].slice.call(charts).map(function (element) {\n      height = parseInt(KTUtil.css(element, 'height'));\n      var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');\n      options = {\n        series: [{\n          name: 'Inflation',\n          data: [1, 2.1, 1, 2.1, 4.1, 6.1, 4.1, 4.1, 2.1, 4.1, 2.1, 3.1, 1, 1, 2.1]\n        }],\n        chart: {\n          fontFamily: 'inherit',\n          height: height,\n          type: 'bar',\n          toolbar: {\n            show: false\n          }\n        },\n        grid: {\n          show: false,\n          padding: {\n            top: 0,\n            bottom: 0,\n            left: 0,\n            right: 0\n          }\n        },\n        colors: ['#ffffff'],\n        plotOptions: {\n          bar: {\n            borderRadius: 2.5,\n            dataLabels: {\n              position: 'top' // top, center, bottom\n\n            },\n            columnWidth: '20%'\n          }\n        },\n        dataLabels: {\n          enabled: false,\n          formatter: function formatter(val) {\n            return val + \"%\";\n          },\n          offsetY: -20,\n          style: {\n            fontSize: '12px',\n            colors: [\"#304758\"]\n          }\n        },\n        xaxis: {\n          labels: {\n            show: false\n          },\n          categories: [\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\", \"Jan\", \"Feb\", \"Mar\"],\n          position: 'top',\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false\n          },\n          crosshairs: {\n            show: false\n          },\n          tooltip: {\n            enabled: false\n          }\n        },\n        yaxis: {\n          show: false,\n          axisBorder: {\n            show: false\n          },\n          axisTicks: {\n            show: false,\n            background: labelColor\n          },\n          labels: {\n            show: false,\n            formatter: function formatter(val) {\n              return val + \"%\";\n            }\n          }\n        }\n      };\n      chart = new ApexCharts(element, options);\n      chart.render();\n    });\n  };\n\n  var initMixedWidget16 = function initMixedWidget16() {\n    var element = document.getElementById(\"kt_charts_mixed_widget_16_chart\");\n    var height = parseInt(KTUtil.css(element, 'height'));\n\n    if (!element) {\n      return;\n    }\n\n    var options = {\n      labels: [\"Total Members\"],\n      series: [74],\n      chart: {\n        fontFamily: 'inherit',\n        height: height,\n        type: 'radialBar',\n        offsetY: 0\n      },\n      plotOptions: {\n        radialBar: {\n          startAngle: -90,\n          endAngle: 90,\n          hollow: {\n            margin: 0,\n            size: \"70%\"\n          },\n          dataLabels: {\n            showOn: \"always\",\n            name: {\n              show: true,\n              fontSize: \"13px\",\n              fontWeight: \"700\",\n              offsetY: -5,\n              color: KTUtil.getCssVariableValue('--bs-gray-500')\n            },\n            value: {\n              color: KTUtil.getCssVariableValue('--bs-gray-700'),\n              fontSize: \"30px\",\n              fontWeight: \"700\",\n              offsetY: -40,\n              show: true\n            }\n          },\n          track: {\n            background: KTUtil.getCssVariableValue('--bs-light-primary'),\n            strokeWidth: '100%'\n          }\n        }\n      },\n      colors: [KTUtil.getCssVariableValue('--bs-primary')],\n      stroke: {\n        lineCap: \"round\"\n      }\n    };\n    var chart = new ApexCharts(element, options);\n    chart.render();\n  }; // Feeds Widgets\n\n\n  var initFeedWidget1 = function initFeedWidget1() {\n    var formEl = document.querySelector(\"#kt_forms_widget_1_form\");\n    var editorId = 'kt_forms_widget_1_editor';\n\n    if (!formEl) {\n      return;\n    } // init editor\n\n\n    var options = {\n      modules: {\n        toolbar: {\n          container: \"#kt_forms_widget_1_editor_toolbar\"\n        }\n      },\n      placeholder: 'What is on your mind ?',\n      theme: 'snow'\n    };\n\n    if (!formEl) {\n      return;\n    } // Init editor\n\n\n    var editorObj = new Quill('#' + editorId, options);\n  };\n\n  var initFeedsWidget4 = function initFeedsWidget4() {\n    var btn = document.querySelector('#kt_widget_5_load_more_btn');\n    var widget5 = document.querySelector('#kt_widget_5');\n\n    if (btn) {\n      btn.addEventListener('click', function (e) {\n        e.preventDefault();\n        btn.setAttribute('data-kt-indicator', 'on');\n        setTimeout(function () {\n          btn.removeAttribute('data-kt-indicator');\n          widget5.classList.remove('d-none');\n          btn.classList.add('d-none');\n          KTUtil.scrollTo(widget5, 200);\n        }, 2000);\n      });\n    }\n  }; // Follow button\n\n\n  var initUserFollowButton = function initUserFollowButton() {\n    var follow = document.querySelector('#kt_user_follow_button');\n\n    if (follow) {\n      follow.addEventListener('click', function (e) {\n        // Prevent default action \n        e.preventDefault(); // Show indicator\n\n        follow.setAttribute('data-kt-indicator', 'on'); // Disable button to avoid multiple click \n\n        follow.disabled = true; // Check button state\n\n        if (follow.classList.contains(\"btn-success\")) {\n          setTimeout(function () {\n            follow.removeAttribute('data-kt-indicator');\n            follow.classList.remove(\"btn-success\");\n            follow.classList.add(\"btn-light\");\n            follow.querySelector(\".svg-icon\").classList.add(\"d-none\");\n            follow.querySelector(\".indicator-label\").innerHTML = 'Follow';\n            follow.disabled = false;\n          }, 1500);\n        } else {\n          setTimeout(function () {\n            follow.removeAttribute('data-kt-indicator');\n            follow.classList.add(\"btn-success\");\n            follow.classList.remove(\"btn-light\");\n            follow.querySelector(\".svg-icon\").classList.remove(\"d-none\");\n            follow.querySelector(\".indicator-label\").innerHTML = 'Following';\n            follow.disabled = false;\n          }, 1000);\n        }\n      });\n    }\n  }; // Calendar\n\n\n  var initCalendarWidget1 = function initCalendarWidget1() {\n    if (typeof FullCalendar === 'undefined' || !document.querySelector('#kt_calendar_widget_1')) {\n      return;\n    }\n\n    var todayDate = moment().startOf('day');\n    var YM = todayDate.format('YYYY-MM');\n    var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');\n    var TODAY = todayDate.format('YYYY-MM-DD');\n    var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');\n    var calendarEl = document.getElementById('kt_calendar_widget_1');\n    var calendar = new FullCalendar.Calendar(calendarEl, {\n      headerToolbar: {\n        left: 'prev,next today',\n        center: 'title',\n        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'\n      },\n      height: 800,\n      contentHeight: 780,\n      aspectRatio: 3,\n      // see: https://fullcalendar.io/docs/aspectRatio\n      nowIndicator: true,\n      now: TODAY + 'T09:25:00',\n      // just for demo\n      views: {\n        dayGridMonth: {\n          buttonText: 'month'\n        },\n        timeGridWeek: {\n          buttonText: 'week'\n        },\n        timeGridDay: {\n          buttonText: 'day'\n        }\n      },\n      initialView: 'dayGridMonth',\n      initialDate: TODAY,\n      editable: true,\n      dayMaxEvents: true,\n      // allow \"more\" link when too many events\n      navLinks: true,\n      events: [{\n        title: 'All Day Event',\n        start: YM + '-01',\n        description: 'Toto lorem ipsum dolor sit incid idunt ut',\n        className: \"fc-event-danger fc-event-solid-warning\"\n      }, {\n        title: 'Reporting',\n        start: YM + '-14T13:30:00',\n        description: 'Lorem ipsum dolor incid idunt ut labore',\n        end: YM + '-14',\n        className: \"fc-event-success\"\n      }, {\n        title: 'Company Trip',\n        start: YM + '-02',\n        description: 'Lorem ipsum dolor sit tempor incid',\n        end: YM + '-03',\n        className: \"fc-event-primary\"\n      }, {\n        title: 'ICT Expo 2017 - Product Release',\n        start: YM + '-03',\n        description: 'Lorem ipsum dolor sit tempor inci',\n        end: YM + '-05',\n        className: \"fc-event-light fc-event-solid-primary\"\n      }, {\n        title: 'Dinner',\n        start: YM + '-12',\n        description: 'Lorem ipsum dolor sit amet, conse ctetur',\n        end: YM + '-10'\n      }, {\n        id: 999,\n        title: 'Repeating Event',\n        start: YM + '-09T16:00:00',\n        description: 'Lorem ipsum dolor sit ncididunt ut labore',\n        className: \"fc-event-danger\"\n      }, {\n        id: 1000,\n        title: 'Repeating Event',\n        description: 'Lorem ipsum dolor sit amet, labore',\n        start: YM + '-16T16:00:00'\n      }, {\n        title: 'Conference',\n        start: YESTERDAY,\n        end: TOMORROW,\n        description: 'Lorem ipsum dolor eius mod tempor labore',\n        className: \"fc-event-primary\"\n      }, {\n        title: 'Meeting',\n        start: TODAY + 'T10:30:00',\n        end: TODAY + 'T12:30:00',\n        description: 'Lorem ipsum dolor eiu idunt ut labore'\n      }, {\n        title: 'Lunch',\n        start: TODAY + 'T12:00:00',\n        className: \"fc-event-info\",\n        description: 'Lorem ipsum dolor sit amet, ut labore'\n      }, {\n        title: 'Meeting',\n        start: TODAY + 'T14:30:00',\n        className: \"fc-event-warning\",\n        description: 'Lorem ipsum conse ctetur adipi scing'\n      }, {\n        title: 'Happy Hour',\n        start: TODAY + 'T17:30:00',\n        className: \"fc-event-info\",\n        description: 'Lorem ipsum dolor sit amet, conse ctetur'\n      }, {\n        title: 'Dinner',\n        start: TOMORROW + 'T05:00:00',\n        className: \"fc-event-solid-danger fc-event-light\",\n        description: 'Lorem ipsum dolor sit ctetur adipi scing'\n      }, {\n        title: 'Birthday Party',\n        start: TOMORROW + 'T07:00:00',\n        className: \"fc-event-primary\",\n        description: 'Lorem ipsum dolor sit amet, scing'\n      }, {\n        title: 'Click for Google',\n        url: 'http://google.com/',\n        start: YM + '-28',\n        className: \"fc-event-solid-info fc-event-light\",\n        description: 'Lorem ipsum dolor sit amet, labore'\n      }]\n    });\n    calendar.render();\n  }; // Daterangepicker\n\n\n  var initDaterangepicker = function initDaterangepicker() {\n    if (!document.querySelector('#kt_dashboard_daterangepicker')) {\n      return;\n    }\n\n    var picker = $('#kt_dashboard_daterangepicker');\n    var start = moment();\n    var end = moment();\n\n    function cb(start, end, label) {\n      var title = '';\n      var range = '';\n\n      if (end - start < 100 || label == 'Today') {\n        title = 'Today:';\n        range = start.format('MMM D');\n      } else if (label == 'Yesterday') {\n        title = 'Yesterday:';\n        range = start.format('MMM D');\n      } else {\n        range = start.format('MMM D') + ' - ' + end.format('MMM D');\n      }\n\n      $('#kt_dashboard_daterangepicker_date').html(range);\n      $('#kt_dashboard_daterangepicker_title').html(title);\n    }\n\n    picker.daterangepicker({\n      direction: KTUtil.isRTL(),\n      startDate: start,\n      endDate: end,\n      opens: 'left',\n      applyClass: 'btn-primary',\n      cancelClass: 'btn-light-primary',\n      ranges: {\n        'Today': [moment(), moment()],\n        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],\n        'Last 7 Days': [moment().subtract(6, 'days'), moment()],\n        'Last 30 Days': [moment().subtract(29, 'days'), moment()],\n        'This Month': [moment().startOf('month'), moment().endOf('month')],\n        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]\n      }\n    }, cb);\n    cb(start, end, '');\n  }; // Dark mode toggler\n\n\n  var initDarkModeToggle = function initDarkModeToggle() {\n    var toggle = document.querySelector('#kt_user_menu_dark_mode_toggle');\n\n    if (toggle) {\n      toggle.addEventListener('click', function () {\n        window.location.href = this.getAttribute('data-kt-url');\n      });\n    }\n  }; // Public methods\n\n\n  return {\n    init: function init() {\n      // Daterangepicker\n      initDaterangepicker(); // Dark Mode\n\n      initDarkModeToggle(); // Statistics widgets\n\n      initStatisticsWidget3();\n      initStatisticsWidget4(); // Charts widgets\n\n      initChartsWidget1();\n      initChartsWidget2();\n      initChartsWidget3();\n      initChartsWidget4();\n      initChartsWidget5();\n      initChartsWidget6();\n      initChartsWidget7();\n      initChartsWidget8(); // Mixed widgets\n\n      initMixedWidget2();\n      initMixedWidget3();\n      initMixedWidget4();\n      initMixedWidget5();\n      initMixedWidget6();\n      initMixedWidget7();\n      initMixedWidget10();\n      initMixedWidget12();\n      initMixedWidget13();\n      initMixedWidget14();\n      initMixedWidget16(); // Feeds\n\n      initFeedWidget1();\n      initFeedsWidget4(); // Follow button\n\n      initUserFollowButton(); // Calendar\n\n      initCalendarWidget1();\n    }\n  };\n}(); // Webpack support\n\n\nif (true) {\n  module.exports = KTWidgets;\n} // On document ready\n\n\nKTUtil.onDOMContentLoaded(function () {\n  KTWidgets.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS93aWRnZXRzLmpzLmpzIiwibWFwcGluZ3MiOiJDQUVBOztBQUNBLElBQUlBLFNBQVMsR0FBRyxZQUFZO0FBQ3hCO0FBQ0EsTUFBSUMscUJBQXFCLEdBQUcsU0FBeEJBLHFCQUF3QixHQUFXO0FBQ25DLFFBQUlDLE1BQU0sR0FBR0MsUUFBUSxDQUFDQyxnQkFBVCxDQUEwQiw0QkFBMUIsQ0FBYjtBQUVBLE9BQUdDLEtBQUgsQ0FBU0MsSUFBVCxDQUFjSixNQUFkLEVBQXNCSyxHQUF0QixDQUEwQixVQUFTQyxPQUFULEVBQWtCO0FBQ3hDLFVBQUlDLE1BQU0sR0FBR0MsUUFBUSxDQUFDQyxNQUFNLENBQUNDLEdBQVAsQ0FBV0osT0FBWCxFQUFvQixRQUFwQixDQUFELENBQXJCOztBQUVBLFVBQUssQ0FBQ0EsT0FBTixFQUFnQjtBQUNaO0FBQ0g7O0FBRUQsVUFBSUssS0FBSyxHQUFHTCxPQUFPLENBQUNNLFlBQVIsQ0FBcUIscUJBQXJCLENBQVo7QUFFQSxVQUFJQyxVQUFVLEdBQUdKLE1BQU0sQ0FBQ0ssbUJBQVAsQ0FBMkIsVUFBVSxVQUFyQyxDQUFqQjtBQUNBLFVBQUlDLFNBQVMsR0FBR04sTUFBTSxDQUFDSyxtQkFBUCxDQUEyQixVQUFVSCxLQUFyQyxDQUFoQjtBQUNBLFVBQUlLLFVBQVUsR0FBR1AsTUFBTSxDQUFDSyxtQkFBUCxDQUEyQixnQkFBZ0JILEtBQTNDLENBQWpCO0FBRUEsVUFBSU0sT0FBTyxHQUFHO0FBQ1ZDLFFBQUFBLE1BQU0sRUFBRSxDQUFDO0FBQ0xDLFVBQUFBLElBQUksRUFBRSxZQUREO0FBRUxDLFVBQUFBLElBQUksRUFBRSxDQUFDLEVBQUQsRUFBSyxFQUFMLEVBQVMsRUFBVCxFQUFhLEVBQWIsRUFBaUIsRUFBakI7QUFGRCxTQUFELENBREU7QUFLVkMsUUFBQUEsS0FBSyxFQUFFO0FBQ0hDLFVBQUFBLFVBQVUsRUFBRSxTQURUO0FBRUhDLFVBQUFBLElBQUksRUFBRSxNQUZIO0FBR0ho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QUFNLENBQUMrTixrQkFBUCxDQUEwQixZQUFXO0FBQ2pDMU8sRUFBQUEsU0FBUyxDQUFDdU8sSUFBVjtBQUNILENBRkQiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS93aWRnZXRzLmpzPzY4YzIiXSwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcblxyXG4vLyBDbGFzcyBkZWZpbml0aW9uXHJcbnZhciBLVFdpZGdldHMgPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAvLyBTdGF0aXN0aWNzIHdpZGdldHNcclxuICAgIHZhciBpbml0U3RhdGlzdGljc1dpZGdldDMgPSBmdW5jdGlvbigpIHtcclxuICAgICAgICB2YXIgY2hhcnRzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnLnN0YXRpc3RpY3Mtd2lkZ2V0LTMtY2hhcnQnKTtcclxuXHJcbiAgICAgICAgW10uc2xpY2UuY2FsbChjaGFydHMpLm1hcChmdW5jdGlvbihlbGVtZW50KSB7XHJcbiAgICAgICAgICAgIHZhciBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcblxyXG4gICAgICAgICAgICBpZiAoICFlbGVtZW50ICkge1xyXG4gICAgICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgICAgICB2YXIgY29sb3IgPSBlbGVtZW50LmdldEF0dHJpYnV0ZSgnZGF0YS1rdC1jaGFydC1jb2xvcicpO1xyXG5cclxuICAgICAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy0nICsgJ2dyYXktODAwJyk7XHJcbiAgICAgICAgICAgIHZhciBiYXNlQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy0nICsgY29sb3IpO1xyXG4gICAgICAgICAgICB2YXIgbGlnaHRDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWxpZ2h0LScgKyBjb2xvciApO1xyXG5cclxuICAgICAgICAgICAgdmFyIG9wdGlvbnMgPSB7XHJcbiAgICAgICAgICAgICAgICBzZXJpZXM6IFt7XHJcbiAgICAgICAgICAgICAgICAgICAgbmFtZTogJ05ldCBQcm9maXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIGRhdGE6IFszMCwgNDUsIDMyLCA3MCwgNDBdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhcmVhJyxcclxuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IGhlaWdodCxcclxuICAgICAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB6b29tOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBzcGFya2xpbmU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBwbG90T3B0aW9uczoge30sXHJcbiAgICAgICAgICAgICAgICBsZWdlbmQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGRhdGFMYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IDAuM1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0cm9rZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGN1cnZlOiAnc21vb3RoJyxcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgICAgIHdpZHRoOiAzLFxyXG4gICAgICAgICAgICAgICAgICAgIGNvbG9yczogW2Jhc2VDb2xvcl1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB4YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNhdGVnb3JpZXM6IFsnRmViJywgJ01hcicsICdBcHInLCAnTWF5JywgJ0p1bicsICdKdWwnXSxcclxuICAgICAgICAgICAgICAgICAgICBheGlzQm9yZGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc1RpY2tzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGNyb3NzaGFpcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHBvc2l0aW9uOiAnZnJvbnQnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiAnI0U0RTZFRicsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhc2hBcnJheTogM1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IHRydWUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogdW5kZWZpbmVkLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBvZmZzZXRZOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbWluOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIG1heDogODAsXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24odmFsKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gXCIkXCIgKyB2YWwgKyBcIiB0aG91c2FuZHNcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGNvbG9yczogW2Jhc2VDb2xvcl0sXHJcbiAgICAgICAgICAgICAgICBtYXJrZXJzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBbYmFzZUNvbG9yXSxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2VDb2xvcjogW2xpZ2h0Q29sb3JdLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoOiAzXHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH07XHJcblxyXG4gICAgICAgICAgICB2YXIgY2hhcnQgPSBuZXcgQXBleENoYXJ0cyhlbGVtZW50LCBvcHRpb25zKTtcclxuICAgICAgICAgICAgY2hhcnQucmVuZGVyKCk7XHJcbiAgICAgICAgfSk7ICAgICAgICBcclxuICAgIH1cclxuXHJcbiAgICB2YXIgaW5pdFN0YXRpc3RpY3NXaWRnZXQ0ID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgdmFyIGNoYXJ0cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJy5zdGF0aXN0aWNzLXdpZGdldC00LWNoYXJ0Jyk7XHJcblxyXG4gICAgICAgIFtdLnNsaWNlLmNhbGwoY2hhcnRzKS5tYXAoZnVuY3Rpb24oZWxlbWVudCkge1xyXG4gICAgICAgICAgICB2YXIgaGVpZ2h0ID0gcGFyc2VJbnQoS1RVdGlsLmNzcyhlbGVtZW50LCAnaGVpZ2h0JykpO1xyXG5cclxuICAgICAgICAgICAgaWYgKCAhZWxlbWVudCApIHtcclxuICAgICAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICAgICAgfVxyXG5cclxuICAgICAgICAgICAgdmFyIGNvbG9yID0gZWxlbWVudC5nZXRBdHRyaWJ1dGUoJ2RhdGEta3QtY2hhcnQtY29sb3InKTtcclxuXHJcbiAgICAgICAgICAgIHZhciBsYWJlbENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArICdncmF5LTgwMCcpO1xyXG4gICAgICAgICAgICB2YXIgYmFzZUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArIGNvbG9yKTtcclxuICAgICAgICAgICAgdmFyIGxpZ2h0Q29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1saWdodC0nICsgY29sb3IgKTtcclxuXHJcbiAgICAgICAgICAgIHZhciBvcHRpb25zID0ge1xyXG4gICAgICAgICAgICAgICAgc2VyaWVzOiBbe1xyXG4gICAgICAgICAgICAgICAgICAgIG5hbWU6ICdOZXQgUHJvZml0JyxcclxuICAgICAgICAgICAgICAgICAgICBkYXRhOiBbNDAsIDQwLCAzMCwgMzAsIDM1LCAzNSwgNTBdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhcmVhJyxcclxuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IGhlaWdodCxcclxuICAgICAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB6b29tOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBzcGFya2xpbmU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBwbG90T3B0aW9uczoge30sXHJcbiAgICAgICAgICAgICAgICBsZWdlbmQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGRhdGFMYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IDAuM1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0cm9rZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGN1cnZlOiAnc21vb3RoJyxcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgICAgIHdpZHRoOiAzLFxyXG4gICAgICAgICAgICAgICAgICAgIGNvbG9yczogW2Jhc2VDb2xvcl1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB4YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNhdGVnb3JpZXM6IFsnRmViJywgJ01hcicsICdBcHInLCAnTWF5JywgJ0p1bicsICdKdWwnLCAnQXVnJ10sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBjcm9zc2hhaXJzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogJyNFNEU2RUYnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkYXNoQXJyYXk6IDNcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgdG9vbHRpcDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb3JtYXR0ZXI6IHVuZGVmaW5lZCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgb2Zmc2V0WTogMCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB5YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG1pbjogMCxcclxuICAgICAgICAgICAgICAgICAgICBtYXg6IDYwLFxyXG4gICAgICAgICAgICAgICAgICAgIGxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yczogbGFiZWxDb2xvcixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBzdGF0ZXM6IHtcclxuICAgICAgICAgICAgICAgICAgICBub3JtYWw6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBob3Zlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGFjdGl2ZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBhbGxvd011bHRpcGxlRGF0YVBvaW50c1NlbGVjdGlvbjogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgeToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb3JtYXR0ZXI6IGZ1bmN0aW9uKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgdGhvdXNhbmRzXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFtiYXNlQ29sb3JdLFxyXG4gICAgICAgICAgICAgICAgbWFya2Vyczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNvbG9yczogW2Jhc2VDb2xvcl0sXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlQ29sb3I6IFtsaWdodENvbG9yXSxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2VXaWR0aDogM1xyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9O1xyXG5cclxuICAgICAgICAgICAgdmFyIGNoYXJ0ID0gbmV3IEFwZXhDaGFydHMoZWxlbWVudCwgb3B0aW9ucyk7XHJcbiAgICAgICAgICAgIGNoYXJ0LnJlbmRlcigpO1xyXG4gICAgICAgIH0pOyAgICAgICAgXHJcbiAgICB9XHJcblxyXG4gICAgLy8gQ2hhcnRzIHdpZGdldHNcclxuICAgIHZhciBpbml0Q2hhcnRzV2lkZ2V0MSA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBlbGVtZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJrdF9jaGFydHNfd2lkZ2V0XzFfY2hhcnRcIik7XHJcblxyXG4gICAgICAgIHZhciBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcbiAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTUwMCcpO1xyXG4gICAgICAgIHZhciBib3JkZXJDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktMjAwJyk7XHJcbiAgICAgICAgdmFyIGJhc2VDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLXByaW1hcnknKTtcclxuICAgICAgICB2YXIgc2Vjb25kYXJ5Q29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTMwMCcpO1xyXG5cclxuICAgICAgICBpZiAoIWVsZW1lbnQpIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgdmFyIG9wdGlvbnMgPSB7XHJcbiAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgIG5hbWU6ICdOZXQgUHJvZml0JyxcclxuICAgICAgICAgICAgICAgIGRhdGE6IFs0NCwgNTUsIDU3LCA1NiwgNjEsIDU4XVxyXG4gICAgICAgICAgICB9LCB7XHJcbiAgICAgICAgICAgICAgICBuYW1lOiAnUmV2ZW51ZScsXHJcbiAgICAgICAgICAgICAgICBkYXRhOiBbNzYsIDg1LCAxMDEsIDk4LCA4NywgMTA1XVxyXG4gICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgY2hhcnQ6IHtcclxuICAgICAgICAgICAgICAgIGZvbnRGYW1pbHk6ICdpbmhlcml0JyxcclxuICAgICAgICAgICAgICAgIHR5cGU6ICdiYXInLFxyXG4gICAgICAgICAgICAgICAgaGVpZ2h0OiBoZWlnaHQsXHJcbiAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgcGxvdE9wdGlvbnM6IHtcclxuICAgICAgICAgICAgICAgIGJhcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIGhvcml6b250YWw6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIGNvbHVtbldpZHRoOiBbJzMwJSddLFxyXG4gICAgICAgICAgICAgICAgICAgIGJvcmRlclJhZGl1czogNFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgbGVnZW5kOiB7XHJcbiAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBkYXRhTGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgIHNob3c6IHRydWUsXHJcbiAgICAgICAgICAgICAgICB3aWR0aDogMixcclxuICAgICAgICAgICAgICAgIGNvbG9yczogWyd0cmFuc3BhcmVudCddXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHhheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJ10sXHJcbiAgICAgICAgICAgICAgICBheGlzQm9yZGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgYXhpc1RpY2tzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgIG9wYWNpdHk6IDFcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgc3RhdGVzOiB7XHJcbiAgICAgICAgICAgICAgICBub3JtYWw6IHtcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBob3Zlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGFjdGl2ZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgdG9vbHRpcDoge1xyXG4gICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeToge1xyXG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gXCIkXCIgKyB2YWwgKyBcIiB0aG91c2FuZHNcIlxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgY29sb3JzOiBbYmFzZUNvbG9yLCBzZWNvbmRhcnlDb2xvcl0sXHJcbiAgICAgICAgICAgIGdyaWQ6IHtcclxuICAgICAgICAgICAgICAgIGJvcmRlckNvbG9yOiBib3JkZXJDb2xvcixcclxuICAgICAgICAgICAgICAgIHN0cm9rZURhc2hBcnJheTogNCxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbGluZXM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH07XHJcblxyXG4gICAgICAgIHZhciBjaGFydCA9IG5ldyBBcGV4Q2hhcnRzKGVsZW1lbnQsIG9wdGlvbnMpO1xyXG4gICAgICAgIGNoYXJ0LnJlbmRlcigpOyAgICAgIFxyXG4gICAgfVxyXG5cclxuICAgIHZhciBpbml0Q2hhcnRzV2lkZ2V0MiA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBlbGVtZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJrdF9jaGFydHNfd2lkZ2V0XzJfY2hhcnRcIik7XHJcblxyXG4gICAgICAgIHZhciBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcbiAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTUwMCcpO1xyXG4gICAgICAgIHZhciBib3JkZXJDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktMjAwJyk7XHJcbiAgICAgICAgdmFyIGJhc2VDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLXdhcm5pbmcnKTtcclxuICAgICAgICB2YXIgc2Vjb25kYXJ5Q29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTMwMCcpO1xyXG5cclxuICAgICAgICBpZiAoIWVsZW1lbnQpIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgdmFyIG9wdGlvbnMgPSB7XHJcbiAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgIG5hbWU6ICdOZXQgUHJvZml0JyxcclxuICAgICAgICAgICAgICAgIGRhdGE6IFs0NCwgNTUsIDU3LCA1NiwgNjEsIDU4XVxyXG4gICAgICAgICAgICB9LCB7XHJcbiAgICAgICAgICAgICAgICBuYW1lOiAnUmV2ZW51ZScsXHJcbiAgICAgICAgICAgICAgICBkYXRhOiBbNzYsIDg1LCAxMDEsIDk4LCA4NywgMTA1XVxyXG4gICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgY2hhcnQ6IHtcclxuICAgICAgICAgICAgICAgIGZvbnRGYW1pbHk6ICdpbmhlcml0JyxcclxuICAgICAgICAgICAgICAgIHR5cGU6ICdiYXInLFxyXG4gICAgICAgICAgICAgICAgaGVpZ2h0OiBoZWlnaHQsXHJcbiAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgcGxvdE9wdGlvbnM6IHtcclxuICAgICAgICAgICAgICAgIGJhcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIGhvcml6b250YWw6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIGNvbHVtbldpZHRoOiBbJzMwJSddLFxyXG4gICAgICAgICAgICAgICAgICAgIGJvcmRlclJhZGl1czogNFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgbGVnZW5kOiB7XHJcbiAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBkYXRhTGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgIHNob3c6IHRydWUsXHJcbiAgICAgICAgICAgICAgICB3aWR0aDogMixcclxuICAgICAgICAgICAgICAgIGNvbG9yczogWyd0cmFuc3BhcmVudCddXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHhheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJ10sXHJcbiAgICAgICAgICAgICAgICBheGlzQm9yZGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgYXhpc1RpY2tzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgIG9wYWNpdHk6IDFcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgc3RhdGVzOiB7XHJcbiAgICAgICAgICAgICAgICBub3JtYWw6IHtcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBob3Zlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGFjdGl2ZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgdG9vbHRpcDoge1xyXG4gICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeToge1xyXG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gXCIkXCIgKyB2YWwgKyBcIiB0aG91c2FuZHNcIlxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgY29sb3JzOiBbYmFzZUNvbG9yLCBzZWNvbmRhcnlDb2xvcl0sXHJcbiAgICAgICAgICAgIGdyaWQ6IHtcclxuICAgICAgICAgICAgICAgIGJvcmRlckNvbG9yOiBib3JkZXJDb2xvcixcclxuICAgICAgICAgICAgICAgIHN0cm9rZURhc2hBcnJheTogNCxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbGluZXM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH07XHJcblxyXG4gICAgICAgIHZhciBjaGFydCA9IG5ldyBBcGV4Q2hhcnRzKGVsZW1lbnQsIG9wdGlvbnMpO1xyXG4gICAgICAgIGNoYXJ0LnJlbmRlcigpOyAgIFxyXG4gICAgfVxyXG5cclxuICAgIHZhciBpbml0Q2hhcnRzV2lkZ2V0MyA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBlbGVtZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJrdF9jaGFydHNfd2lkZ2V0XzNfY2hhcnRcIik7XHJcblxyXG4gICAgICAgIHZhciBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcbiAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTUwMCcpO1xyXG4gICAgICAgIHZhciBib3JkZXJDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktMjAwJyk7XHJcbiAgICAgICAgdmFyIGJhc2VDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWluZm8nKTtcclxuICAgICAgICB2YXIgbGlnaHRDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWxpZ2h0LWluZm8nKTtcclxuXHJcbiAgICAgICAgaWYgKCFlbGVtZW50KSB7XHJcbiAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIHZhciBvcHRpb25zID0ge1xyXG4gICAgICAgICAgICBzZXJpZXM6IFt7XHJcbiAgICAgICAgICAgICAgICBuYW1lOiAnTmV0IFByb2ZpdCcsXHJcbiAgICAgICAgICAgICAgICBkYXRhOiBbMzAsIDQwLCA0MCwgOTAsIDkwLCA3MCwgNzBdXHJcbiAgICAgICAgICAgIH1dLFxyXG4gICAgICAgICAgICBjaGFydDoge1xyXG4gICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgdHlwZTogJ2FyZWEnLFxyXG4gICAgICAgICAgICAgICAgaGVpZ2h0OiAzNTAsXHJcbiAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgcGxvdE9wdGlvbnM6IHtcclxuXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGxlZ2VuZDoge1xyXG4gICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgZGF0YUxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgZW5hYmxlZDogZmFsc2VcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgZmlsbDoge1xyXG4gICAgICAgICAgICAgICAgdHlwZTogJ3NvbGlkJyxcclxuICAgICAgICAgICAgICAgIG9wYWNpdHk6IDFcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICBjdXJ2ZTogJ3Ntb290aCcsXHJcbiAgICAgICAgICAgICAgICBzaG93OiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgd2lkdGg6IDMsXHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFtiYXNlQ29sb3JdXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHhheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJywgJ0F1ZyddLFxyXG4gICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGNyb3NzaGFpcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3I6IGJhc2VDb2xvcixcclxuICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGRhc2hBcnJheTogM1xyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICBmb3JtYXR0ZXI6IHVuZGVmaW5lZCxcclxuICAgICAgICAgICAgICAgICAgICBvZmZzZXRZOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgbm9ybWFsOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgaG92ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBhY3RpdmU6IHtcclxuICAgICAgICAgICAgICAgICAgICBhbGxvd011bHRpcGxlRGF0YVBvaW50c1NlbGVjdGlvbjogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHk6IHtcclxuICAgICAgICAgICAgICAgICAgICBmb3JtYXR0ZXI6IGZ1bmN0aW9uICh2YWwpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgdGhvdXNhbmRzXCJcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGNvbG9yczogW2xpZ2h0Q29sb3JdLFxyXG4gICAgICAgICAgICBncmlkOiB7XHJcbiAgICAgICAgICAgICAgICBib3JkZXJDb2xvcjogYm9yZGVyQ29sb3IsXHJcbiAgICAgICAgICAgICAgICBzdHJva2VEYXNoQXJyYXk6IDQsXHJcbiAgICAgICAgICAgICAgICB5YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGxpbmVzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IHRydWVcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIG1hcmtlcnM6IHtcclxuICAgICAgICAgICAgICAgIHN0cm9rZUNvbG9yOiBiYXNlQ29sb3IsXHJcbiAgICAgICAgICAgICAgICBzdHJva2VXaWR0aDogM1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfTtcclxuXHJcbiAgICAgICAgdmFyIGNoYXJ0ID0gbmV3IEFwZXhDaGFydHMoZWxlbWVudCwgb3B0aW9ucyk7XHJcbiAgICAgICAgY2hhcnQucmVuZGVyKCk7ICAgXHJcbiAgICB9XHJcblxyXG4gICAgdmFyIGluaXRDaGFydHNXaWRnZXQ0ID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgdmFyIGVsZW1lbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImt0X2NoYXJ0c193aWRnZXRfNF9jaGFydFwiKTtcclxuXHJcbiAgICAgICAgdmFyIGhlaWdodCA9IHBhcnNlSW50KEtUVXRpbC5jc3MoZWxlbWVudCwgJ2hlaWdodCcpKTtcclxuICAgICAgICB2YXIgbGFiZWxDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktNTAwJyk7XHJcbiAgICAgICAgdmFyIGJvcmRlckNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtZ3JheS0yMDAnKTtcclxuXHJcbiAgICAgICAgdmFyIGJhc2VDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLXN1Y2Nlc3MnKTtcclxuICAgICAgICB2YXIgYmFzZUxpZ2h0Q29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1saWdodC1zdWNjZXNzJyk7XHJcbiAgICAgICAgdmFyIHNlY29uZGFyeUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtd2FybmluZycpO1xyXG4gICAgICAgIHZhciBzZWNvbmRhcnlMaWdodENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtbGlnaHQtd2FybmluZycpO1xyXG5cclxuICAgICAgICBpZiAoIWVsZW1lbnQpIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgdmFyIG9wdGlvbnMgPSB7XHJcbiAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgIG5hbWU6ICdOZXQgUHJvZml0JyxcclxuICAgICAgICAgICAgICAgIGRhdGE6IFs2MCwgNTAsIDgwLCA0MCwgMTAwLCA2MF1cclxuICAgICAgICAgICAgfSwge1xyXG4gICAgICAgICAgICAgICAgbmFtZTogJ1JldmVudWUnLFxyXG4gICAgICAgICAgICAgICAgZGF0YTogWzcwLCA2MCwgMTEwLCA0MCwgNTAsIDcwXVxyXG4gICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgY2hhcnQ6IHtcclxuICAgICAgICAgICAgICAgIGZvbnRGYW1pbHk6ICdpbmhlcml0JyxcclxuICAgICAgICAgICAgICAgIHR5cGU6ICdhcmVhJyxcclxuICAgICAgICAgICAgICAgIGhlaWdodDogMzUwLFxyXG4gICAgICAgICAgICAgICAgdG9vbGJhcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHBsb3RPcHRpb25zOiB7fSxcclxuICAgICAgICAgICAgbGVnZW5kOiB7XHJcbiAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBkYXRhTGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBmaWxsOiB7XHJcbiAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgb3BhY2l0eTogMVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgIGN1cnZlOiAnc21vb3RoJ1xyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICB4YXhpczoge1xyXG4gICAgICAgICAgICAgICAgY2F0ZWdvcmllczogWydGZWInLCAnTWFyJywgJ0FwcicsICdNYXknLCAnSnVuJywgJ0p1bCddLFxyXG4gICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGNyb3NzaGFpcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3I6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBkYXNoQXJyYXk6IDNcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgdG9vbHRpcDoge1xyXG4gICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IHRydWUsXHJcbiAgICAgICAgICAgICAgICAgICAgZm9ybWF0dGVyOiB1bmRlZmluZWQsXHJcbiAgICAgICAgICAgICAgICAgICAgb2Zmc2V0WTogMCxcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICB5YXhpczoge1xyXG4gICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBzdGF0ZXM6IHtcclxuICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgYWxsb3dNdWx0aXBsZURhdGFQb2ludHNTZWxlY3Rpb246IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9ybWF0dGVyOiBmdW5jdGlvbiAodmFsKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiBcIiRcIiArIHZhbCArIFwiIHRob3VzYW5kc1wiXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBjb2xvcnM6IFtiYXNlQ29sb3IsIHNlY29uZGFyeUNvbG9yXSxcclxuICAgICAgICAgICAgZ3JpZDoge1xyXG4gICAgICAgICAgICAgICAgYm9yZGVyQ29sb3I6IGJvcmRlckNvbG9yLFxyXG4gICAgICAgICAgICAgICAgc3Ryb2tlRGFzaEFycmF5OiA0LFxyXG4gICAgICAgICAgICAgICAgeWF4aXM6IHtcclxuICAgICAgICAgICAgICAgICAgICBsaW5lczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiB0cnVlXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBtYXJrZXJzOiB7XHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFtiYXNlTGlnaHRDb2xvciwgc2Vjb25kYXJ5TGlnaHRDb2xvcl0sXHJcbiAgICAgICAgICAgICAgICBzdHJva2VDb2xvcjogW2Jhc2VMaWdodENvbG9yLCBzZWNvbmRhcnlMaWdodENvbG9yXSxcclxuICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoOiAzXHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9O1xyXG5cclxuICAgICAgICB2YXIgY2hhcnQgPSBuZXcgQXBleENoYXJ0cyhlbGVtZW50LCBvcHRpb25zKTtcclxuICAgICAgICBjaGFydC5yZW5kZXIoKTsgICBcclxuICAgIH1cclxuXHJcbiAgICB2YXIgaW5pdENoYXJ0c1dpZGdldDUgPSBmdW5jdGlvbigpIHtcclxuICAgICAgICB2YXIgZWxlbWVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwia3RfY2hhcnRzX3dpZGdldF81X2NoYXJ0XCIpO1xyXG5cclxuICAgICAgICB2YXIgaGVpZ2h0ID0gcGFyc2VJbnQoS1RVdGlsLmNzcyhlbGVtZW50LCAnaGVpZ2h0JykpO1xyXG4gICAgICAgIHZhciBsYWJlbENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtZ3JheS01MDAnKTtcclxuICAgICAgICB2YXIgYm9yZGVyQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTIwMCcpO1xyXG5cclxuICAgICAgICB2YXIgYmFzZUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtcHJpbWFyeScpO1xyXG4gICAgICAgIHZhciBzZWNvbmRhcnlDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWluZm8nKTtcclxuXHJcbiAgICAgICAgaWYgKCFlbGVtZW50KSB7XHJcbiAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIHZhciBvcHRpb25zID0ge1xyXG4gICAgICAgICAgICBzZXJpZXM6IFt7XHJcbiAgICAgICAgICAgICAgICBuYW1lOiAnTmV0IFByb2ZpdCcsXHJcbiAgICAgICAgICAgICAgICBkYXRhOiBbNDAsIDUwLCA2NSwgNzAsIDUwLCAzMF1cclxuICAgICAgICAgICAgfSwge1xyXG4gICAgICAgICAgICAgICAgbmFtZTogJ1JldmVudWUnLFxyXG4gICAgICAgICAgICAgICAgZGF0YTogWy0zMCwgLTQwLCAtNTUsIC02MCwgLTQwLCAtMjBdXHJcbiAgICAgICAgICAgIH1dLFxyXG4gICAgICAgICAgICBjaGFydDoge1xyXG4gICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgdHlwZTogJ2JhcicsXHJcbiAgICAgICAgICAgICAgICBzdGFja2VkOiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgaGVpZ2h0OiAzNTAsXHJcbiAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgcGxvdE9wdGlvbnM6IHtcclxuICAgICAgICAgICAgICAgIGJhcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIGhvcml6b250YWw6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIGNvbHVtbldpZHRoOiBbJzEyJSddLFxyXG4gICAgICAgICAgICAgICAgICAgIGJvcmRlclJhZGl1czogNFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgbGVnZW5kOiB7XHJcbiAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBkYXRhTGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgIHNob3c6IHRydWUsXHJcbiAgICAgICAgICAgICAgICB3aWR0aDogMixcclxuICAgICAgICAgICAgICAgIGNvbG9yczogWyd0cmFuc3BhcmVudCddXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHhheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJ10sXHJcbiAgICAgICAgICAgICAgICBheGlzQm9yZGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgYXhpc1RpY2tzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBtaW46IC04MCxcclxuICAgICAgICAgICAgICAgIG1heDogODAsXHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgIG9wYWNpdHk6IDFcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgc3RhdGVzOiB7XHJcbiAgICAgICAgICAgICAgICBub3JtYWw6IHtcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBob3Zlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGFjdGl2ZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgdG9vbHRpcDoge1xyXG4gICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeToge1xyXG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gXCIkXCIgKyB2YWwgKyBcIiB0aG91c2FuZHNcIlxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgY29sb3JzOiBbYmFzZUNvbG9yLCBzZWNvbmRhcnlDb2xvcl0sXHJcbiAgICAgICAgICAgIGdyaWQ6IHtcclxuICAgICAgICAgICAgICAgIGJvcmRlckNvbG9yOiBib3JkZXJDb2xvcixcclxuICAgICAgICAgICAgICAgIHN0cm9rZURhc2hBcnJheTogNCxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbGluZXM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH07XHJcblxyXG4gICAgICAgIHZhciBjaGFydCA9IG5ldyBBcGV4Q2hhcnRzKGVsZW1lbnQsIG9wdGlvbnMpO1xyXG4gICAgICAgIGNoYXJ0LnJlbmRlcigpOyAgIFxyXG4gICAgfVxyXG5cclxuICAgIHZhciBpbml0Q2hhcnRzV2lkZ2V0NiA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBlbGVtZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJrdF9jaGFydHNfd2lkZ2V0XzZfY2hhcnRcIik7XHJcblxyXG4gICAgICAgIHZhciBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcbiAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTUwMCcpO1xyXG4gICAgICAgIHZhciBib3JkZXJDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktMjAwJyk7XHJcblxyXG4gICAgICAgIHZhciBiYXNlQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1wcmltYXJ5Jyk7XHJcbiAgICAgICAgdmFyIGJhc2VMaWdodENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtbGlnaHQtcHJpbWFyeScpO1xyXG4gICAgICAgIHZhciBzZWNvbmRhcnlDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWluZm8nKTsgICAgICAgIFxyXG5cclxuICAgICAgICBpZiAoIWVsZW1lbnQpIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgdmFyIG9wdGlvbnMgPSB7XHJcbiAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgIG5hbWU6ICdOZXQgUHJvZml0JyxcclxuICAgICAgICAgICAgICAgIHR5cGU6ICdiYXInLFxyXG4gICAgICAgICAgICAgICAgc3RhY2tlZDogdHJ1ZSxcclxuICAgICAgICAgICAgICAgIGRhdGE6IFs0MCwgNTAsIDY1LCA3MCwgNTAsIDMwXVxyXG4gICAgICAgICAgICB9LCB7XHJcbiAgICAgICAgICAgICAgICBuYW1lOiAnUmV2ZW51ZScsXHJcbiAgICAgICAgICAgICAgICB0eXBlOiAnYmFyJyxcclxuICAgICAgICAgICAgICAgIHN0YWNrZWQ6IHRydWUsXHJcbiAgICAgICAgICAgICAgICBkYXRhOiBbMjAsIDIwLCAyNSwgMzAsIDMwLCAyMF1cclxuICAgICAgICAgICAgfSwge1xyXG4gICAgICAgICAgICAgICAgbmFtZTogJ0V4cGVuc2VzJyxcclxuICAgICAgICAgICAgICAgIHR5cGU6ICdhcmVhJyxcclxuICAgICAgICAgICAgICAgIGRhdGE6IFs1MCwgODAsIDYwLCA5MCwgNTAsIDcwXVxyXG4gICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgY2hhcnQ6IHtcclxuICAgICAgICAgICAgICAgIGZvbnRGYW1pbHk6ICdpbmhlcml0JyxcclxuICAgICAgICAgICAgICAgIHN0YWNrZWQ6IHRydWUsXHJcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IDM1MCxcclxuICAgICAgICAgICAgICAgIHRvb2xiYXI6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBwbG90T3B0aW9uczoge1xyXG4gICAgICAgICAgICAgICAgYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc3RhY2tlZDogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICBob3Jpem9udGFsOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBib3JkZXJSYWRpdXM6IDQsXHJcbiAgICAgICAgICAgICAgICAgICAgY29sdW1uV2lkdGg6IFsnMTIlJ11cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGxlZ2VuZDoge1xyXG4gICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgZGF0YUxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgZW5hYmxlZDogZmFsc2VcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICBjdXJ2ZTogJ3Ntb290aCcsXHJcbiAgICAgICAgICAgICAgICBzaG93OiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgd2lkdGg6IDIsXHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFsndHJhbnNwYXJlbnQnXVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICB4YXhpczoge1xyXG4gICAgICAgICAgICAgICAgY2F0ZWdvcmllczogWydGZWInLCAnTWFyJywgJ0FwcicsICdNYXknLCAnSnVuJywgJ0p1bCddLFxyXG4gICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICB5YXhpczoge1xyXG4gICAgICAgICAgICAgICAgbWF4OiAxMjAsXHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgIG9wYWNpdHk6IDFcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgc3RhdGVzOiB7XHJcbiAgICAgICAgICAgICAgICBub3JtYWw6IHtcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBob3Zlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGFjdGl2ZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgdG9vbHRpcDoge1xyXG4gICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeToge1xyXG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gXCIkXCIgKyB2YWwgKyBcIiB0aG91c2FuZHNcIlxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgY29sb3JzOiBbYmFzZUNvbG9yLCBzZWNvbmRhcnlDb2xvciwgYmFzZUxpZ2h0Q29sb3JdLFxyXG4gICAgICAgICAgICBncmlkOiB7XHJcbiAgICAgICAgICAgICAgICBib3JkZXJDb2xvcjogYm9yZGVyQ29sb3IsXHJcbiAgICAgICAgICAgICAgICBzdHJva2VEYXNoQXJyYXk6IDQsXHJcbiAgICAgICAgICAgICAgICB5YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGxpbmVzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IHRydWVcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgcGFkZGluZzoge1xyXG4gICAgICAgICAgICAgICAgICAgIHRvcDogMCxcclxuICAgICAgICAgICAgICAgICAgICByaWdodDogMCxcclxuICAgICAgICAgICAgICAgICAgICBib3R0b206IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgbGVmdDogMFxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfTtcclxuXHJcbiAgICAgICAgdmFyIGNoYXJ0ID0gbmV3IEFwZXhDaGFydHMoZWxlbWVudCwgb3B0aW9ucyk7XHJcbiAgICAgICAgY2hhcnQucmVuZGVyKCk7ICAgXHJcbiAgICB9XHJcblxyXG4gICAgdmFyIGluaXRDaGFydHNXaWRnZXQ3ID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgdmFyIGVsZW1lbnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImt0X2NoYXJ0c193aWRnZXRfN19jaGFydFwiKTtcclxuXHJcbiAgICAgICAgdmFyIGhlaWdodCA9IHBhcnNlSW50KEtUVXRpbC5jc3MoZWxlbWVudCwgJ2hlaWdodCcpKTtcclxuXHJcbiAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTUwMCcpO1xyXG4gICAgICAgIHZhciBib3JkZXJDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktMjAwJyk7XHJcbiAgICAgICAgdmFyIHN0cm9rZUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtZ3JheS0zMDAnKTtcclxuXHJcbiAgICAgICAgdmFyIGNvbG9yMSA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLXdhcm5pbmcnKTtcclxuICAgICAgICB2YXIgY29sb3IxTGlnaHQgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1saWdodC13YXJuaW5nJyk7XHJcblxyXG4gICAgICAgIHZhciBjb2xvcjIgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1zdWNjZXNzJyk7XHJcbiAgICAgICAgdmFyIGNvbG9yMkxpZ2h0ID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtbGlnaHQtc3VjY2VzcycpO1xyXG5cclxuICAgICAgICB2YXIgY29sb3IzID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtcHJpbWFyeScpOyAgXHJcbiAgICAgICAgdmFyIGNvbG9yM0xpZ2h0ID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtbGlnaHQtcHJpbWFyeScpOyAgXHJcblxyXG4gICAgICAgIGlmICghZWxlbWVudCkge1xyXG4gICAgICAgICAgICByZXR1cm47XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgc2VyaWVzOiBbe1xyXG4gICAgICAgICAgICAgICAgbmFtZTogJ05ldCBQcm9maXQnLFxyXG4gICAgICAgICAgICAgICAgZGF0YTogWzMwLCAzMCwgNTAsIDUwLCAzNSwgMzVdXHJcbiAgICAgICAgICAgIH0sIHtcclxuICAgICAgICAgICAgICAgIG5hbWU6ICdSZXZlbnVlJyxcclxuICAgICAgICAgICAgICAgIGRhdGE6IFs1NSwgMjAsIDIwLCAyMCwgNzAsIDcwXVxyXG4gICAgICAgICAgICB9LCB7XHJcbiAgICAgICAgICAgICAgICBuYW1lOiAnRXhwZW5zZXMnLFxyXG4gICAgICAgICAgICAgICAgZGF0YTogWzYwLCA2MCwgNDAsIDQwLCAzMCwgMzBdXHJcbiAgICAgICAgICAgIH1dLFxyXG4gICAgICAgICAgICBjaGFydDoge1xyXG4gICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgdHlwZTogJ2FyZWEnLFxyXG4gICAgICAgICAgICAgICAgaGVpZ2h0OiBoZWlnaHQsXHJcbiAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB6b29tOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogZmFsc2VcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBzcGFya2xpbmU6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiB0cnVlXHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHBsb3RPcHRpb25zOiB7fSxcclxuICAgICAgICAgICAgbGVnZW5kOiB7XHJcbiAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBkYXRhTGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBmaWxsOiB7XHJcbiAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgb3BhY2l0eTogMVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgIGN1cnZlOiAnc21vb3RoJyxcclxuICAgICAgICAgICAgICAgIHNob3c6IHRydWUsXHJcbiAgICAgICAgICAgICAgICB3aWR0aDogMixcclxuICAgICAgICAgICAgICAgIGNvbG9yczogW2NvbG9yMSwgJ3RyYW5zcGFyZW50JywgJ3RyYW5zcGFyZW50J11cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgeGF4aXM6IHtcclxuICAgICAgICAgICAgICAgIGNhdGVnb3JpZXM6IFsnRmViJywgJ01hcicsICdBcHInLCAnTWF5JywgJ0p1bicsICdKdWwnXSxcclxuICAgICAgICAgICAgICAgIGF4aXNCb3JkZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBheGlzVGlja3M6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yczogbGFiZWxDb2xvcixcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBjcm9zc2hhaXJzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgcG9zaXRpb246ICdmcm9udCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBzdHJva2VDb2xvcixcclxuICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGRhc2hBcnJheTogM1xyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICBmb3JtYXR0ZXI6IHVuZGVmaW5lZCxcclxuICAgICAgICAgICAgICAgICAgICBvZmZzZXRZOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgbm9ybWFsOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgaG92ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBhY3RpdmU6IHtcclxuICAgICAgICAgICAgICAgICAgICBhbGxvd011bHRpcGxlRGF0YVBvaW50c1NlbGVjdGlvbjogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHk6IHtcclxuICAgICAgICAgICAgICAgICAgICBmb3JtYXR0ZXI6IGZ1bmN0aW9uICh2YWwpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgdGhvdXNhbmRzXCJcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGNvbG9yczogW2NvbG9yMSwgY29sb3IyLCBjb2xvcjNdLFxyXG4gICAgICAgICAgICBncmlkOiB7XHJcbiAgICAgICAgICAgICAgICBib3JkZXJDb2xvcjogYm9yZGVyQ29sb3IsXHJcbiAgICAgICAgICAgICAgICBzdHJva2VEYXNoQXJyYXk6IDQsXHJcbiAgICAgICAgICAgICAgICB5YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGxpbmVzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IHRydWVcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIG1hcmtlcnM6IHtcclxuICAgICAgICAgICAgICAgIGNvbG9yczogW2NvbG9yMUxpZ2h0LCBjb2xvcjJMaWdodCwgY29sb3IzTGlnaHRdLFxyXG4gICAgICAgICAgICAgICAgc3Ryb2tlQ29sb3I6IFtjb2xvcjEsIGNvbG9yMiwgY29sb3IzXSxcclxuICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoOiAzXHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9O1xyXG5cclxuICAgICAgICB2YXIgY2hhcnQgPSBuZXcgQXBleENoYXJ0cyhlbGVtZW50LCBvcHRpb25zKTtcclxuICAgICAgICBjaGFydC5yZW5kZXIoKTsgICBcclxuICAgIH1cclxuXHJcbiAgICB2YXIgaW5pdENoYXJ0c1dpZGdldDggPSBmdW5jdGlvbigpIHtcclxuICAgICAgICB2YXIgZWxlbWVudCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKFwia3RfY2hhcnRzX3dpZGdldF84X2NoYXJ0XCIpO1xyXG5cclxuICAgICAgICB2YXIgaGVpZ2h0ID0gcGFyc2VJbnQoS1RVdGlsLmNzcyhlbGVtZW50LCAnaGVpZ2h0JykpO1xyXG5cclxuICAgICAgICB2YXIgbGFiZWxDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktNTAwJyk7XHJcbiAgICAgICAgdmFyIGJvcmRlckNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtZ3JheS0yMDAnKTtcclxuICAgICAgICB2YXIgc3Ryb2tlQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTMwMCcpO1xyXG5cclxuICAgICAgICB2YXIgY29sb3IxID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtd2FybmluZycpO1xyXG4gICAgICAgIHZhciBjb2xvcjFMaWdodCA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWxpZ2h0LXdhcm5pbmcnKTtcclxuXHJcbiAgICAgICAgdmFyIGNvbG9yMiA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLXN1Y2Nlc3MnKTtcclxuICAgICAgICB2YXIgY29sb3IyTGlnaHQgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1saWdodC1zdWNjZXNzJyk7XHJcblxyXG4gICAgICAgIHZhciBjb2xvcjMgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1wcmltYXJ5Jyk7ICBcclxuICAgICAgICB2YXIgY29sb3IzTGlnaHQgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1saWdodC1wcmltYXJ5Jyk7ICBcclxuXHJcbiAgICAgICAgaWYgKCFlbGVtZW50KSB7XHJcbiAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIHZhciBvcHRpb25zID0ge1xyXG4gICAgICAgICAgICBzZXJpZXM6IFt7XHJcbiAgICAgICAgICAgICAgICBuYW1lOiAnTmV0IFByb2ZpdCcsXHJcbiAgICAgICAgICAgICAgICBkYXRhOiBbMzAsIDMwLCA1MCwgNTAsIDM1LCAzNV1cclxuICAgICAgICAgICAgfSwge1xyXG4gICAgICAgICAgICAgICAgbmFtZTogJ1JldmVudWUnLFxyXG4gICAgICAgICAgICAgICAgZGF0YTogWzU1LCAyMCwgMjAsIDIwLCA3MCwgNzBdXHJcbiAgICAgICAgICAgIH0sIHtcclxuICAgICAgICAgICAgICAgIG5hbWU6ICdFeHBlbnNlcycsXHJcbiAgICAgICAgICAgICAgICBkYXRhOiBbNjAsIDYwLCA0MCwgNDAsIDMwLCAzMF1cclxuICAgICAgICAgICAgfSxdLFxyXG4gICAgICAgICAgICBjaGFydDoge1xyXG4gICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgdHlwZTogJ2FyZWEnLFxyXG4gICAgICAgICAgICAgICAgaGVpZ2h0OiBoZWlnaHQsXHJcbiAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB6b29tOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogZmFsc2VcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBzcGFya2xpbmU6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiB0cnVlXHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHBsb3RPcHRpb25zOiB7fSxcclxuICAgICAgICAgICAgbGVnZW5kOiB7XHJcbiAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBkYXRhTGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBmaWxsOiB7XHJcbiAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgb3BhY2l0eTogMVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgIGN1cnZlOiAnc21vb3RoJyxcclxuICAgICAgICAgICAgICAgIHNob3c6IHRydWUsXHJcbiAgICAgICAgICAgICAgICB3aWR0aDogMixcclxuICAgICAgICAgICAgICAgIGNvbG9yczogW2NvbG9yMSwgY29sb3IyLCBjb2xvcjNdXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHhheGlzOiB7XHJcbiAgICAgICAgICAgICAgICB4OiAwLFxyXG4gICAgICAgICAgICAgICAgb2Zmc2V0WDogMCxcclxuICAgICAgICAgICAgICAgIG9mZnNldFk6IDAsXHJcbiAgICAgICAgICAgICAgICBwYWRkaW5nOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbGVmdDogMCxcclxuICAgICAgICAgICAgICAgICAgICByaWdodDogMCxcclxuICAgICAgICAgICAgICAgICAgICB0b3A6IDAsXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgY2F0ZWdvcmllczogWydGZWInLCAnTWFyJywgJ0FwcicsICdNYXknLCAnSnVuJywgJ0p1bCddLFxyXG4gICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGNyb3NzaGFpcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3I6IHN0cm9rZUNvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZGFzaEFycmF5OiAzXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogdW5kZWZpbmVkLFxyXG4gICAgICAgICAgICAgICAgICAgIG9mZnNldFk6IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgeWF4aXM6IHtcclxuICAgICAgICAgICAgICAgIHk6IDAsXHJcbiAgICAgICAgICAgICAgICBvZmZzZXRYOiAwLFxyXG4gICAgICAgICAgICAgICAgb2Zmc2V0WTogMCxcclxuICAgICAgICAgICAgICAgIHBhZGRpbmc6IHtcclxuICAgICAgICAgICAgICAgICAgICBsZWZ0OiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIHJpZ2h0OiAwXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBzdGF0ZXM6IHtcclxuICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgYWxsb3dNdWx0aXBsZURhdGFQb2ludHNTZWxlY3Rpb246IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9ybWF0dGVyOiBmdW5jdGlvbiAodmFsKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiBcIiRcIiArIHZhbCArIFwiIHRob3VzYW5kc1wiXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBjb2xvcnM6IFtjb2xvcjFMaWdodCwgY29sb3IyTGlnaHQsIGNvbG9yM0xpZ2h0XSxcclxuICAgICAgICAgICAgZ3JpZDoge1xyXG4gICAgICAgICAgICAgICAgYm9yZGVyQ29sb3I6IGJvcmRlckNvbG9yLFxyXG4gICAgICAgICAgICAgICAgc3Ryb2tlRGFzaEFycmF5OiA0LFxyXG4gICAgICAgICAgICAgICAgcGFkZGluZzoge1xyXG4gICAgICAgICAgICAgICAgICAgIHRvcDogMCxcclxuICAgICAgICAgICAgICAgICAgICBib3R0b206IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgbGVmdDogMCxcclxuICAgICAgICAgICAgICAgICAgICByaWdodDogMFxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBtYXJrZXJzOiB7XHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFtjb2xvcjEsIGNvbG9yMiwgY29sb3IzXSxcclxuICAgICAgICAgICAgICAgIHN0cm9rZUNvbG9yOiBbY29sb3IxLCBjb2xvcjIsIGNvbG9yM10sXHJcbiAgICAgICAgICAgICAgICBzdHJva2VXaWR0aDogM1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfTtcclxuXHJcbiAgICAgICAgdmFyIGNoYXJ0ID0gbmV3IEFwZXhDaGFydHMoZWxlbWVudCwgb3B0aW9ucyk7XHJcbiAgICAgICAgY2hhcnQucmVuZGVyKCk7ICAgXHJcbiAgICB9XHJcblxyXG4gICAgLy8gTWl4ZWQgd2lkZ2V0c1xyXG4gICAgdmFyIGluaXRNaXhlZFdpZGdldDIgPSBmdW5jdGlvbigpIHtcclxuICAgICAgICB2YXIgY2hhcnRzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnLm1peGVkLXdpZGdldC0yLWNoYXJ0Jyk7XHJcblxyXG4gICAgICAgIHZhciBjb2xvcjtcclxuICAgICAgICB2YXIgc3Ryb2tlQ29sb3I7XHJcbiAgICAgICAgdmFyIGhlaWdodDtcclxuICAgICAgICB2YXIgbGFiZWxDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktNTAwJyk7XHJcbiAgICAgICAgdmFyIGJvcmRlckNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtZ3JheS0yMDAnKTtcclxuICAgICAgICB2YXIgb3B0aW9ucztcclxuICAgICAgICB2YXIgY2hhcnQ7XHJcblxyXG4gICAgICAgIFtdLnNsaWNlLmNhbGwoY2hhcnRzKS5tYXAoZnVuY3Rpb24oZWxlbWVudCkge1xyXG4gICAgICAgICAgICBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcbiAgICAgICAgICAgIGNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArIGVsZW1lbnQuZ2V0QXR0cmlidXRlKFwiZGF0YS1rdC1jb2xvclwiKSk7XHJcbiAgICAgICAgICAgIHN0cm9rZUNvbG9yID0gS1RVdGlsLmNvbG9yRGFya2VuKGNvbG9yLCAxNSk7XHJcblxyXG4gICAgICAgICAgICBvcHRpb25zID0ge1xyXG4gICAgICAgICAgICAgICAgc2VyaWVzOiBbe1xyXG4gICAgICAgICAgICAgICAgICAgIG5hbWU6ICdOZXQgUHJvZml0JyxcclxuICAgICAgICAgICAgICAgICAgICBkYXRhOiBbMzAsIDQ1LCAzMiwgNzAsIDQwLCA0MCwgNDBdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhcmVhJyxcclxuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IGhlaWdodCxcclxuICAgICAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB6b29tOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBzcGFya2xpbmU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgZHJvcFNoYWRvdzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBlbmFibGVkT25TZXJpZXM6IHVuZGVmaW5lZCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgdG9wOiA1LFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBsZWZ0OiAwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBibHVyOiAzLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogc3Ryb2tlQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IDAuNVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBwbG90T3B0aW9uczoge30sXHJcbiAgICAgICAgICAgICAgICBsZWdlbmQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGRhdGFMYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IDBcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICBjdXJ2ZTogJ3Ntb290aCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMyxcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtzdHJva2VDb2xvcl1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB4YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNhdGVnb3JpZXM6IFsnRmViJywgJ01hcicsICdBcHInLCAnTWF5JywgJ0p1bicsICdKdWwnLCAnQXVnJ10sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBjcm9zc2hhaXJzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogYm9yZGVyQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhc2hBcnJheTogM1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbWluOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIG1heDogODAsXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnLFxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgeToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb3JtYXR0ZXI6IGZ1bmN0aW9uICh2YWwpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiBcIiRcIiArIHZhbCArIFwiIHRob3VzYW5kc1wiXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIG1hcmtlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFsndHJhbnNwYXJlbnQnXSxcclxuICAgICAgICAgICAgICAgIG1hcmtlcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtjb2xvcl0sXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlQ29sb3I6IFtzdHJva2VDb2xvcl0sXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg6IDNcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfTtcclxuXHJcbiAgICAgICAgICAgIGNoYXJ0ID0gbmV3IEFwZXhDaGFydHMoZWxlbWVudCwgb3B0aW9ucyk7XHJcbiAgICAgICAgICAgIGNoYXJ0LnJlbmRlcigpOyAgXHJcbiAgICAgICAgfSk7ICAgICAgICBcclxuICAgIH1cclxuXHJcbiAgICB2YXIgaW5pdE1peGVkV2lkZ2V0MyA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBjaGFydHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcubWl4ZWQtd2lkZ2V0LTMtY2hhcnQnKTtcclxuXHJcbiAgICAgICAgW10uc2xpY2UuY2FsbChjaGFydHMpLm1hcChmdW5jdGlvbihlbGVtZW50KSB7XHJcbiAgICAgICAgICAgIHZhciBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcblxyXG4gICAgICAgICAgICBpZiAoICFlbGVtZW50ICkge1xyXG4gICAgICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgICAgICB2YXIgY29sb3IgPSBlbGVtZW50LmdldEF0dHJpYnV0ZSgnZGF0YS1rdC1jaGFydC1jb2xvcicpO1xyXG5cclxuICAgICAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy0nICsgJ2dyYXktODAwJyk7XHJcbiAgICAgICAgICAgIHZhciBzdHJva2VDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLScgKyAnZ3JheS0zMDAnKTtcclxuICAgICAgICAgICAgdmFyIGJhc2VDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLScgKyBjb2xvcik7XHJcbiAgICAgICAgICAgIHZhciBsaWdodENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtbGlnaHQtJyArIGNvbG9yICk7XHJcblxyXG4gICAgICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgICAgICBuYW1lOiAnTmV0IFByb2ZpdCcsXHJcbiAgICAgICAgICAgICAgICAgICAgZGF0YTogWzMwLCAyNSwgNDUsIDMwLCA1NSwgNTVdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhcmVhJyxcclxuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IGhlaWdodCxcclxuICAgICAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB6b29tOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBzcGFya2xpbmU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBwbG90T3B0aW9uczoge30sXHJcbiAgICAgICAgICAgICAgICBsZWdlbmQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGRhdGFMYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IDFcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICBjdXJ2ZTogJ3Ntb290aCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMyxcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtiYXNlQ29sb3JdXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeGF4aXM6IHtcclxuICAgICAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJ10sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBjcm9zc2hhaXJzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogc3Ryb2tlQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhc2hBcnJheTogM1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IHRydWUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogdW5kZWZpbmVkLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBvZmZzZXRZOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbWluOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIG1heDogNjAsXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgdGhvdXNhbmRzXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFtsaWdodENvbG9yXSxcclxuICAgICAgICAgICAgICAgIG1hcmtlcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtsaWdodENvbG9yXSxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2VDb2xvcjogW2Jhc2VDb2xvcl0sXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg6IDNcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfTtcclxuXHJcbiAgICAgICAgICAgIHZhciBjaGFydCA9IG5ldyBBcGV4Q2hhcnRzKGVsZW1lbnQsIG9wdGlvbnMpO1xyXG4gICAgICAgICAgICBjaGFydC5yZW5kZXIoKTtcclxuICAgICAgICB9KTsgICAgICAgIFxyXG4gICAgfVxyXG5cclxuICAgIHZhciBpbml0TWl4ZWRXaWRnZXQ0ID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgdmFyIGNoYXJ0cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJy5taXhlZC13aWRnZXQtNC1jaGFydCcpO1xyXG5cclxuICAgICAgICBbXS5zbGljZS5jYWxsKGNoYXJ0cykubWFwKGZ1bmN0aW9uKGVsZW1lbnQpIHtcclxuICAgICAgICAgICAgdmFyIGhlaWdodCA9IHBhcnNlSW50KEtUVXRpbC5jc3MoZWxlbWVudCwgJ2hlaWdodCcpKTtcclxuXHJcbiAgICAgICAgICAgIGlmICggIWVsZW1lbnQgKSB7XHJcbiAgICAgICAgICAgICAgICByZXR1cm47XHJcbiAgICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgICAgIHZhciBjb2xvciA9IGVsZW1lbnQuZ2V0QXR0cmlidXRlKCdkYXRhLWt0LWNoYXJ0LWNvbG9yJyk7XHJcblxyXG4gICAgICAgICAgICB2YXIgYmFzZUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArIGNvbG9yKTtcclxuICAgICAgICAgICAgdmFyIGxpZ2h0Q29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1saWdodC0nICsgY29sb3IgKTtcclxuICAgICAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy0nICsgJ2dyYXktNzAwJyk7XHJcblxyXG4gICAgICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgICAgIHNlcmllczogWzc0XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIGhlaWdodDogaGVpZ2h0LFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdyYWRpYWxCYXInLFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHBsb3RPcHRpb25zOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgcmFkaWFsQmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGhvbGxvdzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgbWFyZ2luOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZTogXCI2NSVcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBkYXRhTGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaG93T246IFwiYWx3YXlzXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBuYW1lOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFdlaWdodDogJzcwMCdcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiBcIjMwcHhcIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250V2VpZ2h0OiAnNzAwJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvZmZzZXRZOiAxMixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaG93OiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gdmFsICsgJyUnO1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgdHJhY2s6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6IGxpZ2h0Q29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJva2VXaWR0aDogJzEwMCUnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgY29sb3JzOiBbYmFzZUNvbG9yXSxcclxuICAgICAgICAgICAgICAgIHN0cm9rZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGxpbmVDYXA6IFwicm91bmRcIixcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBsYWJlbHM6IFtcIlByb2dyZXNzXCJdXHJcbiAgICAgICAgICAgIH07XHJcblxyXG4gICAgICAgICAgICB2YXIgY2hhcnQgPSBuZXcgQXBleENoYXJ0cyhlbGVtZW50LCBvcHRpb25zKTtcclxuICAgICAgICAgICAgY2hhcnQucmVuZGVyKCk7XHJcbiAgICAgICAgfSk7ICAgICAgICBcclxuICAgIH1cclxuXHJcbiAgICB2YXIgaW5pdE1peGVkV2lkZ2V0NSA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBjaGFydHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcubWl4ZWQtd2lkZ2V0LTUtY2hhcnQnKTtcclxuXHJcbiAgICAgICAgW10uc2xpY2UuY2FsbChjaGFydHMpLm1hcChmdW5jdGlvbihlbGVtZW50KSB7XHJcbiAgICAgICAgICAgIHZhciBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcblxyXG4gICAgICAgICAgICBpZiAoICFlbGVtZW50ICkge1xyXG4gICAgICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgICAgICB9XHJcblxyXG4gICAgICAgICAgICB2YXIgY29sb3IgPSBlbGVtZW50LmdldEF0dHJpYnV0ZSgnZGF0YS1rdC1jaGFydC1jb2xvcicpO1xyXG5cclxuICAgICAgICAgICAgdmFyIGxhYmVsQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy0nICsgJ2dyYXktODAwJyk7XHJcbiAgICAgICAgICAgIHZhciBzdHJva2VDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLScgKyAnZ3JheS0zMDAnKTtcclxuICAgICAgICAgICAgdmFyIGJhc2VDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLScgKyBjb2xvcik7XHJcbiAgICAgICAgICAgIHZhciBsaWdodENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtbGlnaHQtJyArIGNvbG9yICk7XHJcblxyXG4gICAgICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgICAgICBuYW1lOiAnTmV0IFByb2ZpdCcsXHJcbiAgICAgICAgICAgICAgICAgICAgZGF0YTogWzMwLCAzMCwgNjAsIDI1LCAyNSwgNDBdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhcmVhJyxcclxuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IGhlaWdodCxcclxuICAgICAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB6b29tOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBzcGFya2xpbmU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBwbG90T3B0aW9uczoge30sXHJcbiAgICAgICAgICAgICAgICBsZWdlbmQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGRhdGFMYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IDFcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBmaWxsMToge1xyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdncmFkaWVudCcsXHJcbiAgICAgICAgICAgICAgICAgICAgb3BhY2l0eTogMSxcclxuICAgICAgICAgICAgICAgICAgICBncmFkaWVudDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiBcInZlcnRpY2FsXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNoYWRlSW50ZW5zaXR5OiAwLjUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGdyYWRpZW50VG9Db2xvcnM6IHVuZGVmaW5lZCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgaW52ZXJzZUNvbG9yczogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgb3BhY2l0eUZyb206IDEsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIG9wYWNpdHlUbzogMC4zNzUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHN0b3BzOiBbMjUsIDUwLCAxMDBdLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvclN0b3BzOiBbXVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICBjdXJ2ZTogJ3Ntb290aCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMyxcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtiYXNlQ29sb3JdXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeGF4aXM6IHtcclxuICAgICAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJ10sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBjcm9zc2hhaXJzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogc3Ryb2tlQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhc2hBcnJheTogM1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IHRydWUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogdW5kZWZpbmVkLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBvZmZzZXRZOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbWluOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIG1heDogNjUsXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgdGhvdXNhbmRzXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFtsaWdodENvbG9yXSxcclxuICAgICAgICAgICAgICAgIG1hcmtlcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtsaWdodENvbG9yXSxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2VDb2xvcjogW2Jhc2VDb2xvcl0sXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg6IDNcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfTtcclxuXHJcbiAgICAgICAgICAgIHZhciBjaGFydCA9IG5ldyBBcGV4Q2hhcnRzKGVsZW1lbnQsIG9wdGlvbnMpO1xyXG4gICAgICAgICAgICBjaGFydC5yZW5kZXIoKTtcclxuICAgICAgICB9KTsgICAgICAgIFxyXG4gICAgfVxyXG5cclxuICAgIHZhciBpbml0TWl4ZWRXaWRnZXQ2ID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgdmFyIGNoYXJ0cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJy5taXhlZC13aWRnZXQtNi1jaGFydCcpO1xyXG5cclxuICAgICAgICBbXS5zbGljZS5jYWxsKGNoYXJ0cykubWFwKGZ1bmN0aW9uKGVsZW1lbnQpIHtcclxuICAgICAgICAgICAgdmFyIGhlaWdodCA9IHBhcnNlSW50KEtUVXRpbC5jc3MoZWxlbWVudCwgJ2hlaWdodCcpKTtcclxuXHJcbiAgICAgICAgICAgIGlmICggIWVsZW1lbnQgKSB7XHJcbiAgICAgICAgICAgICAgICByZXR1cm47XHJcbiAgICAgICAgICAgIH1cclxuXHJcbiAgICAgICAgICAgIHZhciBjb2xvciA9IGVsZW1lbnQuZ2V0QXR0cmlidXRlKCdkYXRhLWt0LWNoYXJ0LWNvbG9yJyk7XHJcblxyXG4gICAgICAgICAgICB2YXIgbGFiZWxDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLScgKyAnZ3JheS04MDAnKTtcclxuICAgICAgICAgICAgdmFyIHN0cm9rZUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArICdncmF5LTMwMCcpO1xyXG4gICAgICAgICAgICB2YXIgYmFzZUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArIGNvbG9yKTtcclxuICAgICAgICAgICAgdmFyIGxpZ2h0Q29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1saWdodC0nICsgY29sb3IgKTtcclxuXHJcbiAgICAgICAgICAgIHZhciBvcHRpb25zID0ge1xyXG4gICAgICAgICAgICAgICAgc2VyaWVzOiBbe1xyXG4gICAgICAgICAgICAgICAgICAgIG5hbWU6ICdOZXQgUHJvZml0JyxcclxuICAgICAgICAgICAgICAgICAgICBkYXRhOiBbMzAsIDI1LCA0NSwgMzAsIDU1LCA1NV1cclxuICAgICAgICAgICAgICAgIH1dLFxyXG4gICAgICAgICAgICAgICAgY2hhcnQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBmb250RmFtaWx5OiAnaW5oZXJpdCcsXHJcbiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2FyZWEnLFxyXG4gICAgICAgICAgICAgICAgICAgIGhlaWdodDogaGVpZ2h0LFxyXG4gICAgICAgICAgICAgICAgICAgIHRvb2xiYXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHpvb206IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHNwYXJrbGluZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiB0cnVlXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHBsb3RPcHRpb25zOiB7fSxcclxuICAgICAgICAgICAgICAgIGxlZ2VuZDoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgZGF0YUxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgZmlsbDoge1xyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdzb2xpZCcsXHJcbiAgICAgICAgICAgICAgICAgICAgb3BhY2l0eTogMVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0cm9rZToge1xyXG4gICAgICAgICAgICAgICAgICAgIGN1cnZlOiAnc21vb3RoJyxcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiB0cnVlLFxyXG4gICAgICAgICAgICAgICAgICAgIHdpZHRoOiAzLFxyXG4gICAgICAgICAgICAgICAgICAgIGNvbG9yczogW2Jhc2VDb2xvcl1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB4YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNhdGVnb3JpZXM6IFsnRmViJywgJ01hcicsICdBcHInLCAnTWF5JywgJ0p1bicsICdKdWwnXSxcclxuICAgICAgICAgICAgICAgICAgICBheGlzQm9yZGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc1RpY2tzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGNyb3NzaGFpcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHBvc2l0aW9uOiAnZnJvbnQnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yOiBzdHJva2VDb2xvcixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZGFzaEFycmF5OiAzXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9ybWF0dGVyOiB1bmRlZmluZWQsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIG9mZnNldFk6IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeWF4aXM6IHtcclxuICAgICAgICAgICAgICAgICAgICBtaW46IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgbWF4OiA2MCxcclxuICAgICAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgc3RhdGVzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbm9ybWFsOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgaG92ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBhY3RpdmU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgYWxsb3dNdWx0aXBsZURhdGFQb2ludHNTZWxlY3Rpb246IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgdG9vbHRpcDoge1xyXG4gICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHk6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9ybWF0dGVyOiBmdW5jdGlvbiAodmFsKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gXCIkXCIgKyB2YWwgKyBcIiB0aG91c2FuZHNcIlxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGNvbG9yczogW2xpZ2h0Q29sb3JdLFxyXG4gICAgICAgICAgICAgICAgbWFya2Vyczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNvbG9yczogW2xpZ2h0Q29sb3JdLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0cm9rZUNvbG9yOiBbYmFzZUNvbG9yXSxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2VXaWR0aDogM1xyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9O1xyXG5cclxuICAgICAgICAgICAgdmFyIGNoYXJ0ID0gbmV3IEFwZXhDaGFydHMoZWxlbWVudCwgb3B0aW9ucyk7XHJcbiAgICAgICAgICAgIGNoYXJ0LnJlbmRlcigpO1xyXG4gICAgICAgIH0pOyAgICAgICAgXHJcbiAgICB9XHJcblxyXG4gICAgdmFyIGluaXRNaXhlZFdpZGdldDcgPSBmdW5jdGlvbigpIHtcclxuICAgICAgICB2YXIgY2hhcnRzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnLm1peGVkLXdpZGdldC03LWNoYXJ0Jyk7XHJcblxyXG4gICAgICAgIFtdLnNsaWNlLmNhbGwoY2hhcnRzKS5tYXAoZnVuY3Rpb24oZWxlbWVudCkge1xyXG4gICAgICAgICAgICB2YXIgaGVpZ2h0ID0gcGFyc2VJbnQoS1RVdGlsLmNzcyhlbGVtZW50LCAnaGVpZ2h0JykpO1xyXG5cclxuICAgICAgICAgICAgaWYgKCAhZWxlbWVudCApIHtcclxuICAgICAgICAgICAgICAgIHJldHVybjtcclxuICAgICAgICAgICAgfVxyXG5cclxuICAgICAgICAgICAgdmFyIGNvbG9yID0gZWxlbWVudC5nZXRBdHRyaWJ1dGUoJ2RhdGEta3QtY2hhcnQtY29sb3InKTtcclxuXHJcbiAgICAgICAgICAgIHZhciBsYWJlbENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArICdncmF5LTgwMCcpO1xyXG4gICAgICAgICAgICB2YXIgc3Ryb2tlQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy0nICsgJ2dyYXktMzAwJyk7XHJcbiAgICAgICAgICAgIHZhciBiYXNlQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy0nICsgY29sb3IpO1xyXG4gICAgICAgICAgICB2YXIgbGlnaHRDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWxpZ2h0LScgKyBjb2xvcik7XHJcblxyXG4gICAgICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgICAgICBuYW1lOiAnTmV0IFByb2ZpdCcsXHJcbiAgICAgICAgICAgICAgICAgICAgZGF0YTogWzE1LCAyNSwgMTUsIDQwLCAyMCwgNTBdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhcmVhJyxcclxuICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IGhlaWdodCxcclxuICAgICAgICAgICAgICAgICAgICB0b29sYmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB6b29tOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBzcGFya2xpbmU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBwbG90T3B0aW9uczoge30sXHJcbiAgICAgICAgICAgICAgICBsZWdlbmQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGRhdGFMYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGZpbGw6IHtcclxuICAgICAgICAgICAgICAgICAgICB0eXBlOiAnc29saWQnLFxyXG4gICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IDFcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICBjdXJ2ZTogJ3Ntb290aCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMyxcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtiYXNlQ29sb3JdXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeGF4aXM6IHtcclxuICAgICAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJ10sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBjcm9zc2hhaXJzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogc3Ryb2tlQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhc2hBcnJheTogM1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IHRydWUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogdW5kZWZpbmVkLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBvZmZzZXRZOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbWluOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIG1heDogNjAsXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgdGhvdXNhbmRzXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFtsaWdodENvbG9yXSxcclxuICAgICAgICAgICAgICAgIG1hcmtlcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtsaWdodENvbG9yXSxcclxuICAgICAgICAgICAgICAgICAgICBzdHJva2VDb2xvcjogW2Jhc2VDb2xvcl0sXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg6IDNcclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfTtcclxuXHJcbiAgICAgICAgICAgIHZhciBjaGFydCA9IG5ldyBBcGV4Q2hhcnRzKGVsZW1lbnQsIG9wdGlvbnMpO1xyXG4gICAgICAgICAgICBjaGFydC5yZW5kZXIoKTtcclxuICAgICAgICB9KTsgICAgICAgIFxyXG4gICAgfVxyXG5cclxuICAgIHZhciBpbml0TWl4ZWRXaWRnZXQxMCA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBjaGFydHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcubWl4ZWQtd2lkZ2V0LTEwLWNoYXJ0Jyk7XHJcblxyXG4gICAgICAgIHZhciBjb2xvcjtcclxuICAgICAgICB2YXIgaGVpZ2h0O1xyXG4gICAgICAgIHZhciBsYWJlbENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtZ3JheS01MDAnKTtcclxuICAgICAgICB2YXIgYm9yZGVyQ29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTIwMCcpO1xyXG4gICAgICAgIHZhciBiYXNlTGlnaHRDb2xvcjtcclxuICAgICAgICB2YXIgc2Vjb25kYXJ5Q29sb3IgPSBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1ncmF5LTMwMCcpO1xyXG4gICAgICAgIHZhciBiYXNlQ29sb3I7XHJcbiAgICAgICAgdmFyIG9wdGlvbnM7XHJcbiAgICAgICAgdmFyIGNoYXJ0O1xyXG5cclxuICAgICAgICBbXS5zbGljZS5jYWxsKGNoYXJ0cykubWFwKGZ1bmN0aW9uKGVsZW1lbnQpIHtcclxuICAgICAgICAgICAgY29sb3IgPSBlbGVtZW50LmdldEF0dHJpYnV0ZShcImRhdGEta3QtY29sb3JcIik7XHJcbiAgICAgICAgICAgIGhlaWdodCA9IHBhcnNlSW50KEtUVXRpbC5jc3MoZWxlbWVudCwgJ2hlaWdodCcpKTtcclxuICAgICAgICAgICAgYmFzZUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArIGNvbG9yKTtcclxuXHJcbiAgICAgICAgICAgIG9wdGlvbnMgPSB7XHJcbiAgICAgICAgICAgICAgICBzZXJpZXM6IFt7XHJcbiAgICAgICAgICAgICAgICAgICAgbmFtZTogJ05ldCBQcm9maXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIGRhdGE6IFs1MCwgNjAsIDcwLCA4MCwgNjAsIDUwLCA3MCwgNjBdXHJcbiAgICAgICAgICAgICAgICB9LCB7XHJcbiAgICAgICAgICAgICAgICAgICAgbmFtZTogJ1JldmVudWUnLFxyXG4gICAgICAgICAgICAgICAgICAgIGRhdGE6IFs1MCwgNjAsIDcwLCA4MCwgNjAsIDUwLCA3MCwgNjBdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdiYXInLFxyXG4gICAgICAgICAgICAgICAgICAgIGhlaWdodDogaGVpZ2h0LFxyXG4gICAgICAgICAgICAgICAgICAgIHRvb2xiYXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgcGxvdE9wdGlvbnM6IHtcclxuICAgICAgICAgICAgICAgICAgICBiYXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgaG9yaXpvbnRhbDogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGNvbHVtbldpZHRoOiBbJzUwJSddLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBib3JkZXJSYWRpdXM6IDRcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGxlZ2VuZDoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgZGF0YUxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMixcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFsndHJhbnNwYXJlbnQnXVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHhheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgY2F0ZWdvcmllczogWydGZWInLCAnTWFyJywgJ0FwcicsICdNYXknLCAnSnVuJywgJ0p1bCcsICdBdWcnLCAnU2VwJ10sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IGxhYmVsQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeWF4aXM6IHtcclxuICAgICAgICAgICAgICAgICAgICB5OiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIG9mZnNldFg6IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgb2Zmc2V0WTogMCxcclxuICAgICAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yczogbGFiZWxDb2xvcixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBmaWxsOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ3NvbGlkJ1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgcmV2ZW51ZVwiXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgY29sb3JzOiBbYmFzZUNvbG9yLCBzZWNvbmRhcnlDb2xvcl0sXHJcbiAgICAgICAgICAgICAgICBncmlkOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgcGFkZGluZzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0b3A6IDEwXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBib3JkZXJDb2xvcjogYm9yZGVyQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlRGFzaEFycmF5OiA0LFxyXG4gICAgICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGxpbmVzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaG93OiB0cnVlXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH07XHJcblxyXG4gICAgICAgICAgICBjaGFydCA9IG5ldyBBcGV4Q2hhcnRzKGVsZW1lbnQsIG9wdGlvbnMpO1xyXG4gICAgICAgICAgICBjaGFydC5yZW5kZXIoKTsgICAgICBcclxuICAgICAgICB9KTsgICAgICAgIFxyXG4gICAgfVxyXG5cclxuICAgIHZhciBpbml0TWl4ZWRXaWRnZXQxMiA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBjaGFydHMgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcubWl4ZWQtd2lkZ2V0LTEyLWNoYXJ0Jyk7XHJcblxyXG4gICAgICAgIHZhciBjb2xvcjtcclxuICAgICAgICB2YXIgc3Ryb2tlQ29sb3I7XHJcbiAgICAgICAgdmFyIGhlaWdodDtcclxuICAgICAgICB2YXIgbGFiZWxDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktNTAwJyk7XHJcbiAgICAgICAgdmFyIGJvcmRlckNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtZ3JheS0yMDAnKTtcclxuICAgICAgICB2YXIgb3B0aW9ucztcclxuICAgICAgICB2YXIgY2hhcnQ7XHJcblxyXG4gICAgICAgIFtdLnNsaWNlLmNhbGwoY2hhcnRzKS5tYXAoZnVuY3Rpb24oZWxlbWVudCkgeyAgICAgICAgICAgIFxyXG4gICAgICAgICAgICBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcblxyXG4gICAgICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgICAgICBuYW1lOiAnTmV0IFByb2ZpdCcsXHJcbiAgICAgICAgICAgICAgICAgICAgZGF0YTogWzM1LCA2NSwgNzUsIDU1LCA0NSwgNjAsIDU1XVxyXG4gICAgICAgICAgICAgICAgfSwge1xyXG4gICAgICAgICAgICAgICAgICAgIG5hbWU6ICdSZXZlbnVlJyxcclxuICAgICAgICAgICAgICAgICAgICBkYXRhOiBbNDAsIDcwLCA4MCwgNjAsIDUwLCA2NSwgNjBdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdiYXInLFxyXG4gICAgICAgICAgICAgICAgICAgIGhlaWdodDogaGVpZ2h0LFxyXG4gICAgICAgICAgICAgICAgICAgIHRvb2xiYXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHNwYXJrbGluZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiB0cnVlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBwbG90T3B0aW9uczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGJhcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBob3Jpem9udGFsOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sdW1uV2lkdGg6IFsnMzAlJ10sXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlclJhZGl1czogMlxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBsZWdlbmQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGRhdGFMYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0cm9rZToge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IHRydWUsXHJcbiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEsXHJcbiAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBbJ3RyYW5zcGFyZW50J11cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB4YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNhdGVnb3JpZXM6IFsnRmViJywgJ01hcicsICdBcHInLCAnTWF5JywgJ0p1bicsICdKdWwnXSxcclxuICAgICAgICAgICAgICAgICAgICBheGlzQm9yZGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc1RpY2tzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yczogbGFiZWxDb2xvcixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB5YXhpczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG1pbjogMCxcclxuICAgICAgICAgICAgICAgICAgICBtYXg6IDEwMCxcclxuICAgICAgICAgICAgICAgICAgICBsYWJlbHM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yczogbGFiZWxDb2xvcixcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRTaXplOiAnMTJweCdcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBmaWxsOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgdHlwZTogWydzb2xpZCcsICdzb2xpZCddLFxyXG4gICAgICAgICAgICAgICAgICAgIG9wYWNpdHk6IFswLjI1LCAxXVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgdGhvdXNhbmRzXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgbWFya2VyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGNvbG9yczogWycjZmZmZmZmJywgJyNmZmZmZmYnXSxcclxuICAgICAgICAgICAgICAgIGdyaWQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBib3JkZXJDb2xvcjogYm9yZGVyQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgc3Ryb2tlRGFzaEFycmF5OiA0LFxyXG4gICAgICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGxpbmVzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaG93OiB0cnVlXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHBhZGRpbmc6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgbGVmdDogMjAsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHJpZ2h0OiAyMFxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgfTtcclxuXHJcbiAgICAgICAgICAgIHZhciBjaGFydCA9IG5ldyBBcGV4Q2hhcnRzKGVsZW1lbnQsIG9wdGlvbnMpO1xyXG4gICAgICAgICAgICBjaGFydC5yZW5kZXIoKVxyXG4gICAgICAgIH0pOyAgICAgICAgXHJcbiAgICB9IFxyXG5cclxuICAgIHZhciBpbml0TWl4ZWRXaWRnZXQxMyA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBoZWlnaHQ7XHJcbiAgICAgICAgdmFyIGNoYXJ0cyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJy5taXhlZC13aWRnZXQtMTMtY2hhcnQnKTtcclxuXHJcbiAgICAgICAgW10uc2xpY2UuY2FsbChjaGFydHMpLm1hcChmdW5jdGlvbihlbGVtZW50KSB7XHJcbiAgICAgICAgICAgIGhlaWdodCA9IHBhcnNlSW50KEtUVXRpbC5jc3MoZWxlbWVudCwgJ2hlaWdodCcpKTtcclxuXHJcbiAgICAgICAgICAgIGlmICggIWVsZW1lbnQgKSB7XHJcbiAgICAgICAgICAgICAgICByZXR1cm47XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICB2YXIgbGFiZWxDb2xvciA9IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLScgKyAnZ3JheS04MDAnKTtcclxuICAgICAgICAgICAgdmFyIHN0cm9rZUNvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArICdncmF5LTMwMCcpO1xyXG5cclxuICAgICAgICAgICAgdmFyIG9wdGlvbnMgPSB7XHJcbiAgICAgICAgICAgICAgICBzZXJpZXM6IFt7XHJcbiAgICAgICAgICAgICAgICAgICAgbmFtZTogJ05ldCBQcm9maXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIGRhdGE6IFsxNSwgMjUsIDE1LCA0MCwgMjAsIDUwXVxyXG4gICAgICAgICAgICAgICAgfV0sXHJcbiAgICAgICAgICAgICAgICBncmlkOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgcGFkZGluZzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0b3A6IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJvdHRvbTogMCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgbGVmdDogMCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgcmlnaHQ6IDBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgY2hhcnQ6IHtcclxuICAgICAgICAgICAgICAgICAgICBmb250RmFtaWx5OiAnaW5oZXJpdCcsXHJcbiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2FyZWEnLFxyXG4gICAgICAgICAgICAgICAgICAgIGhlaWdodDogaGVpZ2h0LFxyXG4gICAgICAgICAgICAgICAgICAgIHRvb2xiYXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHpvb206IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHNwYXJrbGluZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBlbmFibGVkOiB0cnVlXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHBsb3RPcHRpb25zOiB7fSxcclxuICAgICAgICAgICAgICAgIGxlZ2VuZDoge1xyXG4gICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgZGF0YUxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgZmlsbDoge1xyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdncmFkaWVudCcsXHJcbiAgICAgICAgICAgICAgICAgICAgZ3JhZGllbnQ6IHsgICAgICAgICAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgICAgICAgICAgb3BhY2l0eUZyb206IDAuNCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgb3BhY2l0eVRvOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdG9wczogWzIwLCAxMjAsIDEyMCwgMTIwXVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBzdHJva2U6IHtcclxuICAgICAgICAgICAgICAgICAgICBjdXJ2ZTogJ3Ntb290aCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZSxcclxuICAgICAgICAgICAgICAgICAgICB3aWR0aDogMyxcclxuICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFsnI0ZGRkZGRiddXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeGF4aXM6IHtcclxuICAgICAgICAgICAgICAgICAgICBjYXRlZ29yaWVzOiBbJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJ10sXHJcbiAgICAgICAgICAgICAgICAgICAgYXhpc0JvcmRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGF4aXNUaWNrczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBjcm9zc2hhaXJzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ2Zyb250JyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc3Ryb2tlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogc3Ryb2tlQ29sb3IsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhc2hBcnJheTogM1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB0b29sdGlwOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IHRydWUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogdW5kZWZpbmVkLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBvZmZzZXRZOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHlheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbWluOiAwLFxyXG4gICAgICAgICAgICAgICAgICAgIG1heDogNjAsXHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JzOiBsYWJlbENvbG9yLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9udFNpemU6ICcxMnB4J1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHN0YXRlczoge1xyXG4gICAgICAgICAgICAgICAgICAgIG5vcm1hbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU6ICdub25lJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlOiAwXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGhvdmVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcjoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZTogJ25vbmUnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU6IDBcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgYWN0aXZlOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGFsbG93TXVsdGlwbGVEYXRhUG9pbnRzU2VsZWN0aW9uOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZmlsdGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0eXBlOiAnbm9uZScsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZTogMFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB5OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24gKHZhbCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFwiJFwiICsgdmFsICsgXCIgdGhvdXNhbmRzXCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBjb2xvcnM6IFsnI2ZmZmZmZiddLFxyXG4gICAgICAgICAgICAgICAgbWFya2Vyczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNvbG9yczogW2xhYmVsQ29sb3JdLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0cm9rZUNvbG9yOiBbc3Ryb2tlQ29sb3JdLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoOiAzXHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH07XHJcblxyXG4gICAgICAgICAgICB2YXIgY2hhcnQgPSBuZXcgQXBleENoYXJ0cyhlbGVtZW50LCBvcHRpb25zKTtcclxuICAgICAgICAgICAgY2hhcnQucmVuZGVyKCk7XHJcbiAgICAgICAgfSk7ICAgICAgICBcclxuICAgIH1cclxuXHJcbiAgICB2YXIgaW5pdE1peGVkV2lkZ2V0MTQgPSBmdW5jdGlvbigpIHsgICBcdFx0XHJcblx0XHR2YXIgY2hhcnRzID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnLm1peGVkLXdpZGdldC0xNC1jaGFydCcpOyAgXHJcbiAgICAgICAgdmFyIG9wdGlvbnM7XHJcbiAgICAgICAgdmFyIGNoYXJ0O1xyXG4gICAgICAgIHZhciBoZWlnaHQ7XHJcblxyXG4gICAgICAgIFtdLnNsaWNlLmNhbGwoY2hhcnRzKS5tYXAoZnVuY3Rpb24oZWxlbWVudCkge1xyXG4gICAgICAgICAgICBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7ICAgICAgXHJcbiAgICAgICAgICAgIHZhciBsYWJlbENvbG9yID0gS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtJyArICdncmF5LTgwMCcpOyAgICAgIFxyXG5cclxuICAgICAgICAgICAgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgICAgIHNlcmllczogW3tcclxuICAgICAgICAgICAgICAgICAgICBuYW1lOiAnSW5mbGF0aW9uJyxcclxuICAgICAgICAgICAgICAgICAgICBkYXRhOiBbMSwgMi4xLCAxLCAyLjEsIDQuMSwgNi4xLCA0LjEsIDQuMSwgMi4xLCA0LjEsIDIuMSwgMy4xLCAxLCAxLCAyLjFdXHJcbiAgICAgICAgICAgICAgICB9XSxcclxuICAgICAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgZm9udEZhbWlseTogJ2luaGVyaXQnLFxyXG4gICAgICAgICAgICAgICAgICAgIGhlaWdodDogaGVpZ2h0LFxyXG4gICAgICAgICAgICAgICAgICAgIHR5cGU6ICdiYXInLFxyXG4gICAgICAgICAgICAgICAgICAgIHRvb2xiYXI6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICBncmlkOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgcGFkZGluZzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0b3A6IDAsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJvdHRvbTogMCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgbGVmdDogMCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgcmlnaHQ6IDBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LCAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgIGNvbG9yczogWycjZmZmZmZmJ10sICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICBwbG90T3B0aW9uczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGJhcjogeyAgICAgICAgICAgICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlclJhZGl1czogMi41LFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBkYXRhTGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogJ3RvcCcsIC8vIHRvcCwgY2VudGVyLCBib3R0b21cclxuICAgICAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29sdW1uV2lkdGg6ICcyMCUnICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LCAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgZGF0YUxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgICAgIGVuYWJsZWQ6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIGZvcm1hdHRlcjogZnVuY3Rpb24odmFsKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiB2YWwgKyBcIiVcIjtcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIG9mZnNldFk6IC0yMCxcclxuICAgICAgICAgICAgICAgICAgICBzdHlsZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogJzEycHgnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcnM6IFtcIiMzMDQ3NThcIl1cclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LCAgICAgICAgICBcclxuICAgICAgICAgICAgICAgIHhheGlzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgbGFiZWxzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgY2F0ZWdvcmllczogW1wiSmFuXCIsIFwiRmViXCIsIFwiTWFyXCIsIFwiQXByXCIsIFwiTWF5XCIsIFwiSnVuXCIsIFwiSnVsXCIsIFwiQXVnXCIsIFwiU2VwXCIsIFwiT2N0XCIsIFwiTm92XCIsIFwiRGVjXCIsIFwiSmFuXCIsIFwiRmViXCIsIFwiTWFyXCJdLFxyXG4gICAgICAgICAgICAgICAgICAgIHBvc2l0aW9uOiAndG9wJyxcclxuICAgICAgICAgICAgICAgICAgICBheGlzQm9yZGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBheGlzVGlja3M6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGNyb3NzaGFpcnM6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIHRvb2x0aXA6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZW5hYmxlZDogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgeWF4aXM6IHtcclxuICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICBheGlzQm9yZGVyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IGZhbHNlXHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBheGlzVGlja3M6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6IGxhYmVsQ29sb3JcclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgIGxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93OiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9ybWF0dGVyOiBmdW5jdGlvbih2YWwpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiB2YWwgKyBcIiVcIjtcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0gICAgICAgICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICB9XHRcdFxyXG4gICAgICAgICAgICB9O1xyXG5cclxuICAgICAgICAgICAgY2hhcnQgPSBuZXcgQXBleENoYXJ0cyhlbGVtZW50LCBvcHRpb25zKTtcclxuICAgICAgICAgICAgY2hhcnQucmVuZGVyKCk7IFxyXG4gICAgICAgIH0pOyBcclxuXHR9XHJcbiAgICBcclxuICAgIHZhciBpbml0TWl4ZWRXaWRnZXQxNiA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBlbGVtZW50ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJrdF9jaGFydHNfbWl4ZWRfd2lkZ2V0XzE2X2NoYXJ0XCIpO1xyXG4gICAgICAgIHZhciBoZWlnaHQgPSBwYXJzZUludChLVFV0aWwuY3NzKGVsZW1lbnQsICdoZWlnaHQnKSk7XHJcblxyXG4gICAgICAgIGlmICghZWxlbWVudCkge1xyXG4gICAgICAgICAgICByZXR1cm47XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgbGFiZWxzOiBbXCJUb3RhbCBNZW1iZXJzXCJdLFxyXG4gICAgICAgICAgICBzZXJpZXM6IFs3NF0sXHJcbiAgICAgICAgICAgIGNoYXJ0OiB7XHJcbiAgICAgICAgICAgICAgICBmb250RmFtaWx5OiAnaW5oZXJpdCcsXHJcbiAgICAgICAgICAgICAgICBoZWlnaHQ6IGhlaWdodCxcclxuICAgICAgICAgICAgICAgIHR5cGU6ICdyYWRpYWxCYXInLFxyXG4gICAgICAgICAgICAgICAgb2Zmc2V0WTogMFxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBwbG90T3B0aW9uczoge1xyXG4gICAgICAgICAgICAgICAgcmFkaWFsQmFyOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgc3RhcnRBbmdsZTogLTkwLFxyXG4gICAgICAgICAgICAgICAgICAgIGVuZEFuZ2xlOiA5MCxcclxuXHJcbiAgICAgICAgICAgICAgICAgICAgaG9sbG93OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIG1hcmdpbjogMCxcclxuICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZTogXCI3MCVcIlxyXG4gICAgICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICAgICAgZGF0YUxhYmVsczoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBzaG93T246IFwiYWx3YXlzXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIG5hbWU6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNob3c6IHRydWUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogXCIxM3B4XCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250V2VpZ2h0OiBcIjcwMFwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgb2Zmc2V0WTogLTUsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogS1RVdGlsLmdldENzc1ZhcmlhYmxlVmFsdWUoJy0tYnMtZ3JheS01MDAnKVxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3I6IEtUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLWdyYXktNzAwJyksXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250U2l6ZTogXCIzMHB4XCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb250V2VpZ2h0OiBcIjcwMFwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgb2Zmc2V0WTogLTQwLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgc2hvdzogdHJ1ZVxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICB0cmFjazoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiBLVFV0aWwuZ2V0Q3NzVmFyaWFibGVWYWx1ZSgnLS1icy1saWdodC1wcmltYXJ5JyksXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoOiAnMTAwJSdcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIGNvbG9yczogW0tUVXRpbC5nZXRDc3NWYXJpYWJsZVZhbHVlKCctLWJzLXByaW1hcnknKV0sXHJcbiAgICAgICAgICAgIHN0cm9rZToge1xyXG4gICAgICAgICAgICAgICAgbGluZUNhcDogXCJyb3VuZFwiLFxyXG4gICAgICAgICAgICB9ICAgICAgICAgICAgXHJcbiAgICAgICAgfTtcclxuXHJcbiAgICAgICAgdmFyIGNoYXJ0ID0gbmV3IEFwZXhDaGFydHMoZWxlbWVudCwgb3B0aW9ucyk7XHJcbiAgICAgICAgY2hhcnQucmVuZGVyKCk7XHJcbiAgICB9XHJcblxyXG4gICAgLy8gRmVlZHMgV2lkZ2V0c1xyXG4gICAgdmFyIGluaXRGZWVkV2lkZ2V0MSA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBmb3JtRWwgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiI2t0X2Zvcm1zX3dpZGdldF8xX2Zvcm1cIik7XHJcbiAgICAgICAgdmFyIGVkaXRvcklkID0gJ2t0X2Zvcm1zX3dpZGdldF8xX2VkaXRvcic7XHJcblxyXG4gICAgICAgIGlmICggIWZvcm1FbCApIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLy8gaW5pdCBlZGl0b3JcclxuICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgbW9kdWxlczoge1xyXG4gICAgICAgICAgICAgICAgdG9vbGJhcjoge1xyXG4gICAgICAgICAgICAgICAgICAgIGNvbnRhaW5lcjogXCIja3RfZm9ybXNfd2lkZ2V0XzFfZWRpdG9yX3Rvb2xiYXJcIlxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICBwbGFjZWhvbGRlcjogJ1doYXQgaXMgb24geW91ciBtaW5kID8nLFxyXG4gICAgICAgICAgICB0aGVtZTogJ3Nub3cnXHJcbiAgICAgICAgfTtcclxuXHJcbiAgICAgICAgaWYgKCFmb3JtRWwpIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgLy8gSW5pdCBlZGl0b3JcclxuICAgICAgICB2YXIgZWRpdG9yT2JqID0gbmV3IFF1aWxsKCcjJyArIGVkaXRvcklkLCBvcHRpb25zKTtcclxuICAgIH1cclxuXHJcbiAgICB2YXIgaW5pdEZlZWRzV2lkZ2V0NCA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBidG4gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcja3Rfd2lkZ2V0XzVfbG9hZF9tb3JlX2J0bicpO1xyXG4gICAgICAgIHZhciB3aWRnZXQ1ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignI2t0X3dpZGdldF81Jyk7ICAgICAgICBcclxuXHJcbiAgICAgICAgaWYgKGJ0bikge1xyXG4gICAgICAgICAgICBidG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbihlKXtcclxuICAgICAgICAgICAgICAgIGUucHJldmVudERlZmF1bHQoKTtcclxuICAgICAgICAgICAgICAgIGJ0bi5zZXRBdHRyaWJ1dGUoJ2RhdGEta3QtaW5kaWNhdG9yJywgJ29uJyk7XHJcblxyXG4gICAgICAgICAgICAgICAgc2V0VGltZW91dChmdW5jdGlvbigpIHtcclxuICAgICAgICAgICAgICAgICAgICBidG4ucmVtb3ZlQXR0cmlidXRlKCdkYXRhLWt0LWluZGljYXRvcicpO1xyXG4gICAgICAgICAgICAgICAgICAgIHdpZGdldDUuY2xhc3NMaXN0LnJlbW92ZSgnZC1ub25lJyk7ICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICAgICAgYnRuLmNsYXNzTGlzdC5hZGQoJ2Qtbm9uZScpOyAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgICAgIEtUVXRpbC5zY3JvbGxUbyh3aWRnZXQ1LCAyMDApO1xyXG4gICAgICAgICAgICAgICAgfSwgMjAwMCk7ICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICB9KTtcclxuICAgICAgICB9ICAgICAgICAgICAgICAgICBcclxuICAgIH0gIFxyXG5cclxuICAgIC8vIEZvbGxvdyBidXR0b25cclxuICAgIHZhciBpbml0VXNlckZvbGxvd0J1dHRvbiA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHZhciBmb2xsb3cgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcja3RfdXNlcl9mb2xsb3dfYnV0dG9uJyk7XHJcblxyXG4gICAgICAgIGlmIChmb2xsb3cpIHtcclxuICAgICAgICAgICAgZm9sbG93LmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oZSl7XHJcbiAgICAgICAgICAgICAgICAvLyBQcmV2ZW50IGRlZmF1bHQgYWN0aW9uIFxyXG4gICAgICAgICAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpO1xyXG4gICAgICAgICAgICAgICAgXHJcbiAgICAgICAgICAgICAgICAvLyBTaG93IGluZGljYXRvclxyXG4gICAgICAgICAgICAgICAgZm9sbG93LnNldEF0dHJpYnV0ZSgnZGF0YS1rdC1pbmRpY2F0b3InLCAnb24nKTtcclxuICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgLy8gRGlzYWJsZSBidXR0b24gdG8gYXZvaWQgbXVsdGlwbGUgY2xpY2sgXHJcblx0XHRcdFx0Zm9sbG93LmRpc2FibGVkID0gdHJ1ZTtcclxuXHJcbiAgICAgICAgICAgICAgICAvLyBDaGVjayBidXR0b24gc3RhdGVcclxuICAgICAgICAgICAgICAgIGlmIChmb2xsb3cuY2xhc3NMaXN0LmNvbnRhaW5zKFwiYnRuLXN1Y2Nlc3NcIikpIHtcclxuICAgICAgICAgICAgICAgICAgICAgc2V0VGltZW91dChmdW5jdGlvbigpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9sbG93LnJlbW92ZUF0dHJpYnV0ZSgnZGF0YS1rdC1pbmRpY2F0b3InKTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9sbG93LmNsYXNzTGlzdC5yZW1vdmUoXCJidG4tc3VjY2Vzc1wiKTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9sbG93LmNsYXNzTGlzdC5hZGQoXCJidG4tbGlnaHRcIik7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbGxvdy5xdWVyeVNlbGVjdG9yKFwiLnN2Zy1pY29uXCIpLmNsYXNzTGlzdC5hZGQoXCJkLW5vbmVcIik7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbGxvdy5xdWVyeVNlbGVjdG9yKFwiLmluZGljYXRvci1sYWJlbFwiKS5pbm5lckhUTUwgPSAnRm9sbG93JztcclxuXHRcdFx0XHQgICAgICAgIGZvbGxvdy5kaXNhYmxlZCA9IGZhbHNlO1xyXG4gICAgICAgICAgICAgICAgICAgIH0sIDE1MDApOyAgIFxyXG4gICAgICAgICAgICAgICAgfSBlbHNlIHtcclxuICAgICAgICAgICAgICAgICAgICAgc2V0VGltZW91dChmdW5jdGlvbigpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9sbG93LnJlbW92ZUF0dHJpYnV0ZSgnZGF0YS1rdC1pbmRpY2F0b3InKTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9sbG93LmNsYXNzTGlzdC5hZGQoXCJidG4tc3VjY2Vzc1wiKTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9sbG93LmNsYXNzTGlzdC5yZW1vdmUoXCJidG4tbGlnaHRcIik7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbGxvdy5xdWVyeVNlbGVjdG9yKFwiLnN2Zy1pY29uXCIpLmNsYXNzTGlzdC5yZW1vdmUoXCJkLW5vbmVcIik7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbGxvdy5xdWVyeVNlbGVjdG9yKFwiLmluZGljYXRvci1sYWJlbFwiKS5pbm5lckhUTUwgPSAnRm9sbG93aW5nJztcclxuICAgICAgICAgICAgICAgICAgICAgICAgZm9sbG93LmRpc2FibGVkID0gZmFsc2U7XHJcbiAgICAgICAgICAgICAgICAgICAgfSwgMTAwMCk7ICAgXHJcbiAgICAgICAgICAgICAgICB9ICAgICAgICBcclxuICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgfSAgICAgICAgICAgICAgICAgXHJcbiAgICB9XHJcblxyXG4gICAgLy8gQ2FsZW5kYXJcclxuICAgIHZhciBpbml0Q2FsZW5kYXJXaWRnZXQxID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgaWYgKHR5cGVvZiBGdWxsQ2FsZW5kYXIgPT09ICd1bmRlZmluZWQnIHx8ICFkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcja3RfY2FsZW5kYXJfd2lkZ2V0XzEnKSkge1xyXG4gICAgICAgICAgICByZXR1cm47XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICB2YXIgdG9kYXlEYXRlID0gbW9tZW50KCkuc3RhcnRPZignZGF5Jyk7XHJcbiAgICAgICAgdmFyIFlNID0gdG9kYXlEYXRlLmZvcm1hdCgnWVlZWS1NTScpO1xyXG4gICAgICAgIHZhciBZRVNURVJEQVkgPSB0b2RheURhdGUuY2xvbmUoKS5zdWJ0cmFjdCgxLCAnZGF5JykuZm9ybWF0KCdZWVlZLU1NLUREJyk7XHJcbiAgICAgICAgdmFyIFRPREFZID0gdG9kYXlEYXRlLmZvcm1hdCgnWVlZWS1NTS1ERCcpO1xyXG4gICAgICAgIHZhciBUT01PUlJPVyA9IHRvZGF5RGF0ZS5jbG9uZSgpLmFkZCgxLCAnZGF5JykuZm9ybWF0KCdZWVlZLU1NLUREJyk7XHJcblxyXG4gICAgICAgIHZhciBjYWxlbmRhckVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2t0X2NhbGVuZGFyX3dpZGdldF8xJyk7XHJcbiAgICAgICAgdmFyIGNhbGVuZGFyID0gbmV3IEZ1bGxDYWxlbmRhci5DYWxlbmRhcihjYWxlbmRhckVsLCB7XHJcbiAgICAgICAgICAgIGhlYWRlclRvb2xiYXI6IHtcclxuICAgICAgICAgICAgICAgIGxlZnQ6ICdwcmV2LG5leHQgdG9kYXknLFxyXG4gICAgICAgICAgICAgICAgY2VudGVyOiAndGl0bGUnLFxyXG4gICAgICAgICAgICAgICAgcmlnaHQ6ICdkYXlHcmlkTW9udGgsdGltZUdyaWRXZWVrLHRpbWVHcmlkRGF5LGxpc3RNb250aCdcclxuICAgICAgICAgICAgfSxcclxuXHJcbiAgICAgICAgICAgIGhlaWdodDogODAwLFxyXG4gICAgICAgICAgICBjb250ZW50SGVpZ2h0OiA3ODAsXHJcbiAgICAgICAgICAgIGFzcGVjdFJhdGlvOiAzLCAgLy8gc2VlOiBodHRwczovL2Z1bGxjYWxlbmRhci5pby9kb2NzL2FzcGVjdFJhdGlvXHJcblxyXG4gICAgICAgICAgICBub3dJbmRpY2F0b3I6IHRydWUsXHJcbiAgICAgICAgICAgIG5vdzogVE9EQVkgKyAnVDA5OjI1OjAwJywgLy8ganVzdCBmb3IgZGVtb1xyXG5cclxuICAgICAgICAgICAgdmlld3M6IHtcclxuICAgICAgICAgICAgICAgIGRheUdyaWRNb250aDogeyBidXR0b25UZXh0OiAnbW9udGgnIH0sXHJcbiAgICAgICAgICAgICAgICB0aW1lR3JpZFdlZWs6IHsgYnV0dG9uVGV4dDogJ3dlZWsnIH0sXHJcbiAgICAgICAgICAgICAgICB0aW1lR3JpZERheTogeyBidXR0b25UZXh0OiAnZGF5JyB9XHJcbiAgICAgICAgICAgIH0sXHJcblxyXG4gICAgICAgICAgICBpbml0aWFsVmlldzogJ2RheUdyaWRNb250aCcsXHJcbiAgICAgICAgICAgIGluaXRpYWxEYXRlOiBUT0RBWSxcclxuXHJcbiAgICAgICAgICAgIGVkaXRhYmxlOiB0cnVlLFxyXG4gICAgICAgICAgICBkYXlNYXhFdmVudHM6IHRydWUsIC8vIGFsbG93IFwibW9yZVwiIGxpbmsgd2hlbiB0b28gbWFueSBldmVudHNcclxuICAgICAgICAgICAgbmF2TGlua3M6IHRydWUsXHJcbiAgICAgICAgICAgIGV2ZW50czogW1xyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIHRpdGxlOiAnQWxsIERheSBFdmVudCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IFlNICsgJy0wMScsXHJcbiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdUb3RvIGxvcmVtIGlwc3VtIGRvbG9yIHNpdCBpbmNpZCBpZHVudCB1dCcsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiBcImZjLWV2ZW50LWRhbmdlciBmYy1ldmVudC1zb2xpZC13YXJuaW5nXCJcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICAgICAgdGl0bGU6ICdSZXBvcnRpbmcnLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0YXJ0OiBZTSArICctMTRUMTM6MzA6MDAnLFxyXG4gICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnTG9yZW0gaXBzdW0gZG9sb3IgaW5jaWQgaWR1bnQgdXQgbGFib3JlJyxcclxuICAgICAgICAgICAgICAgICAgICBlbmQ6IFlNICsgJy0xNCcsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiBcImZjLWV2ZW50LXN1Y2Nlc3NcIlxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ0NvbXBhbnkgVHJpcCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IFlNICsgJy0wMicsXHJcbiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdMb3JlbSBpcHN1bSBkb2xvciBzaXQgdGVtcG9yIGluY2lkJyxcclxuICAgICAgICAgICAgICAgICAgICBlbmQ6IFlNICsgJy0wMycsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiBcImZjLWV2ZW50LXByaW1hcnlcIlxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ0lDVCBFeHBvIDIwMTcgLSBQcm9kdWN0IFJlbGVhc2UnLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0YXJ0OiBZTSArICctMDMnLFxyXG4gICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnTG9yZW0gaXBzdW0gZG9sb3Igc2l0IHRlbXBvciBpbmNpJyxcclxuICAgICAgICAgICAgICAgICAgICBlbmQ6IFlNICsgJy0wNScsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiBcImZjLWV2ZW50LWxpZ2h0IGZjLWV2ZW50LXNvbGlkLXByaW1hcnlcIlxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ0Rpbm5lcicsXHJcbiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IFlNICsgJy0xMicsXHJcbiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCwgY29uc2UgY3RldHVyJyxcclxuICAgICAgICAgICAgICAgICAgICBlbmQ6IFlNICsgJy0xMCdcclxuICAgICAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICAgICAgaWQ6IDk5OSxcclxuICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ1JlcGVhdGluZyBFdmVudCcsXHJcbiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IFlNICsgJy0wOVQxNjowMDowMCcsXHJcbiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdMb3JlbSBpcHN1bSBkb2xvciBzaXQgbmNpZGlkdW50IHV0IGxhYm9yZScsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiBcImZjLWV2ZW50LWRhbmdlclwiXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIGlkOiAxMDAwLFxyXG4gICAgICAgICAgICAgICAgICAgIHRpdGxlOiAnUmVwZWF0aW5nIEV2ZW50JyxcclxuICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogJ0xvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0LCBsYWJvcmUnLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0YXJ0OiBZTSArICctMTZUMTY6MDA6MDAnXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIHRpdGxlOiAnQ29uZmVyZW5jZScsXHJcbiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IFlFU1RFUkRBWSxcclxuICAgICAgICAgICAgICAgICAgICBlbmQ6IFRPTU9SUk9XLFxyXG4gICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnTG9yZW0gaXBzdW0gZG9sb3IgZWl1cyBtb2QgdGVtcG9yIGxhYm9yZScsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiBcImZjLWV2ZW50LXByaW1hcnlcIlxyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ01lZXRpbmcnLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0YXJ0OiBUT0RBWSArICdUMTA6MzA6MDAnLFxyXG4gICAgICAgICAgICAgICAgICAgIGVuZDogVE9EQVkgKyAnVDEyOjMwOjAwJyxcclxuICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogJ0xvcmVtIGlwc3VtIGRvbG9yIGVpdSBpZHVudCB1dCBsYWJvcmUnXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIHRpdGxlOiAnTHVuY2gnLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0YXJ0OiBUT0RBWSArICdUMTI6MDA6MDAnLFxyXG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZTogXCJmYy1ldmVudC1pbmZvXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCwgdXQgbGFib3JlJ1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ01lZXRpbmcnLFxyXG4gICAgICAgICAgICAgICAgICAgIHN0YXJ0OiBUT0RBWSArICdUMTQ6MzA6MDAnLFxyXG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZTogXCJmYy1ldmVudC13YXJuaW5nXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdMb3JlbSBpcHN1bSBjb25zZSBjdGV0dXIgYWRpcGkgc2NpbmcnXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIHRpdGxlOiAnSGFwcHkgSG91cicsXHJcbiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IFRPREFZICsgJ1QxNzozMDowMCcsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiBcImZjLWV2ZW50LWluZm9cIixcclxuICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogJ0xvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0LCBjb25zZSBjdGV0dXInXHJcbiAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIHRpdGxlOiAnRGlubmVyJyxcclxuICAgICAgICAgICAgICAgICAgICBzdGFydDogVE9NT1JST1cgKyAnVDA1OjAwOjAwJyxcclxuICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU6IFwiZmMtZXZlbnQtc29saWQtZGFuZ2VyIGZjLWV2ZW50LWxpZ2h0XCIsXHJcbiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb246ICdMb3JlbSBpcHN1bSBkb2xvciBzaXQgY3RldHVyIGFkaXBpIHNjaW5nJ1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ0JpcnRoZGF5IFBhcnR5JyxcclxuICAgICAgICAgICAgICAgICAgICBzdGFydDogVE9NT1JST1cgKyAnVDA3OjAwOjAwJyxcclxuICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU6IFwiZmMtZXZlbnQtcHJpbWFyeVwiLFxyXG4gICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIHNjaW5nJ1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ0NsaWNrIGZvciBHb29nbGUnLFxyXG4gICAgICAgICAgICAgICAgICAgIHVybDogJ2h0dHA6Ly9nb29nbGUuY29tLycsXHJcbiAgICAgICAgICAgICAgICAgICAgc3RhcnQ6IFlNICsgJy0yOCcsXHJcbiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lOiBcImZjLWV2ZW50LXNvbGlkLWluZm8gZmMtZXZlbnQtbGlnaHRcIixcclxuICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogJ0xvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0LCBsYWJvcmUnXHJcbiAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIF1cclxuICAgICAgICB9KTtcclxuXHJcbiAgICAgICAgY2FsZW5kYXIucmVuZGVyKCk7XHJcbiAgICB9XHJcblxyXG4gICAgLy8gRGF0ZXJhbmdlcGlja2VyXHJcbiAgICB2YXIgaW5pdERhdGVyYW5nZXBpY2tlciA9IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICBpZiAoIWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJyNrdF9kYXNoYm9hcmRfZGF0ZXJhbmdlcGlja2VyJykpIHtcclxuICAgICAgICAgICAgcmV0dXJuO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgdmFyIHBpY2tlciA9ICQoJyNrdF9kYXNoYm9hcmRfZGF0ZXJhbmdlcGlja2VyJyk7XHJcbiAgICAgICAgdmFyIHN0YXJ0ID0gbW9tZW50KCk7XHJcbiAgICAgICAgdmFyIGVuZCA9IG1vbWVudCgpO1xyXG5cclxuICAgICAgICBmdW5jdGlvbiBjYihzdGFydCwgZW5kLCBsYWJlbCkge1xyXG4gICAgICAgICAgICB2YXIgdGl0bGUgPSAnJztcclxuICAgICAgICAgICAgdmFyIHJhbmdlID0gJyc7XHJcblxyXG4gICAgICAgICAgICBpZiAoKGVuZCAtIHN0YXJ0KSA8IDEwMCB8fCBsYWJlbCA9PSAnVG9kYXknKSB7XHJcbiAgICAgICAgICAgICAgICB0aXRsZSA9ICdUb2RheTonO1xyXG4gICAgICAgICAgICAgICAgcmFuZ2UgPSBzdGFydC5mb3JtYXQoJ01NTSBEJyk7XHJcbiAgICAgICAgICAgIH0gZWxzZSBpZiAobGFiZWwgPT0gJ1llc3RlcmRheScpIHtcclxuICAgICAgICAgICAgICAgIHRpdGxlID0gJ1llc3RlcmRheTonO1xyXG4gICAgICAgICAgICAgICAgcmFuZ2UgPSBzdGFydC5mb3JtYXQoJ01NTSBEJyk7XHJcbiAgICAgICAgICAgIH0gZWxzZSB7XHJcbiAgICAgICAgICAgICAgICByYW5nZSA9IHN0YXJ0LmZvcm1hdCgnTU1NIEQnKSArICcgLSAnICsgZW5kLmZvcm1hdCgnTU1NIEQnKTtcclxuICAgICAgICAgICAgfVxyXG5cclxuICAgICAgICAgICAgJCgnI2t0X2Rhc2hib2FyZF9kYXRlcmFuZ2VwaWNrZXJfZGF0ZScpLmh0bWwocmFuZ2UpO1xyXG4gICAgICAgICAgICAkKCcja3RfZGFzaGJvYXJkX2RhdGVyYW5nZXBpY2tlcl90aXRsZScpLmh0bWwodGl0bGUpO1xyXG4gICAgICAgIH1cclxuXHJcbiAgICAgICAgcGlja2VyLmRhdGVyYW5nZXBpY2tlcih7XHJcbiAgICAgICAgICAgIGRpcmVjdGlvbjogS1RVdGlsLmlzUlRMKCksXHJcbiAgICAgICAgICAgIHN0YXJ0RGF0ZTogc3RhcnQsXHJcbiAgICAgICAgICAgIGVuZERhdGU6IGVuZCxcclxuICAgICAgICAgICAgb3BlbnM6ICdsZWZ0JyxcclxuICAgICAgICAgICAgYXBwbHlDbGFzczogJ2J0bi1wcmltYXJ5JyxcclxuICAgICAgICAgICAgY2FuY2VsQ2xhc3M6ICdidG4tbGlnaHQtcHJpbWFyeScsXHJcbiAgICAgICAgICAgIHJhbmdlczoge1xyXG4gICAgICAgICAgICAgICAgJ1RvZGF5JzogW21vbWVudCgpLCBtb21lbnQoKV0sXHJcbiAgICAgICAgICAgICAgICAnWWVzdGVyZGF5JzogW21vbWVudCgpLnN1YnRyYWN0KDEsICdkYXlzJyksIG1vbWVudCgpLnN1YnRyYWN0KDEsICdkYXlzJyldLFxyXG4gICAgICAgICAgICAgICAgJ0xhc3QgNyBEYXlzJzogW21vbWVudCgpLnN1YnRyYWN0KDYsICdkYXlzJyksIG1vbWVudCgpXSxcclxuICAgICAgICAgICAgICAgICdMYXN0IDMwIERheXMnOiBbbW9tZW50KCkuc3VidHJhY3QoMjksICdkYXlzJyksIG1vbWVudCgpXSxcclxuICAgICAgICAgICAgICAgICdUaGlzIE1vbnRoJzogW21vbWVudCgpLnN0YXJ0T2YoJ21vbnRoJyksIG1vbWVudCgpLmVuZE9mKCdtb250aCcpXSxcclxuICAgICAgICAgICAgICAgICdMYXN0IE1vbnRoJzogW21vbWVudCgpLnN1YnRyYWN0KDEsICdtb250aCcpLnN0YXJ0T2YoJ21vbnRoJyksIG1vbWVudCgpLnN1YnRyYWN0KDEsICdtb250aCcpLmVuZE9mKCdtb250aCcpXVxyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfSwgY2IpO1xyXG5cclxuICAgICAgICBjYihzdGFydCwgZW5kLCAnJyk7XHJcbiAgICB9ICAgIFxyXG5cclxuICAgIC8vIERhcmsgbW9kZSB0b2dnbGVyXHJcbiAgICB2YXIgaW5pdERhcmtNb2RlVG9nZ2xlID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgdmFyIHRvZ2dsZSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJyNrdF91c2VyX21lbnVfZGFya19tb2RlX3RvZ2dsZScpO1xyXG4gICAgICAgIFxyXG4gICAgICAgIGlmICh0b2dnbGUpIHtcclxuICAgICAgICAgICAgdG9nZ2xlLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgICAgICAgICB3aW5kb3cubG9jYXRpb24uaHJlZiA9IHRoaXMuZ2V0QXR0cmlidXRlKCdkYXRhLWt0LXVybCcpO1xyXG4gICAgICAgICAgICB9KTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcblxyXG4gICAgLy8gUHVibGljIG1ldGhvZHNcclxuICAgIHJldHVybiB7XHJcbiAgICAgICAgaW5pdDogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAvLyBEYXRlcmFuZ2VwaWNrZXJcclxuICAgICAgICAgICAgaW5pdERhdGVyYW5nZXBpY2tlcigpO1xyXG4gICAgICAgICAgICBcclxuICAgICAgICAgICAgLy8gRGFyayBNb2RlXHJcbiAgICAgICAgICAgIGluaXREYXJrTW9kZVRvZ2dsZSgpO1xyXG5cclxuICAgICAgICAgICAgLy8gU3RhdGlzdGljcyB3aWRnZXRzXHJcbiAgICAgICAgICAgIGluaXRTdGF0aXN0aWNzV2lkZ2V0MygpO1xyXG4gICAgICAgICAgICBpbml0U3RhdGlzdGljc1dpZGdldDQoKTsgICAgICAgICAgICBcclxuXHJcbiAgICAgICAgICAgIC8vIENoYXJ0cyB3aWRnZXRzXHJcbiAgICAgICAgICAgIGluaXRDaGFydHNXaWRnZXQxKCk7XHJcbiAgICAgICAgICAgIGluaXRDaGFydHNXaWRnZXQyKCk7XHJcbiAgICAgICAgICAgIGluaXRDaGFydHNXaWRnZXQzKCk7XHJcbiAgICAgICAgICAgIGluaXRDaGFydHNXaWRnZXQ0KCk7XHJcbiAgICAgICAgICAgIGluaXRDaGFydHNXaWRnZXQ1KCk7XHJcbiAgICAgICAgICAgIGluaXRDaGFydHNXaWRnZXQ2KCk7XHJcbiAgICAgICAgICAgIGluaXRDaGFydHNXaWRnZXQ3KCk7XHJcbiAgICAgICAgICAgIGluaXRDaGFydHNXaWRnZXQ4KCk7XHJcblxyXG4gICAgICAgICAgICAvLyBNaXhlZCB3aWRnZXRzXHJcbiAgICAgICAgICAgIGluaXRNaXhlZFdpZGdldDIoKTtcclxuICAgICAgICAgICAgaW5pdE1peGVkV2lkZ2V0MygpO1xyXG4gICAgICAgICAgICBpbml0TWl4ZWRXaWRnZXQ0KCk7XHJcbiAgICAgICAgICAgIGluaXRNaXhlZFdpZGdldDUoKTtcclxuICAgICAgICAgICAgaW5pdE1peGVkV2lkZ2V0NigpO1xyXG4gICAgICAgICAgICBpbml0TWl4ZWRXaWRnZXQ3KCk7XHJcbiAgICAgICAgICAgIGluaXRNaXhlZFdpZGdldDEwKCk7ICAgICAgICAgICAgXHJcbiAgICAgICAgICAgIGluaXRNaXhlZFdpZGdldDEyKCk7XHJcbiAgICAgICAgICAgIGluaXRNaXhlZFdpZGdldDEzKCk7IFxyXG4gICAgICAgICAgICBpbml0TWl4ZWRXaWRnZXQxNCgpO1xyXG4gICAgICAgICAgICBpbml0TWl4ZWRXaWRnZXQxNigpO1xyXG5cclxuICAgICAgICAgICAgLy8gRmVlZHNcclxuICAgICAgICAgICAgaW5pdEZlZWRXaWRnZXQxKCk7XHJcbiAgICAgICAgICAgIGluaXRGZWVkc1dpZGdldDQoKTtcclxuXHJcbiAgICAgICAgICAgIC8vIEZvbGxvdyBidXR0b25cclxuICAgICAgICAgICAgaW5pdFVzZXJGb2xsb3dCdXR0b24oKTtcclxuXHJcbiAgICAgICAgICAgIC8vIENhbGVuZGFyXHJcbiAgICAgICAgICAgIGluaXRDYWxlbmRhcldpZGdldDEoKTsgICAgICAgICAgIFxyXG4gICAgICAgIH0gICBcclxuICAgIH1cclxufSgpO1xyXG5cclxuLy8gV2VicGFjayBzdXBwb3J0XHJcbmlmICh0eXBlb2YgbW9kdWxlICE9PSAndW5kZWZpbmVkJykge1xyXG4gICAgbW9kdWxlLmV4cG9ydHMgPSBLVFdpZGdldHM7XHJcbn1cclxuXHJcbi8vIE9uIGRvY3VtZW50IHJlYWR5XHJcbktUVXRpbC5vbkRPTUNvbnRlbnRMb2FkZWQoZnVuY3Rpb24oKSB7XHJcbiAgICBLVFdpZGdldHMuaW5pdCgpO1xyXG59KTtcclxuIl0sIm5hbWVzIjpbIktUV2lkZ2V0cyIsImluaXRTdGF0aXN0aWNzV2lkZ2V0MyIsImNoYXJ0cyIsImRvY3VtZW50IiwicXVlcnlTZWxlY3RvckFsbCIsInNsaWNlIiwiY2FsbCIsIm1hcCIsImVsZW1lbnQiLCJoZWlnaHQiLCJwYXJzZUludCIsIktUVXRpbCIsImNzcyIsImNvbG9yIiwiZ2V0QXR0cmlidXRlIiwibGFiZWxDb2xvciIsImdldENzc1ZhcmlhYmxlVmFsdWUiLCJiYXNlQ29sb3IiLCJsaWdodENvbG9yIiwib3B0aW9ucyIsInNlcmllcyIsIm5hbWUiLCJkYXRhIiwiY2hhcnQiLCJmb250RmFtaWx5IiwidHlwZSIsInRvb2xiYXIiLCJzaG93Iiwiem9vbSIsImVuYWJsZWQiLCJzcGFya2xpbmUiLCJwbG90T3B0aW9ucyIsImxlZ2VuZCIsImRhdGFMYWJlbHMiLCJmaWxsIiwib3BhY2l0eSIsInN0cm9rZSIsImN1cnZlIiwid2lkdGgiLCJjb2xvcnMiLCJ4YXhpcyIsImNhdGVnb3JpZXMiLCJheGlzQm9yZGVyIiwiYXhpc1RpY2tzIiwibGFiZWxzIiwic3R5bGUiLCJmb250U2l6ZSIsImNyb3NzaGFpcnMiLCJwb3NpdGlvbiIsImRhc2hBcnJheSIsInRvb2x0aXAiLCJmb3JtYXR0ZXIiLCJ1bmRlZmluZWQiLCJvZmZzZXRZIiwieWF4aXMiLCJtaW4iLCJtYXgiLCJzdGF0ZXMiLCJub3JtYWwiLCJmaWx0ZXIiLCJ2YWx1ZSIsImhvdmVyIiwiYWN0aXZlIiwiYWxsb3dNdWx0aXBsZURhdGFQb2ludHNTZWxlY3Rpb24iLCJ5IiwidmFsIiwibWFya2VycyIsInN0cm9rZUNvbG9yIiwic3Ryb2tlV2lkdGgiLCJBcGV4Q2hhcnRzIiwicmVuZGVyIiwiaW5pdFN0YXRpc3RpY3NXaWRnZXQ0IiwiaW5pdENoYXJ0c1dpZGdldDEiLCJnZXRFbGVtZW50QnlJZCIsImJvcmRlckNvbG9yIiwic2Vjb25kYXJ5Q29sb3IiLCJiYXIiLCJob3Jpem9udGFsIiwiY29sdW1uV2lkdGgiLCJib3JkZXJSYWRpdXMiLCJncmlkIiwic3Ryb2tlRGFzaEFycmF5IiwibGluZXMiLCJpbml0Q2hhcnRzV2lkZ2V0MiIsImluaXRDaGFydHNXaWRnZXQzIiwiaW5pdENoYXJ0c1dpZGdldDQiLCJiYXNlTGlnaHRDb2xvciIsInNlY29uZGFyeUxpZ2h0Q29sb3IiLCJpbml0Q2hhcnRzV2lkZ2V0NSIsInN0YWNrZWQiLCJpbml0Q2hhcnRzV2lkZ2V0NiIsInBhZGRpbmciLCJ0b3AiLCJyaWdodCIsImJvdHRvbSIsImxlZnQiLCJpbml0Q2hhcnRzV2lkZ2V0NyIsImNvbG9yMSIsImNvbG9yMUxpZ2h0IiwiY29sb3IyIiwiY29sb3IyTGlnaHQiLCJjb2xvcjMiLCJjb2xvcjNMaWdodCIsImluaXRDaGFydHNXaWRnZXQ4IiwieCIsIm9mZnNldFgiLCJpbml0TWl4ZWRXaWRnZXQyIiwiY29sb3JEYXJrZW4iLCJkcm9wU2hhZG93IiwiZW5hYmxlZE9uU2VyaWVzIiwiYmx1ciIsIm1hcmtlciIsImluaXRNaXhlZFdpZGdldDMiLCJpbml0TWl4ZWRXaWRnZXQ0IiwicmFkaWFsQmFyIiwiaG9sbG93IiwibWFyZ2luIiwic2l6ZSIsInNob3dPbiIsImZvbnRXZWlnaHQiLCJ0cmFjayIsImJhY2tncm91bmQiLCJsaW5lQ2FwIiwiaW5pdE1peGVkV2lkZ2V0NSIsImZpbGwxIiwiZ3JhZGllbnQiLCJzaGFkZUludGVuc2l0eSIsImdyYWRpZW50VG9Db2xvcnMiLCJpbnZlcnNlQ29sb3JzIiwib3BhY2l0eUZyb20iLCJvcGFjaXR5VG8iLCJzdG9wcyIsImNvbG9yU3RvcHMiLCJpbml0TWl4ZWRXaWRnZXQ2IiwiaW5pdE1peGVkV2lkZ2V0NyIsImluaXRNaXhlZFdpZGdldDEwIiwiaW5pdE1peGVkV2lkZ2V0MTIiLCJpbml0TWl4ZWRXaWRnZXQxMyIsImluaXRNaXhlZFdpZGdldDE0IiwiaW5pdE1peGVkV2lkZ2V0MTYiLCJzdGFydEFuZ2xlIiwiZW5kQW5nbGUiLCJpbml0RmVlZFdpZGdldDEiLCJmb3JtRWwiLCJxdWVyeVNlbGVjdG9yIiwiZWRpdG9ySWQiLCJtb2R1bGVzIiwiY29udGFpbmVyIiwicGxhY2Vob2xkZXIiLCJ0aGVtZSIsImVkaXRvck9iaiIsIlF1aWxsIiwiaW5pdEZlZWRzV2lkZ2V0NCIsImJ0biIsIndpZGdldDUiLCJhZGRFdmVudExpc3RlbmVyIiwiZSIsInByZXZlbnREZWZhdWx0Iiwic2V0QXR0cmlidXRlIiwic2V0VGltZW91dCIsInJlbW92ZUF0dHJpYnV0ZSIsImNsYXNzTGlzdCIsInJlbW92ZSIsImFkZCIsInNjcm9sbFRvIiwiaW5pdFVzZXJGb2xsb3dCdXR0b24iLCJmb2xsb3ciLCJkaXNhYmxlZCIsImNvbnRhaW5zIiwiaW5uZXJIVE1MIiwiaW5pdENhbGVuZGFyV2lkZ2V0MSIsIkZ1bGxDYWxlbmRhciIsInRvZGF5RGF0ZSIsIm1vbWVudCIsInN0YXJ0T2YiLCJZTSIsImZvcm1hdCIsIllFU1RFUkRBWSIsImNsb25lIiwic3VidHJhY3QiLCJUT0RBWSIsIlRPTU9SUk9XIiwiY2FsZW5kYXJFbCIsImNhbGVuZGFyIiwiQ2FsZW5kYXIiLCJoZWFkZXJUb29sYmFyIiwiY2VudGVyIiwiY29udGVudEhlaWdodCIsImFzcGVjdFJhdGlvIiwibm93SW5kaWNhdG9yIiwibm93Iiwidmlld3MiLCJkYXlHcmlkTW9udGgiLCJidXR0b25UZXh0IiwidGltZUdyaWRXZWVrIiwidGltZUdyaWREYXkiLCJpbml0aWFsVmlldyIsImluaXRpYWxEYXRlIiwiZWRpdGFibGUiLCJkYXlNYXhFdmVudHMiLCJuYXZMaW5rcyIsImV2ZW50cyIsInRpdGxlIiwic3RhcnQiLCJkZXNjcmlwdGlvbiIsImNsYXNzTmFtZSIsImVuZCIsImlkIiwidXJsIiwiaW5pdERhdGVyYW5nZXBpY2tlciIsInBpY2tlciIsIiQiLCJjYiIsImxhYmVsIiwicmFuZ2UiLCJodG1sIiwiZGF0ZXJhbmdlcGlja2VyIiwiZGlyZWN0aW9uIiwiaXNSVEwiLCJzdGFydERhdGUiLCJlbmREYXRlIiwib3BlbnMiLCJhcHBseUNsYXNzIiwiY2FuY2VsQ2xhc3MiLCJyYW5nZXMiLCJlbmRPZiIsImluaXREYXJrTW9kZVRvZ2dsZSIsInRvZ2dsZSIsIndpbmRvdyIsImxvY2F0aW9uIiwiaHJlZiIsImluaXQiLCJtb2R1bGUiLCJleHBvcnRzIiwib25ET01Db250ZW50TG9hZGVkIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/src/js/custom/widgets.js\n");
+
+
+// Class definition
+var KTWidgets = function () {
+    // Statistics widgets
+    var initStatisticsWidget3 = function() {
+        var charts = document.querySelectorAll('.statistics-widget-3-chart');
+
+        [].slice.call(charts).map(function(element) {
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+
+            var color = element.getAttribute('data-kt-chart-color');
+
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
+            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color );
+
+            var options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [30, 45, 32, 70, 40]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 0.3
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [baseColor]
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: '#E4E6EF',
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 80,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function(val) {
+                            return "$" + val + " thousands"
+                        }
+                    }
+                },
+                colors: [baseColor],
+                markers: {
+                    colors: [baseColor],
+                    strokeColor: [lightColor],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });        
+    }
+
+    var initStatisticsWidget4 = function() {
+        var charts = document.querySelectorAll('.statistics-widget-4-chart');
+
+        [].slice.call(charts).map(function(element) {
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+
+            var color = element.getAttribute('data-kt-chart-color');
+
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
+            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color );
+
+            var options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [40, 40, 30, 30, 35, 35, 50]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 0.3
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [baseColor]
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: '#E4E6EF',
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 60,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function(val) {
+                            return "$" + val + " thousands"
+                        }
+                    }
+                },
+                colors: [baseColor],
+                markers: {
+                    colors: [baseColor],
+                    strokeColor: [lightColor],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });        
+    }
+
+    // Charts widgets
+    var initChartsWidget1 = function() {
+        var element = document.getElementById("kt_charts_widget_1_chart");
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var baseColor = KTUtil.getCssVariableValue('--bs-primary');
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [44, 55, 57, 56, 61, 58]
+            }, {
+                name: 'Revenue',
+                data: [76, 85, 101, 98, 87, 105]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'bar',
+                height: height,
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: ['30%'],
+                    borderRadius: 4
+                },
+            },
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + " thousands"
+                    }
+                }
+            },
+            colors: [baseColor, secondaryColor],
+            grid: {
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();      
+    }
+
+    var initChartsWidget2 = function() {
+        var element = document.getElementById("kt_charts_widget_2_chart");
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var baseColor = KTUtil.getCssVariableValue('--bs-warning');
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [44, 55, 57, 56, 61, 58]
+            }, {
+                name: 'Revenue',
+                data: [76, 85, 101, 98, 87, 105]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'bar',
+                height: height,
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: ['30%'],
+                    borderRadius: 4
+                },
+            },
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + " thousands"
+                    }
+                }
+            },
+            colors: [baseColor, secondaryColor],
+            grid: {
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();   
+    }
+
+    var initChartsWidget3 = function() {
+        var element = document.getElementById("kt_charts_widget_3_chart");
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var baseColor = KTUtil.getCssVariableValue('--bs-info');
+        var lightColor = KTUtil.getCssVariableValue('--bs-light-info');
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [30, 40, 40, 90, 90, 70, 70]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: 350,
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {
+
+            },
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 1
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 3,
+                colors: [baseColor]
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                },
+                crosshairs: {
+                    position: 'front',
+                    stroke: {
+                        color: baseColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    formatter: undefined,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + " thousands"
+                    }
+                }
+            },
+            colors: [lightColor],
+            grid: {
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            },
+            markers: {
+                strokeColor: baseColor,
+                strokeWidth: 3
+            }
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();   
+    }
+
+    var initChartsWidget4 = function() {
+        var element = document.getElementById("kt_charts_widget_4_chart");
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+
+        var baseColor = KTUtil.getCssVariableValue('--bs-success');
+        var baseLightColor = KTUtil.getCssVariableValue('--bs-light-success');
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-warning');
+        var secondaryLightColor = KTUtil.getCssVariableValue('--bs-light-warning');
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [60, 50, 80, 40, 100, 60]
+            }, {
+                name: 'Revenue',
+                data: [70, 60, 110, 40, 50, 70]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: 350,
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {},
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 1
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                },
+                crosshairs: {
+                    position: 'front',
+                    stroke: {
+                        color: labelColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    formatter: undefined,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + " thousands"
+                    }
+                }
+            },
+            colors: [baseColor, secondaryColor],
+            grid: {
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            },
+            markers: {
+                colors: [baseLightColor, secondaryLightColor],
+                strokeColor: [baseLightColor, secondaryLightColor],
+                strokeWidth: 3
+            }
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();   
+    }
+
+    var initChartsWidget5 = function() {
+        var element = document.getElementById("kt_charts_widget_5_chart");
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+
+        var baseColor = KTUtil.getCssVariableValue('--bs-primary');
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-info');
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [40, 50, 65, 70, 50, 30]
+            }, {
+                name: 'Revenue',
+                data: [-30, -40, -55, -60, -40, -20]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'bar',
+                stacked: true,
+                height: 350,
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: ['12%'],
+                    borderRadius: 4
+                },
+            },
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                min: -80,
+                max: 80,
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + " thousands"
+                    }
+                }
+            },
+            colors: [baseColor, secondaryColor],
+            grid: {
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            }
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();   
+    }
+
+    var initChartsWidget6 = function() {
+        var element = document.getElementById("kt_charts_widget_6_chart");
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+
+        var baseColor = KTUtil.getCssVariableValue('--bs-primary');
+        var baseLightColor = KTUtil.getCssVariableValue('--bs-light-primary');
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-info');        
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                type: 'bar',
+                stacked: true,
+                data: [40, 50, 65, 70, 50, 30]
+            }, {
+                name: 'Revenue',
+                type: 'bar',
+                stacked: true,
+                data: [20, 20, 25, 30, 30, 20]
+            }, {
+                name: 'Expenses',
+                type: 'area',
+                data: [50, 80, 60, 90, 50, 70]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                stacked: true,
+                height: 350,
+                toolbar: {
+                    show: false
+                }
+            },
+            plotOptions: {
+                bar: {
+                    stacked: true,
+                    horizontal: false,
+                    borderRadius: 4,
+                    columnWidth: ['12%']
+                },
+            },
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: ['transparent']
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                max: 120,
+                labels: {
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            fill: {
+                opacity: 1
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + " thousands"
+                    }
+                }
+            },
+            colors: [baseColor, secondaryColor, baseLightColor],
+            grid: {
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                },
+                padding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                }
+            }
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();   
+    }
+
+    var initChartsWidget7 = function() {
+        var element = document.getElementById("kt_charts_widget_7_chart");
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var strokeColor = KTUtil.getCssVariableValue('--bs-gray-300');
+
+        var color1 = KTUtil.getCssVariableValue('--bs-warning');
+        var color1Light = KTUtil.getCssVariableValue('--bs-light-warning');
+
+        var color2 = KTUtil.getCssVariableValue('--bs-success');
+        var color2Light = KTUtil.getCssVariableValue('--bs-light-success');
+
+        var color3 = KTUtil.getCssVariableValue('--bs-primary');  
+        var color3Light = KTUtil.getCssVariableValue('--bs-light-primary');  
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [30, 30, 50, 50, 35, 35]
+            }, {
+                name: 'Revenue',
+                data: [55, 20, 20, 20, 70, 70]
+            }, {
+                name: 'Expenses',
+                data: [60, 60, 40, 40, 30, 30]
+            }],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                },
+                zoom: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            plotOptions: {},
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 1
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [color1, 'transparent', 'transparent']
+            },
+            xaxis: {
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false,
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                },
+                crosshairs: {
+                    show: false,
+                    position: 'front',
+                    stroke: {
+                        color: strokeColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    formatter: undefined,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    show: false,
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + " thousands"
+                    }
+                }
+            },
+            colors: [color1, color2, color3],
+            grid: {
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                yaxis: {
+                    lines: {
+                        show: true
+                    }
+                }
+            },
+            markers: {
+                colors: [color1Light, color2Light, color3Light],
+                strokeColor: [color1, color2, color3],
+                strokeWidth: 3
+            }
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();   
+    }
+
+    var initChartsWidget8 = function() {
+        var element = document.getElementById("kt_charts_widget_8_chart");
+
+        var height = parseInt(KTUtil.css(element, 'height'));
+
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var strokeColor = KTUtil.getCssVariableValue('--bs-gray-300');
+
+        var color1 = KTUtil.getCssVariableValue('--bs-warning');
+        var color1Light = KTUtil.getCssVariableValue('--bs-light-warning');
+
+        var color2 = KTUtil.getCssVariableValue('--bs-success');
+        var color2Light = KTUtil.getCssVariableValue('--bs-light-success');
+
+        var color3 = KTUtil.getCssVariableValue('--bs-primary');  
+        var color3Light = KTUtil.getCssVariableValue('--bs-light-primary');  
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            series: [{
+                name: 'Net Profit',
+                data: [30, 30, 50, 50, 35, 35]
+            }, {
+                name: 'Revenue',
+                data: [55, 20, 20, 20, 70, 70]
+            }, {
+                name: 'Expenses',
+                data: [60, 60, 40, 40, 30, 30]
+            },],
+            chart: {
+                fontFamily: 'inherit',
+                type: 'area',
+                height: height,
+                toolbar: {
+                    show: false
+                },
+                zoom: {
+                    enabled: false
+                },
+                sparkline: {
+                    enabled: true
+                }
+            },
+            plotOptions: {},
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                type: 'solid',
+                opacity: 1
+            },
+            stroke: {
+                curve: 'smooth',
+                show: true,
+                width: 2,
+                colors: [color1, color2, color3]
+            },
+            xaxis: {
+                x: 0,
+                offsetX: 0,
+                offsetY: 0,
+                padding: {
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                },
+                categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                },
+                labels: {
+                    show: false,
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                },
+                crosshairs: {
+                    show: false,
+                    position: 'front',
+                    stroke: {
+                        color: strokeColor,
+                        width: 1,
+                        dashArray: 3
+                    }
+                },
+                tooltip: {
+                    enabled: true,
+                    formatter: undefined,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yaxis: {
+                y: 0,
+                offsetX: 0,
+                offsetY: 0,
+                padding: {
+                    left: 0,
+                    right: 0
+                },
+                labels: {
+                    show: false,
+                    style: {
+                        colors: labelColor,
+                        fontSize: '12px'
+                    }
+                }
+            },
+            states: {
+                normal: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                hover: {
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                },
+                active: {
+                    allowMultipleDataPointsSelection: false,
+                    filter: {
+                        type: 'none',
+                        value: 0
+                    }
+                }
+            },
+            tooltip: {
+                style: {
+                    fontSize: '12px'
+                },
+                y: {
+                    formatter: function (val) {
+                        return "$" + val + " thousands"
+                    }
+                }
+            },
+            colors: [color1Light, color2Light, color3Light],
+            grid: {
+                borderColor: borderColor,
+                strokeDashArray: 4,
+                padding: {
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0
+                }
+            },
+            markers: {
+                colors: [color1, color2, color3],
+                strokeColor: [color1, color2, color3],
+                strokeWidth: 3
+            }
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();   
+    }
+
+    // Mixed widgets
+    var initMixedWidget2 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-2-chart');
+
+        var color;
+        var strokeColor;
+        var height;
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var options;
+        var chart;
+
+        [].slice.call(charts).map(function(element) {
+            height = parseInt(KTUtil.css(element, 'height'));
+            color = KTUtil.getCssVariableValue('--bs-' + element.getAttribute("data-kt-color"));
+            strokeColor = KTUtil.colorDarken(color, 15);
+
+            options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [30, 45, 32, 70, 40, 40, 40]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    },
+                    dropShadow: {
+                        enabled: true,
+                        enabledOnSeries: undefined,
+                        top: 5,
+                        left: 0,
+                        blur: 3,
+                        color: strokeColor,
+                        opacity: 0.5
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 0
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [strokeColor]
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: borderColor,
+                            width: 1,
+                            dashArray: 3
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 80,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px',
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "$" + val + " thousands"
+                        }
+                    },
+                    marker: {
+                        show: false
+                    }
+                },
+                colors: ['transparent'],
+                markers: {
+                    colors: [color],
+                    strokeColor: [strokeColor],
+                    strokeWidth: 3
+                }
+            };
+
+            chart = new ApexCharts(element, options);
+            chart.render();  
+        });        
+    }
+
+    var initMixedWidget3 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-3-chart');
+
+        [].slice.call(charts).map(function(element) {
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+
+            var color = element.getAttribute('data-kt-chart-color');
+
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
+            var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
+            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color );
+
+            var options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [30, 25, 45, 30, 55, 55]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 1
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [baseColor]
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: strokeColor,
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 60,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "$" + val + " thousands"
+                        }
+                    }
+                },
+                colors: [lightColor],
+                markers: {
+                    colors: [lightColor],
+                    strokeColor: [baseColor],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });        
+    }
+
+    var initMixedWidget4 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-4-chart');
+
+        [].slice.call(charts).map(function(element) {
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+
+            var color = element.getAttribute('data-kt-chart-color');
+
+            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color );
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-700');
+
+            var options = {
+                series: [74],
+                chart: {
+                    fontFamily: 'inherit',
+                    height: height,
+                    type: 'radialBar',
+                },
+                plotOptions: {
+                    radialBar: {
+                        hollow: {
+                            margin: 0,
+                            size: "65%"
+                        },
+                        dataLabels: {
+                            showOn: "always",
+                            name: {
+                                show: false,
+                                fontWeight: '700'
+                            },
+                            value: {
+                                color: labelColor,
+                                fontSize: "30px",
+                                fontWeight: '700',
+                                offsetY: 12,
+                                show: true,
+                                formatter: function (val) {
+                                    return val + '%';
+                                }
+                            }
+                        },
+                        track: {
+                            background: lightColor,
+                            strokeWidth: '100%'
+                        }
+                    }
+                },
+                colors: [baseColor],
+                stroke: {
+                    lineCap: "round",
+                },
+                labels: ["Progress"]
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });        
+    }
+
+    var initMixedWidget5 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-5-chart');
+
+        [].slice.call(charts).map(function(element) {
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+
+            var color = element.getAttribute('data-kt-chart-color');
+
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
+            var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
+            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color );
+
+            var options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [30, 30, 60, 25, 25, 40]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 1
+                },
+                fill1: {
+                    type: 'gradient',
+                    opacity: 1,
+                    gradient: {
+                        type: "vertical",
+                        shadeIntensity: 0.5,
+                        gradientToColors: undefined,
+                        inverseColors: true,
+                        opacityFrom: 1,
+                        opacityTo: 0.375,
+                        stops: [25, 50, 100],
+                        colorStops: []
+                    }
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [baseColor]
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: strokeColor,
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 65,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "$" + val + " thousands"
+                        }
+                    }
+                },
+                colors: [lightColor],
+                markers: {
+                    colors: [lightColor],
+                    strokeColor: [baseColor],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });        
+    }
+
+    var initMixedWidget6 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-6-chart');
+
+        [].slice.call(charts).map(function(element) {
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+
+            var color = element.getAttribute('data-kt-chart-color');
+
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
+            var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
+            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color );
+
+            var options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [30, 25, 45, 30, 55, 55]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 1
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [baseColor]
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: strokeColor,
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 60,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "$" + val + " thousands"
+                        }
+                    }
+                },
+                colors: [lightColor],
+                markers: {
+                    colors: [lightColor],
+                    strokeColor: [baseColor],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });        
+    }
+
+    var initMixedWidget7 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-7-chart');
+
+        [].slice.call(charts).map(function(element) {
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+
+            var color = element.getAttribute('data-kt-chart-color');
+
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
+            var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
+            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);
+
+            var options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [15, 25, 15, 40, 20, 50]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 1
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [baseColor]
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: strokeColor,
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 60,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "$" + val + " thousands"
+                        }
+                    }
+                },
+                colors: [lightColor],
+                markers: {
+                    colors: [lightColor],
+                    strokeColor: [baseColor],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });        
+    }
+
+    var initMixedWidget10 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-10-chart');
+
+        var color;
+        var height;
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var baseLightColor;
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
+        var baseColor;
+        var options;
+        var chart;
+
+        [].slice.call(charts).map(function(element) {
+            color = element.getAttribute("data-kt-color");
+            height = parseInt(KTUtil.css(element, 'height'));
+            baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+
+            options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [50, 60, 70, 80, 60, 50, 70, 60]
+                }, {
+                    name: 'Revenue',
+                    data: [50, 60, 70, 80, 60, 50, 70, 60]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'bar',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: ['50%'],
+                        borderRadius: 4
+                    },
+                },
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    y: 0,
+                    offsetX: 0,
+                    offsetY: 0,
+                    labels: {
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                fill: {
+                    type: 'solid'
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "$" + val + " revenue"
+                        }
+                    }
+                },
+                colors: [baseColor, secondaryColor],
+                grid: {
+                    padding: {
+                        top: 10
+                    },
+                    borderColor: borderColor,
+                    strokeDashArray: 4,
+                    yaxis: {
+                        lines: {
+                            show: true
+                        }
+                    }
+                }
+            };
+
+            chart = new ApexCharts(element, options);
+            chart.render();      
+        });        
+    }
+
+    var initMixedWidget12 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-12-chart');
+
+        var color;
+        var strokeColor;
+        var height;
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var options;
+        var chart;
+
+        [].slice.call(charts).map(function(element) {            
+            height = parseInt(KTUtil.css(element, 'height'));
+
+            var options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [35, 65, 75, 55, 45, 60, 55]
+                }, {
+                    name: 'Revenue',
+                    data: [40, 70, 80, 60, 50, 65, 60]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'bar',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    },
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: ['30%'],
+                        borderRadius: 2
+                    }
+                },
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 1,
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 100,
+                    labels: {
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                fill: {
+                    type: ['solid', 'solid'],
+                    opacity: [0.25, 1]
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "$" + val + " thousands"
+                        }
+                    },
+                    marker: {
+                        show: false
+                    }
+                },
+                colors: ['#ffffff', '#ffffff'],
+                grid: {
+                    borderColor: borderColor,
+                    strokeDashArray: 4,
+                    yaxis: {
+                        lines: {
+                            show: true
+                        }
+                    },
+                    padding: {
+                        left: 20,
+                        right: 20
+                    }
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render()
+        });        
+    } 
+
+    var initMixedWidget13 = function() {
+        var height;
+        var charts = document.querySelectorAll('.mixed-widget-13-chart');
+
+        [].slice.call(charts).map(function(element) {
+            height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+                   
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
+            var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
+
+            var options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [15, 25, 15, 40, 20, 50]
+                }],
+                grid: {
+                    show: false,
+                    padding: {
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0
+                    }
+                },
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'gradient',
+                    gradient: {                        
+                        opacityFrom: 0.4,
+                        opacityTo: 0,
+                        stops: [20, 120, 120, 120]
+                    }
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: ['#FFFFFF']
+                },
+                xaxis: {
+                    categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: strokeColor,
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 60,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "$" + val + " thousands"
+                        }
+                    }
+                },
+                colors: ['#ffffff'],
+                markers: {
+                    colors: [labelColor],
+                    strokeColor: [strokeColor],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });        
+    }
+
+    var initMixedWidget14 = function() {   		
+		var charts = document.querySelectorAll('.mixed-widget-14-chart');  
+        var options;
+        var chart;
+        var height;
+
+        [].slice.call(charts).map(function(element) {
+            height = parseInt(KTUtil.css(element, 'height'));      
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');      
+
+            options = {
+                series: [{
+                    name: 'Inflation',
+                    data: [1, 2.1, 1, 2.1, 4.1, 6.1, 4.1, 4.1, 2.1, 4.1, 2.1, 3.1, 1, 1, 2.1]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    height: height,
+                    type: 'bar',
+                    toolbar: {
+                        show: false
+                    }                             
+                },
+                grid: {
+                    show: false,
+                    padding: {
+                        top: 0,
+                        bottom: 0,
+                        left: 0,
+                        right: 0
+                    }
+                },                
+                colors: ['#ffffff'],         
+                plotOptions: {
+                    bar: {                    
+                        borderRadius: 2.5,
+                        dataLabels: {
+                            position: 'top', // top, center, bottom
+                        },
+                        columnWidth: '20%'                             
+                    }
+                },            
+                dataLabels: {
+                    enabled: false,
+                    formatter: function(val) {
+                        return val + "%";
+                    },
+                    offsetY: -20,
+                    style: {
+                        fontSize: '12px',
+                        colors: ["#304758"]
+                    }
+                },          
+                xaxis: {
+                    labels: {
+                        show: false,
+                    },
+                    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar"],
+                    position: 'top',
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    crosshairs: {
+                        show: false
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                },
+                yaxis: {
+                    show: false,
+                    axisBorder: {
+                        show: false
+                    },
+                    axisTicks: {
+                        show: false,
+                        background: labelColor
+                    },
+                    labels: {
+                        show: false,
+                        formatter: function(val) {
+                            return val + "%";
+                        }
+                    }                
+                }		
+            };
+
+            chart = new ApexCharts(element, options);
+            chart.render(); 
+        }); 
+	}
+    
+    var initMixedWidget16 = function() {
+        var element = document.getElementById("kt_charts_mixed_widget_16_chart");
+        var height = parseInt(KTUtil.css(element, 'height'));
+
+        if (!element) {
+            return;
+        }
+
+        var options = {
+            labels: ["Total Members"],
+            series: [74],
+            chart: {
+                fontFamily: 'inherit',
+                height: height,
+                type: 'radialBar',
+                offsetY: 0
+            },
+            plotOptions: {
+                radialBar: {
+                    startAngle: -90,
+                    endAngle: 90,
+
+                    hollow: {
+                        margin: 0,
+                        size: "70%"
+                    },
+                    dataLabels: {
+                        showOn: "always",
+                        name: {
+                            show: true,
+                            fontSize: "13px",
+                            fontWeight: "700",
+                            offsetY: -5,
+                            color: KTUtil.getCssVariableValue('--bs-gray-500')
+                        },
+                        value: {
+                            color: KTUtil.getCssVariableValue('--bs-gray-700'),
+                            fontSize: "30px",
+                            fontWeight: "700",
+                            offsetY: -40,
+                            show: true
+                        }
+                    },
+                    track: {
+                        background: KTUtil.getCssVariableValue('--bs-light-primary'),
+                        strokeWidth: '100%'
+                    }
+                }
+            },
+            colors: [KTUtil.getCssVariableValue('--bs-primary')],
+            stroke: {
+                lineCap: "round",
+            }            
+        };
+
+        var chart = new ApexCharts(element, options);
+        chart.render();
+    }
+
+    // Feeds Widgets
+    var initFeedWidget1 = function() {
+        var formEl = document.querySelector("#kt_forms_widget_1_form");
+        var editorId = 'kt_forms_widget_1_editor';
+
+        if ( !formEl ) {
+            return;
+        }
+
+        // init editor
+        var options = {
+            modules: {
+                toolbar: {
+                    container: "#kt_forms_widget_1_editor_toolbar"
+                }
+            },
+            placeholder: 'What is on your mind ?',
+            theme: 'snow'
+        };
+
+        if (!formEl) {
+            return;
+        }
+
+        // Init editor
+        var editorObj = new Quill('#' + editorId, options);
+    }
+
+    var initFeedsWidget4 = function() {
+        var btn = document.querySelector('#kt_widget_5_load_more_btn');
+        var widget5 = document.querySelector('#kt_widget_5');        
+
+        if (btn) {
+            btn.addEventListener('click', function(e){
+                e.preventDefault();
+                btn.setAttribute('data-kt-indicator', 'on');
+
+                setTimeout(function() {
+                    btn.removeAttribute('data-kt-indicator');
+                    widget5.classList.remove('d-none');         
+                    btn.classList.add('d-none');         
+                    
+                    KTUtil.scrollTo(widget5, 200);
+                }, 2000);                
+            });
+        }                 
+    }  
+
+    // Follow button
+    var initUserFollowButton = function() {
+        var follow = document.querySelector('#kt_user_follow_button');
+
+        if (follow) {
+            follow.addEventListener('click', function(e){
+                // Prevent default action 
+                e.preventDefault();
+                
+                // Show indicator
+                follow.setAttribute('data-kt-indicator', 'on');
+                
+                // Disable button to avoid multiple click 
+				follow.disabled = true;
+
+                // Check button state
+                if (follow.classList.contains("btn-success")) {
+                     setTimeout(function() {
+                        follow.removeAttribute('data-kt-indicator');
+                        follow.classList.remove("btn-success");
+                        follow.classList.add("btn-light");
+                        follow.querySelector(".svg-icon").classList.add("d-none");
+                        follow.querySelector(".indicator-label").innerHTML = 'Follow';
+				        follow.disabled = false;
+                    }, 1500);   
+                } else {
+                     setTimeout(function() {
+                        follow.removeAttribute('data-kt-indicator');
+                        follow.classList.add("btn-success");
+                        follow.classList.remove("btn-light");
+                        follow.querySelector(".svg-icon").classList.remove("d-none");
+                        follow.querySelector(".indicator-label").innerHTML = 'Following';
+                        follow.disabled = false;
+                    }, 1000);   
+                }        
+            });
+        }                 
+    }
+
+    // Calendar
+    var initCalendarWidget1 = function() {
+        if (typeof FullCalendar === 'undefined' || !document.querySelector('#kt_calendar_widget_1')) {
+            return;
+        }
+
+        var todayDate = moment().startOf('day');
+        var YM = todayDate.format('YYYY-MM');
+        var YESTERDAY = todayDate.clone().subtract(1, 'day').format('YYYY-MM-DD');
+        var TODAY = todayDate.format('YYYY-MM-DD');
+        var TOMORROW = todayDate.clone().add(1, 'day').format('YYYY-MM-DD');
+
+        var calendarEl = document.getElementById('kt_calendar_widget_1');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+            },
+
+            height: 800,
+            contentHeight: 780,
+            aspectRatio: 3,  // see: https://fullcalendar.io/docs/aspectRatio
+
+            nowIndicator: true,
+            now: TODAY + 'T09:25:00', // just for demo
+
+            views: {
+                dayGridMonth: { buttonText: 'month' },
+                timeGridWeek: { buttonText: 'week' },
+                timeGridDay: { buttonText: 'day' }
+            },
+
+            initialView: 'dayGridMonth',
+            initialDate: TODAY,
+
+            editable: true,
+            dayMaxEvents: true, // allow "more" link when too many events
+            navLinks: true,
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: YM + '-01',
+                    description: 'Toto lorem ipsum dolor sit incid idunt ut',
+                    className: "fc-event-danger fc-event-solid-warning"
+                },
+                {
+                    title: 'Reporting',
+                    start: YM + '-14T13:30:00',
+                    description: 'Lorem ipsum dolor incid idunt ut labore',
+                    end: YM + '-14',
+                    className: "fc-event-success"
+                },
+                {
+                    title: 'Company Trip',
+                    start: YM + '-02',
+                    description: 'Lorem ipsum dolor sit tempor incid',
+                    end: YM + '-03',
+                    className: "fc-event-primary"
+                },
+                {
+                    title: 'ICT Expo 2017 - Product Release',
+                    start: YM + '-03',
+                    description: 'Lorem ipsum dolor sit tempor inci',
+                    end: YM + '-05',
+                    className: "fc-event-light fc-event-solid-primary"
+                },
+                {
+                    title: 'Dinner',
+                    start: YM + '-12',
+                    description: 'Lorem ipsum dolor sit amet, conse ctetur',
+                    end: YM + '-10'
+                },
+                {
+                    id: 999,
+                    title: 'Repeating Event',
+                    start: YM + '-09T16:00:00',
+                    description: 'Lorem ipsum dolor sit ncididunt ut labore',
+                    className: "fc-event-danger"
+                },
+                {
+                    id: 1000,
+                    title: 'Repeating Event',
+                    description: 'Lorem ipsum dolor sit amet, labore',
+                    start: YM + '-16T16:00:00'
+                },
+                {
+                    title: 'Conference',
+                    start: YESTERDAY,
+                    end: TOMORROW,
+                    description: 'Lorem ipsum dolor eius mod tempor labore',
+                    className: "fc-event-primary"
+                },
+                {
+                    title: 'Meeting',
+                    start: TODAY + 'T10:30:00',
+                    end: TODAY + 'T12:30:00',
+                    description: 'Lorem ipsum dolor eiu idunt ut labore'
+                },
+                {
+                    title: 'Lunch',
+                    start: TODAY + 'T12:00:00',
+                    className: "fc-event-info",
+                    description: 'Lorem ipsum dolor sit amet, ut labore'
+                },
+                {
+                    title: 'Meeting',
+                    start: TODAY + 'T14:30:00',
+                    className: "fc-event-warning",
+                    description: 'Lorem ipsum conse ctetur adipi scing'
+                },
+                {
+                    title: 'Happy Hour',
+                    start: TODAY + 'T17:30:00',
+                    className: "fc-event-info",
+                    description: 'Lorem ipsum dolor sit amet, conse ctetur'
+                },
+                {
+                    title: 'Dinner',
+                    start: TOMORROW + 'T05:00:00',
+                    className: "fc-event-solid-danger fc-event-light",
+                    description: 'Lorem ipsum dolor sit ctetur adipi scing'
+                },
+                {
+                    title: 'Birthday Party',
+                    start: TOMORROW + 'T07:00:00',
+                    className: "fc-event-primary",
+                    description: 'Lorem ipsum dolor sit amet, scing'
+                },
+                {
+                    title: 'Click for Google',
+                    url: 'http://google.com/',
+                    start: YM + '-28',
+                    className: "fc-event-solid-info fc-event-light",
+                    description: 'Lorem ipsum dolor sit amet, labore'
+                }
+            ]
+        });
+
+        calendar.render();
+    }
+
+    // Daterangepicker
+    var initDaterangepicker = function () {
+        if (!document.querySelector('#kt_dashboard_daterangepicker')) {
+            return;
+        }
+
+        var picker = $('#kt_dashboard_daterangepicker');
+        var start = moment();
+        var end = moment();
+
+        function cb(start, end, label) {
+            var title = '';
+            var range = '';
+
+            if ((end - start) < 100 || label == 'Today') {
+                title = 'Today:';
+                range = start.format('MMM D');
+            } else if (label == 'Yesterday') {
+                title = 'Yesterday:';
+                range = start.format('MMM D');
+            } else {
+                range = start.format('MMM D') + ' - ' + end.format('MMM D');
+            }
+
+            $('#kt_dashboard_daterangepicker_date').html(range);
+            $('#kt_dashboard_daterangepicker_title').html(title);
+        }
+
+        picker.daterangepicker({
+            direction: KTUtil.isRTL(),
+            startDate: start,
+            endDate: end,
+            opens: 'left',
+            applyClass: 'btn-primary',
+            cancelClass: 'btn-light-primary',
+            ranges: {
+                'Today': [moment(), moment()],
+                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+
+        cb(start, end, '');
+    }    
+
+    // Dark mode toggler
+    var initDarkModeToggle = function() {
+        var toggle = document.querySelector('#kt_user_menu_dark_mode_toggle');
+        
+        if (toggle) {
+            toggle.addEventListener('click', function() {
+                window.location.href = this.getAttribute('data-kt-url');
+            });
+        }
+    }
+
+    // Public methods
+    return {
+        init: function () {
+            // Daterangepicker
+            initDaterangepicker();
+            
+            // Dark Mode
+            initDarkModeToggle();
+
+            // Statistics widgets
+            initStatisticsWidget3();
+            initStatisticsWidget4();            
+
+            // Charts widgets
+            initChartsWidget1();
+            initChartsWidget2();
+            initChartsWidget3();
+            initChartsWidget4();
+            initChartsWidget5();
+            initChartsWidget6();
+            initChartsWidget7();
+            initChartsWidget8();
+
+            // Mixed widgets
+            initMixedWidget2();
+            initMixedWidget3();
+            initMixedWidget4();
+            initMixedWidget5();
+            initMixedWidget6();
+            initMixedWidget7();
+            initMixedWidget10();            
+            initMixedWidget12();
+            initMixedWidget13(); 
+            initMixedWidget14();
+            initMixedWidget16();
+
+            // Feeds
+            initFeedWidget1();
+            initFeedsWidget4();
+
+            // Follow button
+            initUserFollowButton();
+
+            // Calendar
+            initCalendarWidget1();           
+        }   
+    }
+}();
+
+// Webpack support
+if (true) {
+    module.exports = KTWidgets;
+}
+
+// On document ready
+KTUtil.onDOMContentLoaded(function() {
+    KTWidgets.init();
+});
+
 
 /***/ })
 
@@ -51,7 +3141,8 @@ eval(" // Class definition\n\nvar KTWidgets = function () {\n  // Statistics wid
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/src/js/custom/widgets.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("../../../themes/metronic/html/demo10/src/js/custom/widgets.js");
 /******/ 	
 /******/ })()
 ;
+//# sourceMappingURL=widgets.js.map

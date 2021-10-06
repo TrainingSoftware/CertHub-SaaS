@@ -1,33 +1,99 @@
-/*
- * ATTENTION: An "eval-source-map" devtool has been used.
- * This devtool is neither made for production nor for readable output files.
- * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
- * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
- * or disable the default devtool with "devtool: false".
- * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
- */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ({
+var __webpack_exports__ = {};
+/*!********************************************************************!*\
+  !*** ../src/js/custom/documentation/general/vis-timeline/style.js ***!
+  \********************************************************************/
 
-/***/ "./resources/src/js/custom/documentation/general/vis-timeline/style.js":
-/*!*****************************************************************************!*\
-  !*** ./resources/src/js/custom/documentation/general/vis-timeline/style.js ***!
-  \*****************************************************************************/
-/***/ (() => {
 
-eval(" // Class definition\n\nvar KTVisTimelineStyle = function () {\n  // Private functions\n  var exampleStyle = function exampleStyle() {\n    var container = document.getElementById(\"kt_docs_vistimeline_style\"); // Generate HTML content\n\n    var getContent = function getContent(title, img) {\n      var _name$classList, _symbol$classList;\n\n      var item = document.createElement('div');\n      var name = document.createElement('div');\n      var nameClasses = ['fw-bolder', 'mb-2'];\n\n      (_name$classList = name.classList).add.apply(_name$classList, nameClasses);\n\n      name.innerHTML = title;\n      var image = document.createElement('img');\n      image.setAttribute('src', img);\n      var symbol = document.createElement('div');\n      var symbolClasses = ['symbol', 'symbol-circle', 'symbol-30'];\n\n      (_symbol$classList = symbol.classList).add.apply(_symbol$classList, symbolClasses);\n\n      symbol.appendChild(image);\n      item.appendChild(name);\n      item.appendChild(symbol);\n      return item;\n    }; // note that months are zero-based in the JavaScript Date object\n\n\n    var items = new vis.DataSet([{\n      start: new Date(2010, 7, 23),\n      content: getContent('Conversation', hostUrl + '/media/avatars/150-1.jpg')\n    }, {\n      start: new Date(2010, 7, 23, 23, 0, 0),\n      content: getContent('Mail from boss', hostUrl + '/media/avatars/150-2.jpg')\n    }, {\n      start: new Date(2010, 7, 24, 16, 0, 0),\n      content: \"Report\"\n    }, {\n      start: new Date(2010, 7, 26),\n      end: new Date(2010, 8, 2),\n      content: \"Traject A\"\n    }, {\n      start: new Date(2010, 7, 28),\n      content: getContent('Memo', hostUrl + '/media/avatars/150-3.jpg')\n    }, {\n      start: new Date(2010, 7, 29),\n      content: getContent('Phone call', hostUrl + '/media/avatars/150-4.jpg')\n    }, {\n      start: new Date(2010, 7, 31),\n      end: new Date(2010, 8, 3),\n      content: \"Traject B\"\n    }, {\n      start: new Date(2010, 8, 4, 12, 0, 0),\n      content: getContent('Report', hostUrl + '/media/avatars/150-5.jpg')\n    }]);\n    var options = {\n      editable: true,\n      margin: {\n        item: 20,\n        axis: 40\n      }\n    };\n    var timeline = new vis.Timeline(container, items, options);\n  };\n\n  return {\n    // Public Functions\n    init: function init() {\n      exampleStyle();\n    }\n  };\n}(); // On document ready\n\n\nKTUtil.onDOMContentLoaded(function () {\n  KTVisTimelineStyle.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9kb2N1bWVudGF0aW9uL2dlbmVyYWwvdmlzLXRpbWVsaW5lL3N0eWxlLmpzLmpzIiwibWFwcGluZ3MiOiJDQUdBOztBQUNBLElBQUlBLGtCQUFrQixHQUFHLFlBQVk7QUFDakM7QUFDQSxNQUFJQyxZQUFZLEdBQUcsU0FBZkEsWUFBZSxHQUFZO0FBQzNCLFFBQUlDLFNBQVMsR0FBR0MsUUFBUSxDQUFDQyxjQUFULENBQXdCLDJCQUF4QixDQUFoQixDQUQyQixDQUczQjs7QUFDQSxRQUFNQyxVQUFVLEdBQUcsU0FBYkEsVUFBYSxDQUFDQyxLQUFELEVBQVFDLEdBQVIsRUFBZ0I7QUFBQTs7QUFDL0IsVUFBTUMsSUFBSSxHQUFHTCxRQUFRLENBQUNNLGFBQVQsQ0FBdUIsS0FBdkIsQ0FBYjtBQUNBLFVBQU1DLElBQUksR0FBR1AsUUFBUSxDQUFDTSxhQUFULENBQXVCLEtBQXZCLENBQWI7QUFDQSxVQUFNRSxXQUFXLEdBQUcsQ0FBQyxXQUFELEVBQWMsTUFBZCxDQUFwQjs7QUFDQSx5QkFBQUQsSUFBSSxDQUFDRSxTQUFMLEVBQWVDLEdBQWYsd0JBQXNCRixXQUF0Qjs7QUFDQUQsTUFBQUEsSUFBSSxDQUFDSSxTQUFMLEdBQWlCUixLQUFqQjtBQUVBLFVBQU1TLEtBQUssR0FBR1osUUFBUSxDQUFDTSxhQUFULENBQXVCLEtBQXZCLENBQWQ7QUFDQU0sTUFBQUEsS0FBSyxDQUFDQyxZQUFOLENBQW1CLEtBQW5CLEVBQTBCVCxHQUExQjtBQUVBLFVBQU1VLE1BQU0sR0FBR2QsUUFBUSxDQUFDTSxhQUFULENBQXVCLEtBQXZCLENBQWY7QUFDQSxVQUFNUyxhQUFhLEdBQUcsQ0FBQyxRQUFELEVBQVcsZUFBWCxFQUE0QixXQUE1QixDQUF0Qjs7QUFDQSwyQkFBQUQsTUFBTSxDQUFDTCxTQUFQLEVBQWlCQyxHQUFqQiwwQkFBd0JLLGFBQXhCOztBQUNBRCxNQUFBQSxNQUFNLENBQUNFLFdBQVAsQ0FBbUJKLEtBQW5CO0FBRUFQ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WTtBQUNkakMsTUFBQUEsWUFBWTtBQUNmO0FBSkUsR0FBUDtBQU1ILENBL0V3QixFQUF6QixDLENBaUZBOzs7QUFDQWtDLE1BQU0sQ0FBQ0Msa0JBQVAsQ0FBMEIsWUFBWTtBQUNsQ3BDLEVBQUFBLGtCQUFrQixDQUFDa0MsSUFBbkI7QUFDSCxDQUZEIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3NyYy9qcy9jdXN0b20vZG9jdW1lbnRhdGlvbi9nZW5lcmFsL3Zpcy10aW1lbGluZS9zdHlsZS5qcz80ZTI5Il0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xyXG5cclxuXHJcbi8vIENsYXNzIGRlZmluaXRpb25cclxudmFyIEtUVmlzVGltZWxpbmVTdHlsZSA9IGZ1bmN0aW9uICgpIHtcclxuICAgIC8vIFByaXZhdGUgZnVuY3Rpb25zXHJcbiAgICB2YXIgZXhhbXBsZVN0eWxlID0gZnVuY3Rpb24gKCkge1xyXG4gICAgICAgIHZhciBjb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImt0X2RvY3NfdmlzdGltZWxpbmVfc3R5bGVcIik7XHJcblxyXG4gICAgICAgIC8vIEdlbmVyYXRlIEhUTUwgY29udGVudFxyXG4gICAgICAgIGNvbnN0IGdldENvbnRlbnQgPSAodGl0bGUsIGltZykgPT4ge1xyXG4gICAgICAgICAgICBjb25zdCBpdGVtID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7XHJcbiAgICAgICAgICAgIGNvbnN0IG5hbWUgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTtcclxuICAgICAgICAgICAgY29uc3QgbmFtZUNsYXNzZXMgPSBbJ2Z3LWJvbGRlcicsICdtYi0yJ107XHJcbiAgICAgICAgICAgIG5hbWUuY2xhc3NMaXN0LmFkZCguLi5uYW1lQ2xhc3Nlcyk7XHJcbiAgICAgICAgICAgIG5hbWUuaW5uZXJIVE1MID0gdGl0bGU7XHJcblxyXG4gICAgICAgICAgICBjb25zdCBpbWFnZSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2ltZycpO1xyXG4gICAgICAgICAgICBpbWFnZS5zZXRBdHRyaWJ1dGUoJ3NyYycsIGltZyk7XHJcblxyXG4gICAgICAgICAgICBjb25zdCBzeW1ib2wgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTtcclxuICAgICAgICAgICAgY29uc3Qgc3ltYm9sQ2xhc3NlcyA9IFsnc3ltYm9sJywgJ3N5bWJvbC1jaXJjbGUnLCAnc3ltYm9sLTMwJ107XHJcbiAgICAgICAgICAgIHN5bWJvbC5jbGFzc0xpc3QuYWRkKC4uLnN5bWJvbENsYXNzZXMpO1xyXG4gICAgICAgICAgICBzeW1ib2wuYXBwZW5kQ2hpbGQoaW1hZ2UpO1xyXG5cclxuICAgICAgICAgICAgaXRlbS5hcHBlbmRDaGlsZChuYW1lKTtcclxuICAgICAgICAgICAgaXRlbS5hcHBlbmRDaGlsZChzeW1ib2wpO1xyXG5cclxuICAgICAgICAgICAgcmV0dXJuIGl0ZW07XHJcbiAgICAgICAgfVxyXG5cclxuICAgICAgICAvLyBub3RlIHRoYXQgbW9udGhzIGFyZSB6ZXJvLWJhc2VkIGluIHRoZSBKYXZhU2NyaXB0IERhdGUgb2JqZWN0XHJcbiAgICAgICAgdmFyIGl0ZW1zID0gbmV3IHZpcy5EYXRhU2V0KFtcclxuICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgc3RhcnQ6IG5ldyBEYXRlKDIwMTAsIDcsIDIzKSxcclxuICAgICAgICAgICAgICAgIGNvbnRlbnQ6IGdldENvbnRlbnQoJ0NvbnZlcnNhdGlvbicsIGhvc3RVcmwgKyAnL21lZGlhL2F2YXRhcnMvMTUwLTEuanBnJylcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgc3RhcnQ6IG5ldyBEYXRlKDIwMTAsIDcsIDIzLCAyMywgMCwgMCksXHJcbiAgICAgICAgICAgICAgICBjb250ZW50OiBnZXRDb250ZW50KCdNYWlsIGZyb20gYm9zcycsIGhvc3RVcmwgKyAnL21lZGlhL2F2YXRhcnMvMTUwLTIuanBnJylcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgeyBzdGFydDogbmV3IERhdGUoMjAxMCwgNywgMjQsIDE2LCAwLCAwKSwgY29udGVudDogXCJSZXBvcnRcIiB9LFxyXG4gICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICBzdGFydDogbmV3IERhdGUoMjAxMCwgNywgMjYpLFxyXG4gICAgICAgICAgICAgICAgZW5kOiBuZXcgRGF0ZSgyMDEwLCA4LCAyKSxcclxuICAgICAgICAgICAgICAgIGNvbnRlbnQ6IFwiVHJhamVjdCBBXCIsXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIHtcclxuICAgICAgICAgICAgICAgIHN0YXJ0OiBuZXcgRGF0ZSgyMDEwLCA3LCAyOCksXHJcbiAgICAgICAgICAgICAgICBjb250ZW50OiBnZXRDb250ZW50KCdNZW1vJywgaG9zdFVybCArICcvbWVkaWEvYXZhdGFycy8xNTAtMy5qcGcnKVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICBzdGFydDogbmV3IERhdGUoMjAxMCwgNywgMjkpLFxyXG4gICAgICAgICAgICAgICAgY29udGVudDogZ2V0Q29udGVudCgnUGhvbmUgY2FsbCcsIGhvc3RVcmwgKyAnL21lZGlhL2F2YXRhcnMvMTUwLTQuanBnJylcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgc3RhcnQ6IG5ldyBEYXRlKDIwMTAsIDcsIDMxKSxcclxuICAgICAgICAgICAgICAgIGVuZDogbmV3IERhdGUoMjAxMCwgOCwgMyksXHJcbiAgICAgICAgICAgICAgICBjb250ZW50OiBcIlRyYWplY3QgQlwiLFxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICB7XHJcbiAgICAgICAgICAgICAgICBzdGFydDogbmV3IERhdGUoMjAxMCwgOCwgNCwgMTIsIDAsIDApLFxyXG4gICAgICAgICAgICAgICAgY29udGVudDogZ2V0Q29udGVudCgnUmVwb3J0JywgaG9zdFVybCArICcvbWVkaWEvYXZhdGFycy8xNTAtNS5qcGcnKVxyXG4gICAgICAgICAgICB9LFxyXG4gICAgICAgIF0pO1xyXG5cclxuICAgICAgICB2YXIgb3B0aW9ucyA9IHtcclxuICAgICAgICAgICAgZWRpdGFibGU6IHRydWUsXHJcbiAgICAgICAgICAgIG1hcmdpbjoge1xyXG4gICAgICAgICAgICAgICAgaXRlbTogMjAsXHJcbiAgICAgICAgICAgICAgICBheGlzOiA0MCxcclxuICAgICAgICAgICAgfSxcclxuICAgICAgICB9O1xyXG5cclxuICAgICAgICB2YXIgdGltZWxpbmUgPSBuZXcgdmlzLlRpbWVsaW5lKGNvbnRhaW5lciwgaXRlbXMsIG9wdGlvbnMpO1xyXG4gICAgfVxyXG5cclxuICAgIHJldHVybiB7XHJcbiAgICAgICAgLy8gUHVibGljIEZ1bmN0aW9uc1xyXG4gICAgICAgIGluaXQ6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICAgICAgZXhhbXBsZVN0eWxlKCk7XHJcbiAgICAgICAgfVxyXG4gICAgfTtcclxufSgpO1xyXG5cclxuLy8gT24gZG9jdW1lbnQgcmVhZHlcclxuS1RVdGlsLm9uRE9NQ29udGVudExvYWRlZChmdW5jdGlvbiAoKSB7XHJcbiAgICBLVFZpc1RpbWVsaW5lU3R5bGUuaW5pdCgpO1xyXG59KTtcclxuIl0sIm5hbWVzIjpbIktUVmlzVGltZWxpbmVTdHlsZSIsImV4YW1wbGVTdHlsZSIsImNvbnRhaW5lciIsImRvY3VtZW50IiwiZ2V0RWxlbWVudEJ5SWQiLCJnZXRDb250ZW50IiwidGl0bGUiLCJpbWciLCJpdGVtIiwiY3JlYXRlRWxlbWVudCIsIm5hbWUiLCJuYW1lQ2xhc3NlcyIsImNsYXNzTGlzdCIsImFkZCIsImlubmVySFRNTCIsImltYWdlIiwic2V0QXR0cmlidXRlIiwic3ltYm9sIiwic3ltYm9sQ2xhc3NlcyIsImFwcGVuZENoaWxkIiwiaXRlbXMiLCJ2aXMiLCJEYXRhU2V0Iiwic3RhcnQiLCJEYXRlIiwiY29udGVudCIsImhvc3RVcmwiLCJlbmQiLCJvcHRpb25zIiwiZWRpdGFibGUiLCJtYXJnaW4iLCJheGlzIiwidGltZWxpbmUiLCJUaW1lbGluZSIsImluaXQiLCJLVFV0aWwiLCJvbkRPTUNvbnRlbnRMb2FkZWQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/src/js/custom/documentation/general/vis-timeline/style.js\n");
 
-/***/ })
+// Class definition
+var KTVisTimelineStyle = function () {
+    // Private functions
+    var exampleStyle = function () {
+        var container = document.getElementById("kt_docs_vistimeline_style");
 
-/******/ 	});
-/************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
-/******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./resources/src/js/custom/documentation/general/vis-timeline/style.js"]();
-/******/ 	
+        // Generate HTML content
+        const getContent = (title, img) => {
+            const item = document.createElement('div');
+            const name = document.createElement('div');
+            const nameClasses = ['fw-bolder', 'mb-2'];
+            name.classList.add(...nameClasses);
+            name.innerHTML = title;
+
+            const image = document.createElement('img');
+            image.setAttribute('src', img);
+
+            const symbol = document.createElement('div');
+            const symbolClasses = ['symbol', 'symbol-circle', 'symbol-30'];
+            symbol.classList.add(...symbolClasses);
+            symbol.appendChild(image);
+
+            item.appendChild(name);
+            item.appendChild(symbol);
+
+            return item;
+        }
+
+        // note that months are zero-based in the JavaScript Date object
+        var items = new vis.DataSet([
+            {
+                start: new Date(2010, 7, 23),
+                content: getContent('Conversation', hostUrl + '/media/avatars/150-1.jpg')
+            },
+            {
+                start: new Date(2010, 7, 23, 23, 0, 0),
+                content: getContent('Mail from boss', hostUrl + '/media/avatars/150-2.jpg')
+            },
+            { start: new Date(2010, 7, 24, 16, 0, 0), content: "Report" },
+            {
+                start: new Date(2010, 7, 26),
+                end: new Date(2010, 8, 2),
+                content: "Traject A",
+            },
+            {
+                start: new Date(2010, 7, 28),
+                content: getContent('Memo', hostUrl + '/media/avatars/150-3.jpg')
+            },
+            {
+                start: new Date(2010, 7, 29),
+                content: getContent('Phone call', hostUrl + '/media/avatars/150-4.jpg')
+            },
+            {
+                start: new Date(2010, 7, 31),
+                end: new Date(2010, 8, 3),
+                content: "Traject B",
+            },
+            {
+                start: new Date(2010, 8, 4, 12, 0, 0),
+                content: getContent('Report', hostUrl + '/media/avatars/150-5.jpg')
+            },
+        ]);
+
+        var options = {
+            editable: true,
+            margin: {
+                item: 20,
+                axis: 40,
+            },
+        };
+
+        var timeline = new vis.Timeline(container, items, options);
+    }
+
+    return {
+        // Public Functions
+        init: function () {
+            exampleStyle();
+        }
+    };
+}();
+
+// On document ready
+KTUtil.onDOMContentLoaded(function () {
+    KTVisTimelineStyle.init();
+});
+
 /******/ })()
 ;
+//# sourceMappingURL=style.js.map
