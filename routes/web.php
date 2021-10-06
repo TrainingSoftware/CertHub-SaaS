@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
+Route::get('/password-reset', function () {
+    return view('auth.password-reset');
+});
+
+Route::get('/set-password', function () {
+    return view('auth.set-password');
+});
+
+Route::get('/verify', function () {
+    return view('auth.verify-email');
 });
