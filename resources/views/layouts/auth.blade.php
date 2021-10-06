@@ -7,7 +7,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta property="og:locale" content="en_US" />
+		<meta property="og:locale" content="en_GB" />
 		<meta property="og:type" content="article" />
 		<meta property="og:title" content="" />
 		<meta property="og:url" content="" />
@@ -20,6 +20,13 @@
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="bg-body">
+		<!--begin::Main-->
+		@yield('content')
+		<!--end::Main-->
         <!--begin::Javascript-->
         <script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(used by all pages)-->
@@ -34,13 +41,6 @@
 		<!--end::Page Custom Javascript-->
 		<!--end::Javascript-->
 		<!--end::Global Stylesheets Bundle-->
-	</head>
-	<!--end::Head-->
-	<!--begin::Body-->
-	<body id="kt_body" class="bg-body">
-		<!--begin::Main-->
-		@yield('content')
-		<!--end::Main-->
 	</body>
 	<!--end::Body-->
 </html>
