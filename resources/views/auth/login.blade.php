@@ -15,7 +15,8 @@
             <!--begin::Wrapper-->
             <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                 <!--begin::Form-->
-                <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="#">
+                <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="/login" method="POST">
+                    @csrf
                     <!--begin::Heading-->
                     <div class="text-center mb-10">
                         <!--begin::Title-->
@@ -57,10 +58,10 @@
                     <!--begin::Actions-->
                     <div class="text-center">
                         <!--begin::Submit button-->
-                        <button type="submit" id="kt_sign_in_submit" class="btn btn-lg btn-primary w-100 mb-5">
-                            <span class="indicator-label">Continue</span>
+                        <button type="submit" {{-- id="kt_sign_in_submit" --}} class="btn btn-lg btn-primary w-100 mb-5"> Continue
+                            {{-- <span class="indicator-label">Continue</span>
                             <span class="indicator-progress">Please wait...
-                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> --}}
                         </button>
                         <!--end::Submit button-->
                         {{-- <!--begin::Separator-->
@@ -90,9 +91,9 @@
         <div class="d-flex flex-center flex-column-auto p-10">
             <!--begin::Links-->
             <div class="d-flex align-items-center fw-bold fs-6">
-                <a href="https://keenthemes.com" class="text-muted text-hover-primary px-2">About</a>
-                <a href="mailto:support@keenthemes.com" class="text-muted text-hover-primary px-2">Contact</a>
-                <a href="https://1.envato.market/EA4JP" class="text-muted text-hover-primary px-2">Contact Us</a>
+                <a href="#" class="text-muted text-hover-primary px-2">About</a>
+                <a href="#" class="text-muted text-hover-primary px-2">Contact</a>
+                <a href="#" class="text-muted text-hover-primary px-2">Contact Us</a>
             </div>
             <!--end::Links-->
         </div>
