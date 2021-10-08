@@ -39,7 +39,7 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="/employees">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -74,7 +74,7 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
+                            <a class="menu-link" href="/qualifications">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -182,13 +182,13 @@
             <div class="d-flex align-items-center">
                 <!--begin::Avatar-->
                 <div class="symbol symbol-circle symbol-40px">
-                    <img src="assets/media/avatars/150-26.jpg" alt="photo" />
+                    <img src="/assets/media/avatars/150-26.jpg" alt="photo" />
                 </div>
                 <!--end::Avatar-->
                 <!--begin::User info-->
                 <div class="ms-2">
                     <!--begin::Name-->
-                    <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder lh-1">Jake Feeley</a>
+                    <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder lh-1">{{ Auth::user()->name }}</a>
                     <!--end::Name-->
                     <!--begin::Major-->
                     <span class="text-muted fw-bold d-block fs-7 lh-1">1st Construction</span>
@@ -221,7 +221,7 @@
                             <!--end::Avatar-->
                             <!--begin::Username-->
                             <div class="d-flex flex-column">
-                                <div class="fw-bolder d-flex align-items-center fs-5">Jake Feeley
+                                <div class="fw-bolder d-flex align-items-center fs-5">{{ Auth::user()->name }}
                                 <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span></div>
                                 <a href="#" class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
                             </div>
@@ -239,7 +239,7 @@
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-5">
-                        <a href="../../demo10/dist/pages/projects/list.html" class="menu-link px-5">
+                        <a href="/profile" class="menu-link px-5">
                             <span class="menu-text">My Projects</span>
                             <span class="menu-badge">
                                 <span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
@@ -257,23 +257,12 @@
                         <div class="menu-sub menu-sub-dropdown w-175px py-4">
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/referrals.html" class="menu-link px-5">Referrals</a>
+                                <a href="/profile/billing" class="menu-link px-5">Billing</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/billing.html" class="menu-link px-5">Billing</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/statements.html" class="menu-link px-5">Payments</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
-                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="View your statements"></i></a>
+                                <a href="/profile/invoices" class="menu-link px-5">Invoices</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu separator-->
@@ -294,69 +283,8 @@
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
-                    <div class="menu-item px-5">
-                        <a href="../../demo10/dist/account/statements.html" class="menu-link px-5">My Statements</a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu separator-->
-                    <div class="separator my-2"></div>
-                    <!--end::Menu separator-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-                        <a href="#" class="menu-link px-5">
-                            <span class="menu-title position-relative">Language
-                            <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-                            <img class="w-15px h-15px rounded-1 ms-2" src="assets/media/flags/united-states.svg" alt="" /></span></span>
-                        </a>
-                        <!--begin::Menu sub-->
-                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5 active">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
-                                </span>English</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
-                                </span>Spanish</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
-                                </span>German</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
-                                </span>Japanese</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
-                                </span>French</a>
-                            </div>
-                            <!--end::Menu item-->
-                        </div>
-                        <!--end::Menu sub-->
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
                     <div class="menu-item px-5 my-1">
-                        <a href="../../demo10/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
+                        <a href="/" class="menu-link px-5">Company Details</a>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
@@ -367,7 +295,10 @@
                     <!--end::Menu separator-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-5">
-                        <a href="../../demo10/dist/authentication/flows/basic/sign-in.html" class="menu-link px-5">Sign Out</a>
+                        <form action="/logout" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary bg-transparent menu-link px-5">Sign Out</button>
+                        </form>
                     </div>
                     <!--end::Menu item-->
                 </div>
