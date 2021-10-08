@@ -13,28 +13,49 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Auth
 Route::get('/', function () {
-    return view('auth.login');
+    return view('landing');
 });
 
-Route::get('/register', function () {
-    return view('auth.register');
-});
 
-Route::get('/password-reset', function () {
-    return view('auth.password-reset');
-});
+Route::group(['middleware' => ['web', 'auth:web']], function () {
 
-Route::get('/set-password', function () {
-    return view('auth.set-password');
-});
+    Route::get('/home', function () {
+        return view('home');
+    });
 
-Route::get('/verify', function () {
-    return view('auth.verify-email');
-});
+    // Employees
+    Route::get('/employees', function () {
+        return view('employees.index');
+    });
 
-// Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
+    // Employees
+    Route::get('/qualifications', function () {
+        return view('qualifications.index');
+    });
+
+    Route::get('/qualifications/create', function () {
+        return view('qualifications.create');
+    });
+
+    // Profile
+    Route::get('/profile', function () {
+        return view('profile.index');
+    });
+
+    Route::get('/profile/settings', function () {
+        return view('profile.settings');
+    });
+
+    Route::get('/profile/billing', function () {
+        return view('profile.billing');
+    });
+
+    Route::get('/profile/invoices', function () {
+        return view('profile.invoices');
+    });
+
+    Route::get('/profile/api', function () {
+        return view('profile.api');
+    });
 });
