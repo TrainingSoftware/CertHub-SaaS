@@ -13,4 +13,9 @@ class Provider extends Model
         'name',
         'body',
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

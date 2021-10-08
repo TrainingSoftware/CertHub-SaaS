@@ -36,4 +36,15 @@ class Employee extends Model
         'department_id',
         'user_id'
     ];
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

@@ -25,4 +25,9 @@ class Contact extends Model
         'user_id',
         'employee_id'
     ];
+
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class);
+    }
 }

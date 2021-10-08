@@ -23,4 +23,9 @@ class Qualification extends Model
         'expiry_date',
         'status'
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }
