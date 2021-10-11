@@ -17,9 +17,9 @@ class CreateProvidersTable extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->string('name');
-            $table->text('body');
+            $table->text('body')->nullable();
         });
     }
 

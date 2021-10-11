@@ -16,7 +16,7 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
             $table->string('title')->nullable();
             $table->string('firstname');
             $table->string('lastname');
@@ -36,7 +36,7 @@ class CreateEmployeesTable extends Migration
             $table->date('end_date')->nullable();
             $table->integer('salary')->nullable();
             $table->string('employment')->nullable();
-            $table->integer('department_id')->references('id')->on('departments');
+            $table->integer('department_id')->references('id')->on('departments')->nullable();
             $table->timestamps();
         });
     }

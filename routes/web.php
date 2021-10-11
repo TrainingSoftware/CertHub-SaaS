@@ -1,6 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\QualificationController;
+use App\Http\Controllers\QualificationTypeController;
+use App\Http\Controllers\ProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,25 +24,18 @@ Route::get('/', function () {
 });
 
 
-Route::group(['middleware' => ['web', 'auth:web']], function () {
+Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/home', function () {
         return view('home');
     });
 
-    // Employees
-    Route::get('/employees', function () {
-        return view('employees.index');
-    });
-
-    // Employees
-    Route::get('/qualifications', function () {
-        return view('qualifications.index');
-    });
-
-    Route::get('/qualifications/create', function () {
-        return view('qualifications.create');
-    });
+    Route::resource('company', CompanyController::class);
+    Route::resource('employees', EmployeeController::class);
+    Route::resource('departments', DepartmentController::class);
+    Route::resource('qualifications', QualificationController::class);
+    Route::resource('qualificationtypes', QualificationTypeController::class);
+    Route::resource('providers', ProviderController::class);
 
     // Profile
     Route::get('/profile', function () {

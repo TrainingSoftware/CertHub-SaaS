@@ -19,18 +19,21 @@
                 <!--end::Logo-->
                 <!--begin::Message-->
                 <div class="fs-3 fw-bold text-muted mb-10">We have sent an email to
-                <a href="#" class="link-primary fw-bolder">you@email.co.uk</a>
+                <a href="#" class="link-primary fw-bolder">{{ Auth::user()->email}}</a>
                 <br />please follow a link to verify your email.</div>
                 <!--end::Message-->
-                <!--begin::Action-->
+                {{-- <!--begin::Action-->
                 <div class="text-center mb-10">
                     <a href="/dashboard" class="btn btn-lg btn-primary fw-bolder">Skip for now</a>
                 </div>
-                <!--end::Action-->
+                <!--end::Action--> --}}
                 <!--begin::Action-->
                 <div class="fs-5">
-                    <span class="fw-bold text-gray-700">Did’t receive an email?</span>
-                    <a href="#" class="link-primary fw-bolder">Resend</a>
+                    <form method="POST" action="/email/verification-notification">
+                        @csrf
+                        <span class="fw-bold text-gray-700">Did’t receive an email?</span>
+                        <button type="submit" class="btn btn-link fw-bolder">Resend</button>
+                    </form>
                 </div>
                 <!--end::Action-->
             </div>

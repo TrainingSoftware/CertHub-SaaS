@@ -235,7 +235,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <input type="text" name="company" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="1st Construction" />
+                                    <input type="text" name="company" class="form-control form-control-lg form-control-solid" placeholder="Company name" value="{{ $company->name }}" />
                                 </div>
                                 <!--end::Col-->
                             </div>

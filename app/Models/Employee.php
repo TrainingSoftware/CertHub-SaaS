@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Department;
 
 class Employee extends Model
 {
@@ -42,9 +43,13 @@ class Employee extends Model
         return $this->hasMany(Contact::class);
     }
 
-
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
     }
 }

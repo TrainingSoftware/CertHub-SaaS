@@ -20,6 +20,7 @@
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 	</head>
 	<!--end::Head-->
@@ -2838,6 +2839,34 @@
 		<script src="/assets/js/custom/modals/create-app.js"></script>
 		<script src="/assets/js/custom/modals/upgrade-plan.js"></script>
 		<!--end::Page Custom Javascript-->
+        @if ($message = Session::get('success'))
+            <style>
+            .toast-top-right {
+                top: 90px !important;
+            }
+            </style>
+            <script>
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "500",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            toastr.success("{{ $message }}");
+            </script>
+        @endif
 		<!--end::Javascript-->
 	</body>
 	<!--end::Body-->
