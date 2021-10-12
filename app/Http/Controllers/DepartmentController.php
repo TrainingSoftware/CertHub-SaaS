@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Pagination;
 
 class DepartmentController extends Controller
@@ -15,7 +16,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        $departments = Department::all();
+        $user = Auth::user();
+        $departments = $user->departments;
         return view('departments.index', compact('departments'));
     }
 
@@ -39,11 +41,11 @@ class DepartmentController extends Controller
     {
         $storeData = $request->validate([
             'name' => 'required',
-            'body' => 'max:1000|nullable',
-            'user_id' => 'required|exists:users,id'
+            'body' => 'max:1000|nullable'
         ]);
 
-        $department = Department::create($storeData);
+        $user = Auth::user();
+        $department = $user->departments()->create($storeData);
 
         return redirect('/departments/' . $department->id)
             ->with('success', 'Department successfully created');

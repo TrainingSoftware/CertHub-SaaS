@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class CompanyController extends Controller
 {
@@ -46,14 +48,12 @@ class CompanyController extends Controller
             'county' => ['required', 'string', 'max:255'],
             'postcode' => ['required', 'string', 'max:255'],
             'country' => ['required', 'string', 'max:255'],
-            'user_id' => ['required', 'int'],
         ]);
 
-        $data['user_id'] = Auth::user()->id;
+        $user = Auth::user();
+        $user->company()->create($data);
 
-        Company::create($data);
-
-        return redirect('/company')->with('success', 'Company successfully created');
+        return redirect('/home')->with('success', 'Company successfully created');
     }
 
     /**

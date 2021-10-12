@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Pagination;
 
 class EmployeeController extends Controller
@@ -15,7 +16,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $employees = Employee::all();
+        $user = Auth::user();
+        $employees = $user->employees;
         return view('employees.index', compact('employees'));
     }
 
@@ -42,11 +44,11 @@ class EmployeeController extends Controller
             'firstname' => 'required',
             'lastname' => 'required',
             'email' => 'required|email',
-            'phone' => 'required|numeric|digits:11',
-            'user_id' => 'required|exists:users,id'
+            'phone' => 'required|numeric|digits:11'
         ]);
 
-        $employee = Employee::create($storeData);
+        $user = Auth::user();
+        $employee = $user->employees()->create($storeData);
 
         return redirect('/employees/' . $employee->id )
             ->with('success', 'Employee successfully created');

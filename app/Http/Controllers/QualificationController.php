@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Qualification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class QualificationController extends Controller
@@ -15,7 +16,8 @@ class QualificationController extends Controller
      */
     public function index()
     {
-        $qualifications = Qualification::all();
+        $user = Auth::user();
+        $qualifications = $user->qualifications;
         return view('qualifications.index', compact('qualifications'));
     }
 
@@ -43,7 +45,6 @@ class QualificationController extends Controller
     public function store(Request $request)
     {
         $storeData = $request->validate([
-            'user_id' => 'required',
             'employee_id' => 'required',
             'qualificationtype_id' => 'required',
             'provider_id' => 'required',
@@ -52,7 +53,8 @@ class QualificationController extends Controller
 
         ]);
 
-        $qualification = Qualification::create($storeData);
+        $user = Auth::user();
+        $qualification = $user->qualifications()->create($storeData);
 
         return redirect('/qualifications/' . $qualification->id)
             ->with('success', 'Qualification successfully created');

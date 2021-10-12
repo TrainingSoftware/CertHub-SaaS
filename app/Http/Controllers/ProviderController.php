@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Provider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProviderController extends Controller
 {
@@ -14,7 +15,8 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::all();
+        $user = Auth::user();
+        $providers = $user->providers;
         return view('providers.index', compact('providers'));
     }
 
@@ -38,11 +40,11 @@ class ProviderController extends Controller
     {
         $storeData = $request->validate([
             'name' => 'required',
-            'body' => 'max:1000|nullable',
-            'user_id' => 'required|exists:users,id'
+            'body' => 'max:1000|nullable'
         ]);
 
-        $provider = Provider::create($storeData);
+        $user = Auth::user();
+        $provider = $user->providers()->create($storeData);
 
         return redirect('/providers/' . $provider->id)
             ->with('success', 'Provider successfully created');

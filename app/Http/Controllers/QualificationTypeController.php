@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\QualificationType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class QualificationTypeController extends Controller
 {
@@ -14,7 +15,8 @@ class QualificationTypeController extends Controller
      */
     public function index()
     {
-        $qualificationtypes = QualificationType::all();
+        $user = Auth::user();
+        $qualificationtypes = $user->qualificationtypes;
         return view('qualificationtypes.index', compact('qualificationtypes'));
     }
 
@@ -38,11 +40,11 @@ class QualificationTypeController extends Controller
     {
         $storeData = $request->validate([
             'name' => 'required',
-            'body' => 'max:1000|nullable',
-            'user_id' => 'required|exists:users,id'
+            'body' => 'max:1000|nullable'
         ]);
 
-        $qualificationtype = QualificationType::create($storeData);
+        $user = Auth::user();
+        $qualificationtype = $user->qualificationtypes()->create($storeData);
 
         return redirect('/qualificationtypes/' . $qualificationtype->id)
             ->with('success', 'Qualification Type successfully created');
