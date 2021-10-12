@@ -7,6 +7,9 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\QualificationController;
 use App\Http\Controllers\QualificationTypeController;
 use App\Http\Controllers\ProviderController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Subscriptions\SubscriptionController;
+use App\Http\Controllers\Subscriptions\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,35 +29,27 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/home', function () {
-        return view('home');
-    });
-
     Route::resource('company', CompanyController::class);
-    Route::resource('employees', EmployeeController::class);
-    Route::resource('departments', DepartmentController::class);
-    Route::resource('qualifications', QualificationController::class);
-    Route::resource('qualificationtypes', QualificationTypeController::class);
-    Route::resource('providers', ProviderController::class);
 
-    // Profile
-    Route::get('/profile', function () {
-        return view('profile.index');
+    Route::group(['middleware' => 'CheckUserCompany'], function () {
+
+        Route::group(['namespace' => 'Subscriptions'], function() {
+            Route::get('/plans',[SubscriptionController::class, 'index'])->name('plans');
+            Route::get('/payments',[PaymentController::class, 'index'])->name('payments');
+            Route::post('/payments',[PaymentController::class, 'store'])->name('payments.store');
+        });
+
+        Route::group(['middleware' => 'CheckUserSubscription'], function(){
+            Route::get('/home', function () {
+                return view('home');
+            });
+            Route::resource('employees', EmployeeController::class);
+            Route::resource('departments', DepartmentController::class);
+            Route::resource('qualifications', QualificationController::class);
+            Route::resource('qualificationtypes', QualificationTypeController::class);
+            Route::resource('providers', ProviderController::class);
+            Route::resource('users', UserController::class);
+        });
     });
 
-    Route::get('/profile/settings', function () {
-        return view('profile.settings');
-    });
-
-    Route::get('/profile/billing', function () {
-        return view('profile.billing');
-    });
-
-    Route::get('/profile/invoices', function () {
-        return view('profile.invoices');
-    });
-
-    Route::get('/profile/api', function () {
-        return view('profile.api');
-    });
 });
