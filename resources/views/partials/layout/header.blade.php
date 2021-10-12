@@ -1499,7 +1499,7 @@
             <!--end::Item-->
             <!--begin::Item-->
             <div class="d-flex align-items-center me-2 me-lg-4">
-                <a href="#" class="btn btn-success border-0 px-3 px-lg-6" data-bs-target="#kt_modal_create_app" data-bs-toggle="modal">Add Qualification</a>
+                <a href="/qualifications/create" class="btn btn-success border-0 px-3 px-lg-6" >Add Qualification</a>
             </div>
             <!--end::Item-->
             <!--begin::Item-->
