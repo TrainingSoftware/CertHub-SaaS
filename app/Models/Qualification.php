@@ -39,4 +39,9 @@ class Qualification extends Model
     {
         return $this->belongsTo(QualificationType::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

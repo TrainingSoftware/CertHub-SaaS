@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Laravel\Cashier\Billable;
 
 // sanctum
 use Laravel\Sanctum\HasApiTokens;
@@ -14,7 +14,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -51,9 +51,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasOne(Company::class);
     }
 
-    public function contacts()
+    public function plan()
     {
-        return $this->hasMany(Contact::class);
+        return $this->hasOne(Plan::class);
     }
 
     public function departments()

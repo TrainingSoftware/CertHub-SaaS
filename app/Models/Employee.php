@@ -48,6 +48,11 @@ class Employee extends Model
         return $this->belongsTo(Company::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function department()
     {
         return $this->belongsTo(Department::class);
