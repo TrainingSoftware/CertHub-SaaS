@@ -25,8 +25,8 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/employees" class="text-muted text-hover-primary">
-                                Departments
+                            <a href="/qualificationtypes" class="text-muted text-hover-primary">
+                                Qualification Types
                             </a>
                         </li>
                         <!--end::Item-->

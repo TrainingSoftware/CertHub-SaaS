@@ -105,7 +105,7 @@
                             <tbody class="text-gray-600 fw-bold">
                             @foreach ($qualificationtypes as $item)
                                 <!--begin::Table row-->
-                                <tr class="border-0">
+                                <tr class="">
                                     <!--begin::Checkbox-->
                                     <td>
                                         <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -114,7 +114,7 @@
                                     </td>
                                     <!--end::Checkbox-->
                                     <!--begin::User=-->
-                                    <td class="d-flex align-items-center">
+                                    <td class="d-flex align-items-center border-bottom-0">
                                         <!--begin::User details-->
                                         <div class="d-flex flex-column ">
                                             <a href="/qualificationtypes/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1 p-2">{{ $item->name }}</a>

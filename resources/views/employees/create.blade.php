@@ -42,11 +42,7 @@
         <!--end::Container-->
     </div>
     <!--end::Toolbar-->
-</div>
-<!--begin::Content-->
-@include('partials.layout.alert')
-<!--begin::Content-->
-<div class="content d-flex flex-column flex-column-fluid">
+    @include('partials.layout.alert')
     <!--begin::Post-->
     <div class="post d-flex flex-column-fluid">
         <!--begin::Container-->
@@ -67,7 +63,6 @@
                     <!--begin::Form-->
                     <form class="form" method="POST" action="/employees">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
                         <!--begin::Card body-->
                         <div class="card-body border-top p-9">
                             <!--begin::Input group-->
@@ -83,15 +78,15 @@
                                         <!--begin::Col-->
                                         <div class="col-lg-6 fv-row">
                                             <input type="text" name="firstname"
-                                                class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                                placeholder="John" value="" />
+                                                   class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                                   placeholder="John" value="" />
                                         </div>
                                         <!--end::Col-->
                                         <!--begin::Col-->
                                         <div class="col-lg-6 fv-row">
                                             <input type="text" name="lastname"
-                                                class="form-control form-control-lg form-control-solid"
-                                                placeholder="Smith" value="" />
+                                                   class="form-control form-control-lg form-control-solid"
+                                                   placeholder="Smith" value="" />
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -109,8 +104,8 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
                                     <input type="text" name="email"
-                                        class="form-control form-control-lg form-control-solid"
-                                        placeholder="john.smith@certhub.co.uk" value="" />
+                                           class="form-control form-control-lg form-control-solid"
+                                           placeholder="john.smith@certhub.co.uk" value="" />
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -125,8 +120,8 @@
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
                                     <input type="tel" name="phone"
-                                        class="form-control form-control-lg form-control-solid"
-                                        placeholder="01234 567 890" value="" />
+                                           class="form-control form-control-lg form-control-solid"
+                                           placeholder="01234 567 890" value="" />
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -136,7 +131,7 @@
                         <!--begin::Actions-->
                         <div class="card-footer d-flex justify-content-end py-6 px-9">
                             <a href="/employees"
-                                class="btn btn-light btn-active-light-primary me-2">Cancel</a>
+                               class="btn btn-light btn-active-light-primary me-2">Cancel</a>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </div>
                         <!--end::Actions-->
@@ -149,4 +144,5 @@
         </div>
     </div>
 </div>
+<!--begin::Content-->
 @endsection

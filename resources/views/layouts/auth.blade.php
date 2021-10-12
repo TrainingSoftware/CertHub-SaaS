@@ -20,6 +20,8 @@
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
+        <script src="https://js.stripe.com/v3/"></script>
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->

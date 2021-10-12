@@ -1,6 +1,7 @@
 @extends('layouts.auth')
 @section('title', 'Your Company Details')
 @section('content')
+    @include('partials.layout.alert')
 <div class="d-flex flex-column flex-root">
     <!--begin::Authentication - Multi-steps-->
     <div class="d-flex flex-column flex-lg-row flex-column-fluid stepper stepper-pills stepper-column" id="kt_create_account_stepper">
@@ -16,7 +17,7 @@
                     </a>
                     <!--end::Logo-->
                     <!--begin::Nav-->
-                    <div class="stepper-nav">
+                    <div class="stepper-nav min-w-75">
                         <!--begin::Step 1-->
                         <div class="stepper-item current" data-kt-stepper-element="nav">
                             <!--begin::Line-->
@@ -50,13 +51,51 @@
                             <!--begin::Label-->
                             <div class="stepper-label">
                                 <h3 class="stepper-title">Address</h3>
-                                <div class="stepper-desc fw-bold">Setup Your Account Settings</div>
+                                <div class="stepper-desc fw-bold">Where is your company office?</div>
                             </div>
                             <!--end::Label-->
                         </div>
                         <!--end::Step 2-->
+                        <!--begin::Step 3-->
+                        <div class="stepper-item">
+                            <!--begin::Line-->
+                            <div class="stepper-line w-40px"></div>
+                            <!--end::Line-->
+                            <!--begin::Icon-->
+                            <div class="stepper-icon w-40px h-40px">
+                                <i class="stepper-check fas fa-check"></i>
+                                <span class="stepper-number">3</span>
+                            </div>
+                            <!--end::Icon-->
+                            <!--begin::Label-->
+                            <div class="stepper-label">
+                                <h3 class="stepper-title">Choose Your Plan</h3>
+                                <div class="stepper-desc fw-bold">Select the plan which works for you</div>
+                            </div>
+                            <!--end::Label-->
+                        </div>
+                        <!--end::Step 3-->
+                        <!--begin::Step 4-->
+                        <div class="stepper-item">
+                            <!--begin::Line-->
+                            <div class="stepper-line w-40px"></div>
+                            <!--end::Line-->
+                            <!--begin::Icon-->
+                            <div class="stepper-icon w-40px h-40px">
+                                <i class="stepper-check fas fa-check"></i>
+                                <span class="stepper-number">4</span>
+                            </div>
+                            <!--end::Icon-->
+                            <!--begin::Label-->
+                            <div class="stepper-label">
+                                <h3 class="stepper-title">Billing Details</h3>
+                                <div class="stepper-desc fw-bold">Set up your payment method</div>
+                            </div>
+                            <!--end::Label-->
+                        </div>
+                        <!--end::Step 4-->
                         <!--begin::Step 5-->
-                        <div class="stepper-item" data-kt-stepper-element="nav">
+                        <div class="stepper-item">
                             <!--begin::Line-->
                             <div class="stepper-line w-40px"></div>
                             <!--end::Line-->
@@ -68,8 +107,8 @@
                             <!--end::Icon-->
                             <!--begin::Label-->
                             <div class="stepper-label">
-                                <h3 class="stepper-title">Completed</h3>
-                                <div class="stepper-desc fw-bold">Woah, we are here</div>
+                                <h3 class="stepper-title">Complete Billing</h3>
+                                <div class="stepper-desc fw-bold">Let's get you started!</div>
                             </div>
                             <!--end::Label-->
                         </div>
@@ -91,13 +130,11 @@
             <div class="d-flex flex-center flex-column flex-column-fluid">
                 <!--begin::Wrapper-->
                 <div class="w-lg-700px p-10 p-lg-15 mx-auto">
-                    {{ HTML::ul($errors->all()) }}
                     <!--begin::Form-->
                     <form class="my-auto pb-5" novalidate="novalidate" id="kt_create_account_form" method="POST" action="/company">
                         <!--begin::Step 1-->
                         <div class="current" data-kt-stepper-element="content">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
                             <!--begin::Wrapper-->
                             <div class="w-100">
                                 <!--begin::Heading-->
@@ -117,7 +154,7 @@
                                     <label class="form-label required">Business Name</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input name="name" class="form-control form-control-lg form-control-solid" value="{{ Input::old('name') }}" />
+                                    <input name="name" class="form-control form-control-lg form-control-solid" value="{{ Request::old('name') }}" />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -225,7 +262,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="line_1" class="form-control form-control-lg form-control-solid" value="{{ Input::old('line_1') }}" />
+                                        <input name="line_1" class="form-control form-control-lg form-control-solid" value="{{ Request::old('line_1') }}" />
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -235,7 +272,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="line_2" class="form-control form-control-lg form-control-solid" value="{{ Input::old('line_2') }}" />
+                                        <input name="line_2" class="form-control form-control-lg form-control-solid" value="{{ Request::old('line_2') }}" />
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -291,60 +328,7 @@
                             <!--end::Wrapper-->
                         </div>
                         <!--end::Step 2-->
-                        <!--begin::Step 5-->
-                        <div class="" data-kt-stepper-element="content">
-                            <!--begin::Wrapper-->
-                            <div class="w-100">
-                                <!--begin::Heading-->
-                                <div class="pb-8 pb-lg-10">
-                                    <!--begin::Title-->
-                                    <h2 class="fw-bolder text-dark">Your Are Done!</h2>
-                                    <!--end::Title-->
-                                    <!--begin::Notice-->
-                                    <div class="text-muted fw-bold fs-6">If you need more info, please
-                                    <a href="../../demo10/dist/authentication/sign-in/basic.html" class="link-primary fw-bolder">Sign In</a>.</div>
-                                    <!--end::Notice-->
-                                </div>
-                                <!--end::Heading-->
-                                <!--begin::Body-->
-                                <div class="mb-0">
-                                    <!--begin::Text-->
-                                    <div class="fs-6 text-gray-600 mb-5">Writing headlines for blog posts is as much an art as it is a science and probably warrants its own post, but for all advise is with what works for your great &amp; amazing audience.</div>
-                                    <!--end::Text-->
-                                    <!--begin::Alert-->
-                                    <!--begin::Notice-->
-                                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
-                                        <!--begin::Icon-->
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
-                                        <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black" />
-                                                <rect x="11" y="14" width="7" height="2" rx="1" transform="rotate(-90 11 14)" fill="black" />
-                                                <rect x="11" y="17" width="2" height="2" rx="1" transform="rotate(-90 11 17)" fill="black" />
-                                            </svg>
-                                        </span>
-                                        <!--end::Svg Icon-->
-                                        <!--end::Icon-->
-                                        <!--begin::Wrapper-->
-                                        <div class="d-flex flex-stack flex-grow-1">
-                                            <!--begin::Content-->
-                                            <div class="fw-bold">
-                                                <h4 class="text-gray-900 fw-bolder">We need your attention!</h4>
-                                                <div class="fs-6 text-gray-700">To start using great tools, please, please
-                                                <a href="#" class="fw-bolder">Create Team Platform</a></div>
-                                            </div>
-                                            <!--end::Content-->
-                                        </div>
-                                        <!--end::Wrapper-->
-                                    </div>
-                                    <!--end::Notice-->
-                                    <!--end::Alert-->
-                                </div>
-                                <!--end::Body-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        <!--end::Step 5-->
+
                         <!--begin::Actions-->
                         <div class="d-flex flex-stack pt-15">
                             <div class="mr-2">
@@ -360,7 +344,7 @@
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
-                                    <span class="indicator-label">Submit
+                                    <span class="indicator-label">Continue
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                                     <span class="svg-icon svg-icon-4 ms-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

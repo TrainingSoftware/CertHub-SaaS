@@ -48,11 +48,7 @@
         <!--end::Container-->
     </div>
     <!--end::Toolbar-->
-</div>
-<!--begin::Content-->
-@include('partials.layout.alert')
-<!--begin::Content-->
-<div class="content d-flex flex-column flex-column-fluid">
+    @include('partials.layout.alert')
     <!--begin::Post-->
     <div class="post d-flex flex-column-fluid">
         <!--begin::Container-->
@@ -73,7 +69,6 @@
                     <!--begin::Form-->
                     <form class="form" method="POST" action="/qualifications">
                         @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
                         <!--begin::Card body-->
                         <div class="card-body border-top p-9">
                             <!--begin::Input group-->
@@ -170,7 +165,7 @@
                         <!--begin::Actions-->
                         <div class="card-footer d-flex justify-content-end py-6 px-9">
                             <a href="/employees"
-                                class="btn btn-light btn-active-light-primary me-2">Cancel</a>
+                               class="btn btn-light btn-active-light-primary me-2">Cancel</a>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </div>
                         <!--end::Actions-->

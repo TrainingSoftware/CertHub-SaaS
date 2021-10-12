@@ -116,7 +116,7 @@
                                     </td>
                                     <!--end::Checkbox-->
                                     <!--begin::User=-->
-                                    <td class="d-flex align-items-center">
+                                    <td class="d-flex align-items-center border-bottom-0">
                                         <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">
                                             {{ $item->qualificationtype->name }}
                                         </a>

@@ -24,7 +24,9 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Departments</li>
+                        <li class="breadcrumb-item text-muted">
+                            <a href="/departments" class="text-muted text-hover-primary">Departments</a>
+                        </li>
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item">
@@ -42,11 +44,7 @@
             <!--end::Container-->
         </div>
         <!--end::Toolbar-->
-    </div>
-    <!--begin::Content-->
-    @include('partials.layout.alert')
-    <!--begin::Content-->
-    <div class="content d-flex flex-column flex-column-fluid">
+        @include('partials.layout.alert')
         <!--begin::Post-->
         <div class="post d-flex flex-column-fluid">
             <!--begin::Container-->
@@ -67,7 +65,6 @@
                         <!--begin::Form-->
                         <form class="form" method="POST" action="/departments">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
                             <!--begin::Card body-->
                             <div class="card-body border-top p-9">
                                 <!--begin::Input group-->
@@ -103,7 +100,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-12 fv-row">
                                                 <textarea type="text" name="body"
-                                                       class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                                          class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
                                                           placeholder="This is the highways department" value="" ></textarea>
                                             </div>
                                             <!--end::Col-->

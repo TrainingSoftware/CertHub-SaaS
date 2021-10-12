@@ -116,7 +116,7 @@
                                     </td>
                                     <!--end::Checkbox-->
                                     <!--begin::User=-->
-                                    <td class="d-flex align-items-center">
+                                    <td class="d-flex align-items-center border-bottom-0">
                                         <!--begin:: Avatar -->
                                         <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                                             <a href="/employees/{{ $item->id }}">

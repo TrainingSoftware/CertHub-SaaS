@@ -141,14 +141,6 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion">
                         <div class="menu-item">
-                            <a class="menu-link" href="#">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Account</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
                             <a class="menu-link" href="/departments">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
@@ -170,6 +162,14 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">Providers</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="/users">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Users</span>
                             </a>
                         </div>
                     </div>
