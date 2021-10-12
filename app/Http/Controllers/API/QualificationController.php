@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Models\Qualification;
 use App\Http\Resources\Qualification as QualificationResource;
@@ -13,7 +14,8 @@ class QualificationController extends BaseController
 
     public function index()
     {
-        $qualifications = Qualification::all();
+        $user = Auth::user();
+        $qualifications = $user->qualifications;
         return $this->sendResponse(QualificationResource::collection($qualifications), 'Qualifications fetched.');
     }
 

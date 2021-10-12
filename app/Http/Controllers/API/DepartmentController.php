@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Models\Department;
 use App\Http\Resources\Department as DepartmentResource;
@@ -13,7 +14,8 @@ class DepartmentController extends BaseController
 
     public function index()
     {
-        $departments = Department::all();
+        $user = Auth::user();
+        $departments = $user->departments;
         return $this->sendResponse(DepartmentResource::collection($departments), 'Departments fetched.');
     }
 

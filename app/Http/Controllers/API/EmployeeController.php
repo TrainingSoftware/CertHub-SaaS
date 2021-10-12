@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Models\Employee;
 use App\Http\Resources\Employee as EmployeeResource;
@@ -13,7 +14,8 @@ class EmployeeController extends BaseController
 
     public function index()
     {
-        $employees = Employee::all();
+        $user = Auth::user();
+        $employees = $user->employees;
         return $this->sendResponse(EmployeeResource::collection($employees), 'Employees fetched.');
     }
 

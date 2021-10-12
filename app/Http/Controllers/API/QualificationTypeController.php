@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Models\QualificationType;
 use App\Http\Resources\QualificationType as QualificationTypeResource;
@@ -13,7 +14,8 @@ class QualificationTypeController extends BaseController
 
     public function index()
     {
-        $qualificationtypes = QualificationType::all();
+        $user = Auth::user();
+        $qualificationtypes = $user->qualificationtypes;
         return $this->sendResponse(QualificationTypeResource::collection($qualificationtypes), 'Qualification Types fetched.');
     }
 

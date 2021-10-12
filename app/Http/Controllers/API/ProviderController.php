@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Models\Provider;
 use App\Http\Resources\Provider as ProviderResource;
@@ -13,7 +14,8 @@ class ProviderController extends BaseController
 
     public function index()
     {
-        $providers = Provider::all();
+        $user = Auth::user();
+        $providers = $user->providers;
         return $this->sendResponse(ProviderResource::collection($providers), 'Providers fetched.');
     }
 
