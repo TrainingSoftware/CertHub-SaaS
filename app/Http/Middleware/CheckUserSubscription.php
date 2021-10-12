@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CheckUserHasCompany
+class CheckUserSubscription
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,11 @@ class CheckUserHasCompany
      */
     public function handle(Request $request, Closure $next)
     {
-
-        if (Auth::user()->company) {
-            return $next($request);
+        if (Auth::user()->stripe_id === null) {
+            return redirect('/payments?plan=standard');
         }
 
-        return redirect('/company/create');
+        return $next($request);
+
     }
 }
