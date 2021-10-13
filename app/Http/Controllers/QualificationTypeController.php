@@ -15,8 +15,12 @@ class QualificationTypeController extends Controller
      */
     public function index()
     {
+        // get current logged in user
         $user = Auth::user();
+
+        // get qualification types that belong to authenticated user
         $qualificationtypes = $user->qualificationtypes;
+
         return view('qualificationtypes.index', compact('qualificationtypes'));
     }
 
@@ -38,12 +42,16 @@ class QualificationTypeController extends Controller
      */
     public function store(Request $request)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
         $storeData = $request->validate([
             'name' => 'required',
             'body' => 'max:1000|nullable'
         ]);
 
-        $user = Auth::user();
+        // create qualification type with validated data
         $qualificationtype = $user->qualificationtypes()->create($storeData);
 
         return redirect('/qualificationtypes/' . $qualificationtype->id)
@@ -58,10 +66,19 @@ class QualificationTypeController extends Controller
      */
     public function show($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load qualification type
         $qualificationtype = QualificationType::find($id);
 
-        return view('qualificationtypes.show')
-            ->with('qualificationtype', $qualificationtype);
+        if ($user->can('view', $qualificationtype)) {
+            return view('qualificationtypes.show')
+                ->with('qualificationtype', $qualificationtype);
+        } else {
+            echo 'This qualification type does not belong to you.';
+        }
+
     }
 
     /**
@@ -72,8 +89,17 @@ class QualificationTypeController extends Controller
      */
     public function edit($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load qualification type
         $qualificationtype = QualificationType::findOrFail($id);
-        return view('qualificationtypes.edit', compact('qualificationtype'));
+
+        if ($user->can('update', $qualificationtype)) {
+            return view('qualificationtypes.edit', compact('qualificationtype'));
+        } else {
+            echo 'This qualification type does not belong to you.';
+        }
     }
 
     /**
@@ -85,15 +111,18 @@ class QualificationTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get and validate data
         $updateData = $request->validate([
             'name' => 'required',
             'body' => 'nullable'
         ]);
 
+        // find qualification type and update with validated data
         QualificationType::whereId($id)->update($updateData);
 
         return redirect()->refresh()
             ->with('success', 'Qualification Type has been successfully updated');
+
     }
 
     /**
@@ -104,7 +133,10 @@ class QualificationTypeController extends Controller
      */
     public function destroy($id)
     {
+        // find qualification type
         $quaificationtype = QualificationType::findOrFail($id);
+
+        // delete qualification type
         $quaificationtype->delete();
 
         return redirect('/qualificationtypes')->with('success', 'Department has been deleted');

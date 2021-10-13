@@ -16,8 +16,12 @@ class DepartmentController extends Controller
      */
     public function index()
     {
+        // get current logged in user
         $user = Auth::user();
+
+        // get employees that belong to authenticated user
         $departments = $user->departments;
+
         return view('departments.index', compact('departments'));
     }
 
@@ -39,12 +43,16 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
         $storeData = $request->validate([
             'name' => 'required',
             'body' => 'max:1000|nullable'
         ]);
 
-        $user = Auth::user();
+        // create department with validated data
         $department = $user->departments()->create($storeData);
 
         return redirect('/departments/' . $department->id)
@@ -59,10 +67,19 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load department
         $department = Department::find($id);
 
-        return view('departments.show')
-            ->with('department', $department);
+        if ($user->can('view', $department)) {
+            return view('departments.show')
+                ->with('department', $department);
+        } else {
+            echo 'This department does not belong to you.';
+        }
+
     }
 
     /**
@@ -73,8 +90,17 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load department
         $department = Department::findOrFail($id);
-        return view('departments.edit', compact('department'));
+
+        if ($user->can('update', $department)) {
+            return view('departments.edit', compact('department'));
+        } else {
+            echo 'This department does not belong to you.';
+        }
     }
 
     /**
@@ -86,11 +112,13 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get and validate data
         $updateData = $request->validate([
             'name' => 'required',
             'body' => 'nullable'
         ]);
 
+        // find department and update with validated data
         Department::whereId($id)->update($updateData);
 
         return redirect()->refresh()
@@ -105,7 +133,10 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
+        // find department
         $department = Department::findOrFail($id);
+
+        // delete department
         $department->delete();
 
         return redirect('/departments')->with('success', 'Department has been deleted');

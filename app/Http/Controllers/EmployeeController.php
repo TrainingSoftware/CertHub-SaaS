@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Pagination;
 
 class EmployeeController extends Controller
 {
@@ -14,10 +14,15 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
+        // get current logged in user
         $user = Auth::user();
+
+        // get employees that belong to authenticated user
         $employees = $user->employees;
+
         return view('employees.index', compact('employees'));
     }
 
@@ -40,6 +45,10 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
         $storeData = $request->validate([
             'firstname' => 'required',
             'lastname' => 'required',
@@ -47,7 +56,7 @@ class EmployeeController extends Controller
             'phone' => 'required|numeric|digits:11'
         ]);
 
-        $user = Auth::user();
+        // create employee with validated data
         $employee = $user->employees()->create($storeData);
 
         return redirect('/employees/' . $employee->id )
@@ -57,33 +66,55 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\Employee  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load employee
         $employee = Employee::find($id);
 
-        return view('employees.show')
-            ->with('employee', $employee);
+        if ($user->can('view', $employee)) {
+            return view('employees.show')
+                ->with('employee', $employee);
+        } else {
+            echo 'This employee does not belong to you.';
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Employee  $employee
+     * @param  \App\Models\Employee  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load employee
         $employee = Employee::findOrFail($id);
-        $departments = \App\Models\Department::pluck('name', 'id');
+
+        // get departments
+        $departments = Department::pluck('name', 'id');
+
+        // define genders
         $genders = array([
             '' => 'Select gender',
-            'male' => 'Male',
-            'female' => 'Female'
+            'Male' => 'Male',
+            'Female' => 'Female'
         ]);
-        return view('employees.edit', compact('employee', 'departments', 'genders'));
+
+        if ($user->can('update', $employee)) {
+            return view('employees.edit', compact('employee', 'departments', 'genders'));
+        } else {
+            echo 'This employee does not belong to you.';
+        }
+
     }
 
     /**
@@ -95,6 +126,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get and validate data
         $updateData = $request->validate([
             'firstname' => 'required',
             'lastname'  => 'required',
@@ -117,6 +149,7 @@ class EmployeeController extends Controller
             'department_id' => 'exists:departments,id|int',
         ]);
 
+        // find employee and update with validated data
         Employee::whereId($id)->update($updateData);
 
         return redirect()->refresh()
@@ -131,7 +164,10 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
+        // find employee
         $employee = Employee::findOrFail($id);
+
+        // delete employee
         $employee->delete();
 
         return redirect('/employees')->with('success', 'Employee has been deleted');

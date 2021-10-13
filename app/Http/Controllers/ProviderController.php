@@ -15,7 +15,10 @@ class ProviderController extends Controller
      */
     public function index()
     {
+        // get current logged in user
         $user = Auth::user();
+
+        // get providers that belong to authenticated user
         $providers = $user->providers;
         return view('providers.index', compact('providers'));
     }
@@ -38,12 +41,16 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
         $storeData = $request->validate([
             'name' => 'required',
             'body' => 'max:1000|nullable'
         ]);
 
-        $user = Auth::user();
+        // create provider with validated data
         $provider = $user->providers()->create($storeData);
 
         return redirect('/providers/' . $provider->id)
@@ -58,10 +65,18 @@ class ProviderController extends Controller
      */
     public function show($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load provider
         $provider = Provider::find($id);
 
-        return view('providers.show')
-            ->with('provider', $provider);
+        if ($user->can('view', $provider)) {
+            return view('providers.show')
+                ->with('provider', $provider);
+        } else {
+            echo 'This provider does not belong to you.';
+        }
     }
 
     /**
@@ -72,8 +87,17 @@ class ProviderController extends Controller
      */
     public function edit($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load provider
         $provider = Provider::findOrFail($id);
-        return view('providers.edit', compact('provider'));
+
+        if ($user->can('update', $employee)) {
+            return view('providers.edit', compact('provider'));
+        } else {
+            echo 'This provider does not belong to you.';
+        }
     }
 
     /**
@@ -85,11 +109,13 @@ class ProviderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get and validate data
         $updateData = $request->validate([
             'name' => 'required',
             'body' => 'nullable'
         ]);
 
+        // find provider and update with validated data
         Provider::whereId($id)->update($updateData);
 
         return redirect()->refresh()
@@ -104,7 +130,10 @@ class ProviderController extends Controller
      */
     public function destroy($id)
     {
+        // find provider
         $provider = Provider::findOrFail($id);
+
+        // delete provider
         $provider->delete();
 
         return redirect('/providers')->with('success', 'Provider has been deleted');

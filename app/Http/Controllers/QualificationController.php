@@ -16,8 +16,12 @@ class QualificationController extends Controller
      */
     public function index()
     {
+        // get current logged in user
         $user = Auth::user();
+
+        // get qualifications that belong to authenticated user
         $qualifications = $user->qualifications;
+
         return view('qualifications.index', compact('qualifications'));
     }
 
@@ -28,11 +32,17 @@ class QualificationController extends Controller
      */
     public function create()
     {
+        // get employee with concatenated first & last name, id
         $employees = \App\Models\Employee::select(
             DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
             ->pluck('name', 'id');
+
+        // get qualification types with name, id
         $qualificationtypes = \App\Models\QualificationType::pluck('name', 'id');
+
+        // get providers with name, id
         $providers = \App\Models\Provider::pluck('name', 'id');
+
         return view('qualifications.create', compact('employees', 'qualificationtypes', 'providers'));
     }
 
@@ -44,6 +54,10 @@ class QualificationController extends Controller
      */
     public function store(Request $request)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
         $storeData = $request->validate([
             'employee_id' => 'required',
             'qualificationtype_id' => 'required',
@@ -53,7 +67,7 @@ class QualificationController extends Controller
 
         ]);
 
-        $user = Auth::user();
+        // create qualifications with validated data
         $qualification = $user->qualifications()->create($storeData);
 
         return redirect('/qualifications/' . $qualification->id)
@@ -68,10 +82,19 @@ class QualificationController extends Controller
      */
     public function show($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load qualification
         $qualification = Qualification::find($id);
 
-        return view('qualifications.show')
-            ->with('qualification', $qualification);
+        if ($user->can('view', $qualification)) {
+            return view('qualifications.show')
+                ->with('qualification', $qualification);
+        } else {
+            echo 'This qualification does not belong to you.';
+        }
+
     }
 
     /**
@@ -82,14 +105,28 @@ class QualificationController extends Controller
      */
     public function edit($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load qualification
         $qualification = Qualification::findOrFail($id);
+
+        // get providers with name, id
         $providers = \App\Models\Provider::pluck('name', 'id');
-        $qualificationtypes = \App\Models\QualificationType::pluck('name', 'id');
+
+        // get employee with concatenated first & last name, id
         $employees = \App\Models\Employee::select(
             DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
             ->pluck('name', 'id');
 
-        return view('qualifications.edit', compact('qualification','employees', 'qualificationtypes', 'providers'));
+        // get qualification types with name, id
+        $qualificationtypes = \App\Models\QualificationType::pluck('name', 'id');
+
+        if ($user->can('update', $qualification)) {
+            return view('qualifications.edit', compact('qualification','employees', 'qualificationtypes', 'providers'));
+        } else {
+            echo 'This qualification does not belong to you.';
+        }
     }
 
     /**
@@ -101,6 +138,7 @@ class QualificationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get and validate data
         $updateData = $request->validate([
             'employee_id' => 'required',
             'qualificationtype_id' => 'required',
@@ -111,6 +149,7 @@ class QualificationController extends Controller
             'price' => 'numeric',
         ]);
 
+        // find qualification and update with validated data
         Qualification::whereId($id)->update($updateData);
 
         return redirect()->refresh()
@@ -125,7 +164,10 @@ class QualificationController extends Controller
      */
     public function destroy($id)
     {
+        // find employee
         $qualification = Qualification::findOrFail($id);
+
+        // delete employee
         $qualification->delete();
 
         return redirect('/qualification')->with('success', 'Qualification has been deleted');
