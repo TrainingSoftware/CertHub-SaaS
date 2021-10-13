@@ -199,7 +199,7 @@
                     <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder lh-1">{{ Auth::user()->name }}</a>
                     <!--end::Name-->
                     <!--begin::Major-->
-                    <span class="text-muted fw-bold d-block fs-7 lh-1">1st Construction</span>
+                    <span class="text-muted fw-bold d-block fs-7 lh-1">{{ Auth::user()->company->name }}</span>
                     <!--end::Major-->
                 </div>
                 <!--end::User info-->
@@ -229,70 +229,17 @@
                             <!--end::Avatar-->
                             <!--begin::Username-->
                             <div class="d-flex flex-column">
-                                <div class="fw-bolder d-flex align-items-center fs-5">{{ Auth::user()->name }}
-                                <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span></div>
-                                <a href="#" class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                <div class="fw-bolder d-flex align-items-center fs-5">{{ Auth::user()->name }}</div>
+                                <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ Auth::user()->email }}</a>
                             </div>
                             <!--end::Username-->
                         </div>
                     </div>
                     <!--end::Menu item-->
-                    <!--begin::Menu separator-->
-                    <div class="separator my-2"></div>
-                    <!--end::Menu separator-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5">
-                        <a href="../../demo10/dist/account/overview.html" class="menu-link px-5">My Profile</a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5">
-                        <a href="/profile" class="menu-link px-5">
-                            <span class="menu-text">My Projects</span>
-                            <span class="menu-badge">
-                                <span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
-                            </span>
-                        </a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-                        <a href="#" class="menu-link px-5">
-                            <span class="menu-title">My Subscription</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <!--begin::Menu sub-->
-                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="/profile/billing" class="menu-link px-5">Billing</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="/profile/invoices" class="menu-link px-5">Invoices</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu separator-->
-                            <div class="separator my-2"></div>
-                            <!--end::Menu separator-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <div class="menu-content px-3">
-                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                        <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                        <span class="form-check-label text-muted fs-7">Notifications</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <!--end::Menu item-->
-                        </div>
-                        <!--end::Menu sub-->
-                    </div>
-                    <!--end::Menu item-->
+
                     <!--begin::Menu item-->
                     <div class="menu-item px-5 my-1">
-                        <a href="/" class="menu-link px-5">Company Details</a>
+                        <a href="/company" class="menu-link px-5">Company Details</a>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->

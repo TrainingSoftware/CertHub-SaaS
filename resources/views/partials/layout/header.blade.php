@@ -1336,9 +1336,12 @@
                             <!--end::Avatar-->
                             <!--begin::Username-->
                             <div class="d-flex flex-column">
-                                <div class="fw-bolder d-flex align-items-center fs-5">Max Smith
-                                <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span></div>
-                                <a href="#" class="fw-bold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                <div class="fw-bolder d-flex align-items-center fs-5">
+                                    {{ Auth::user()->name }}
+                                </div>
+                                <a href="#" class="fw-bold text-muted text-hover-primary fs-7">
+                                    {{ Auth::user()->email }}
+                                </a>
                             </div>
                             <!--end::Username-->
                         </div>
@@ -1417,67 +1420,12 @@
                     <div class="separator my-2"></div>
                     <!--end::Menu separator-->
                     <!--begin::Menu item-->
-                    <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
-                        <a href="#" class="menu-link px-5">
-                            <span class="menu-title position-relative">Language
-                            <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-                            <img class="w-15px h-15px rounded-1 ms-2" src="assets/media/flags/united-states.svg" alt="" /></span></span>
-                        </a>
-                        <!--begin::Menu sub-->
-                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5 active">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
-                                </span>English</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
-                                </span>Spanish</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
-                                </span>German</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
-                                </span>Japanese</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/settings.html" class="menu-link d-flex px-5">
-                                <span class="symbol symbol-20px me-4">
-                                    <img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
-                                </span>French</a>
-                            </div>
-                            <!--end::Menu item-->
-                        </div>
-                        <!--end::Menu sub-->
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
                     <div class="menu-item px-5 my-1">
                         <a href="../../demo10/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
-                    <div class="menu-item px-5">
-                        <a href="../../demo10/dist/authentication/flows/basic/sign-in.html" class="menu-link px-5">Sign Out</a>
-                    </div>
+
                     <!--end::Menu item-->
                     <!--begin::Menu separator-->
                     <div class="separator my-2"></div>
@@ -1485,11 +1433,10 @@
                     <!--begin::Menu item-->
                     <div class="menu-item px-5">
                         <div class="menu-content px-5">
-                            <label class="form-check form-switch form-check-custom form-check-solid pulse pulse-success" for="kt_user_menu_dark_mode_toggle">
-                                <input class="form-check-input w-30px h-20px" type="checkbox" value="1" name="mode" id="kt_user_menu_dark_mode_toggle" data-kt-url="../../demo10/dist/index.html" />
-                                <span class="pulse-ring ms-n1"></span>
-                                <span class="form-check-label text-gray-600 fs-7">Dark Mode</span>
-                            </label>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-primary bg-transparent menu-link px-5">Sign Out</button>
+                            </form>
                         </div>
                     </div>
                     <!--end::Menu item-->
@@ -1498,12 +1445,12 @@
             </div>
             <!--end::Item-->
             <!--begin::Item-->
-            <div class="d-flex align-items-center me-2 me-lg-4">
+            <div class="d-flex align-items-center"><!-- me-2 me-lg-4 -->
                 <a href="/qualifications/create" class="btn btn-success border-0 px-3 px-lg-6" >Add Qualification</a>
             </div>
             <!--end::Item-->
             <!--begin::Item-->
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center d-none">
                 <a href="../../demo10/dist/index.html" class="btn btn-icon btn-color-white btn-active-color-primary border-0 me-n3" data-bs-toggle="tooltip" data-bs-placement="left" title="Return to launcher">
                     <!--begin::Svg Icon | path: icons/duotune/general/gen034.svg-->
                     <span class="svg-icon svg-icon-2x">
