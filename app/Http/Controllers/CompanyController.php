@@ -20,10 +20,14 @@ class CompanyController extends Controller
         // get current logged in user
         $user = Auth::user();
 
-        // get employees that belong to authenticated user
+        // get company that belong to authenticated user
         $company = $user->company;
 
-        return redirect('/company/' . $company->id);
+        if ($company) {
+            return redirect('/company/' . $company->id);
+        } else {
+            return view('company.show');
+        }
     }
 
     /**
@@ -39,7 +43,12 @@ class CompanyController extends Controller
         // get employees that belong to authenticated user
         $company = $user->company;
 
-        return redirect('/company/' . $company->id);
+        if ($company) {
+            return redirect('/company/' . $company->id);
+        } else {
+            return view('company.create');
+        }
+
     }
 
     /**
