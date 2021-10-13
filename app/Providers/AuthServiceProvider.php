@@ -16,7 +16,7 @@ use App\Policies\DepartmentPolicy;
 use App\Policies\ProviderPolicy;
 use App\Policies\QualificationPolicy;
 use App\Policies\QualificationTypePolicy;
-use App\Policies\Companypolicy;
+use App\Policies\CompanyPolicy;
 
 
 
