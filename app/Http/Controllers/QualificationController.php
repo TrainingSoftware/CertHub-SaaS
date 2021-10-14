@@ -70,6 +70,14 @@ class QualificationController extends Controller
         // create qualifications with validated data
         $qualification = $user->qualifications()->create($storeData);
 
+        // log the qualification on successful creation
+        if ($qualification){
+            activity('qualification')
+                ->performedOn($qualification)
+                ->causedBy($user)
+                ->log('Qualification created by ' . $user->name);
+        }
+
         return redirect('/qualifications/' . $qualification->id)
             ->with('success', 'Qualification successfully created');
     }
@@ -138,6 +146,9 @@ class QualificationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
         // get and validate data
         $updateData = $request->validate([
             'employee_id' => 'required',
@@ -150,7 +161,13 @@ class QualificationController extends Controller
         ]);
 
         // find qualification and update with validated data
-        Qualification::whereId($id)->update($updateData);
+        $qualification = Qualification::whereId($id)->update($updateData);
+
+        // log the qualification on successful creation
+        activity('qualification')
+            ->performedOn($qualification)
+            ->causedBy($user)
+            ->log('Qualification updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Qualification has been successfully updated');

@@ -55,6 +55,14 @@ class DepartmentController extends Controller
         // create department with validated data
         $department = $user->departments()->create($storeData);
 
+        // log the department on successful creation
+        if ($department){
+            activity('department')
+                ->performedOn($department)
+                ->causedBy($user)
+                ->log('Department created by ' . $user->name);
+        }
+
         return redirect('/departments/' . $department->id)
             ->with('success', 'Department successfully created');
     }
@@ -112,6 +120,9 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
         // get and validate data
         $updateData = $request->validate([
             'name' => 'required',
@@ -119,7 +130,13 @@ class DepartmentController extends Controller
         ]);
 
         // find department and update with validated data
-        Department::whereId($id)->update($updateData);
+        $department = Department::whereId($id)->update($updateData);
+
+        // log the department on successful update
+        activity('department')
+            ->performedOn($department)
+            ->causedBy($user)
+            ->log('Department updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Department has been successfully updated');
@@ -133,11 +150,20 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
         // find department
         $department = Department::findOrFail($id);
 
         // delete department
         $department->delete();
+
+        // log the department on successful deletion
+        activity('department')
+            ->performedOn($department)
+            ->causedBy($user)
+            ->log('Department updated by ' . $user->name);
 
         return redirect('/departments')->with('success', 'Department has been deleted');
     }

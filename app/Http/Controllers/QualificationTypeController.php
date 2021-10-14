@@ -54,6 +54,14 @@ class QualificationTypeController extends Controller
         // create qualification type with validated data
         $qualificationtype = $user->qualificationtypes()->create($storeData);
 
+        // log the qualification type on successful update
+        if ($qualificationtype){
+            activity('qualificationtype')
+                ->performedOn($qualificationtype)
+                ->causedBy($user)
+                ->log('Qualification Type updated by ' . $user->name);
+        }
+
         return redirect('/qualificationtypes/' . $qualificationtype->id)
             ->with('success', 'Qualification Type successfully created');
     }
@@ -94,6 +102,12 @@ class QualificationTypeController extends Controller
 
         // load qualification type
         $qualificationtype = QualificationType::findOrFail($id);
+
+        // log the qualification type on successful update
+        activity('qualificationtype')
+            ->performedOn($qualificationtype)
+            ->causedBy($user)
+            ->log('Qualification Type updated by ' . $user->name);
 
         if ($user->can('update', $qualificationtype)) {
             return view('qualificationtypes.edit', compact('qualificationtype'));

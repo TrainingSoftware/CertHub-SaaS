@@ -59,6 +59,10 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
         $data = $this->validate($request, [
             'name' => ['required', 'string'],
             'type' => ['required', 'string'],
@@ -71,10 +75,17 @@ class CompanyController extends Controller
             'country' => ['required', 'string'],
         ]);
 
-        $user = Auth::user();
-        $user->company()->create($data);
+        // create department with validated data
+        $company = $user->company()->create($data);
 
-        return redirect('/home')->with('success', 'Company successfully created');
+        // log the company on successful creation
+        activity('company')
+            ->performedOn($company)
+            ->causedBy($user)
+            ->log('Company updated by ' . $user->name);
+
+        return redirect('/home')
+            ->with('success', 'Company successfully created');
     }
 
     /**
@@ -147,6 +158,12 @@ class CompanyController extends Controller
 
         // find employee and update with validated data
         $company = $user->company::findOrFail($id)->first()->update($updateData);
+
+        // log the company on successful update
+        activity('company')
+            ->performedOn($company)
+            ->causedBy($user)
+            ->log('Company updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Company has been successfully updated');

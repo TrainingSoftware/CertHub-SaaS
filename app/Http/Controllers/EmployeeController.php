@@ -59,6 +59,14 @@ class EmployeeController extends Controller
         // create employee with validated data
         $employee = $user->employees()->create($storeData);
 
+        // log the provider on successful creation
+        if ($employee){
+            activity('employee')
+                ->performedOn($employee)
+                ->causedBy($user)
+                ->log('Employee created by ' . $user->name);
+        }
+
         return redirect('/employees/' . $employee->id )
             ->with('success', 'Employee successfully created');
     }
@@ -126,6 +134,9 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
         // get and validate data
         $updateData = $request->validate([
             'firstname' => 'required',
@@ -150,7 +161,13 @@ class EmployeeController extends Controller
         ]);
 
         // find employee and update with validated data
-        Employee::whereId($id)->update($updateData);
+        $employee = Employee::whereId($id)->update($updateData);
+
+        // log the provider on successful update
+        activity('employee')
+            ->performedOn($employee)
+            ->causedBy($user)
+            ->log('Employee updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Employee has been successfully updated');

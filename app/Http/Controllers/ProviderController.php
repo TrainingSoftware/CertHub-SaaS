@@ -53,6 +53,14 @@ class ProviderController extends Controller
         // create provider with validated data
         $provider = $user->providers()->create($storeData);
 
+        // log the provider on successful creation
+        if ($provider){
+            activity('provider')
+                ->performedOn($provider)
+                ->causedBy($user)
+                ->log('Provider created by ' . $user->name);
+        }
+
         return redirect('/providers/' . $provider->id)
             ->with('success', 'Provider successfully created');
     }
@@ -93,7 +101,7 @@ class ProviderController extends Controller
         // load provider
         $provider = Provider::findOrFail($id);
 
-        if ($user->can('update', $employee)) {
+        if ($user->can('update', $provider)) {
             return view('providers.edit', compact('provider'));
         } else {
             echo 'This provider does not belong to you.';
@@ -109,6 +117,9 @@ class ProviderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
         // get and validate data
         $updateData = $request->validate([
             'name' => 'required',
@@ -116,7 +127,13 @@ class ProviderController extends Controller
         ]);
 
         // find provider and update with validated data
-        Provider::whereId($id)->update($updateData);
+        $provider = Provider::whereId($id)->update($updateData);
+
+        // log the provider on successful update
+        activity('provider')
+            ->performedOn($provider)
+            ->causedBy($user)
+            ->log('Provider updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Provider has been successfully updated');
