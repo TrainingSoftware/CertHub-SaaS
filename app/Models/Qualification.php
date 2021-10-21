@@ -49,4 +49,9 @@ class Qualification extends Model
     {
         return $this->hasMany(Renewal::class);
     }
+
+    public function upload()
+    {
+        return $this->hasOne(Upload::class);
+    }
 }

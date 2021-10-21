@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Subscriptions\SubscriptionController;
 use App\Http\Controllers\Subscriptions\PaymentController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\UploadController;
 
 
 /*
@@ -56,6 +57,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('qualificationtypes', QualificationTypeController::class);
             Route::resource('providers', ProviderController::class);
             Route::resource('users', UserController::class);
+
+            Route::post('upload',[UploadController::class, 'uploadQualificationFile'])->name('upload.qualification.file');
 
             Route::get('/reports', [ReportController::class, 'index']);
             Route::get('/reports/1', [ReportController::class, 'thisMonth']);

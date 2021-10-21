@@ -80,4 +80,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(QualificationType::class);
     }
+
+    public function uploads()
+    {
+        return $this->hasMany(Upload::class);
+    }
 }
