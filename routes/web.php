@@ -11,7 +11,7 @@ use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Subscriptions\SubscriptionController;
 use App\Http\Controllers\Subscriptions\PaymentController;
-use App\Http\Controllers\Reports\ReportController;
+use App\Http\Controllers\ReportController;
 
 
 /*
@@ -57,13 +57,12 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('providers', ProviderController::class);
             Route::resource('users', UserController::class);
 
-            Route::group(['namespace' => 'Reports'], function() {
-                Route::get('/reports', [ReportController::class, 'index']);
-                Route::get('/reports/1', [ReportController::class, 'thisMonth']);
-                Route::get('/reports/2', [ReportController::class, 'nextMonth']);
-                Route::get('/reports/3', [ReportController::class, 'thisQuarter']);
-                Route::get('/reports/4', [ReportController::class, 'nextQuarter']);
-            });
+            Route::get('/reports', [ReportController::class, 'index']);
+            Route::get('/reports/1', [ReportController::class, 'thisMonth']);
+            Route::get('/reports/2', [ReportController::class, 'nextMonth']);
+            Route::get('/reports/3', [ReportController::class, 'thisQuarter']);
+            Route::get('/reports/4', [ReportController::class, 'nextQuarter']);
+            Route::get('/reports/5', [ReportController::class, 'thisYear']);
 
         });
     });

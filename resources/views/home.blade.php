@@ -349,7 +349,7 @@
 							<div class="flex-grow-1 card-p pb-0">
 								<div class="d-flex flex-stack flex-wrap">
 									<div class="me-2 w-100">
-										<a href="#" class="text-dark text-hover-primary fw-bolder fs-3">Est. Training Spend This Month</a>
+										<a href="/reports/1" class="text-dark text-hover-primary fw-bolder fs-3">Est. Training Spend This Month</a>
 										<div class="text-muted fs-7 fw-bold">{{ $thisMonth->format('F Y') }}</div>
 									</div>
 									<div class="fw-bolder fs-3 text-primary">£{{ $monthlyTrainingSpend }}</div>

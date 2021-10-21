@@ -80,7 +80,7 @@
                             <tbody class="text-gray-600 fw-bold">
                                 <!--begin::Table row-->
                                 <tr>
-                                    <td rowspan="4">Qualifications</td>
+                                    <td rowspan="5">Qualifications</td>
                                     <!--begin::Two step=-->
                                     <td class="p-0"><a href="/reports/1">Qualifications Expiring This Month</a></td>
                                     <!--end::Two step=-->
@@ -116,6 +116,16 @@
                                     <!--end::Two step=-->
                                     <!--begin::Joined-->
                                     <td>Shows all qualifications expiring next quarter, {{ $nextQuarterStart->format('F, Y') }} - {{ $nextQuarterEnd->format('F, Y') }}. </td>
+                                    <!--begin::Joined-->
+                                </tr>
+                                <!--end::Table row-->
+                                <!--begin::Table row-->
+                                <tr>
+                                    <!--begin::Two step=-->
+                                    <td><a href="/reports/5">Qualifications This Year</a></td>
+                                    <!--end::Two step=-->
+                                    <!--begin::Joined-->
+                                    <td>Shows all qualifications expiring next quarter, {{ $startOfYear->format('F, Y') }} - {{ $endOfYear->format('F, Y') }}. </td>
                                     <!--begin::Joined-->
                                 </tr>
                                 <!--end::Table row-->

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Reports;
+namespace App\Http\Controllers;
 
 use App\Http\Resources\Qualification;
 use Illuminate\Http\Request;
@@ -17,13 +17,17 @@ class ReportController extends Controller
         $thisQuarter = Carbon::now()->addMonth(2);
         $nextQuarterStart = Carbon::now()->addMonth(3);
         $nextQuarterEnd = Carbon::now()->addMonth(5);
+        $startOfYear = Carbon::now()->startOfYear();
+        $endOfYear = Carbon::now()->endOfYear();
 
         return view('reports.index', [
             'thisMonth' => $thisMonth,
             'nextMonth' => $nextMonth,
             'thisQuarter' => $thisQuarter,
             'nextQuarterStart' => $nextQuarterStart,
-            'nextQuarterEnd' => $nextQuarterEnd
+            'nextQuarterEnd' => $nextQuarterEnd,
+            'startOfYear' => $startOfYear,
+            'endOfYear' => $endOfYear,
         ]);
     }
 
@@ -165,5 +169,38 @@ class ReportController extends Controller
         ]);
     }
 
+
+    public function thisYear()
+    {
+        // get current logged in user
+        $user = Auth::user();
+
+        // get the dates
+        $start = Carbon::now()->startOfYear();
+        $end = Carbon::now()->endOfYear();
+
+        // get qualifications expiring next quarter
+        $qualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->whereBetween('expiry_date', array($start, $end))
+            ->get();
+
+        // sum qualifications expiring next quarter
+        $qualificationsPrice = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->whereBetween('expiry_date', array($start, $end))
+            ->sum('price');
+
+        // count qualifications expiring next quarter
+        $qualificationsCount = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->whereBetween('expiry_date', array($start, $end))
+            ->count();
+
+        return view('reports.qualifications.this-year', [
+            'start' => $start,
+            'end' => $end,
+            'qualifications' => $qualifications,
+            'qualificationsPrice' => $qualificationsPrice,
+            'qualificationsCount' => $qualificationsCount
+        ]);
+    }
 
 }
