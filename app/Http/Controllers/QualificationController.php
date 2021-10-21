@@ -120,15 +120,17 @@ class QualificationController extends Controller
         $qualification = Qualification::findOrFail($id);
 
         // get providers with name, id
-        $providers = \App\Models\Provider::pluck('name', 'id');
+        $providers = \App\Models\Provider::where('user_id', '=', $user->id)
+            ->pluck('name', 'id');
 
         // get employee with concatenated first & last name, id
-        $employees = \App\Models\Employee::select(
-            DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
+        $employees = \App\Models\Employee::where('user_id', '=', $user->id)
+            ->select(DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
             ->pluck('name', 'id');
 
         // get qualification types with name, id
-        $qualificationtypes = \App\Models\QualificationType::pluck('name', 'id');
+        $qualificationtypes = \App\Models\QualificationType::where('user_id', '=', $user->id)
+            ->pluck('name', 'id');
 
         if ($user->can('update', $qualification)) {
             return view('qualifications.edit', compact('qualification','employees', 'qualificationtypes', 'providers'));
@@ -160,10 +162,15 @@ class QualificationController extends Controller
             'price' => 'numeric',
         ]);
 
-        // find qualification and update with validated data
-        $qualification = Qualification::whereId($id)->update($updateData);
+        // find qualification
+        $qualification = Qualification::findOrFail($id);
 
-        // log the qualification on successful creation
+        // update qualification with validated data
+        if(!$qualification->expiry_date->isPast()){
+            $qualification->update($updateData);
+        }
+
+        // log the qualification on successful update
         activity('qualification')
             ->performedOn($qualification)
             ->causedBy($user)

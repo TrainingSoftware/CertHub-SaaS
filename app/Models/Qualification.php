@@ -44,4 +44,9 @@ class Qualification extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function renewals()
+    {
+        return $this->hasMany(Renewal::class);
+    }
 }

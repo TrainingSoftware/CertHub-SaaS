@@ -129,8 +129,11 @@ class DepartmentController extends Controller
             'body' => 'nullable'
         ]);
 
-        // find department and update with validated data
-        $department = Department::whereId($id)->update($updateData);
+        // find department
+        $department = Department::findOrFail($id);
+
+        // update department with validated data
+        $department->update($updateData);
 
         // log the department on successful update
         activity('department')

@@ -92,17 +92,17 @@
             <!--end::Nav item-->
             <!--begin::Nav item-->
             <li class="nav-item mt-2">
-                <a class="nav-link text-active-primary ms-0 me-10 py-5 " href="/profile/settings">Certifications</a>
+                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (strpos(Route::currentRouteName(), 'employee-qualifications') == 0) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/qualifications">Qualifications</a>
             </li>
             <!--end::Nav item-->
             <!--begin::Nav item-->
             <li class="nav-item mt-2">
-                <a class="nav-link text-active-primary ms-0 me-10 py-5 " href="/profile/billing">Contacts</a>
+                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (strpos(Route::currentRouteName(), 'employee-contacts') == 0) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/contacts">Contacts</a>
             </li>
             <!--end::Nav item-->
             <!--begin::Nav item-->
             <li class="nav-item mt-2">
-                <a class="nav-link text-active-primary ms-0 me-10 py-5 " href="/profile/invoices">Files</a>
+                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (strpos(Route::currentRouteName(), 'employee-files') == 0) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/files">Files</a>
             </li>
             <!--end::Nav item-->
         </ul>

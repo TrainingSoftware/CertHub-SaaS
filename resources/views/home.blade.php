@@ -309,7 +309,7 @@
 						<div class="card-header align-items-center border-0 mt-4">
 							<h3 class="card-title align-items-start flex-column">
 								<span class="fw-bolder mb-2 text-dark">Upcoming renewals</span>
-								<span class="text-muted fw-bold fs-7">6 qualifications due to expire in {{ date('F')}}</span>
+								<span class="text-muted fw-bold fs-7">6 qualifications due to expire in {{ $thisMonth->format('F, Y') }}</span>
 							</h3>
 						</div>
 						<!--end::Header-->
@@ -317,111 +317,20 @@
 						<div class="card-body pt-5">
 							<!--begin::Timeline-->
 							<div class="timeline-label">
-								<!--begin::Item-->
-								<div class="timeline-item">
-									<!--begin::Label-->
-									<div class="timeline-label fw-bolder text-gray-800 fs-6">01/10</div>
-									<!--end::Label-->
-									<!--begin::Badge-->
-									<div class="timeline-badge">
-										<i class="fa fa-genderless text-warning fs-1"></i>
-									</div>
-									<!--end::Badge-->
-									<!--begin::Text-->
-									<div class="fw-mormal timeline-content text-muted ps-3"><strong class="text-gray-800">Dave wright</strong><br>Blue CSCS Card</div>
-									<!--end::Text-->
-								</div>
-								<!--end::Item-->
-                                <!--begin::Item-->
-								<div class="timeline-item">
-									<!--begin::Label-->
-									<div class="timeline-label fw-bolder text-gray-800 fs-6">04/10</div>
-									<!--end::Label-->
-									<!--begin::Badge-->
-									<div class="timeline-badge">
-										<i class="fa fa-genderless text-warning fs-1"></i>
-									</div>
-									<!--end::Badge-->
-									<!--begin::Text-->
-									<div class="fw-mormal timeline-content text-muted ps-3"><strong class="text-gray-800">John Smith</strong><br>Red CSCS Card</div>
-									<!--end::Text-->
-								</div>
-								<!--end::Item-->
-                                <!--begin::Item-->
-								<div class="timeline-item">
-									<!--begin::Label-->
-									<div class="timeline-label fw-bolder text-gray-800 fs-6">12/10</div>
-									<!--end::Label-->
-									<!--begin::Badge-->
-									<div class="timeline-badge">
-										<i class="fa fa-genderless text-warning fs-1"></i>
-									</div>
-									<!--end::Badge-->
-									<!--begin::Text-->
-									<div class="fw-mormal timeline-content text-muted ps-3"><strong class="text-gray-800">Eddie Davis</strong><br>IPAF Card</div>
-									<!--end::Text-->
-								</div>
-								<!--end::Item-->
-                                <!--begin::Item-->
-								<div class="timeline-item">
-									<!--begin::Label-->
-									<div class="timeline-label fw-bolder text-gray-800 fs-6">01/10</div>
-									<!--end::Label-->
-									<!--begin::Badge-->
-									<div class="timeline-badge">
-										<i class="fa fa-genderless text-warning fs-1"></i>
-									</div>
-									<!--end::Badge-->
-									<!--begin::Text-->
-									<div class="fw-mormal timeline-content text-muted ps-3"><strong class="text-gray-800">Dave wright</strong><br>Blue CSCS Card</div>
-									<!--end::Text-->
-								</div>
-								<!--end::Item-->
-                                <!--begin::Item-->
-								<div class="timeline-item">
-									<!--begin::Label-->
-									<div class="timeline-label fw-bolder text-gray-800 fs-6">04/10</div>
-									<!--end::Label-->
-									<!--begin::Badge-->
-									<div class="timeline-badge">
-										<i class="fa fa-genderless text-warning fs-1"></i>
-									</div>
-									<!--end::Badge-->
-									<!--begin::Text-->
-									<div class="fw-mormal timeline-content text-muted ps-3"><strong class="text-gray-800">John Smith</strong><br>Red CSCS Card</div>
-									<!--end::Text-->
-								</div>
-								<!--end::Item-->
-                                <!--begin::Item-->
-								<div class="timeline-item">
-									<!--begin::Label-->
-									<div class="timeline-label fw-bolder text-gray-800 fs-6">12/10</div>
-									<!--end::Label-->
-									<!--begin::Badge-->
-									<div class="timeline-badge">
-										<i class="fa fa-genderless text-warning fs-1"></i>
-									</div>
-									<!--end::Badge-->
-									<!--begin::Text-->
-									<div class="fw-mormal timeline-content text-muted ps-3"><strong class="text-gray-800">Eddie Davis</strong><br>IPAF Card</div>
-									<!--end::Text-->
-								</div>
-								<!--end::Item-->
-                                <!--begin::Item-->
-								<div class="timeline-item">
-									<!--begin::Label-->
-									<div class="timeline-label fw-bolder text-gray-800 fs-6">12/10</div>
-									<!--end::Label-->
-									<!--begin::Badge-->
-									<div class="timeline-badge">
-										<i class="fa fa-genderless text-warning fs-1"></i>
-									</div>
-									<!--end::Badge-->
-									<!--begin::Text-->
-									<div class="fw-mormal timeline-content text-muted ps-3"><strong class="text-gray-800">Eddie Davis</strong><br>IPAF Card</div>
-									<!--end::Text-->
-								</div>
-								<!--end::Item-->
+                                @foreach($upcomingRenewals as $item)
+                                    <div class="timeline-item">
+                                            <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ $item->expiry_date->format('d/m')}}</div>
+                                            <div class="timeline-badge">
+                                                <i class="fa fa-genderless text-warning fs-1"></i>
+                                            </div>
+                                            <div class="fw-mormal timeline-content text-muted ps-3">
+                                                <a href="/qualifications/{{ $item->id }}">
+                                                    <strong class="text-gray-800">{{ $item->employee->firstname }} {{ $item->employee->lastname }}</strong>
+                                                    <br>{{ $item->qualificationtype->name }}
+                                                </a>
+                                            </div>
+                                        </div>
+                                @endforeach
 							</div>
 							<!--end::Timeline-->
 						</div>
@@ -439,11 +348,11 @@
 							<!--begin::Stats-->
 							<div class="flex-grow-1 card-p pb-0">
 								<div class="d-flex flex-stack flex-wrap">
-									<div class="me-2">
+									<div class="me-2 w-100">
 										<a href="#" class="text-dark text-hover-primary fw-bolder fs-3">Est. Training Spend This Month</a>
-										<div class="text-muted fs-7 fw-bold">{{ date('F, Y')}}</div>
+										<div class="text-muted fs-7 fw-bold">{{ $thisMonth->format('F Y') }}</div>
 									</div>
-									<div class="fw-bolder fs-3 text-primary">£10,500</div>
+									<div class="fw-bolder fs-3 text-primary">£{{ $monthlyTrainingSpend }}</div>
 								</div>
 							</div>
 							<!--end::Stats-->
@@ -460,11 +369,11 @@
 						<div class="card-body p-0 d-flex justify-content-between flex-column overflow-hidden">
 							<!--begin::Hidden-->
 							<div class="d-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3">
-								<div class="me-2">
+								<div class="me-2 w-100">
 									<span class="fw-bolder text-gray-800 d-block fs-3">Est. Training Spend This Year</span>
-									<span class="text-gray-400 fw-bold">Jan 1 - Dec 31 2021</span>
+									<span class="text-gray-400 fw-bold">{{ $startOfYear->format('d M Y') }} - {{ $endOfYear->format('d M Y') }}</span>
 								</div>
-								<div class="fw-bolder fs-3 text-primary">£150,300</div>
+								<div class="fw-bolder fs-3 text-primary">£{{ $yearlyTrainingSpend }}</div>
 							</div>
 							<!--end::Hidden-->
 							<!--begin::Chart-->

@@ -103,12 +103,6 @@ class QualificationTypeController extends Controller
         // load qualification type
         $qualificationtype = QualificationType::findOrFail($id);
 
-        // log the qualification type on successful update
-        activity('qualificationtype')
-            ->performedOn($qualificationtype)
-            ->causedBy($user)
-            ->log('Qualification Type updated by ' . $user->name);
-
         if ($user->can('update', $qualificationtype)) {
             return view('qualificationtypes.edit', compact('qualificationtype'));
         } else {
@@ -125,14 +119,26 @@ class QualificationTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // get current logged in user
+        $user = Auth::user();
+
         // get and validate data
         $updateData = $request->validate([
             'name' => 'required',
             'body' => 'nullable'
         ]);
 
-        // find qualification type and update with validated data
-        QualificationType::whereId($id)->update($updateData);
+        // find qualification type
+        $qualificationtype = QualificationType::findOrFail($id);
+
+        // update qualification type with validated data
+        $qualificationtype->update($updateData);
+
+        // log the qualification type on successful update
+        activity('qualificationtype')
+            ->performedOn($qualificationtype)
+            ->causedBy($user)
+            ->log('Qualification Type updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Qualification Type has been successfully updated');

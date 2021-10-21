@@ -138,7 +138,7 @@
                                     <td>@if($item->department){{ $item->department->name }}@endif</td>
                                     <!--end::Role=-->
                                     <!--begin::Two step=-->
-                                    <td></td>
+                                    <td><a href="/employees/{{ $item->id }}/qualifications">{{ $item->qualifications->count() }}</td>
                                     <!--end::Two step=-->
                                     <!--begin::Joined-->
                                     <td>{{ $item->start_date }}</td>

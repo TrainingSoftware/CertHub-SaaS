@@ -9,7 +9,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column me-5 py-2">
                 <!--begin::Title-->
-                <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Employee: {{ $qualification->employee->firstname }} {{ $qualification->employee->lastname }}</h1>
+                <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Qualification: {{ $qualification->qualificationtype->name }} </h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
@@ -34,7 +34,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-dark">{{ $qualification->employee->firstname }} {{ $qualification->employee->lastname }}</li>
+                    <li class="breadcrumb-item text-dark">{{ $qualification->qualificationtype->name }}</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -60,7 +60,11 @@
                     </div>
                     <!--end::Card title-->
                     <!--begin::Action-->
-                    <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Qualification</a>
+                    @if($qualification->expiry_date < Carbon\Carbon::today())
+                        <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-warning align-self-center">Add Renewal</a>
+                    @else
+                        <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Qualification</a>
+                    @endif
                     <!--end::Action-->
                 </div>
                 <!--begin::Card header-->

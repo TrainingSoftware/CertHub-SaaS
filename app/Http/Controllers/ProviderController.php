@@ -126,8 +126,11 @@ class ProviderController extends Controller
             'body' => 'nullable'
         ]);
 
-        // find provider and update with validated data
-        $provider = Provider::whereId($id)->update($updateData);
+        // find provider
+        $provider = Provider::findOrFail($id);
+
+        // update provider with validated data
+        $provider->update($updateData);
 
         // log the provider on successful update
         activity('provider')

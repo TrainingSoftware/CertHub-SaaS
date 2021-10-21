@@ -15,7 +15,7 @@
                     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/" class="text-muted text-hover-primary">Dashboard</a>
+                            <a href="/home" class="text-muted text-hover-primary">Dashboard</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->

@@ -44,6 +44,11 @@ class Employee extends Model
         return $this->hasMany(Contact::class);
     }
 
+    public function qualifications()
+    {
+        return $this->hasMany(Qualification::class);
+    }
+
     public function company()
     {
         return $this->belongsTo(Company::class);
@@ -58,4 +63,5 @@ class Employee extends Model
     {
         return $this->belongsTo(Department::class);
     }
+
 }

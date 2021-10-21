@@ -170,8 +170,8 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-6">
-                            @if($employee->end_date)
-                                <span class="fw-bold text-gray-800 fs-6">{{ $employee->start_date }}</span>
+                            @if($employee->start_date)
+                                <span class="fw-bold text-gray-800 fs-6">{{ $employee->start_date->format('d/m/Y') }}</span>
                             @else
                                 <span class="fw-bold text-gray-500 fs-6">No employment start date available</span>
                             @endif

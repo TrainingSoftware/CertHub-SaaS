@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Models\Department;
+use App\Models\Qualification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -160,8 +161,11 @@ class EmployeeController extends Controller
             'department_id' => 'exists:departments,id|int',
         ]);
 
-        // find employee and update with validated data
-        $employee = Employee::whereId($id)->update($updateData);
+        // find employee
+        $employee = Employee::findOrFail($id);
+
+        // update department with validated data
+        $employee->update($updateData);
 
         // log the provider on successful update
         activity('employee')
@@ -189,4 +193,74 @@ class EmployeeController extends Controller
 
         return redirect('/employees')->with('success', 'Employee has been deleted');
     }
+
+    /**
+     * Show qualifications that belong to employee.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function qualifications($id)
+    {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load employee
+        $employee = Employee::find($id);
+
+        if ($user->can('view', $employee)) {
+            return view('employees.qualifications')
+                ->with('employee', $employee);
+        } else {
+            echo 'This employee does not belong to you.';
+        }
+    }
+
+    /**
+     * Show contacts that belong to employee.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function contacts($id)
+    {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load employee
+        $employee = Employee::find($id);
+
+        if ($user->can('view', $employee)) {
+            return view('employees.contacts')
+                ->with('employee', $employee);
+        } else {
+            echo 'This employee does not belong to you.';
+        }
+    }
+
+    /**
+     * Show files that belong to employee.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function files($id)
+    {
+        // get current logged in user
+        $user = Auth::user();
+
+        // load employee
+        $employee = Employee::find($id);
+
+        if ($user->can('view', $employee)) {
+            return view('employees.files')
+                ->with('employee', $employee);
+        } else {
+            echo 'This employee does not belong to you.';
+        }
+    }
+
 }
