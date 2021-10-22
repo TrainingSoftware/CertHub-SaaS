@@ -108,7 +108,7 @@
                     </a>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item d-none">
                     <a class="menu-link" href="">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
