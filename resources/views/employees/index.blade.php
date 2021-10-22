@@ -40,6 +40,7 @@
         <div id="kt_content_container" class="container-xxl">
             <!--begin::Card-->
             <div class="card">
+            @if(Auth::user()->employees->count() != 0 )
                 <!--begin::Card header-->
                 <div class="card-header border-0 pt-6">
                     <!--begin::Card title-->
@@ -54,7 +55,7 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search user" />
+                            <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search employees" />
                         </div>
                         <!--end::Search-->
                     </div>
@@ -80,9 +81,34 @@
                     </div>
                     <!--end::Card toolbar-->
                 </div>
+                @endif
                 <!--end::Card header-->
                 <!--begin::Card body-->
-                <div class="card-body pt-0">
+                @if(Auth::user()->employees->count() == 0 )
+                    <div class="card-body p-0">
+                        <!--begin::Wrapper-->
+                        <div class="card-px text-center py-20 my-10">
+                            <!--begin::Title-->
+                            <h2 class="fs-2x fw-bolder mb-10">Welcome!</h2>
+                            <!--end::Title-->
+                            <!--begin::Description-->
+                            <p class="text-gray-400 fs-4 fw-bold mb-10">
+                                It looks like you have not add an employee yet...
+                            </p>
+                            <!--end::Description-->
+                            <!--begin::Action-->
+                            <a href="/employees/create" class="btn btn-primary">Add Employee</a>
+                            <!--end::Action-->
+                        </div>
+                        <!--end::Wrapper-->
+                        <!--begin::Illustration-->
+                        <div class="text-center px-4">
+                            <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/sigma-1/2.png" />
+                        </div>
+                        <!--end::Illustration-->
+                    </div>
+                @else
+                    <div class="card-body pt-0">
                     <!--begin::Table-->
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                         <!--begin::Table head-->
@@ -180,6 +206,7 @@
                     <!--end::Table-->
                 </div>
                 <!--end::Card body-->
+                @endif
             </div>
             <!--end::Card-->
         </div>
