@@ -87,7 +87,7 @@
                             @if($employee->gender)
                             <span class="fw-bolder fs-6 text-gray-800">{{ $employee->gender }}</span>
                             @else
-                                <span class="fw-bolder fs-6 text-gray-800">No gender information available</span>
+                                <span class="fw-bolder fs-6 text-gray-500">No gender information available</span>
                             @endif
                         </div>
                         <!--end::Col-->
