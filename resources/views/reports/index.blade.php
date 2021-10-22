@@ -122,7 +122,7 @@
                                 <!--begin::Table row-->
                                 <tr>
                                     <!--begin::Two step=-->
-                                    <td><a href="/reports/5">Qualifications This Year</a></td>
+                                    <td><a href="/reports/5">Qualifications Expiring In This Calendar Year</a></td>
                                     <!--end::Two step=-->
                                     <!--begin::Joined-->
                                     <td>Shows all qualifications expiring next quarter, {{ $startOfYear->format('F, Y') }} - {{ $endOfYear->format('F, Y') }}. </td>

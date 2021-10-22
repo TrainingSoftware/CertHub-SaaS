@@ -37,8 +37,10 @@ class ReportController extends Controller
         // get current logged in user
         $user = Auth::user();
 
-        // get the current date
+        // get the dates
         $thisMonth = Carbon::now();
+        $startOfMonth = Carbon::now()->startOfMonth();
+        $endOfMonth = Carbon::now()->endOfMonth();
 
         // get qualifications expiring in current month
         $qualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
@@ -62,7 +64,9 @@ class ReportController extends Controller
             'thisMonth' => $thisMonth,
             'qualifications' => $qualifications,
             'qualificationsPrice' => $qualificationsPrice,
-            'qualificationsCount' => $qualificationsCount
+            'qualificationsCount' => $qualificationsCount,
+            'startOfMonth' => $startOfMonth,
+            'endOfMonth' => $endOfMonth,
         ]);
     }
 
@@ -72,8 +76,10 @@ class ReportController extends Controller
         // get current logged in user
         $user = Auth::user();
 
-        // get the next month
+        // get the dates
         $nextMonth = Carbon::now()->addMonth();
+        $startOfMonth = Carbon::now()->addMonth()->startOfMonth();
+        $endOfMonth = Carbon::now()->addMonth()->endOfMonth();
 
         // get qualifications expiring next month
         $qualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
@@ -97,7 +103,9 @@ class ReportController extends Controller
             'nextMonth' => $nextMonth,
             'qualifications' => $qualifications,
             'qualificationsPrice' => $qualificationsPrice,
-            'qualificationsCount' => $qualificationsCount
+            'qualificationsCount' => $qualificationsCount,
+            'startOfMonth' => $startOfMonth,
+            'endOfMonth' => $endOfMonth,
         ]);
     }
 
