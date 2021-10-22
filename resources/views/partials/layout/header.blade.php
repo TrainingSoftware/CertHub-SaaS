@@ -104,7 +104,7 @@
                                     <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                         <!--begin::Symbol-->
                                         <div class="symbol symbol-40px me-4">
-                                            <img src="assets/media/avatars/150-1.jpg" alt="" />
+                                            <img src="/assets/media/avatars/blank.png" alt="" />
                                         </div>
                                         <!--end::Symbol-->
                                         <!--begin::Title-->
@@ -119,7 +119,7 @@
                                     <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                         <!--begin::Symbol-->
                                         <div class="symbol symbol-40px me-4">
-                                            <img src="assets/media/avatars/150-3.jpg" alt="" />
+                                            <img src="/assets/media/avatars/blank.png" alt="" />
                                         </div>
                                         <!--end::Symbol-->
                                         <!--begin::Title-->
@@ -134,7 +134,7 @@
                                     <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                         <!--begin::Symbol-->
                                         <div class="symbol symbol-40px me-4">
-                                            <img src="assets/media/avatars/150-8.jpg" alt="" />
+                                            <img src="/assets/media/avatars/blank.png" alt="" />
                                         </div>
                                         <!--end::Symbol-->
                                         <!--begin::Title-->
@@ -149,7 +149,7 @@
                                     <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                         <!--begin::Symbol-->
                                         <div class="symbol symbol-40px me-4">
-                                            <img src="assets/media/avatars/150-11.jpg" alt="" />
+                                            <img src="/assets/media/avatars/blank.png" alt="" />
                                         </div>
                                         <!--end::Symbol-->
                                         <!--begin::Title-->
@@ -164,7 +164,7 @@
                                     <a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
                                         <!--begin::Symbol-->
                                         <div class="symbol symbol-40px me-4">
-                                            <img src="assets/media/avatars/150-12.jpg" alt="" />
+                                            <img src="/assets/media/avatars/blank.png" alt="" />
                                         </div>
                                         <!--end::Symbol-->
                                         <!--begin::Title-->
@@ -1331,7 +1331,7 @@
                         <div class="menu-content d-flex align-items-center px-3">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-50px me-5">
-                                <img alt="Logo" src="assets/media/avatars/150-26.jpg" />
+                                <img alt="Logo" src="/assets/media/avatars/blank.png" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Username-->

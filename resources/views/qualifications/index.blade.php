@@ -94,11 +94,13 @@
                                         <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                     </div>
                                 </th>
-                                <th class="min-w-125px">Type</th>
-                                <th class="min-w-125px">Employee</th>
-                                <th class="min-w-125px">Provider</th>
-                                <th class="min-w-125px">Expires on</th>
-                                <th class="text-end min-w-100px">Actions</th>
+                                <th class="min-w-100px">Type</th>
+                                <th class="min-w-100px">Employee</th>
+                                <th class="min-w-100px">Provider</th>
+                                <th class="min-w-50px">Status</th>
+                                <th class="min-w-100px">Expires on</th>
+                                <th class="min-w-15px"></th>
+                                <th class="text-end min-w-15px">Actions</th>
                             </tr>
                             <!--end::Table row-->
                             </thead>
@@ -134,9 +136,31 @@
                                     <!--begin::Two step=-->
                                     <td>{{ $item->provider->name }}</td>
                                     <!--end::Two step=-->
+                                    <td>
+                                        @if($item->expiry_date < Carbon\Carbon::today())
+                                            <span class="badge badge-danger">Expired</span>
+                                        @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
+                                            <span class="badge badge-warning">Expiring</span>
+                                        @else
+                                            <span class="badge badge-success">Valid</span>
+                                        @endif
+                                    </td>
                                     <!--begin::Joined-->
                                     <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
                                     <!--begin::Joined-->
+                                    <td>
+                                        @if($item->upload)
+                                            <a href="{{ Storage::disk('vultr')->url($item->upload->url) }}" target="_blank">
+                                                <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
+                                                    <span class="svg-icon svg-icon-success svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM11.7 17.7L16.7 12.7C17.1 12.3 17.1 11.7 16.7 11.3C16.3 10.9 15.7 10.9 15.3 11.3L11 15.6L8.70001 13.3C8.30001 12.9 7.69999 12.9 7.29999 13.3C6.89999 13.7 6.89999 14.3 7.29999 14.7L10.3 17.7C10.5 17.9 10.8 18 11 18C11.2 18 11.5 17.9 11.7 17.7Z" fill="black"/>
+                                                        <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black"/>
+                                                        </svg>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        @endif
+                                    </td>
                                     <!--begin::Action=-->
                                     <td class="text-end">
                                         <a href="#" class="btn btn-link btn-sm p-0" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -153,12 +177,7 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="../../demo10/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                                                <a href="/qualifications/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                         </div>

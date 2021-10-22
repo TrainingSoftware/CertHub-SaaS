@@ -56,15 +56,30 @@
                 <div class="card-header cursor-pointer">
                     <!--begin::Card title-->
                     <div class="card-title m-0">
-                        <h3 class="fw-bolder m-0">{{ $qualification->employee->firstname }}'s {{ $qualification->qualificationtype->name }} Details</h3>
+                        <h3 class="fw-bolder m-0">
+                            {{ $qualification->employee->firstname }}'s {{ $qualification->qualificationtype->name }} Details
+                            @if($qualification->expiry_date < Carbon\Carbon::today())
+                                <span class="badge badge-danger">Expired</span>
+                            @elseif($qualification->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $qualification->expiry_date > Carbon\Carbon::today())
+                                <span class="badge badge-warning">Expiring</span>
+                            @else
+                                <span class="badge badge-success">Valid</span>
+                            @endif
+                        </h3>
                     </div>
                     <!--end::Card title-->
                     <!--begin::Action-->
-                    @if($qualification->expiry_date < Carbon\Carbon::today())
-                        <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-warning align-self-center">Add Renewal</a>
-                    @else
-                        <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Qualification</a>
-                    @endif
+                    <div class="flex-end align-self-center">
+                        @if($qualification->upload)
+                            <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-secondary me-5">Send</a>
+                        @endif
+                        @if($qualification->expiry_date < Carbon\Carbon::today())
+                            <a href="/renewals/create?qualification={{ $qualification->id }}" class="btn btn-sm btn-warning">Add Renewal</a>
+                        @else
+                            <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-primary">Edit Qualification</a>
+                        @endif
+                    </div>
+
                     <!--end::Action-->
                 </div>
                 <!--begin::Card header-->

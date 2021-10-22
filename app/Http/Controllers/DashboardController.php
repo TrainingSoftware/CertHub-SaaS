@@ -27,14 +27,40 @@ class DashboardController extends Controller
             ->whereYear('expiry_date', now()->year)
             ->get();
 
+        // count qualifications expiring in current month
+        $upcomingRenewalsCount = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->whereMonth('expiry_date', now()->month)
+            ->whereYear('expiry_date', now()->year)
+            ->count();
+
+        // sum yearly training spend
         $yearlyTrainingSpend = \App\Models\Qualification::where('user_id', '=', $user->id)
             ->whereBetween('expiry_date', array($startOfYear, $endOfYear))
             ->sum('price');
 
+        // sum current month training spend
         $monthlyTrainingSpend = \App\Models\Qualification::where('user_id', '=', $user->id)
             ->whereMonth('expiry_date', now()->month)
             ->whereYear('expiry_date', now()->year)
             ->sum('price');
+
+        // count users employees
+        $countEmployees = \App\Models\Employee::where('user_id', '=', $user->id)->count();
+
+        // get latest updated employees
+        $latestEmployees = \App\Models\Employee::where('user_id', '=', $user->id)
+            ->take(5)
+            ->get()
+            ->sortByDesc('updated_at');
+
+        // count users qualifications
+        $countQualifications = \App\Models\Qualification::where('user_id', '=', $user->id)->count();
+
+        // get latest updated qualifications
+        $latestQualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->take(5)
+            ->get()
+            ->sortByDesc('updated_at');
 
         return view('home', [
             'thisMonth' => $thisMonth,
@@ -43,10 +69,16 @@ class DashboardController extends Controller
             'nextQuarterStart' => $nextQuarterStart,
             'nextQuarterEnd' => $nextQuarterEnd,
             'upcomingRenewals' => $upcomingRenewals,
+            'upcomingRenewalsCount' => $upcomingRenewalsCount,
             'startOfYear' => $startOfYear,
             'endOfYear' => $endOfYear,
             'yearlyTrainingSpend' => $yearlyTrainingSpend,
-            'monthlyTrainingSpend' => $monthlyTrainingSpend
+            'monthlyTrainingSpend' => $monthlyTrainingSpend,
+            'countEmployees' => $countEmployees,
+            'latestEmployees' => $latestEmployees,
+            'countQualifications' => $countQualifications,
+            'latestQualifications' => $latestQualifications,
+
         ]);
     }
 }

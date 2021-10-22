@@ -190,7 +190,7 @@
             <div class="d-flex align-items-center">
                 <!--begin::Avatar-->
                 <div class="symbol symbol-circle symbol-40px">
-                    <img src="/assets/media/avatars/150-26.jpg" alt="photo" />
+                    <img src="/assets/media/avatars/blank.png" alt="photo" />
                 </div>
                 <!--end::Avatar-->
                 <!--begin::User info-->
@@ -224,7 +224,7 @@
                         <div class="menu-content d-flex align-items-center px-3">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-50px me-5">
-                                <img alt="Logo" src="assets/media/avatars/150-26.jpg" />
+                                <img alt="Logo" src="/assets/media/avatars/blank.png" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Username-->

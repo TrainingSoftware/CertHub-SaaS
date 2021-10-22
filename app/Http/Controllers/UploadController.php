@@ -26,7 +26,7 @@ class UploadController extends Controller
 
         $hashName = $file->hashName();
 
-        $storagePath = Storage::disk('vultr')->putFile('uploads' . $request->user_id , $file, 'public');
+        $storagePath = Storage::disk('vultr')->putFile('uploads/' . $user->id . '/' . $request->qualification_id, $file, 'public');
 
         if ($storagePath) {
 
