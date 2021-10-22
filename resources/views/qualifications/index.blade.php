@@ -40,6 +40,7 @@
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Card-->
                 <div class="card">
+                    @if(Auth::user()->qualifications->count() != 0 )
                     <!--begin::Card header-->
                     <div class="card-header border-0 pt-6">
                         <!--begin::Card title-->
@@ -50,7 +51,10 @@
                                 <span class="svg-icon svg-icon-1 position-absolute ms-6">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
-                                    <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
+                                    <path
+                                        d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z"
+                                        fill="black"
+                                    />
                                 </svg>
                             </span>
                                 <!--end::Svg Icon-->
@@ -67,11 +71,11 @@
                                 <a href="/qualifications/create" class="btn btn-primary">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                     <span class="svg-icon svg-icon-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                                    <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
-                                </svg>
-                            </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+                                    </svg>
+                                </span>
                                     <!--end::Svg Icon-->Add Qualification
                                 </a>
                                 <!--end::Add user-->
@@ -80,119 +84,183 @@
                         </div>
                         <!--end::Card toolbar-->
                     </div>
+                    @endif
                     <!--end::Card header-->
+                    @if(Auth::user()->qualifications->count() == 0)
+                        <div class="card-body p-0">
+                            <!--begin::Wrapper-->
+                            <div class="card-px text-center py-20 my-10">
+                                <!--begin::Title-->
+                                <h2 class="fs-2x fw-bolder mb-10">
+                                    Add Your First Qualification!
+                                </h2>
+                                <!--end::Title-->
+                                <!--begin::Description-->
+                                <p class="text-gray-400 fs-4 fw-bold mb-10">
+                                    It looks like you have a few outstanding tasks to do before you can add a qualification:
+                                </p>
+                                <ul class="list-unstyled mb-10 text-left">
+                                    @if(Auth::user()->employees->count() == 0)
+                                        <li class="h4 mb-4">
+                                            <a href="/employees/create" class="fs-1.5x">Create your first Employee</a>
+                                        </li>
+                                    @else
+                                        <li class="text-success h4 mb-4">
+                                            <strike>Create your first Employee</strike>
+                                        </li>
+                                    @endif
+                                    @if(Auth::user()->providers->count() == 0)
+                                        <li class="h4 mb-4">
+                                            <a href="/providers/create">Create your first Provider</a>
+                                        </li>
+                                    @else
+                                        <li class="text-success h4 mb-4">
+                                            <strike>Create your first Provider</strike>
+                                        </li>
+                                    @endif
+                                    @if(Auth::user()->qualificationtypes->count() == 0)
+                                        <li class="h4 mb-4">
+                                            <a href="/qualificationtypes/create">Create your first Qualification Type</a>
+                                        </li>
+                                    @else
+                                        <li class="text-success h4 mb-4">
+                                            <strike>Create your first Qualification Type</strike>
+                                        </li>
+                                    @endif
+                                </ul>
+                                <!--end::Description-->
+                                <!--begin::Action-->
+                                @if(Auth::user()->qualificationtypes->count() != 0 && Auth::user()->providers->count() != 0 && Auth::user()->employees->count() != 0)
+                                    <a href="/qualificationtypes/create" class="btn btn-primary">Add Qualification Type</a>
+                                @endif
+                                <!--end::Action-->
+                            </div>
+                            <!--end::Wrapper-->
+                            <!--begin::Illustration-->
+                            <div class="text-center px-4">
+                                <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/sigma-1/2.png" />
+                            </div>
+                            <!--end::Illustration-->
+                        </div>
+                    @else
                     <!--begin::Card body-->
-                    <div class="card-body pt-0">
-                        <!--begin::Table-->
-                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-                            <!--begin::Table head-->
-                            <thead>
-                            <!--begin::Table row-->
-                            <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                <th class="w-10px pe-2">
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                        <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
-                                    </div>
-                                </th>
-                                <th class="min-w-100px">Type</th>
-                                <th class="min-w-100px">Employee</th>
-                                <th class="min-w-100px">Provider</th>
-                                <th class="min-w-50px">Status</th>
-                                <th class="min-w-100px">Expires on</th>
-                                <th class="min-w-15px"></th>
-                                <th class="text-end min-w-15px">Actions</th>
-                            </tr>
-                            <!--end::Table row-->
-                            </thead>
-                            <!--end::Table head-->
-                            <!--begin::Table body-->
-                            <tbody class="text-gray-600 fw-bold">
-                            @foreach ($qualifications as $item)
+                        <div class="card-body pt-0">
+                            <!--begin::Table-->
+                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+                                <!--begin::Table head-->
+                                <thead>
                                 <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Checkbox-->
-                                    <td>
-                                        <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="1" />
+                                <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
+                                    <th class="w-10px pe-2">
+                                        <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                                            <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                         </div>
-                                    </td>
-                                    <!--end::Checkbox-->
-                                    <!--begin::User=-->
-                                    <td class="d-flex align-items-center border-bottom-0">
-                                        <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">
-                                            {{ $item->qualificationtype->name }}
-                                        </a>
-                                    </td>
-                                    <!--end::User=-->
-                                    <!--begin::Role=-->
-                                    <td>
-                                    <!--begin::User details-->
-                                        <div class="d-flex flex-column">
-                                            <a href="/employees/{{ $item->employee->id }}" class="text-gray-800 text-hover-primary p-2">{{ $item->employee->firstname }} {{ $item->employee->lastname }}</a>
-                                        </div>
-                                        <!--begin::User details-->
-                                    </td>
-                                    <!--end::Role=-->
-                                    <!--begin::Two step=-->
-                                    <td>{{ $item->provider->name }}</td>
-                                    <!--end::Two step=-->
-                                    <td>
-                                        @if($item->expiry_date < Carbon\Carbon::today())
-                                            <span class="badge badge-danger">Expired</span>
-                                        @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
-                                            <span class="badge badge-warning">Expiring</span>
-                                        @else
-                                            <span class="badge badge-success">Valid</span>
-                                        @endif
-                                    </td>
-                                    <!--begin::Joined-->
-                                    <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
-                                    <!--begin::Joined-->
-                                    <td>
-                                        @if($item->upload)
-                                            <a href="{{ Storage::disk('vultr')->url($item->upload->url) }}" target="_blank">
-                                                <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
-                                                    <span class="svg-icon svg-icon-success svg-icon-2hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                        <path opacity="0.3" d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM11.7 17.7L16.7 12.7C17.1 12.3 17.1 11.7 16.7 11.3C16.3 10.9 15.7 10.9 15.3 11.3L11 15.6L8.70001 13.3C8.30001 12.9 7.69999 12.9 7.29999 13.3C6.89999 13.7 6.89999 14.3 7.29999 14.7L10.3 17.7C10.5 17.9 10.8 18 11 18C11.2 18 11.5 17.9 11.7 17.7Z" fill="black"/>
-                                                        <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black"/>
-                                                        </svg>
-                                                    </span>
-                                                </span>
-                                            </a>
-                                        @endif
-                                    </td>
-                                    <!--begin::Action=-->
-                                    <td class="text-end">
-                                        <a href="#" class="btn btn-link btn-sm p-0" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                            <span class="svg-icon svg-icon-muted svg-icon-2hx">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <rect x="10" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                <rect x="17" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                <rect x="3" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                </svg>
-                                            </span>
-                                            <!--end::Svg Icon-->
-                                        </a>
-                                        <!--begin::Menu-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="/qualifications/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu-->
-                                    </td>
-                                    <!--end::Action=-->
+                                    </th>
+                                    <th class="min-w-100px">Type</th>
+                                    <th class="min-w-100px">Employee</th>
+                                    <th class="min-w-100px">Provider</th>
+                                    <th class="min-w-50px">Status</th>
+                                    <th class="min-w-100px">Expires on</th>
+                                    <th class="min-w-15px"></th>
+                                    <th class="text-end min-w-15px">Actions</th>
                                 </tr>
                                 <!--end::Table row-->
-                            @endforeach
-                            </tbody>
-                            <!--end::Table body-->
-                        </table>
-                        <!--end::Table-->
-                    </div>
-                    <!--end::Card body-->
+                                </thead>
+                                <!--end::Table head-->
+                                <!--begin::Table body-->
+                                <tbody class="text-gray-600 fw-bold">
+                                @foreach ($qualifications as $item)
+                                    <!--begin::Table row-->
+                                    <tr>
+                                        <!--begin::Checkbox-->
+                                        <td>
+                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                <input class="form-check-input" type="checkbox" value="1" />
+                                            </div>
+                                        </td>
+                                        <!--end::Checkbox-->
+                                        <!--begin::User=-->
+                                        <td class="d-flex align-items-center border-bottom-0">
+                                            <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">
+                                                {{ $item->qualificationtype->name }}
+                                            </a>
+                                        </td>
+                                        <!--end::User=-->
+                                        <!--begin::Role=-->
+                                        <td>
+                                            <!--begin::User details-->
+                                            <div class="d-flex flex-column">
+                                                <a href="/employees/{{ $item->employee->id }}" class="text-gray-800 text-hover-primary p-2">{{ $item->employee->firstname }} {{ $item->employee->lastname }}</a>
+                                            </div>
+                                            <!--begin::User details-->
+                                        </td>
+                                        <!--end::Role=-->
+                                        <!--begin::Two step=-->
+                                        <td>{{ $item->provider->name }}</td>
+                                        <!--end::Two step=-->
+                                        <td>
+                                            @if($item->expiry_date < Carbon\Carbon::today())
+                                                <span class="badge badge-danger">Expired</span>
+                                            @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
+                                                <span class="badge badge-warning">Expiring</span>
+                                            @else
+                                                <span class="badge badge-success">Valid</span>
+                                            @endif
+                                        </td>
+                                        <!--begin::Joined-->
+                                        <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
+                                        <!--begin::Joined-->
+                                        <td>
+                                            @if($item->upload)
+                                                <a href="{{ Storage::disk('vultr')->url($item->upload->url) }}" target="_blank">
+                                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
+                                            <span class="svg-icon svg-icon-success svg-icon-2hx">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                    <path
+                                                        opacity="0.3"
+                                                        d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM11.7 17.7L16.7 12.7C17.1 12.3 17.1 11.7 16.7 11.3C16.3 10.9 15.7 10.9 15.3 11.3L11 15.6L8.70001 13.3C8.30001 12.9 7.69999 12.9 7.29999 13.3C6.89999 13.7 6.89999 14.3 7.29999 14.7L10.3 17.7C10.5 17.9 10.8 18 11 18C11.2 18 11.5 17.9 11.7 17.7Z"
+                                                        fill="black"
+                                                    />
+                                                    <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
+                                                </svg>
+                                            </span>
+                                        </span>
+                                                </a>
+                                            @endif
+                                        </td>
+                                        <!--begin::Action=-->
+                                        <td class="text-end">
+                                            <a href="#" class="btn btn-link btn-sm p-0" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                        <span class="svg-icon svg-icon-muted svg-icon-2hx">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <rect x="10" y="10" width="4" height="4" rx="2" fill="black" />
+                                                <rect x="17" y="10" width="4" height="4" rx="2" fill="black" />
+                                                <rect x="3" y="10" width="4" height="4" rx="2" fill="black" />
+                                            </svg>
+                                        </span>
+                                                <!--end::Svg Icon-->
+                                            </a>
+                                            <!--begin::Menu-->
+                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <a href="/qualifications/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                            </div>
+                                            <!--end::Menu-->
+                                        </td>
+                                        <!--end::Action=-->
+                                    </tr>
+                                    <!--end::Table row-->
+                                @endforeach
+                                </tbody>
+                                <!--end::Table body-->
+                            </table>
+                            <!--end::Table-->
+                        </div>
+                        <!--end::Card body-->
+                    @endif
                 </div>
                 <!--end::Card-->
             </div>

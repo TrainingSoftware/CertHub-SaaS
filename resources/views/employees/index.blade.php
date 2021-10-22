@@ -89,11 +89,11 @@
                         <!--begin::Wrapper-->
                         <div class="card-px text-center py-20 my-10">
                             <!--begin::Title-->
-                            <h2 class="fs-2x fw-bolder mb-10">Welcome!</h2>
+                            <h2 class="fs-2x fw-bolder mb-10">Add Your First Employee!</h2>
                             <!--end::Title-->
                             <!--begin::Description-->
                             <p class="text-gray-400 fs-4 fw-bold mb-10">
-                                It looks like you have not add an employee yet...
+                                It looks like you have not added any employees yet...
                             </p>
                             <!--end::Description-->
                             <!--begin::Action-->
