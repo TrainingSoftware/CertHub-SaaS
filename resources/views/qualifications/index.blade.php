@@ -102,29 +102,29 @@
                                 <ul class="list-unstyled mb-10 text-left">
                                     @if(Auth::user()->employees->count() == 0)
                                         <li class="h4 mb-4">
-                                            <a href="/employees/create" class="fs-1.5x">Create your first Employee</a>
+                                            <a href="/employees/create" class="fs-1.5x">Add your first Employee</a>
                                         </li>
                                     @else
                                         <li class="text-success h4 mb-4">
-                                            <strike>Create your first Employee</strike>
+                                            <strike>Add your first Employee</strike>
                                         </li>
                                     @endif
                                     @if(Auth::user()->providers->count() == 0)
                                         <li class="h4 mb-4">
-                                            <a href="/providers/create">Create your first Provider</a>
+                                            <a href="/providers/create">Add your first Provider</a>
                                         </li>
                                     @else
                                         <li class="text-success h4 mb-4">
-                                            <strike>Create your first Provider</strike>
+                                            <strike>Add your first Provider</strike>
                                         </li>
                                     @endif
                                     @if(Auth::user()->qualificationtypes->count() == 0)
                                         <li class="h4 mb-4">
-                                            <a href="/qualificationtypes/create">Create your first Qualification Type</a>
+                                            <a href="/qualificationtypes/create">Add your first Qualification Type</a>
                                         </li>
                                     @else
                                         <li class="text-success h4 mb-4">
-                                            <strike>Create your first Qualification Type</strike>
+                                            <strike>Add your first Qualification Type</strike>
                                         </li>
                                     @endif
                                 </ul>

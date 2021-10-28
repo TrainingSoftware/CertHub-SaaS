@@ -127,27 +127,6 @@
 
                 <!--begin::Card -->
                 <div class="card mt-10">
-                    <!--begin::Card header-->
-                    <div class="card-header border-0 pt-6">
-                        <!--begin::Card title-->
-                        <div class="card-title">
-                            <!--begin::Search-->
-                            <div class="d-flex align-items-center position-relative my-1">
-                                <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
-                                <span class="svg-icon svg-icon-1 position-absolute ms-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
-                                    <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
-                                </svg>
-                            </span>
-                                <!--end::Svg Icon-->
-                                <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search qualifications" />
-                            </div>
-                            <!--end::Search-->
-                        </div>
-                        <!--begin::Card title-->
-                    </div>
-                    <!--end::Card header-->
                     <!--begin::Card body-->
                     <div class="card-body pt-0">
                         <!--begin::Card body-->
@@ -161,6 +140,7 @@
                                     <th class="min-w-125px">Name</th>
                                     <th class="min-w-125px">Type</th>
                                     <th class="min-w-125px">Expiry Date</th>
+                                    <th class="min-w-125px">Status</th>
                                     <th class="min-w-125px">Cost</th>
                                 </tr>
                                 <!--end::Table row-->
@@ -168,7 +148,7 @@
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody class="text-gray-600 fw-bold">
-                                @foreach($qualifications as $item)
+                                @forelse($qualifications as $item)
                                 <tr>
                                     <!--begin::Two step=-->
                                     <td><a href="/employees/{{ $item->employee->id }}">{{ $item->employee->firstname }} {{ $item->employee->lastname }}</a></td>
@@ -177,12 +157,26 @@
                                     <!--begin::Joined-->
                                     <td>{{ $item->expiry_date->format('d/m/Y') }} </td>
                                     <!--begin::Joined-->
+                                    <td>
+                                        @if($item->expiry_date < Carbon\Carbon::today())
+                                            <span class="badge badge-danger">Expired</span>
+                                        @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
+                                            <span class="badge badge-warning">Expiring</span>
+                                        @else
+                                            <span class="badge badge-success">Valid</span>
+                                        @endif
+                                    </td>
                                     <td>£{{ $item->price }} </td>
                                 </tr>
                                 <!--end::Table row-->
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="5" class="text-center text-muted">No qualifications...</td>
+                                    </tr>
+                                @endforelse
                                 <tr>
                                     <!--begin::Two step=-->
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <!--end::Two step=-->

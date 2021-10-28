@@ -17,7 +17,7 @@ class CheckUserSubscription
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->stripe_id === null) {
+        if (Auth::user() && ! Auth::user()->subscribed()) {
             return redirect('/payments?plan=standard');
         }
 

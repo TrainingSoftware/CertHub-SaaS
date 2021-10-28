@@ -13,6 +13,8 @@ use App\Http\Controllers\Subscriptions\SubscriptionController;
 use App\Http\Controllers\Subscriptions\PaymentController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UploadController;
+use App\Http\Controllers\SendSMSController;
+use App\Http\Controllers\SearchController;
 
 
 /*
@@ -45,7 +47,7 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::group(['middleware' => 'CheckUserSubscription'], function(){
 
-            Route::get('/home', [DashboardController::class, 'index']);
+            Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
             Route::resource('employees', EmployeeController::class);
             Route::get('/employees/{id}/qualifications',[EmployeeController::class, 'qualifications'])->name('employee-qualifications');
@@ -59,6 +61,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('users', UserController::class);
 
             Route::post('upload',[UploadController::class, 'uploadQualificationFile'])->name('upload.qualification.file');
+            Route::post('qualifications/{qualification}/sendSMS',[SendSMSController::class, 'sendQualificationSMS'])->name('send.sms');
 
             Route::get('/reports', [ReportController::class, 'index']);
             Route::get('/reports/1', [ReportController::class, 'thisMonth']);
@@ -67,6 +70,11 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/reports/4', [ReportController::class, 'nextQuarter']);
             Route::get('/reports/5', [ReportController::class, 'thisYear']);
 
+            Route::get('/billing-portal', function (Request $request) {
+                return Auth::user()->redirectToBillingPortal(route('home'));
+            });
+
+            Route::get('/search', [SearchController::class, 'search']);
         });
     });
 

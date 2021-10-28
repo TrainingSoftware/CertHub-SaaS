@@ -81,6 +81,7 @@
                                 <span class="menu-title">View All</span>
                             </a>
                         </div>
+                        @if(Auth::user()->qualifications->count() > 0)
                         <div class="menu-item">
                             <a class="menu-link" href="/qualifications/create">
                                 <span class="menu-bullet">
@@ -89,6 +90,7 @@
                                 <span class="menu-title">Create New</span>
                             </a>
                         </div>
+                        @endif
                     </div>
                 </div>
 
@@ -243,7 +245,11 @@
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
-
+                    <!--begin::Menu item-->
+                    <div class="menu-item px-5 my-1">
+                        <a href="/billing-portal" class="menu-link px-5">Billing</a>
+                    </div>
+                    <!--end::Menu item-->
                     <!--end::Menu item-->
                     <!--begin::Menu separator-->
                     <div class="separator my-2"></div>

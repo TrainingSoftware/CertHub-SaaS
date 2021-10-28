@@ -147,7 +147,11 @@
                                         <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
                                             <a href="/employees/{{ $item->id }}">
                                                 <div class="symbol-label">
-                                                    <img src="/assets/media/avatars/150-1.jpg" alt="Emma Smith" class="w-100" />
+                                                    @if($item->upload)
+                                                        <img src="" alt="" class="w-100" />
+                                                    @else
+                                                        <img src="/assets/media/avatars/blank.png" class="w-100" />
+                                                    @endif
                                                 </div>
                                             </a>
                                         </div>

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 class UploadController extends Controller
 {
-    public function uploadQualificationFile(Request $request, qualification $qualification)
+    public function uploadQualificationFile(Request $request, Qualification $qualification)
     {
         // get current logged in user
         $user = Auth::user();

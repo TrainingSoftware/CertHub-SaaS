@@ -25,88 +25,143 @@
 			<div class="row gy-5 g-xl-8">
 				<!--begin::Col-->
 				<div class="col-xl-4">
-					<!--begin::Mixed Widget 2-->
-					<div class="card card-xl-stretch">
-						<!--begin::Header-->
-						<div class="card-header border-0 bg-danger py-5">
-							<h3 class="card-title fw-bolder text-white">Get Started...</h3>
-						</div>
-						<!--end::Header-->
-						<!--begin::Body-->
-						<div class="card-body p-0">
-							<!--begin::Chart-->
-							<div class="card-rounded-bottom bg-danger" data-kt-color="danger" style="height: 200px"></div>
-							<!--end::Chart-->
-							<!--begin::Stats-->
-							<div class="card-p mt-n20 position-relative">
-								<!--begin::Row-->
-								<div class="row g-0">
-									<!--begin::Col-->
-									<div class="col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7">
-										<!--begin::Svg Icon | path: icons/duotune/general/gen032.svg-->
-										<span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<rect x="8" y="9" width="3" height="10" rx="1.5" fill="black" />
-												<rect opacity="0.5" x="13" y="5" width="3" height="14" rx="1.5" fill="black" />
-												<rect x="18" y="11" width="3" height="8" rx="1.5" fill="black" />
-												<rect x="3" y="13" width="3" height="6" rx="1.5" fill="black" />
-											</svg>
-										</span>
-										<!--end::Svg Icon-->
-										<a href="/reports" class="text-warning fw-bold fs-6">View Reports</a>
-									</div>
-									<!--end::Col-->
-									<!--begin::Col-->
-									<div class="col bg-light-primary px-6 py-8 rounded-2 mb-7">
-										<!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
-										<span class="svg-icon svg-icon-3x svg-icon-primary d-block my-2">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="black" />
-												<path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="black" />
-											</svg>
-										</span>
-										<!--end::Svg Icon-->
-										<a href="/employees" class="text-primary fw-bold fs-6">Employees</a>
-									</div>
-									<!--end::Col-->
-								</div>
-								<!--end::Row-->
-								<!--begin::Row-->
-								<div class="row g-0">
-									<!--begin::Col-->
-									<div class="col bg-light-danger px-6 py-8 rounded-2 me-7">
-										<!--begin::Svg Icon | path: icons/duotune/abstract/abs027.svg-->
-										<span class="svg-icon svg-icon-3x svg-icon-danger d-block my-2">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path opacity="0.3" d="M21.25 18.525L13.05 21.825C12.35 22.125 11.65 22.125 10.95 21.825L2.75 18.525C1.75 18.125 1.75 16.725 2.75 16.325L4.04999 15.825L10.25 18.325C10.85 18.525 11.45 18.625 12.05 18.625C12.65 18.625 13.25 18.525 13.85 18.325L20.05 15.825L21.35 16.325C22.35 16.725 22.35 18.125 21.25 18.525ZM13.05 16.425L21.25 13.125C22.25 12.725 22.25 11.325 21.25 10.925L13.05 7.62502C12.35 7.32502 11.65 7.32502 10.95 7.62502L2.75 10.925C1.75 11.325 1.75 12.725 2.75 13.125L10.95 16.425C11.65 16.725 12.45 16.725 13.05 16.425Z" fill="black" />
-												<path d="M11.05 11.025L2.84998 7.725C1.84998 7.325 1.84998 5.925 2.84998 5.525L11.05 2.225C11.75 1.925 12.45 1.925 13.15 2.225L21.35 5.525C22.35 5.925 22.35 7.325 21.35 7.725L13.05 11.025C12.45 11.325 11.65 11.325 11.05 11.025Z" fill="black" />
-											</svg>
-										</span>
-										<!--end::Svg Icon-->
-										<a href="/qualifications" class="text-danger fw-bold fs-6 mt-2">Qualifications</a>
-									</div>
-									<!--end::Col-->
-									<!--begin::Col-->
-									<div class="col bg-light-success px-6 py-8 rounded-2">
-										<!--begin::Svg Icon | path: icons/duotune/communication/com010.svg-->
-										<span class="svg-icon svg-icon-3x svg-icon-success d-block my-2">
-											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-												<path d="M6 8.725C6 8.125 6.4 7.725 7 7.725H14L18 11.725V12.925L22 9.725L12.6 2.225C12.2 1.925 11.7 1.925 11.4 2.225L2 9.725L6 12.925V8.725Z" fill="black" />
-												<path opacity="0.3" d="M22 9.72498V20.725C22 21.325 21.6 21.725 21 21.725H3C2.4 21.725 2 21.325 2 20.725V9.72498L11.4 17.225C11.8 17.525 12.3 17.525 12.6 17.225L22 9.72498ZM15 11.725H18L14 7.72498V10.725C14 11.325 14.4 11.725 15 11.725Z" fill="black" />
-											</svg>
-										</span>
-										<!--end::Svg Icon-->
-										<a href="#" class="text-success fw-bold fs-6 mt-2">Support</a>
-									</div>
-									<!--end::Col-->
-								</div>
-								<!--end::Row-->
-							</div>
-							<!--end::Stats-->
-						</div>
-						<!--end::Body-->
-					</div>
-					<!--end::Mixed Widget 2-->
+
+                        <div class="card card-xl-stretch mb-xl-8">
+                            <!--begin::Body-->
+                            <div class="card-body p-0">
+                                <!--begin::Header-->
+                                <div class="px-9 pt-7 card-rounded h-275px w-100 bg-primary">
+                                    <!--begin::Heading-->
+                                    <div class="d-flex flex-stack">
+                                        <h3 class="m-0 text-white fw-bolder fs-3">Quarterly Training Summary</h3>
+                                    </div>
+                                    <!--end::Heading-->
+                                    <!--begin::Balance-->
+                                    <div class="d-flex text-center flex-column text-white pt-8">
+                                        <span class="fw-bold fs-7">Your Estimated Quarterly Spend</span>
+                                        <span class="fw-bolder fs-2x pt-1">£{{ $monthlyTrainingSpend }}</span>
+                                    </div>
+                                    <!--end::Balance-->
+                                </div>
+                                <!--end::Header-->
+                                <!--begin::Items-->
+                                <div class="bg-body shadow-sm card-rounded mx-9 mb-9 px-6 py-9 position-relative z-index-1" style="margin-top: -100px">
+                                    <!--begin::Item-->
+                                    <div class="d-flex align-items-center mb-6">
+                                        <!--begin::Symbol-->
+                                        <div class="symbol symbol-45px w-40px me-5">
+                                            <span class="symbol-label bg-lighten">
+                                                <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+                                                <span class="svg-icon svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="black"></path>
+                                                        <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="black"></path>
+                                                    </svg>
+                                                </span>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                        </div>
+                                        <!--end::Symbol-->
+                                        <!--begin::Description-->
+                                        <div class="d-flex align-items-center flex-wrap w-100">
+                                            <!--begin::Title-->
+                                            <div class="mb-1 pe-3 flex-grow-1">
+                                                <a href="#" class="fs-5 text-gray-800 text-hover-primary fw-bolder">This Month</a>
+                                                <div class="text-gray-400 fw-bold fs-7">{{$thisMonth->format('F, Y')}}</div>
+                                            </div>
+                                            <!--end::Title-->
+                                            <!--begin::Label-->
+                                            <div class="d-flex align-items-center">
+                                                <div class="fw-bolder fs-5 text-gray-800 pe-1">£{{ $monthlyTrainingSpend }}</div>
+
+                                            </div>
+                                            <!--end::Label-->
+                                        </div>
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Item-->
+                                    <!--begin::Item-->
+                                    <div class="d-flex align-items-center mb-6">
+                                        <!--begin::Symbol-->
+                                        <div class="symbol symbol-45px w-40px me-5">
+                                            <span class="symbol-label bg-lighten">
+                                                <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+                                                <span class="svg-icon svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="black"></path>
+                                                        <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="black"></path>
+                                                    </svg>
+                                                </span>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                        </div>
+                                        <!--end::Symbol-->
+                                        <!--begin::Description-->
+                                        <div class="d-flex align-items-center flex-wrap w-100">
+                                            <!--begin::Title-->
+                                            <div class="mb-1 pe-3 flex-grow-1">
+                                                <a href="#" class="fs-5 text-gray-800 text-hover-primary fw-bolder">Next Month</a>
+                                                <div class="text-gray-400 fw-bold fs-7">{{$nextMonth->format('F, Y')}}</div>
+                                            </div>
+                                            <!--end::Title-->
+                                            <!--begin::Label-->
+                                            <div class="d-flex align-items-center">
+                                                <div class="fw-bolder fs-5 text-gray-800 pe-1">£{{ $monthlyTrainingSpend }}</div>
+
+                                            </div>
+                                            <!--end::Label-->
+                                        </div>
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Item-->
+                                    <!--begin::Item-->
+                                    <div class="d-flex align-items-center">
+                                        <!--begin::Symbol-->
+                                        <div class="symbol symbol-45px w-40px me-5">
+                                            <span class="symbol-label bg-lighten">
+                                                <!--begin::Svg Icon | path: icons/duotune/maps/map004.svg-->
+                                                <span class="svg-icon svg-icon-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                        <path opacity="0.3" d="M18.4 5.59998C21.9 9.09998 21.9 14.8 18.4 18.3C14.9 21.8 9.2 21.8 5.7 18.3L18.4 5.59998Z" fill="black"></path>
+                                                        <path d="M12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM19.9 11H13V8.8999C14.9 8.6999 16.7 8.00005 18.1 6.80005C19.1 8.00005 19.7 9.4 19.9 11ZM11 19.8999C9.7 19.6999 8.39999 19.2 7.39999 18.5C8.49999 17.7 9.7 17.2001 11 17.1001V19.8999ZM5.89999 6.90002C7.39999 8.10002 9.2 8.8 11 9V11.1001H4.10001C4.30001 9.4001 4.89999 8.00002 5.89999 6.90002ZM7.39999 5.5C8.49999 4.7 9.7 4.19998 11 4.09998V7C9.7 6.8 8.39999 6.3 7.39999 5.5ZM13 17.1001C14.3 17.3001 15.6 17.8 16.6 18.5C15.5 19.3 14.3 19.7999 13 19.8999V17.1001ZM13 4.09998C14.3 4.29998 15.6 4.8 16.6 5.5C15.5 6.3 14.3 6.80002 13 6.90002V4.09998ZM4.10001 13H11V15.1001C9.1 15.3001 7.29999 16 5.89999 17.2C4.89999 16 4.30001 14.6 4.10001 13ZM18.1 17.1001C16.6 15.9001 14.8 15.2 13 15V12.8999H19.9C19.7 14.5999 19.1 16.0001 18.1 17.1001Z" fill="black"></path>
+                                                    </svg>
+                                                </span>
+                                                <!--end::Svg Icon-->
+                                            </span>
+                                        </div>
+                                        <!--end::Symbol-->
+                                        <!--begin::Description-->
+                                        <div class="d-flex align-items-center flex-wrap w-100">
+                                            <!--begin::Title-->
+                                            <div class="mb-1 pe-3 flex-grow-1">
+                                                <a href="#" class="fs-5 text-gray-800 text-hover-primary fw-bolder">{{ $thisQuarter->format('F') }}</a>
+                                                <div class="text-gray-400 fw-bold fs-7">{{$thisQuarter->format('F, Y')}}</div>
+                                            </div>
+                                            <!--end::Title-->
+                                            <!--begin::Label-->
+                                            <div class="d-flex align-items-center">
+                                                <div class="fw-bolder fs-5 text-gray-800 pe-1">£{{ $monthlyTrainingSpend }}</div>
+
+                                            </div>
+                                            <!--end::Label-->
+                                        </div>
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Item-->
+                                </div>
+                                <!--end::Items-->
+                                <div class="mx-9 mb-9 position-relative z-index-1">
+                                    <a href="/reports" class="btn btn-primary btn-block dashed">View All Reports
+                                        <span class="svg-icon svg-icon-3 me-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="black"></rect>
+                                                <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="black"></path>
+                                            </svg>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 				</div>
 				<!--end::Col-->
 				<!--begin::Col-->
@@ -116,7 +171,9 @@
 						<!--begin::Header-->
 						<div class="card-header align-items-center border-0 mt-4">
 							<h3 class="card-title align-items-start flex-column">
-								<span class="fw-bolder mb-2 text-dark">Upcoming Renewals</span>
+								<span class="fw-bolder mb-2 text-dark">
+                                    <a href="/reports/1" class="text-dark text-hover-primary">Upcoming Renewals</a>
+                                </span>
 								<span class="text-muted fw-bold fs-7">{{ $upcomingRenewalsCount }} qualifications are due to expire in {{ $thisMonth->format('F, Y') }}</span>
 							</h3>
 						</div>
@@ -125,7 +182,7 @@
 						<div class="card-body pt-5">
 							<!--begin::Timeline-->
 							<div class="timeline-label">
-                                @foreach($upcomingRenewals as $item)
+                                @forelse($upcomingRenewals as $item)
                                     <div class="timeline-item">
                                             <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ $item->expiry_date->format('d/m')}}</div>
                                             <div class="timeline-badge">
@@ -142,7 +199,9 @@
                                                 </a>
                                             </div>
                                         </div>
-                                @endforeach
+                                @empty
+                                   <p class="bg-body text-muted position-relative z-index-1">No qualifications...</p>
+                                @endforelse
 							</div>
 							<!--end::Timeline-->
 						</div>
@@ -153,47 +212,206 @@
 				<!--end::Col-->
 				<!--begin::Col-->
 				<div class="col-xl-4">
-					<!--begin::Mixed Widget 7-->
-					<div class="card card-xl-stretch-50 mb-5 mb-xl-8">
-						<!--begin::Body-->
-						<div class="card-body d-flex flex-column p-0">
-							<!--begin::Stats-->
-							<div class="flex-grow-1 card-p pb-0">
-								<div class="d-flex flex-stack flex-wrap">
-									<div class="me-2 w-100">
-										<a href="/reports/1" class="text-dark text-hover-primary fw-bolder fs-3">Est. Training Spend This Month</a>
-										<div class="text-muted fs-7 fw-bold">{{ $thisMonth->format('F Y') }}</div>
-									</div>
-									<div class="fw-bolder fs-3 text-primary">£{{ $monthlyTrainingSpend }}</div>
-								</div>
-							</div>
-							<!--end::Stats-->
-							<!--begin::Chart-->
-							<div class="mixed-widget-7-chart card-rounded-bottom" data-kt-chart-color="primary" style="height: 120px"></div>
-							<!--end::Chart-->
-						</div>
-						<!--end::Body-->
-					</div>
-					<!--end::Mixed Widget 7-->
-					<!--begin::Mixed Widget 10-->
-					<div class="card card-xl-stretch-50 mb-5 mb-xl-8">
-						<!--begin::Body-->
-						<div class="card-body p-0 d-flex justify-content-between flex-column overflow-hidden">
-							<!--begin::Hidden-->
-							<div class="d-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3">
-								<div class="me-2 w-100">
-                                    <a href="/reports/5" class="text-dark text-hover-primary fw-bolder fs-3">Est. Training Spend This Year</a>
-									<div class="text-gray-400 fw-bold">{{ $startOfYear->format('d M Y') }} - {{ $endOfYear->format('d M Y') }}</div>
-								</div>
-								<div class="fw-bolder fs-3 text-primary">£{{ $yearlyTrainingSpend }}</div>
-							</div>
-							<!--end::Hidden-->
-							<!--begin::Chart-->
-							<div class="mixed-widget-10-chart" data-kt-color="primary" style="height: 150px"></div>
-							<!--end::Chart-->
-						</div>
-					</div>
-					<!--end::Mixed Widget 10-->
+                    <div class="card card-xl-stretch mb-5 mb-xl-8">
+                        <!--begin::Header-->
+                        <div class="card-header align-items-center border-0 mt-4">
+                            <h3 class="card-title align-items-start flex-column">
+								<span class="fw-bolder mb-2 text-dark">
+                                    <a href="/reports/1" class="text-dark text-hover-primary">To Do</a>
+                                </span>
+                                <span class="text-muted fw-bold fs-7">Lets get you started...</span>
+                            </h3>
+                        </div>
+                        <!--begin::Body-->
+                        <div class="card-body pt-2">
+                            @if($employees == 0)
+                                <div class="d-flex align-items-center mb-8">
+                                    <!--begin::Bullet-->
+                                    <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                                    <!--end::Bullet-->
+                                    <!--begin::Checkbox-->
+                                    <div class="form-check form-check-custom form-check-solid mx-5">
+                                        <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
+                                    </div>
+                                    <!--end::Checkbox-->
+                                    <!--begin::Description-->
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Employee</a>
+                                        <span class="text-muted fw-bold d-block">Add your first employee</span>
+                                    </div>
+                                    <!--end::Description-->
+                                    <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                </div>
+                            @else
+                                <div class="d-flex align-items-center mb-8">
+                                    <!--begin::Bullet-->
+                                    <span class="bullet bullet-vertical h-40px bg-success"></span>
+                                    <!--end::Bullet-->
+                                    <!--begin::Checkbox-->
+                                    <div class="form-check form-check-custom form-check-solid mx-5">
+                                        <input class="form-check-input bg-success" type="checkbox" value="" checked disabled>
+                                    </div>
+                                    <!--end::Checkbox-->
+                                    <!--begin::Description-->
+                                    <div class="flex-grow-1">
+                                        <a href="#" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Employee</strike></a>
+                                        <span class="text-muted fw-bold d-block">Add your first employee</span>
+                                    </div>
+                                    <!--end::Description-->
+                                    <span class="badge badge-success fs-8 fw-bolder">Completed</span>
+                                </div>
+                            @endif
+                            @if($qualifications == 0)
+                                    <div class="d-flex align-items-center mb-8">
+                                        <!--begin::Bullet-->
+                                        <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="/qualifications" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Qualification</a>
+                                            <span class="text-muted fw-bold d-block">Add your first qualification</span>
+                                        </div>
+                                        <!--end::Description-->
+                                        <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                    </div>
+                                @else
+                                    <div class="d-flex align-items-center mb-8">
+                                        <!--begin::Bullet-->
+                                        <span class="bullet bullet-vertical h-40px bg-success"></span>
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input bg-success" type="checkbox" value="" checked disabled>
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="/qualifications" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Qualification</strike></a>
+                                            <span class="text-muted fw-bold d-block">Add your first qualification</span>
+                                        </div>
+                                        <!--end::Description-->
+                                        <span class="badge badge-success fs-8 fw-bolder">Completed</span>
+                                    </div>
+                                @endif
+                                @if($providers == 0)
+                                    <div class="d-flex align-items-center mb-8">
+                                        <!--begin::Bullet-->
+                                        <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Provider</a>
+                                            <span class="text-muted fw-bold d-block">Add your first provider</span>
+                                        </div>
+                                        <!--end::Description-->
+                                        <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                    </div>
+                                @else
+                                    <div class="d-flex align-items-center mb-8">
+                                        <!--begin::Bullet-->
+                                        <span class="bullet bullet-vertical h-40px bg-success"></span>
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input bg-success" type="checkbox" value="" checked disabled>
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="#" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Provider</strike></a>
+                                            <span class="text-muted fw-bold d-block">Add your first provider</span>
+                                        </div>
+                                        <!--end::Description-->
+                                        <span class="badge badge-success fs-8 fw-bolder">Completed</span>
+                                    </div>
+                                @endif
+                                @if($departments == 0)
+                                    <div class="d-flex align-items-center mb-8">
+                                        <!--begin::Bullet-->
+                                        <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Department</a>
+                                            <span class="text-muted fw-bold d-block">Add your first department</span>
+                                        </div>
+                                        <!--end::Description-->
+                                        <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                    </div>
+                                @else
+                                    <div class="d-flex align-items-center mb-8">
+                                        <!--begin::Bullet-->
+                                        <span class="bullet bullet-vertical h-40px bg-success"></span>
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input bg-success" type="checkbox" value="" checked disabled>
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="#" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Department</strike></a>
+                                            <span class="text-muted fw-bold d-block">Add your first department</span>
+                                        </div>
+                                        <!--end::Description-->
+                                        <span class="badge badge-success fs-8 fw-bolder">Completed</span>
+                                    </div>
+                                @endif
+                                @if($qualificationtypes == 0)
+                                    <div class="d-flex align-items-center mb-8">
+                                        <!--begin::Bullet-->
+                                        <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Qualification Type</a>
+                                            <span class="text-muted fw-bold d-block">Add your first qualification type</span>
+                                        </div>
+                                        <!--end::Description-->
+                                        <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                    </div>
+                                @else
+                                    <div class="d-flex align-items-center mb-8">
+                                        <!--begin::Bullet-->
+                                        <span class="bullet bullet-vertical h-40px bg-success"></span>
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input bg-success" type="checkbox" value="" checked disabled>
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="#" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Qualification Type</strike></a>
+                                            <span class="text-muted fw-bold d-block">Add your first qualification type</span>
+                                        </div>
+                                        <!--end::Description-->
+                                        <span class="badge badge-success fs-8 fw-bolder">Completed</span>
+                                    </div>
+                                @endif
+                        </div>
+                        <!--end::Body-->
+                    </div>
 				</div>
 				<!--end::Col-->
 			</div>
@@ -208,7 +426,7 @@
 						<div class="card-header border-0 pt-5">
 							<h3 class="card-title align-items-start flex-column">
 								<span class="card-label fw-bolder fs-3 mb-1">Recently Updated Employees</span>
-                                <span class="text-muted mt-1 fw-bold fs-7">You have {{ $countEmployees }} <a href="/employees">employees</a></span>
+                                <span class="text-muted mt-1 fw-bold fs-7">You have {{ $monthlyTrainingSpend }} <a href="/employees">employees</a></span>
 							</h3>
 							<div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Employee">
 								<a href="/employees/create" class="btn btn-sm btn-light btn-active-primary">
@@ -265,9 +483,9 @@
 														<!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
 														<span class="svg-icon svg-icon-3">
 															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																<path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="black" />
-																<path d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z" fill="black" />
-															</svg>
+																				<rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="black"></rect>
+																				<path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="black"></path>
+																			</svg>
 														</span>
 														<!--end::Svg Icon-->
 													</a>
@@ -295,8 +513,9 @@
                         <div class="card-header border-0 pt-5">
                             <h3 class="card-title align-items-start flex-column">
                                 <span class="card-label fw-bolder fs-3 mb-1">Recently Updated Qualifications</span>
-                                <span class="text-muted mt-1 fw-bold fs-7">You have {{ $countQualifications }} <a href="/qualifications">qualifications</a></span>
+                                <span class="text-muted mt-1 fw-bold fs-7">You have {{ $qualifications }} <a href="/qualifications">qualifications</a></span>
                             </h3>
+                            @if($qualifications < 0)
                             <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a qualification">
                                 <a href="/employees/create" class="btn btn-sm btn-light btn-active-primary">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
@@ -309,6 +528,7 @@
                                     <!--end::Svg Icon-->Add Qualification
                                 </a>
                             </div>
+                            @endif
                         </div>
                         <!--end::Header-->
                         <!--begin::Body-->
@@ -353,9 +573,9 @@
                                                         <!--begin::Svg Icon | path: icons/duotune/art/art005.svg-->
                                                         <span class="svg-icon svg-icon-3">
 															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																<path opacity="0.3" d="M21.4 8.35303L19.241 10.511L13.485 4.755L15.643 2.59595C16.0248 2.21423 16.5426 1.99988 17.0825 1.99988C17.6224 1.99988 18.1402 2.21423 18.522 2.59595L21.4 5.474C21.7817 5.85581 21.9962 6.37355 21.9962 6.91345C21.9962 7.45335 21.7817 7.97122 21.4 8.35303ZM3.68699 21.932L9.88699 19.865L4.13099 14.109L2.06399 20.309C1.98815 20.5354 1.97703 20.7787 2.03189 21.0111C2.08674 21.2436 2.2054 21.4561 2.37449 21.6248C2.54359 21.7934 2.75641 21.9115 2.989 21.9658C3.22158 22.0201 3.4647 22.0084 3.69099 21.932H3.68699Z" fill="black" />
-																<path d="M5.574 21.3L3.692 21.928C3.46591 22.0032 3.22334 22.0141 2.99144 21.9594C2.75954 21.9046 2.54744 21.7864 2.3789 21.6179C2.21036 21.4495 2.09202 21.2375 2.03711 21.0056C1.9822 20.7737 1.99289 20.5312 2.06799 20.3051L2.696 18.422L5.574 21.3ZM4.13499 14.105L9.891 19.861L19.245 10.507L13.489 4.75098L4.13499 14.105Z" fill="black" />
-															</svg>
+																				<rect opacity="0.5" x="18" y="13" width="13" height="2" rx="1" transform="rotate(-180 18 13)" fill="black"></rect>
+																				<path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="black"></path>
+																			</svg>
 														</span>
                                                         <!--end::Svg Icon-->
                                                     </a>

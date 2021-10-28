@@ -73,6 +73,7 @@
                             <th class="min-w-125px">Qualification Type</th>
                             <th class="min-w-125px">Provider</th>
                             <th class="min-w-125px">Expiry Date</th>
+                            <th class="min-w-125px">Status</th>
                             <th class="text-end min-w-100px">Actions</th>
                         </tr>
                         <!--end::Table row-->
@@ -95,6 +96,15 @@
                                 <!--begin::Joined-->
                                 <td>{{ $item->provider->name }}</td>
                                 <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
+                                <td>
+                                    @if($item->expiry_date < Carbon\Carbon::today())
+                                        <span class="badge badge-danger">Expired</span>
+                                    @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
+                                        <span class="badge badge-warning">Expiring</span>
+                                    @else
+                                        <span class="badge badge-success">Valid</span>
+                                    @endif
+                                </td>
                                 <!--begin::Joined-->
                                 <!--begin::Action=-->
                                 <td class="text-end">
@@ -112,7 +122,7 @@
                                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-3">
-                                            <a href="../../demo10/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
+                                            <a href="/qualifications/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
                                         </div>
                                         <!--end::Menu item-->
                                         <!--begin::Menu item-->

@@ -71,7 +71,10 @@
                     <!--begin::Action-->
                     <div class="flex-end align-self-center">
                         @if($qualification->upload)
-                            <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-secondary me-5">Send</a>
+                            <form method="POST" action="/qualifications/{{$qualification->id}}/sendSMS">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-secondary me-5">Send</button>
+                            </form>
                         @endif
                         @if($qualification->expiry_date < Carbon\Carbon::today())
                             <a href="/renewals/create?qualification={{ $qualification->id }}" class="btn btn-sm btn-warning">Add Renewal</a>
