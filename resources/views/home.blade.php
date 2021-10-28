@@ -13,104 +13,6 @@
 				<!--end::Title-->
 			</div>
 			<!--end::Page title-->
-			<!--begin::Actions-->
-			<div class="d-flex align-items-center py-2">
-				<!--begin::Wrapper-->
-				<div class="me-4">
-					<!--begin::Menu-->
-					<a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-						<!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
-						<span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-								<path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
-							</svg>
-						</span>
-						<!--end::Svg Icon-->Filter
-					</a>
-					<!--begin::Menu 1-->
-					<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_615c3bacb9d5f">
-						<!--begin::Header-->
-						<div class="px-7 py-5">
-							<div class="fs-5 text-dark fw-bolder">Filter Options</div>
-						</div>
-						<!--end::Header-->
-						<!--begin::Menu separator-->
-						<div class="separator border-gray-200"></div>
-						<!--end::Menu separator-->
-						<!--begin::Form-->
-						<div class="px-7 py-5">
-							<!--begin::Input group-->
-							<div class="mb-10">
-								<!--begin::Label-->
-								<label class="form-label fw-bold">Status:</label>
-								<!--end::Label-->
-								<!--begin::Input-->
-								<div>
-									<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_615c3bacb9d5f" data-allow-clear="true">
-										<option></option>
-										<option value="1">Approved</option>
-										<option value="2">Pending</option>
-										<option value="2">In Process</option>
-										<option value="2">Rejected</option>
-									</select>
-								</div>
-								<!--end::Input-->
-							</div>
-							<!--end::Input group-->
-							<!--begin::Input group-->
-							<div class="mb-10">
-								<!--begin::Label-->
-								<label class="form-label fw-bold">Member Type:</label>
-								<!--end::Label-->
-								<!--begin::Options-->
-								<div class="d-flex">
-									<!--begin::Options-->
-									<label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-									<input class="form-check-input" type="checkbox" value="1" />
-									<span class="form-check-label">Author</span>
-									</label>
-									<!--end::Options-->
-									<!--begin::Options-->
-									<label class="form-check form-check-sm form-check-custom form-check-solid">
-									<input class="form-check-input" type="checkbox" value="2" checked="checked" />
-									<span class="form-check-label">Customer</span>
-									</label>
-									<!--end::Options-->
-								</div>
-								<!--end::Options-->
-							</div>
-							<!--end::Input group-->
-							<!--begin::Input group-->
-							<div class="mb-10">
-								<!--begin::Label-->
-								<label class="form-label fw-bold">Notifications:</label>
-								<!--end::Label-->
-								<!--begin::Switch-->
-								<div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-									<input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
-									<label class="form-check-label">Enabled</label>
-								</div>
-								<!--end::Switch-->
-							</div>
-							<!--end::Input group-->
-							<!--begin::Actions-->
-							<div class="d-flex justify-content-end">
-								<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
-								<button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
-							</div>
-							<!--end::Actions-->
-						</div>
-						<!--end::Form-->
-					</div>
-					<!--end::Menu 1-->
-					<!--end::Menu-->
-				</div>
-				<!--end::Wrapper-->
-				<!--begin::Button-->
-				<a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app" id="kt_toolbar_primary_button">Create</a>
-				<!--end::Button-->
-			</div>
-			<!--end::Actions-->
 		</div>
 		<!--end::Container-->
 	</div>
@@ -128,100 +30,6 @@
 						<!--begin::Header-->
 						<div class="card-header border-0 bg-danger py-5">
 							<h3 class="card-title fw-bolder text-white">Get Started...</h3>
-							<div class="card-toolbar">
-								<!--begin::Menu-->
-								<button type="button" class="btn btn-sm btn-icon btn-color-white btn-active-white btn-active-color- border-0 me-n3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-									<!--begin::Svg Icon | path: icons/duotune/general/gen024.svg-->
-									<span class="svg-icon svg-icon-2">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
-											<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-												<rect x="5" y="5" width="5" height="5" rx="1" fill="#000000" />
-												<rect x="14" y="5" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-												<rect x="5" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-												<rect x="14" y="14" width="5" height="5" rx="1" fill="#000000" opacity="0.3" />
-											</g>
-										</svg>
-									</span>
-									<!--end::Svg Icon-->
-								</button>
-								<!--begin::Menu 3-->
-								<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
-									<!--begin::Heading-->
-									<div class="menu-item px-3">
-										<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
-									</div>
-									<!--end::Heading-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-3">
-										<a href="#" class="menu-link px-3">Create Invoice</a>
-									</div>
-									<!--end::Menu item-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-3">
-										<a href="#" class="menu-link flex-stack px-3">Create Payment
-										<i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-									</div>
-									<!--end::Menu item-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-3">
-										<a href="#" class="menu-link px-3">Generate Bill</a>
-									</div>
-									<!--end::Menu item-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-										<a href="#" class="menu-link px-3">
-										<span class="menu-title">Subscription</span>
-										<span class="menu-arrow"></span>
-										</a>
-										<!--begin::Menu sub-->
-										<div class="menu-sub menu-sub-dropdown w-175px py-4">
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="#" class="menu-link px-3">Plans</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="#" class="menu-link px-3">Billing</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<a href="#" class="menu-link px-3">Statements</a>
-											</div>
-											<!--end::Menu item-->
-											<!--begin::Menu separator-->
-											<div class="separator my-2"></div>
-											<!--end::Menu separator-->
-											<!--begin::Menu item-->
-											<div class="menu-item px-3">
-												<div class="menu-content px-3">
-													<!--begin::Switch-->
-													<label class="form-check form-switch form-check-custom form-check-solid">
-														<!--begin::Input-->
-														<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-														<!--end::Input-->
-														<!--end::Label-->
-														<span class="form-check-label text-muted fs-6">Recuring</span>
-														<!--end::Label-->
-													</label>
-													<!--end::Switch-->
-												</div>
-											</div>
-											<!--end::Menu item-->
-										</div>
-										<!--end::Menu sub-->
-									</div>
-									<!--end::Menu item-->
-									<!--begin::Menu item-->
-									<div class="menu-item px-3 my-1">
-										<a href="#" class="menu-link px-3">Settings</a>
-									</div>
-									<!--end::Menu item-->
-								</div>
-								<!--end::Menu 3-->
-								<!--end::Menu-->
-							</div>
 						</div>
 						<!--end::Header-->
 						<!--begin::Body-->
@@ -245,7 +53,7 @@
 											</svg>
 										</span>
 										<!--end::Svg Icon-->
-										<a href="#" class="text-warning fw-bold fs-6">Weekly Sales</a>
+										<a href="/reports" class="text-warning fw-bold fs-6">View Reports</a>
 									</div>
 									<!--end::Col-->
 									<!--begin::Col-->
@@ -258,7 +66,7 @@
 											</svg>
 										</span>
 										<!--end::Svg Icon-->
-										<a href="#" class="text-primary fw-bold fs-6">New Projects</a>
+										<a href="/employees" class="text-primary fw-bold fs-6">Employees</a>
 									</div>
 									<!--end::Col-->
 								</div>
@@ -275,7 +83,7 @@
 											</svg>
 										</span>
 										<!--end::Svg Icon-->
-										<a href="#" class="text-danger fw-bold fs-6 mt-2">Item Orders</a>
+										<a href="/qualifications" class="text-danger fw-bold fs-6 mt-2">Qualifications</a>
 									</div>
 									<!--end::Col-->
 									<!--begin::Col-->
@@ -288,7 +96,7 @@
 											</svg>
 										</span>
 										<!--end::Svg Icon-->
-										<a href="#" class="text-success fw-bold fs-6 mt-2">Bug Reports</a>
+										<a href="#" class="text-success fw-bold fs-6 mt-2">Support</a>
 									</div>
 									<!--end::Col-->
 								</div>
@@ -578,4 +386,277 @@
 </div>
 <!--end::Content-->
 
+<script>
+    var initMixedWidget7 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-7-chart');
+
+        [].slice.call(charts).map(function(element) {
+            var height = parseInt(KTUtil.css(element, 'height'));
+
+            if ( !element ) {
+                return;
+            }
+
+            var color = element.getAttribute('data-kt-chart-color');
+
+            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
+            var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
+            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);
+
+            var options = {
+                series: [{
+                    name: 'Estimated Training Spend',
+                    data: [{{ $monthlyTrainingSpend }}]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'area',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    },
+                    zoom: {
+                        enabled: false
+                    },
+                    sparkline: {
+                        enabled: true
+                    }
+                },
+                plotOptions: {},
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 1
+                },
+                stroke: {
+                    curve: 'smooth',
+                    show: true,
+                    width: 3,
+                    colors: [baseColor]
+                },
+                xaxis: {
+                    categories: ['{{ $thisMonth->format('F Y') }}'],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    },
+                    crosshairs: {
+                        show: false,
+                        position: 'front',
+                        stroke: {
+                            color: strokeColor,
+                            width: 1,
+                            dashArray: 3
+                        }
+                    },
+                    tooltip: {
+                        enabled: true,
+                        formatter: undefined,
+                        offsetY: 0,
+                        style: {
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    min: 0,
+                    max: 60,
+                    labels: {
+                        show: false,
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "£" + val
+                        }
+                    }
+                },
+                colors: [lightColor],
+                markers: {
+                    colors: [lightColor],
+                    strokeColor: [baseColor],
+                    strokeWidth: 3
+                }
+            };
+
+            var chart = new ApexCharts(element, options);
+            chart.render();
+        });
+    }
+
+    var initMixedWidget10 = function() {
+        var charts = document.querySelectorAll('.mixed-widget-10-chart');
+
+        var color;
+        var height;
+        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+        var baseLightColor;
+        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
+        var baseColor;
+        var options;
+        var chart;
+
+        [].slice.call(charts).map(function(element) {
+            color = element.getAttribute("data-kt-color");
+            height = parseInt(KTUtil.css(element, 'height'));
+            baseColor = KTUtil.getCssVariableValue('--bs-' + color);
+
+            options = {
+                series: [{
+                    name: 'Net Profit',
+                    data: [50, 60, 70, 80, 60, 50, 70, 60, 60, 100, 70, 60]
+                }],
+                chart: {
+                    fontFamily: 'inherit',
+                    type: 'bar',
+                    height: height,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: ['50%'],
+                        borderRadius: 4
+                    },
+                },
+                legend: {
+                    show: false
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: [
+
+                    ],
+                    axisBorder: {
+                        show: false,
+                    },
+                    axisTicks: {
+                        show: false
+                    },
+                    labels: {
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                yaxis: {
+                    y: 0,
+                    offsetX: 0,
+                    offsetY: 0,
+                    labels: {
+                        style: {
+                            colors: labelColor,
+                            fontSize: '12px'
+                        }
+                    }
+                },
+                fill: {
+                    type: 'solid'
+                },
+                states: {
+                    normal: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    hover: {
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    },
+                    active: {
+                        allowMultipleDataPointsSelection: false,
+                        filter: {
+                            type: 'none',
+                            value: 0
+                        }
+                    }
+                },
+                tooltip: {
+                    style: {
+                        fontSize: '12px'
+                    },
+                    y: {
+                        formatter: function (val) {
+                            return "£" + val
+                        }
+                    }
+                },
+                colors: [baseColor, secondaryColor],
+                grid: {
+                    padding: {
+                        top: 10
+                    },
+                    borderColor: borderColor,
+                    strokeDashArray: 4,
+                    yaxis: {
+                        lines: {
+                            show: true
+                        }
+                    }
+                }
+            };
+
+            chart = new ApexCharts(element, options);
+            chart.render();
+        });
+    }
+</script>
 @endsection

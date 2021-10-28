@@ -62,6 +62,9 @@ class DashboardController extends Controller
             ->get()
             ->sortByDesc('updated_at');
 
+        $qualificationSpendByMonth = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->groupBy('created_at');
+
         return view('home', [
             'thisMonth' => $thisMonth,
             'nextMonth' => $nextMonth,
@@ -78,7 +81,7 @@ class DashboardController extends Controller
             'latestEmployees' => $latestEmployees,
             'countQualifications' => $countQualifications,
             'latestQualifications' => $latestQualifications,
-
+            'qualificationSpendByMonth' => $qualificationSpendByMonth,
         ]);
     }
 }
