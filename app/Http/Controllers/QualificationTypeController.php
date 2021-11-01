@@ -63,7 +63,7 @@ class QualificationTypeController extends Controller
                 ->log('Qualification Type updated by ' . $user->name);
         }
 
-        return redirect('/qualificationtypes/' . $qualificationtype->id)
+        return redirect('/settings/qualificationtypes/' . $qualificationtype->id)
             ->with('success', 'Qualification Type successfully created');
     }
 
