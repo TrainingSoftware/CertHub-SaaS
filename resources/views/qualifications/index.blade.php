@@ -111,7 +111,7 @@
                                     @endif
                                     @if(Auth::user()->providers->count() == 0)
                                         <li class="h4 mb-4">
-                                            <a href="/providers/create">Add your first Provider</a>
+                                            <a href="/settings/providers/create">Add your first Provider</a>
                                         </li>
                                     @else
                                         <li class="text-success h4 mb-4">
@@ -131,7 +131,7 @@
                                 <!--end::Description-->
                                 <!--begin::Action-->
                                 @if(Auth::user()->qualificationtypes->count() != 0 && Auth::user()->providers->count() != 0 && Auth::user()->employees->count() != 0)
-                                    <a href="/qualificationtypes/create" class="btn btn-primary">Add Qualification Type</a>
+                                    <a href="/qualification/create" class="btn btn-primary">Add Qualification</a>
                                 @endif
                                 <!--end::Action-->
                             </div>
