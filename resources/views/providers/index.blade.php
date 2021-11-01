@@ -193,6 +193,7 @@
                             <!--end::Table body-->
                         </table>
                         <!--end::Table-->
+                        {{ $providers->links() }}
                     </div>
                     <!--end::Card body-->
                     @endif

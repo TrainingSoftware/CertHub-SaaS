@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Employee;
+use App\Models\QualificationType;
+use App\Models\Provider;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Employee::factory(50)->create();
+        QualificationType::factory(50)->create();
+        Provider::factory(50)->create();
     }
 }

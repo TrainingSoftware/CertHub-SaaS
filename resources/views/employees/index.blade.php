@@ -55,7 +55,15 @@
                                 </svg>
                             </span>
                             <!--end::Svg Icon-->
-                            <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search employees" />
+                            <form action="/employees" method="GET" role="search" class="me-5">
+                                {{ csrf_field() }}
+                                <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search employees" name="q"/>
+                            </form>
+                            @if(request()->q)
+                            <small>
+                                <a href="/employees" class="me-5">Clear search?</a>
+                            </small>
+                            @endif
                         </div>
                         <!--end::Search-->
                     </div>
@@ -208,6 +216,7 @@
                         <!--end::Table body-->
                     </table>
                     <!--end::Table-->
+                        {{ $employees->links() }}
                 </div>
                 <!--end::Card body-->
                 @endif

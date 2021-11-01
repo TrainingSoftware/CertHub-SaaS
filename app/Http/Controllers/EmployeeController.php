@@ -16,13 +16,19 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index(Request $request)
     {
         // get current logged in user
         $user = Auth::user();
 
+        $search = $request->input('q');
+
         // get employees that belong to authenticated user
-        $employees = $user->employees;
+        $employees = Employee::where('user_id', '=', $user->id)
+            ->where('firstname','like','%'.$search.'%')
+            ->orWhere('lastname','like','%'.$search.'%')
+            ->orWhere('email','like','%'.$search.'%')
+            ->paginate(10);
 
         return view('employees.index', compact('employees'));
     }
@@ -118,8 +124,16 @@ class EmployeeController extends Controller
             'Female' => 'Female'
         ]);
 
+        // define employment
+        $employment = array([
+            '' => 'Select employment type',
+            'Employed' => 'Employed',
+            'Self Employed' => 'Self Employed',
+            'Contractor' => 'Contractor'
+        ]);
+
         if ($user->can('update', $employee)) {
-            return view('employees.edit', compact('employee', 'departments', 'genders'));
+            return view('employees.edit', compact('employee', 'departments', 'genders', 'employment'));
         } else {
             echo 'This employee does not belong to you.';
         }

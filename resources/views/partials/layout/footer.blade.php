@@ -8,7 +8,7 @@
         </div>
         <!--end::Copyright-->
         <!--begin::Menu-->
-        <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
+        <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1 d-none">
             <li class="menu-item">
                 <a href="#" target="_blank" class="menu-link px-2">Support</a>
             </li>

@@ -255,10 +255,10 @@
                     <div class="separator my-2"></div>
                     <!--end::Menu separator-->
                     <!--begin::Menu item-->
-                    <div class="menu-item px-5">
+                    <div class="menu-item px-10">
                         <form action="/logout" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-primary bg-transparent menu-link px-5">Sign Out</button>
+                            <button type="submit" class="btn btn-link bg-transparent menu-link px-5">Sign Out</button>
                         </form>
                     </div>
                     <!--end::Menu item-->

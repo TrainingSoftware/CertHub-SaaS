@@ -46,6 +46,7 @@
                             <!--begin::Search-->
                             <div class="d-flex align-items-center position-relative my-1">
                                 <h3><a href="/employees/{{ $item->id }}">{{ $item->firstname }} {{ $item->lastname }}</a></h3>
+                            </div>
                         </div>
                     </div>
                 </div>

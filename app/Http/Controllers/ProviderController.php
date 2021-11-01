@@ -19,7 +19,9 @@ class ProviderController extends Controller
         $user = Auth::user();
 
         // get providers that belong to authenticated user
-        $providers = $user->providers;
+        $providers = Provider::where('user_id', '=', $user->id)
+            ->paginate(10);
+
         return view('providers.index', compact('providers'));
     }
 

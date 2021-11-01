@@ -94,7 +94,9 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8">
-                            <span class="fw-bolder fs-6 text-gray-800">{{ $qualification->employee->firstname }} {{ $qualification->employee->lastname }}</span>
+                            <span class="fw-bolder fs-6 text-gray-800">
+                                <a href="/employees/{{ $qualification->employee->id }}">{{ $qualification->employee->firstname }} {{ $qualification->employee->lastname }}</a>
+                            </span>
                         </div>
                         <!--end::Col-->
                     </div>

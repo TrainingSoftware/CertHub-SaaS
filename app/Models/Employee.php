@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Database\Factories\EmployeeFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Policies\EmployeePolicy;
@@ -38,6 +39,11 @@ class Employee extends Model
         'department_id',
         'user_id'
     ];
+
+    protected static function newFactory()
+    {
+        return EmployeeFactory::new();
+    }
 
     public function contacts()
     {

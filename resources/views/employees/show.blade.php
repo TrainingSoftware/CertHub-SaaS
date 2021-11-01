@@ -101,7 +101,7 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <span class="fw-bold text-gray-800 fs-6">{{ Auth::user()->company->name }}</span>
+                            <span class="fw-bolder text-gray-800 fs-6">{{ Auth::user()->company->name }}</span>
                         </div>
                         <!--end::Col-->
                     </div>

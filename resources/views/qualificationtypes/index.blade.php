@@ -55,7 +55,7 @@
                                 </svg>
                             </span>
                                 <!--end::Svg Icon-->
-                                <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search qualification types" />
+                                <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search qualification types" name="q"/>
                             </div>
                             <!--end::Search-->
                         </div>
@@ -183,6 +183,7 @@
                             <!--end::Table body-->
                         </table>
                         <!--end::Table-->
+                        {{ $qualificationtypes->links() }}
                     </div>
                     <!--end::Card body-->
                     @endif

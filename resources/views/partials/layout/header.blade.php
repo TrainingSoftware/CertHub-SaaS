@@ -123,80 +123,13 @@
                     <!--end::Menu separator-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-5">
-                        <a href="../../demo10/dist/account/overview.html" class="menu-link px-5">My Profile</a>
+                        <a href="/company" class="menu-link px-5">Company details</a>
                     </div>
                     <!--end::Menu item-->
                     <!--begin::Menu item-->
                     <div class="menu-item px-5">
-                        <a href="../../demo10/dist/pages/projects/list.html" class="menu-link px-5">
-                            <span class="menu-text">My Projects</span>
-                            <span class="menu-badge">
-                                <span class="badge badge-light-danger badge-circle fw-bolder fs-7">3</span>
-                            </span>
-                        </a>
+                        <a href="/billing-portal" class="menu-link px-5">Billing</a>
                     </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
-                        <a href="#" class="menu-link px-5">
-                            <span class="menu-title">My Subscription</span>
-                            <span class="menu-arrow"></span>
-                        </a>
-                        <!--begin::Menu sub-->
-                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/referrals.html" class="menu-link px-5">Referrals</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/billing.html" class="menu-link px-5">Billing</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/statements.html" class="menu-link px-5">Payments</a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a href="../../demo10/dist/account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
-                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="View your statements"></i></a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu separator-->
-                            <div class="separator my-2"></div>
-                            <!--end::Menu separator-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <div class="menu-content px-3">
-                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                        <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                        <span class="form-check-label text-muted fs-7">Notifications</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <!--end::Menu item-->
-                        </div>
-                        <!--end::Menu sub-->
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5">
-                        <a href="../../demo10/dist/account/statements.html" class="menu-link px-5">My Statements</a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu separator-->
-                    <div class="separator my-2"></div>
-                    <!--end::Menu separator-->
-                    <!--begin::Menu item-->
-                    <div class="menu-item px-5 my-1">
-                        <a href="../../demo10/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
-                    </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
-
                     <!--end::Menu item-->
                     <!--begin::Menu separator-->
                     <div class="separator my-2"></div>
@@ -206,7 +139,7 @@
                         <div class="menu-content px-5">
                             <form action="/logout" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-primary bg-transparent menu-link px-5">Sign Out</button>
+                                <button type="submit" class="btn btn-link bg-transparent menu-link px-5">Sign Out</button>
                             </form>
                         </div>
                     </div>
@@ -217,7 +150,16 @@
             <!--end::Item-->
             <!--begin::Item-->
             <div class="d-flex align-items-center"><!-- me-2 me-lg-4 -->
-                <a href="/qualifications/create" class="btn btn-success border-0 px-3 px-lg-6" >Add Qualification</a>
+                <a href="/qualifications/create" class="btn btn-success border-0 px-3 px-lg-6" >
+                    <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen035.svg-->
+                    <span class="svg-icon svg-icon-white svg-icon-1hx">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect x="10.8891" y="17.8033" width="12" height="2" rx="1" transform="rotate(-90 10.8891 17.8033)" fill="black"/>
+                            <rect x="6.01041" y="10.9247" width="12" height="2" rx="1" fill="black"/>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->
+                    Qualification</a>
             </div>
             <!--end::Item-->
             <!--begin::Item-->

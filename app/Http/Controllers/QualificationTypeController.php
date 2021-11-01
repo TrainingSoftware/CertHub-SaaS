@@ -19,7 +19,8 @@ class QualificationTypeController extends Controller
         $user = Auth::user();
 
         // get qualification types that belong to authenticated user
-        $qualificationtypes = $user->qualificationtypes;
+        $qualificationtypes = QualificationType::where('user_id', '=', $user->id)
+            ->paginate(10);
 
         return view('qualificationtypes.index', compact('qualificationtypes'));
     }

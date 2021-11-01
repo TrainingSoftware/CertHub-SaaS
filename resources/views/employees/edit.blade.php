@@ -130,7 +130,7 @@
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8 fv-row">
-                                <span class="fw-bold text-gray-800 fs-6">{{ Auth::user()->company->name }}</span>
+                                <span class="fw-bolder text-gray-800 fs-6">{{ Auth::user()->company->name }}</span>
                             </div>
                             <!--end::Col-->
                         </div>
@@ -305,7 +305,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {{ Form::text('employment', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Employed')) }}
+                                        {!! Form::select('employment', $employment, null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
                                         <!--end::Input-->
                                     </div>
                                 </div>
