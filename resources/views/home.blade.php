@@ -106,7 +106,7 @@
                                             <!--end::Title-->
                                             <!--begin::Label-->
                                             <div class="d-flex align-items-center">
-                                                <div class="fw-bolder fs-5 text-gray-800 pe-1">£{{ $monthlyTrainingSpend }}</div>
+                                                <div class="fw-bolder fs-5 text-gray-800 pe-1">£{{ $nextMonthTrainingSpend }}</div>
 
                                             </div>
                                             <!--end::Label-->
@@ -140,7 +140,7 @@
                                             <!--end::Title-->
                                             <!--begin::Label-->
                                             <div class="d-flex align-items-center">
-                                                <div class="fw-bolder fs-5 text-gray-800 pe-1">£{{ $monthlyTrainingSpend }}</div>
+                                                <div class="fw-bolder fs-5 text-gray-800 pe-1">£{{ $thirdMonthTrainingSpend }}</div>
 
                                             </div>
                                             <!--end::Label-->

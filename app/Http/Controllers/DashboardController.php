@@ -59,12 +59,23 @@ class DashboardController extends Controller
             ->whereYear('expiry_date', now()->year)
             ->sum('price');
 
+        // sum next month training spend
+        $nextMonthTrainingSpend = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->whereMonth('expiry_date', $nextMonth->month)
+            ->whereYear('expiry_date', $nextMonth->year)
+            ->sum('price');
+
+        // sum third month training spend
+        $thirdMonthTrainingSpend = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->whereMonth('expiry_date', $thisQuarter->month)
+            ->whereYear('expiry_date', $thisQuarter->year)
+            ->sum('price');
+
         // get latest updated employees
         $latestEmployees = \App\Models\Employee::where('user_id', '=', $user->id)
             ->take(5)
             ->get()
             ->sortByDesc('updated_at');
-
 
         // get latest updated qualifications
         $latestQualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
@@ -86,6 +97,8 @@ class DashboardController extends Controller
             'startOfYear' => $startOfYear,
             'endOfYear' => $endOfYear,
             'monthlyTrainingSpend' => $monthlyTrainingSpend,
+            'nextMonthTrainingSpend' => $nextMonthTrainingSpend,
+            'thirdMonthTrainingSpend' => $thirdMonthTrainingSpend,
             'latestEmployees' => $latestEmployees,
             'latestQualifications' => $latestQualifications,
             'qualificationSpendByMonth' => $qualificationSpendByMonth,
