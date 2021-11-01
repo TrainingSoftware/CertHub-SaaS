@@ -25,9 +25,9 @@ class EmployeeController extends Controller
 
         // get employees that belong to authenticated user
         $employees = Employee::where('user_id', '=', $user->id)
-            ->where('firstname','like','%'.$search.'%')
-            ->orWhere('lastname','like','%'.$search.'%')
-            ->orWhere('email','like','%'.$search.'%')
+            //->where('firstname','like','%'.$search.'%')
+            //->orWhere('lastname','like','%'.$search.'%')
+            //->orWhere('email','like','%'.$search.'%')
             ->paginate(10);
 
         return view('employees.index', compact('employees'));
