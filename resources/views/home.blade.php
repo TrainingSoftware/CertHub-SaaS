@@ -39,7 +39,7 @@
                                     <!--begin::Balance-->
                                     <div class="d-flex text-center flex-column text-white pt-8">
                                         <span class="fw-bold fs-7">Your Estimated Quarterly Spend</span>
-                                        <span class="fw-bolder fs-2x pt-1">£{{ $monthlyTrainingSpend }}</span>
+                                        <span class="fw-bolder fs-2x pt-1">£{{ $thisQuarterTrainingSpend }}</span>
                                     </div>
                                     <!--end::Balance-->
                                 </div>
@@ -141,7 +141,6 @@
                                             <!--begin::Label-->
                                             <div class="d-flex align-items-center">
                                                 <div class="fw-bolder fs-5 text-gray-800 pe-1">£{{ $thirdMonthTrainingSpend }}</div>
-
                                             </div>
                                             <!--end::Label-->
                                         </div>
@@ -184,12 +183,14 @@
 							<div class="timeline-label">
                                 @forelse($upcomingRenewals as $item)
                                     <div class="timeline-item">
-                                            <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ $item->expiry_date->format('d/m')}}</div>
+                                            <div class="timeline-label fw-bolder text-gray-800 fs-6">{{ $item->expiry_date->format('m/y')}}</div>
                                             <div class="timeline-badge">
-                                                @if($item->expiry_date < Carbon\Carbon::today())
+                                                @if($item->expiry_date->format('m') === Carbon\Carbon::today()->format('m'))
                                                     <i class="fa fa-genderless text-danger fs-1"></i>
-                                                @else
+                                                @elseif($item->expiry_date->format('m') === Carbon\Carbon::today()->addMonth(1)->format('m'))
                                                     <i class="fa fa-genderless text-warning fs-1"></i>
+                                                @else
+                                                    <i class="fa fa-genderless text-success fs-1"></i>
                                                 @endif
                                             </div>
                                             <div class="fw-mormal timeline-content text-muted ps-3">
@@ -426,7 +427,7 @@
 						<div class="card-header border-0 pt-5">
 							<h3 class="card-title align-items-start flex-column">
 								<span class="card-label fw-bolder fs-3 mb-1">Recently Updated Employees</span>
-                                <span class="text-muted mt-1 fw-bold fs-7">You have {{ $monthlyTrainingSpend }} <a href="/employees">employees</a></span>
+                                <span class="text-muted mt-1 fw-bold fs-7">You have {{ $employees }} <a href="/employees">employees</a></span>
 							</h3>
 							<div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover" title="Click to add a Employee">
 								<a href="/employees/create" class="btn btn-sm btn-light btn-active-primary">
@@ -605,278 +606,4 @@
 	<!--end::Post-->
 </div>
 <!--end::Content-->
-
-<script>
-    var initMixedWidget7 = function() {
-        var charts = document.querySelectorAll('.mixed-widget-7-chart');
-
-        [].slice.call(charts).map(function(element) {
-            var height = parseInt(KTUtil.css(element, 'height'));
-
-            if ( !element ) {
-                return;
-            }
-
-            var color = element.getAttribute('data-kt-chart-color');
-
-            var labelColor = KTUtil.getCssVariableValue('--bs-' + 'gray-800');
-            var strokeColor = KTUtil.getCssVariableValue('--bs-' + 'gray-300');
-            var baseColor = KTUtil.getCssVariableValue('--bs-' + color);
-            var lightColor = KTUtil.getCssVariableValue('--bs-light-' + color);
-
-            var options = {
-                series: [{
-                    name: 'Estimated Training Spend',
-                    data: [{{ $monthlyTrainingSpend }}]
-                }],
-                chart: {
-                    fontFamily: 'inherit',
-                    type: 'area',
-                    height: height,
-                    toolbar: {
-                        show: false
-                    },
-                    zoom: {
-                        enabled: false
-                    },
-                    sparkline: {
-                        enabled: true
-                    }
-                },
-                plotOptions: {},
-                legend: {
-                    show: false
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                fill: {
-                    type: 'solid',
-                    opacity: 1
-                },
-                stroke: {
-                    curve: 'smooth',
-                    show: true,
-                    width: 3,
-                    colors: [baseColor]
-                },
-                xaxis: {
-                    categories: ['{{ $thisMonth->format('F Y') }}'],
-                    axisBorder: {
-                        show: false,
-                    },
-                    axisTicks: {
-                        show: false
-                    },
-                    labels: {
-                        show: false,
-                        style: {
-                            colors: labelColor,
-                            fontSize: '12px'
-                        }
-                    },
-                    crosshairs: {
-                        show: false,
-                        position: 'front',
-                        stroke: {
-                            color: strokeColor,
-                            width: 1,
-                            dashArray: 3
-                        }
-                    },
-                    tooltip: {
-                        enabled: true,
-                        formatter: undefined,
-                        offsetY: 0,
-                        style: {
-                            fontSize: '12px'
-                        }
-                    }
-                },
-                yaxis: {
-                    min: 0,
-                    max: 60,
-                    labels: {
-                        show: false,
-                        style: {
-                            colors: labelColor,
-                            fontSize: '12px'
-                        }
-                    }
-                },
-                states: {
-                    normal: {
-                        filter: {
-                            type: 'none',
-                            value: 0
-                        }
-                    },
-                    hover: {
-                        filter: {
-                            type: 'none',
-                            value: 0
-                        }
-                    },
-                    active: {
-                        allowMultipleDataPointsSelection: false,
-                        filter: {
-                            type: 'none',
-                            value: 0
-                        }
-                    }
-                },
-                tooltip: {
-                    style: {
-                        fontSize: '12px'
-                    },
-                    y: {
-                        formatter: function (val) {
-                            return "£" + val
-                        }
-                    }
-                },
-                colors: [lightColor],
-                markers: {
-                    colors: [lightColor],
-                    strokeColor: [baseColor],
-                    strokeWidth: 3
-                }
-            };
-
-            var chart = new ApexCharts(element, options);
-            chart.render();
-        });
-    }
-
-    var initMixedWidget10 = function() {
-        var charts = document.querySelectorAll('.mixed-widget-10-chart');
-
-        var color;
-        var height;
-        var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
-        var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
-        var baseLightColor;
-        var secondaryColor = KTUtil.getCssVariableValue('--bs-gray-300');
-        var baseColor;
-        var options;
-        var chart;
-
-        [].slice.call(charts).map(function(element) {
-            color = element.getAttribute("data-kt-color");
-            height = parseInt(KTUtil.css(element, 'height'));
-            baseColor = KTUtil.getCssVariableValue('--bs-' + color);
-
-            options = {
-                series: [{
-                    name: 'Net Profit',
-                    data: [50, 60, 70, 80, 60, 50, 70, 60, 60, 100, 70, 60]
-                }],
-                chart: {
-                    fontFamily: 'inherit',
-                    type: 'bar',
-                    height: height,
-                    toolbar: {
-                        show: false
-                    }
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: ['50%'],
-                        borderRadius: 4
-                    },
-                },
-                legend: {
-                    show: false
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    show: true,
-                    width: 2,
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: [
-
-                    ],
-                    axisBorder: {
-                        show: false,
-                    },
-                    axisTicks: {
-                        show: false
-                    },
-                    labels: {
-                        style: {
-                            colors: labelColor,
-                            fontSize: '12px'
-                        }
-                    }
-                },
-                yaxis: {
-                    y: 0,
-                    offsetX: 0,
-                    offsetY: 0,
-                    labels: {
-                        style: {
-                            colors: labelColor,
-                            fontSize: '12px'
-                        }
-                    }
-                },
-                fill: {
-                    type: 'solid'
-                },
-                states: {
-                    normal: {
-                        filter: {
-                            type: 'none',
-                            value: 0
-                        }
-                    },
-                    hover: {
-                        filter: {
-                            type: 'none',
-                            value: 0
-                        }
-                    },
-                    active: {
-                        allowMultipleDataPointsSelection: false,
-                        filter: {
-                            type: 'none',
-                            value: 0
-                        }
-                    }
-                },
-                tooltip: {
-                    style: {
-                        fontSize: '12px'
-                    },
-                    y: {
-                        formatter: function (val) {
-                            return "£" + val
-                        }
-                    }
-                },
-                colors: [baseColor, secondaryColor],
-                grid: {
-                    padding: {
-                        top: 10
-                    },
-                    borderColor: borderColor,
-                    strokeDashArray: 4,
-                    yaxis: {
-                        lines: {
-                            show: true
-                        }
-                    }
-                }
-            };
-
-            chart = new ApexCharts(element, options);
-            chart.render();
-        });
-    }
-</script>
 @endsection

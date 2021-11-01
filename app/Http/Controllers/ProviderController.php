@@ -61,7 +61,7 @@ class ProviderController extends Controller
                 ->log('Provider created by ' . $user->name);
         }
 
-        return redirect('/providers/' . $provider->id)
+        return redirect('/settings/providers/' . $provider->id)
             ->with('success', 'Provider successfully created');
     }
 
@@ -156,6 +156,6 @@ class ProviderController extends Controller
         // delete provider
         $provider->delete();
 
-        return redirect('/providers')->with('success', 'Provider has been deleted');
+        return redirect('/settings/providers')->with('success', 'Provider has been deleted');
     }
 }

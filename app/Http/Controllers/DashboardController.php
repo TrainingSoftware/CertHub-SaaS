@@ -41,11 +41,21 @@ class DashboardController extends Controller
         $departments = \App\Models\Department::where('user_id', '=', $user->id)
             ->count();
 
-        // get qualifications expiring in current month
+        // get qualifications expiring this quarter
         $upcomingRenewals = \App\Models\Qualification::where('user_id', '=', $user->id)
-            ->whereMonth('expiry_date', now()->month)
-            ->whereYear('expiry_date', now()->year)
-            ->get();
+            ->whereBetween('expiry_date', array(
+                $thisMonth->startOfMonth(),
+                $thisQuarter->endOfMonth()
+                )
+            )->get();
+
+        // get qualifications expiring this quarter
+        $thisQuarterTrainingSpend = \App\Models\Qualification::where('user_id', '=', $user->id)
+            ->whereBetween('expiry_date', array(
+                    $thisMonth->startOfMonth(),
+                    $thisQuarter->endOfMonth()
+                )
+            )->sum('price');
 
         // count qualifications expiring in current month
         $upcomingRenewalsCount = \App\Models\Qualification::where('user_id', '=', $user->id)
@@ -106,7 +116,8 @@ class DashboardController extends Controller
             'employees' => $employees,
             'qualificationtypes' => $qualificationtypes,
             'providers' => $providers,
-            'departments' => $departments
+            'departments' => $departments,
+            'thisQuarterTrainingSpend' => $thisQuarterTrainingSpend
         ]);
     }
 }

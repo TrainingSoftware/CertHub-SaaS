@@ -58,14 +58,14 @@
                     <div class="card-title m-0">
                         <h3 class="fw-bolder m-0">
                             {{ $qualification->employee->firstname }}'s {{ $qualification->qualificationtype->name }} Details
-                            @if($qualification->expiry_date < Carbon\Carbon::today())
-                                <span class="badge badge-danger">Expired</span>
-                            @elseif($qualification->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $qualification->expiry_date > Carbon\Carbon::today())
-                                <span class="badge badge-warning">Expiring</span>
-                            @else
-                                <span class="badge badge-success">Valid</span>
-                            @endif
                         </h3>
+                        @if($qualification->expiry_date < Carbon\Carbon::today())
+                            <span class="badge badge-danger ms-5">Expired</span>
+                        @elseif($qualification->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $qualification->expiry_date > Carbon\Carbon::today())
+                            <span class="badge badge-warning ms-5">Expiring</span>
+                        @else
+                            <span class="badge badge-success ms-5">Valid</span>
+                        @endif
                     </div>
                     <!--end::Card title-->
                     <!--begin::Action-->
@@ -82,7 +82,6 @@
                             <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-primary">Edit Qualification</a>
                         @endif
                     </div>
-
                     <!--end::Action-->
                 </div>
                 <!--begin::Card header-->
