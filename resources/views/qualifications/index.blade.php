@@ -120,7 +120,7 @@
                                     @endif
                                     @if(Auth::user()->qualificationtypes->count() == 0)
                                         <li class="h4 mb-4">
-                                            <a href="/qualificationtypes/create">Add your first Qualification Type</a>
+                                            <a href="/settings/qualificationtypes/create">Add your first Qualification Type</a>
                                         </li>
                                     @else
                                         <li class="text-success h4 mb-4">
