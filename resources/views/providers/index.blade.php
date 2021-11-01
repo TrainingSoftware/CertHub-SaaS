@@ -65,7 +65,7 @@
                             <!--begin::Toolbar-->
                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                 <!--begin::Add user-->
-                                <a href="/providers/create" class="btn btn-primary">
+                                <a href="/settings/providers/create" class="btn btn-primary">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                     <span class="svg-icon svg-icon-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -96,7 +96,7 @@
                                 </p>
                                 <!--end::Description-->
                                 <!--begin::Action-->
-                                <a href="/providers/create" class="btn btn-primary">Add Provider</a>
+                                <a href="/settings/providers/create" class="btn btn-primary">Add Provider</a>
                                 <!--end::Action-->
                             </div>
                             <!--end::Wrapper-->
@@ -144,7 +144,7 @@
                                     <td class="d-flex align-items-center">
                                         <!--begin::User details-->
                                         <div class="d-flex flex-column">
-                                            <a href="/providers/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1">{{ $item->name }}</a>
+                                            <a href="/settings/providers/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">{{ $item->name }}</a>
                                         </div>
                                         <!--begin::User details-->
                                     </td>
@@ -174,7 +174,7 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="/providers/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
+                                                <a href="/settings/providers/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->

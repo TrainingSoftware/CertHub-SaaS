@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/departments" class="text-muted text-hover-primary">
+                            <a href="/settings/departments" class="text-muted text-hover-primary">
                                 Departments
                             </a>
                         </li>
@@ -62,7 +62,7 @@
                         </div>
                         <!--end::Card title-->
                         <!--begin::Action-->
-                        <a href="/departments/{{ $department->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Department</a>
+                        <a href="/settings/departments/{{ $department->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Department</a>
                         <!--end::Action-->
                     </div>
                     <!--begin::Card header-->

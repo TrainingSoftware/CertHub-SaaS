@@ -6,7 +6,7 @@
         <div class="w-100 hover-scroll-overlay-y d-flex pe-2" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_footer, #kt_header" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu, #kt_aside_menu_wrapper" data-kt-scroll-offset="102">
             <!--begin::Menu-->
             <div class="menu menu-column menu-rounded fw-bold" id="#kt_aside_menu" data-kt-menu="true">
-                <div class="menu-item">
+                <div class="menu-item {{ (request()->is('home')) ? 'hover show' : '' }}">
                     <a class="menu-link" href="/home">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -22,7 +22,7 @@
                     </a>
                 </div>
 
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('employees*')) ? 'hover show' : '' }}">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -37,7 +37,7 @@
                         <span class="menu-title">Employees</span>
                         <span class="menu-arrow"></span>
                     </span>
-                    <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-sub menu-sub-accordion {{ (request()->is('employees*')) ? 'show' : '' }}">
                         <div class="menu-item">
                             <a class="menu-link" href="/employees">
                                 <span class="menu-bullet">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
 
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('qualifications*')) ? 'hover show' : '' }}">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -72,7 +72,7 @@
                         <span class="menu-title">Qualifications</span>
                         <span class="menu-arrow"></span>
                     </span>
-                    <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-sub menu-sub-accordion {{ (request()->is('qualifications*')) ? 'show' : '' }}">
                         <div class="menu-item">
                             <a class="menu-link" href="/qualifications">
                                 <span class="menu-bullet">
@@ -94,7 +94,7 @@
                     </div>
                 </div>
 
-                <div class="menu-item">
+                <div class="menu-item {{ (request()->is('reports')) ? 'hover show' : '' }}">
                     <a class="menu-link" href="/reports">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -126,7 +126,7 @@
                     </a>
                 </div>
 
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('settings*')) ? 'hover show' : '' }}">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -141,9 +141,9 @@
                         <span class="menu-title">Settings</span>
                         <span class="menu-arrow"></span>
                     </span>
-                    <div class="menu-sub menu-sub-accordion">
+                    <div class="menu-sub menu-sub-accordion {{ (request()->is('settings*')) ? 'show' : '' }}">
                         <div class="menu-item">
-                            <a class="menu-link" href="/departments">
+                            <a class="menu-link" href="/settings/departments">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -151,7 +151,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="/qualificationtypes">
+                            <a class="menu-link" href="/settings/qualificationtypes">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -159,7 +159,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="/providers">
+                            <a class="menu-link" href="/settings/providers">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -167,7 +167,7 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="/users">
+                            <a class="menu-link" href="/settings/users">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/departments" class="text-muted text-hover-primary">
+                            <a href="/settings/departments" class="text-muted text-hover-primary">
                                 Departments
                             </a>
                         </li>

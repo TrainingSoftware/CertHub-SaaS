@@ -33,6 +33,7 @@ class CreateContactsTable extends Migration
             $table->string('city')->nullable();
             $table->string('county')->nullable();
             $table->string('postcode')->nullable();
+            $table->string('relation')->nullable();
         });
     }
 

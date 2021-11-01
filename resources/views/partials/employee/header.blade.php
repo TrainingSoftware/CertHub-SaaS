@@ -87,22 +87,22 @@
         <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
             <!--begin::Nav item-->
             <li class="nav-item mt-2">
-                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (strpos(Route::currentRouteName(), 'employees.show') == 0) ? 'active' : '' }}" href="/employees/{{ $employee->id }}">Overview</a>
+                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (request()->is('employees/'.$employee->id)) ? 'active' : '' }}" href="/employees/{{ $employee->id }}">Overview</a>
             </li>
             <!--end::Nav item-->
             <!--begin::Nav item-->
             <li class="nav-item mt-2">
-                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (strpos(Route::currentRouteName(), 'employee-qualifications') == 0) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/qualifications">Qualifications</a>
+                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (request()->is('employees/' . $employee->id . '/qualifications')) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/qualifications">Qualifications</a>
             </li>
             <!--end::Nav item-->
             <!--begin::Nav item-->
             <li class="nav-item mt-2">
-                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (strpos(Route::currentRouteName(), 'employee-contacts') == 0) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/contacts">Contacts</a>
+                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (request()->is('employees/' . $employee->id . '/contacts')) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/contacts">Contacts</a>
             </li>
             <!--end::Nav item-->
             <!--begin::Nav item-->
             <li class="nav-item mt-2">
-                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (strpos(Route::currentRouteName(), 'employee-files') == 0) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/files">Files</a>
+                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (request()->is('employees/' . $employee->id . '/files')) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/files">Files</a>
             </li>
             <!--end::Nav item-->
         </ul>

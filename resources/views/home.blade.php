@@ -66,7 +66,7 @@
                                         <div class="d-flex align-items-center flex-wrap w-100">
                                             <!--begin::Title-->
                                             <div class="mb-1 pe-3 flex-grow-1">
-                                                <a href="#" class="fs-5 text-gray-800 text-hover-primary fw-bolder">This Month</a>
+                                                <a href="/reports/1" class="fs-5 text-gray-800 text-hover-primary fw-bolder">This Month</a>
                                                 <div class="text-gray-400 fw-bold fs-7">{{$thisMonth->format('F, Y')}}</div>
                                             </div>
                                             <!--end::Title-->
@@ -100,7 +100,7 @@
                                         <div class="d-flex align-items-center flex-wrap w-100">
                                             <!--begin::Title-->
                                             <div class="mb-1 pe-3 flex-grow-1">
-                                                <a href="#" class="fs-5 text-gray-800 text-hover-primary fw-bolder">Next Month</a>
+                                                <a href="/reports/2" class="fs-5 text-gray-800 text-hover-primary fw-bolder">Next Month</a>
                                                 <div class="text-gray-400 fw-bold fs-7">{{$nextMonth->format('F, Y')}}</div>
                                             </div>
                                             <!--end::Title-->
@@ -134,7 +134,7 @@
                                         <div class="d-flex align-items-center flex-wrap w-100">
                                             <!--begin::Title-->
                                             <div class="mb-1 pe-3 flex-grow-1">
-                                                <a href="#" class="fs-5 text-gray-800 text-hover-primary fw-bolder">{{ $thisQuarter->format('F') }}</a>
+                                                <a href="/reports/3" class="fs-5 text-gray-800 text-hover-primary fw-bolder">{{ $thisQuarter->format('F') }}</a>
                                                 <div class="text-gray-400 fw-bold fs-7">{{$thisQuarter->format('F, Y')}}</div>
                                             </div>
                                             <!--end::Title-->
@@ -240,7 +240,7 @@
                                         <span class="text-muted fw-bold d-block">Add your first employee</span>
                                     </div>
                                     <!--end::Description-->
-                                    <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                    <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
                                 </div>
                             @else
                                 <div class="d-flex align-items-center mb-8">
@@ -277,7 +277,7 @@
                                             <span class="text-muted fw-bold d-block">Add your first qualification</span>
                                         </div>
                                         <!--end::Description-->
-                                        <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                        <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
                                     </div>
                                 @else
                                     <div class="d-flex align-items-center mb-8">
@@ -314,7 +314,7 @@
                                             <span class="text-muted fw-bold d-block">Add your first provider</span>
                                         </div>
                                         <!--end::Description-->
-                                        <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                        <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
                                     </div>
                                 @else
                                     <div class="d-flex align-items-center mb-8">
@@ -351,7 +351,7 @@
                                             <span class="text-muted fw-bold d-block">Add your first department</span>
                                         </div>
                                         <!--end::Description-->
-                                        <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                        <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
                                     </div>
                                 @else
                                     <div class="d-flex align-items-center mb-8">
@@ -388,7 +388,7 @@
                                             <span class="text-muted fw-bold d-block">Add your first qualification type</span>
                                         </div>
                                         <!--end::Description-->
-                                        <span class="badge badge-light-danger fs-8 fw-bolder">New</span>
+                                        <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
                                     </div>
                                 @else
                                     <div class="d-flex align-items-center mb-8">

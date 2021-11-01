@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/providers" class="text-muted text-hover-primary">
+                            <a href="/settings/providers" class="text-muted text-hover-primary">
                                 Providers
                             </a>
                         </li>
@@ -62,7 +62,7 @@
                         </div>
                         <!--end::Card title-->
                         <!--begin::Action-->
-                        <a href="/providers/{{ $provider->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Provider</a>
+                        <a href="/settings/providers/{{ $provider->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Provider</a>
                         <!--end::Action-->
                     </div>
                     <!--begin::Card header-->

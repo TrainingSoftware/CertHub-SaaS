@@ -15,7 +15,7 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UploadController;
 use App\Http\Controllers\SendSMSController;
 use App\Http\Controllers\SearchController;
-
+use App\Http\Controllers\PortalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,11 +54,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/employees/{id}/contacts',[EmployeeController::class, 'contacts'])->name('employee-contacts');
             Route::get('/employees/{id}/files',[EmployeeController::class, 'files'])->name('employee-files');
 
-            Route::resource('departments', DepartmentController::class);
             Route::resource('qualifications', QualificationController::class);
-            Route::resource('qualificationtypes', QualificationTypeController::class);
-            Route::resource('providers', ProviderController::class);
-            Route::resource('users', UserController::class);
+
+            Route::group(['prefix'=>'settings'], function() {
+                Route::resource('departments', DepartmentController::class);
+                Route::resource('providers', ProviderController::class);
+                Route::resource('qualificationtypes', QualificationTypeController::class);
+                Route::resource('users', UserController::class);
+            });
 
             Route::post('upload',[UploadController::class, 'uploadQualificationFile'])->name('upload.qualification.file');
             Route::post('qualifications/{qualification}/sendSMS',[SendSMSController::class, 'sendQualificationSMS'])->name('send.sms');
@@ -75,6 +78,8 @@ Route::group(['middleware' => 'auth'], function () {
             });
 
             Route::get('/search', [SearchController::class, 'search']);
+
+            Route::get('/portal/{qualification}', [PortalController::class, 'show'] )->name('portal')->middleware('signed');
         });
     });
 

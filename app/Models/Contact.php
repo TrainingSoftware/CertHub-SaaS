@@ -23,7 +23,8 @@ class Contact extends Model
         'county',
         'postcode',
         'user_id',
-        'employee_id'
+        'employee_id',
+        'relation'
     ];
 
     public function employee()
