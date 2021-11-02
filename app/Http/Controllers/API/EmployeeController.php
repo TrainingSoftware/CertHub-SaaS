@@ -22,6 +22,8 @@ class EmployeeController extends BaseController
 
     public function store(Request $request)
     {
+        $user = Auth::user();
+        
         $input = $request->all();
         $validator = Validator::make($input, [
             'title' => '',
@@ -49,7 +51,7 @@ class EmployeeController extends BaseController
         if ($validator->fails()) {
             return $this->sendError($validator->errors());
         }
-        $employee = Employee::create($input);
+        $employee = $user->employees()->create($input);
         return $this->sendResponse(new EmployeeResource($employee), 'Employee created.');
     }
 
