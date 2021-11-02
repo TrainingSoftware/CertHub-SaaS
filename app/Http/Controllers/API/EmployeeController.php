@@ -23,7 +23,7 @@ class EmployeeController extends BaseController
     public function store(Request $request)
     {
         $user = Auth::user();
-        
+
         $input = $request->all();
         $validator = Validator::make($input, [
             'title' => '',
@@ -45,7 +45,7 @@ class EmployeeController extends BaseController
             'end_date' => '',
             'salary' => '',
             'employment' => '',
-            'department_id' => 'required',
+            'department_id' => '',
             'user_id' => ''
         ]);
         if ($validator->fails()) {
