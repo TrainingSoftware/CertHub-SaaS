@@ -6,6 +6,9 @@ use App\Models\Employee;
 use App\Models\Department;
 use App\Models\Qualification;
 use Illuminate\Http\Request;
+use App\Exports\EmployeeExport;
+use App\Imports\EmployeeImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
@@ -275,6 +278,33 @@ class EmployeeController extends Controller
         } else {
             echo 'This employee does not belong to you.';
         }
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function importView()
+    {
+        return view('employees.import');
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function export()
+    {
+        return Excel::download(new EmployeeExport, 'employees.csv');
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function import()
+    {
+        Excel::import(new EmployeeImport,request()->file('file'));
+
+        return back()
+            ->with('success', 'Employees successfully imported');
     }
 
 }

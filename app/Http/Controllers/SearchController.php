@@ -14,19 +14,20 @@ class SearchController extends Controller
         // get current logged in user
         $user = Auth::user();
 
-        $search = $request->input('q');
+        $query = $request->input('q');
 
         //get all the qualifications
         $employees = \App\Models\Employee::query()
-            ->where('firstname','like','%'.$search.'%')
-            ->orWhere('lastname','like','%'.$search.'%')
-            ->orWhere('email','like','%'.$search.'%')
+            ->where('user_id', '=', $user->id)
+            ->orwhere('firstname','like','%'.$query.'%')
+            ->orWhere('lastname','like','%'.$query.'%')
+            ->orWhere('email','like','%'.$query.'%')
             ->orderBy('id')
-            ->paginate(6);
+            ->paginate(10);
 
         return view('search', [
             'employees' => $employees,
-            'query' => $search
+            'query' => $query
         ]);
     }
 }

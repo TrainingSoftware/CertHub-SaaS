@@ -20,6 +20,7 @@
 		<!--begin::Global Stylesheets Bundle(used by all pages)-->
 		<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
         <link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 	</head>
@@ -68,7 +69,21 @@
 		<script src="/assets/plugins/global/plugins.bundle.js"></script>
 		<script src="/assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
+        <script src="/assets/js/custom/account/api-keys/api-keys.js"></script>
+        <script src="/assets/js/custom/modals/create-api-key.js"></script>
 		<!--end::Page Vendors Javascript-->
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                $('input[type="date"]').datepicker({
+                    altFormat: "dd-mm-yyyy",
+                    altField: "#alt-date"
+                });
+
+                $( "#datepicker" ).datepicker( "option", "altFormat", "dd-mm-yy" );
+            });
+        </script>
 		<!--begin::Page Custom Javascript(used by this page)-->
 		<script src="/assets/js/custom/widgets.js"></script>
 		<script src="/assets/js/custom/apps/chat/chat.js"></script>
@@ -105,7 +120,10 @@
         @endif
 		<!--end::Javascript-->
         <!-- Start of HubSpot Embed Code -->
+        @if (App::environment('production')) {
         <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25074209.js"></script>
+        }
+        @endif
         <!-- End of HubSpot Embed Code -->
 	</body>
 	<!--end::Body-->

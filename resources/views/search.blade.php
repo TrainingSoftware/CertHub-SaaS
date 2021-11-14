@@ -39,17 +39,19 @@
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Card-->
                 @foreach($employees as $item)
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <!--begin::Card title-->
-                        <div class="card-title">
-                            <!--begin::Search-->
-                            <div class="d-flex align-items-center position-relative my-1">
-                                <h3><a href="/employees/{{ $item->id }}">{{ $item->firstname }} {{ $item->lastname }}</a></h3>
+                    @if($item->user_id == Auth::id())
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                <!--begin::Card title-->
+                                <div class="card-title">
+                                    <!--begin::Search-->
+                                    <div class="d-flex align-items-center position-relative my-1">
+                                        <h3><a href="/employees/{{ $item->id }}">{{ $item->firstname }} {{ $item->lastname }}</a></h3>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    @endif
                 @endforeach
             </div>
         </div>

@@ -29,6 +29,8 @@ class CreateQualificationsTable extends Migration
             $table->string('slug')->nullable();
             $table->date('expiry_date');
             $table->boolean('status')->default(0);
+            $table->boolean('has_refresher')->default(0);
+            $table->date('refresher_date')->nullable();
         });
     }
 

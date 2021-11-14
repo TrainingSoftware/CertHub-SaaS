@@ -272,7 +272,10 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {{ Form::text('start_date', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '01/07/2021')) }}
+                                        {{ Form::date('start_date', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '01/07/2021')) }}
+                                        @if($employee->start_date)
+                                        <input type="hidden" value="{{ $employee->start_date->format('d-m-Y') }}" id="alt-date">
+                                        @endif
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -282,7 +285,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {{ Form::text('end_date', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '21/09/2011')) }}
+                                        {{ Form::date('end_date', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '21/09/2011')) }}
                                         <!--end::Input-->
                                     </div>
                                 </div>

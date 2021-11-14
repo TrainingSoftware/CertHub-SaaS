@@ -54,6 +54,14 @@
                                 <span class="menu-title">Create New</span>
                             </a>
                         </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="/employees/vaxtrax">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">VaxTrax</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -81,7 +89,6 @@
                                 <span class="menu-title">View All</span>
                             </a>
                         </div>
-                        @if(Auth::user()->qualifications->count() > 0)
                         <div class="menu-item">
                             <a class="menu-link" href="/qualifications/create">
                                 <span class="menu-bullet">
@@ -90,7 +97,6 @@
                                 <span class="menu-title">Create New</span>
                             </a>
                         </div>
-                        @endif
                     </div>
                 </div>
 
@@ -110,8 +116,8 @@
                     </a>
                 </div>
 
-                <div class="menu-item d-none">
-                    <a class="menu-link" href="">
+                <div class="menu-item">
+                    <a class="menu-link" href="/training">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -167,11 +173,11 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="/settings/users">
+                            <a class="menu-link" href="/settings/personal-access-tokens">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Users</span>
+                                <span class="menu-title">API</span>
                             </a>
                         </div>
                     </div>

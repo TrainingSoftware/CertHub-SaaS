@@ -151,7 +151,7 @@
                                     <div class="row">
                                         <!--begin::Col-->
                                         <div class="col-lg-12 fv-row">
-                                            {{ Form::date('expiry_date', date('d-m-Y'), ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) }}
+                                            {{ Form::date('expiry_date', date('d-m-Y'), ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'id' => 'datepicker']) }}
                                         </div>
                                         <!--end::Col-->
                                     </div>

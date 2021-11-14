@@ -33,16 +33,21 @@ class QualificationController extends Controller
      */
     public function create()
     {
+        // get current logged in user
+        $user = Auth::user();
+
         // get employee with concatenated first & last name, id
-        $employees = \App\Models\Employee::select(
-            DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
+        $employees = \App\Models\Employee::where('user_id', '=', $user->id)
+            ->select(DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
             ->pluck('name', 'id');
 
         // get qualification types with name, id
-        $qualificationtypes = \App\Models\QualificationType::pluck('name', 'id');
+        $qualificationtypes = \App\Models\QualificationType::where('user_id', '=', $user->id)
+        ->pluck('name', 'id');
 
         // get providers with name, id
-        $providers = \App\Models\Provider::pluck('name', 'id');
+        $providers = \App\Models\Provider::where('user_id', '=', $user->id)
+        ->pluck('name', 'id');
 
         return view('qualifications.create', compact('employees', 'qualificationtypes', 'providers'));
     }
@@ -195,6 +200,6 @@ class QualificationController extends Controller
         // delete employee
         $qualification->delete();
 
-        return redirect('/qualification')->with('success', 'Qualification has been deleted');
+        return redirect('/qualifications')->with('success', 'Qualification has been deleted');
     }
 }
