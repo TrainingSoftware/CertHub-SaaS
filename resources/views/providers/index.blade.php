@@ -106,7 +106,6 @@
                                                     <!--end::Title-->
                                                     <!--begin::Description-->
                                                     <div class="text-muted fw-bold fs-5">How do you want to add your training provider to CertHub?
-                                                        <a href="#" class="link-primary fw-bolder">FAQ Page</a>.
                                                     </div>
                                                     <!--end::Description-->
                                                 </div>
@@ -130,19 +129,21 @@
                                                             </button>
                                                         </div>
                                                     </div>
-                                                    <div id="searchCompany"
-                                                         class="accordion-collapse collapse">
-                                                            <div class="row mt-10">
-                                                                <div class="col-12">
+                                                    <div id="searchCompany" class="accordion-collapse collapse">
+                                                        <div class="row mt-10">
+                                                            <div class="col-12">
                                                                 <div class="accordion-body">
                                                                     <form action="/import-provider" method="get">
                                                                         @csrf
-                                                                        <div class="form-group">
+                                                                        <div class="input-group mb-5">
                                                                             {!! Form::text('query', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Enter company registration number...']) !!}
+                                                                            <span class="input-group-text border-0" id="basic-addon2">
+                                                                                <button class="btn btn-primary bg-success" type="submit">Find Company</button>
+                                                                            </span>
                                                                         </div>
-                                                                        <button type="submit">Find Company</button>
                                                                     </form>
                                                                 </div>
+                                                                <p>Not sure on the Provider's company number? <a href="https://find-and-update.company-information.service.gov.uk" target="_blank">Find it here</a></p>
                                                             </div>
                                                         </div>
                                                     </div>
