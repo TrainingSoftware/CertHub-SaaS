@@ -30,7 +30,7 @@ class QualificationPolicy
      */
     public function view(User $user, Qualification $qualification)
     {
-        return $user->id === $qualification->user->id;
+        return $user->companies()->first()->id === $qualification->company->id;
     }
 
     /**
@@ -53,7 +53,7 @@ class QualificationPolicy
      */
     public function update(User $user, Qualification $qualification)
     {
-        return $user->id === $qualification->user->id;
+        return $user->companies()->first()->id === $qualification->company->id;
     }
 
     /**
@@ -65,7 +65,7 @@ class QualificationPolicy
      */
     public function delete(User $user, Qualification $qualification)
     {
-        return $user->id === $qualification->user->id;
+        return $user->companies()->first()->id === $qualification->company->id;
     }
 
     /**

@@ -16,8 +16,8 @@ class CreateQualificationsTable extends Migration
         Schema::create('qualifications', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('company_id')->unsigned()->index();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->bigInteger('qualificationtype_id')->unsigned()->index();
             $table->foreign('qualificationtype_id')->references('id')->on('qualification_types');
             $table->bigInteger('employee_id')->unsigned()->index();

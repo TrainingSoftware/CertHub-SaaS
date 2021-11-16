@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -16,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $company = Auth::user()->companies()->first();
+        $users = $company->users;
         return view('users.index', compact('users'));
     }
 
@@ -38,7 +40,33 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // get current company
+        $company = Auth::user()->companies()->first();
+
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
+        $storeData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users,email',
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required|same:password'
+        ]);
+
+        // create department with validated data
+        $newUser = $company->users()->create($storeData);
+
+        // log the department on successful creation
+        if ($newUser){
+            activity('department')
+                ->performedOn($newUser)
+                ->causedBy($user)
+                ->log('Department created by ' . $user->name);
+        }
+
+        return redirect('/settings/users/' . $newUser->id)
+            ->with('success', 'User successfully created');
     }
 
     /**

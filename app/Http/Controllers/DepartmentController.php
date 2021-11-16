@@ -16,11 +16,11 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         // get employees that belong to authenticated user
-        $departments = $user->departments;
+        $departments = $company->departments;
 
         return view('departments.index', compact('departments'));
     }
@@ -43,6 +43,9 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
+        // get current company
+        $company = Auth::user()->company;
+
         // get current logged in user
         $user = Auth::user();
 
@@ -53,7 +56,7 @@ class DepartmentController extends Controller
         ]);
 
         // create department with validated data
-        $department = $user->departments()->create($storeData);
+        $department = $company->departments()->create($storeData);
 
         // log the department on successful creation
         if ($department){

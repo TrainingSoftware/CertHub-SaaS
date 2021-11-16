@@ -16,10 +16,22 @@ class CreateProvidersTable extends Migration
         Schema::create('providers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->bigInteger('company_id')->unsigned()->index();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('name');
-            $table->text('body')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('website')->nullable();
+            $table->string('line_1')->nullable();
+            $table->string('line_2')->nullable();
+            $table->string('line_3')->nullable();
+            $table->string('town')->nullable();
+            $table->string('city')->nullable();
+            $table->string('county')->nullable();
+            $table->string('country')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('company_reg')->nullable();
+
         });
     }
 

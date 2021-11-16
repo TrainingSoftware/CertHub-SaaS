@@ -16,10 +16,10 @@ class QualificationTypeController extends Controller
     public function index()
     {
         // get current logged in user
-        $user = Auth::user();
+        $company = Auth::user()->companies()->first();
 
         // get qualification types that belong to authenticated user
-        $qualificationtypes = QualificationType::where('user_id', '=', $user->id)
+        $qualificationtypes = QualificationType::where('company_id', '=', $company->id)
             ->paginate(10);
 
         return view('qualificationtypes.index', compact('qualificationtypes'));
@@ -43,6 +43,9 @@ class QualificationTypeController extends Controller
      */
     public function store(Request $request)
     {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
         // get current logged in user
         $user = Auth::user();
 
@@ -53,7 +56,7 @@ class QualificationTypeController extends Controller
         ]);
 
         // create qualification type with validated data
-        $qualificationtype = $user->qualificationtypes()->create($storeData);
+        $qualificationtype = $company->qualificationtypes()->create($storeData);
 
         // log the qualification type on successful update
         if ($qualificationtype){

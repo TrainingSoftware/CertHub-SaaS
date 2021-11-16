@@ -40,7 +40,7 @@
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Card-->
                 <div class="card">
-                    @if(Auth::user()->qualifications->count() != 0 )
+                    @if(Auth::user()->companies->first()->qualifications->count() != 0 )
                     <!--begin::Card header-->
                     <div class="card-header border-0 pt-6">
                         <!--begin::Card title-->
@@ -86,7 +86,7 @@
                     </div>
                     @endif
                     <!--end::Card header-->
-                    @if(Auth::user()->qualifications->count() == 0)
+                    @if(Auth::user()->companies->first()->qualifications->count() == 0)
                         <div class="card-body p-0">
                             <!--begin::Wrapper-->
                             <div class="card-px text-center py-20 my-10">
@@ -100,7 +100,7 @@
                                     It looks like you have a few outstanding tasks to do before you can add a qualification:
                                 </p>
                                 <ul class="list-unstyled mb-10 text-left">
-                                    @if(Auth::user()->employees->count() == 0)
+                                    @if(Auth::user()->companies->first()->employees->count() == 0)
                                         <li class="h4 mb-4">
                                             <a href="/employees/create" class="fs-1.5x">Add your first Employee</a>
                                         </li>
@@ -109,7 +109,7 @@
                                             <strike>Add your first Employee</strike>
                                         </li>
                                     @endif
-                                    @if(Auth::user()->providers->count() == 0)
+                                    @if(Auth::user()->companies->first()->providers->count() == 0)
                                         <li class="h4 mb-4">
                                             <a href="/settings/providers/create">Add your first Provider</a>
                                         </li>
@@ -118,7 +118,7 @@
                                             <strike>Add your first Provider</strike>
                                         </li>
                                     @endif
-                                    @if(Auth::user()->qualificationtypes->count() == 0)
+                                    @if(Auth::user()->companies->first()->qualificationtypes->count() == 0)
                                         <li class="h4 mb-4">
                                             <a href="/settings/qualificationtypes/create">Add your first Qualification Type</a>
                                         </li>
@@ -130,15 +130,15 @@
                                 </ul>
                                 <!--end::Description-->
                                 <!--begin::Action-->
-                                @if(Auth::user()->qualificationtypes->count() != 0 && Auth::user()->providers->count() != 0 && Auth::user()->employees->count() != 0)
-                                    <a href="/qualification/create" class="btn btn-primary">Add Qualification</a>
+                                @if(Auth::user()->companies->first()->qualificationtypes->count() != 0 && Auth::user()->companies->first()->providers->count() != 0 && Auth::user()->companies->first()->employees->count() != 0)
+                                    <a href="/qualifications/create" class="btn btn-primary">Add Qualification</a>
                                 @endif
                                 <!--end::Action-->
                             </div>
                             <!--end::Wrapper-->
                             <!--begin::Illustration-->
                             <div class="text-center px-4">
-                                <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/sigma-1/2.png" />
+                                <img class="mw-100 mh-300px" alt="" src="/assets/media/illustrations/sigma-1/2.png" />
                             </div>
                             <!--end::Illustration-->
                         </div>
@@ -196,7 +196,7 @@
                                         </td>
                                         <!--end::Role=-->
                                         <!--begin::Two step=-->
-                                        <td>{{ $item->provider->name }}</td>
+                                        <td><a href="/providers/{{ $item->provider->id }}">{{ $item->provider->name }}</td>
                                         <!--end::Two step=-->
                                         <td>
                                             @if($item->expiry_date < Carbon\Carbon::today())
@@ -213,18 +213,18 @@
                                         <td>
                                             @if($item->upload)
                                                 <a href="{{ Storage::disk('vultr')->url($item->upload->url) }}" target="_blank">
-                                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
-                                            <span class="svg-icon svg-icon-success svg-icon-2hx">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                    <path
-                                                        opacity="0.3"
-                                                        d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM11.7 17.7L16.7 12.7C17.1 12.3 17.1 11.7 16.7 11.3C16.3 10.9 15.7 10.9 15.3 11.3L11 15.6L8.70001 13.3C8.30001 12.9 7.69999 12.9 7.29999 13.3C6.89999 13.7 6.89999 14.3 7.29999 14.7L10.3 17.7C10.5 17.9 10.8 18 11 18C11.2 18 11.5 17.9 11.7 17.7Z"
-                                                        fill="black"
-                                                    />
-                                                    <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
-                                                </svg>
-                                            </span>
-                                        </span>
+                                                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
+                                                        <span class="svg-icon svg-icon-success svg-icon-2hx">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                <path
+                                                                    opacity="0.3"
+                                                                    d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM11.7 17.7L16.7 12.7C17.1 12.3 17.1 11.7 16.7 11.3C16.3 10.9 15.7 10.9 15.3 11.3L11 15.6L8.70001 13.3C8.30001 12.9 7.69999 12.9 7.29999 13.3C6.89999 13.7 6.89999 14.3 7.29999 14.7L10.3 17.7C10.5 17.9 10.8 18 11 18C11.2 18 11.5 17.9 11.7 17.7Z"
+                                                                    fill="black"
+                                                                />
+                                                                <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>
                                                 </a>
                                             @endif
                                         </td>

@@ -25,6 +25,16 @@ class Qualification extends Model
         'status'
     ];
 
+    public function upload()
+    {
+        return $this->hasOne(Upload::class);
+    }
+
+    public function renewals()
+    {
+        return $this->hasMany(Renewal::class);
+    }
+
     public function employee()
     {
         return $this->belongsTo(Employee::class);
@@ -40,18 +50,9 @@ class Qualification extends Model
         return $this->belongsTo(QualificationType::class);
     }
 
-    public function user()
+    public function company()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Company::class);
     }
 
-    public function renewals()
-    {
-        return $this->hasMany(Renewal::class);
-    }
-
-    public function upload()
-    {
-        return $this->hasOne(Upload::class);
-    }
 }

@@ -15,8 +15,8 @@ class CreateUploadsTable extends Migration
     {
         Schema::create('uploads', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('company_id')->unsigned()->index();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->bigInteger('qualification_id')->unsigned()->index();
             $table->foreign('qualification_id')->references('id')->on('qualifications');
             $table->string('url');

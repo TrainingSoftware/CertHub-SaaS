@@ -21,7 +21,7 @@ class CompanyController extends Controller
         $user = Auth::user();
 
         // get company that belong to authenticated user
-        $company = $user->company;
+        $company = Auth::user()->companies()->first();
 
         if ($company) {
             return redirect('/company/' . $company->id);
@@ -37,11 +37,9 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        // get current logged in user
-        $user = Auth::user();
 
-        // get employees that belong to authenticated user
-        $company = $user->company;
+        // get companies that belong to authenticated user
+        $company = Auth::user()->companies()->first();
 
         if ($company) {
             return redirect('/company/' . $company->id);
@@ -49,6 +47,7 @@ class CompanyController extends Controller
             return view('company.create');
         }
 
+        dd($company);
     }
 
     /**
@@ -76,7 +75,7 @@ class CompanyController extends Controller
         ]);
 
         // create department with validated data
-        $company = $user->company()->create($data);
+        $company = $user->companies()->create($data);
 
         // log the company on successful creation
         activity('company')
@@ -122,10 +121,33 @@ class CompanyController extends Controller
         $user = Auth::user();
 
         // load company
-        $company = $user->company::findOrFail($id);
+        $company = Auth::user()->companies()->first();
+
+        // define genders
+        $types = array([
+            '' => 'Select company type',
+            'Public limited company (PLC)' => 'Public limited company (PLC)',
+            'Private company limited by shares (LTD)' => 'Private company limited by shares (LTD)',
+            'Company limited by guarantee' => 'Company limited by guarantee',
+            'Unlimited company (Unltd)' => 'Unlimited company (Unltd)',
+            'Limited liability partnership (LLP)' => 'Limited liability partnership (LLP)',
+            'Community interest company' => 'Community interest company',
+            'Industrial and provident society (IPS)' => 'Industrial and provident society (IPS)',
+            'Royal charter (RC)' => 'Royal charter (RC)',
+        ]);
+
+        // define genders
+        $size = array([
+            '' => 'Select company size',
+            '1-1' => '1-1',
+            '2-10' => '2-10',
+            '11-50' => '11-50',
+            '50+' => '50+',
+
+        ]);
 
         if ($user->can('update', $company)) {
-            return view('company.edit', compact('company'));
+            return view('company.edit', compact('company', 'types', 'size'));
         } else {
             echo 'This company does not belong to you.';
         }
@@ -148,22 +170,26 @@ class CompanyController extends Controller
             'name' => 'required', 'string',
             'type' => 'required', 'string',
             'size' => 'required', 'string',
+            'phone' => '',
+            'email' => 'email',
             'line_1' => 'required', 'string',
             'line_2' => 'required', 'string',
             'town' => 'required', 'string',
             'county' => 'required', 'string',
             'postcode' => 'required', 'string',
             'country' => 'required', 'string',
+            'company_reg' => '',
+            'company_vat' => '',
         ]);
 
         // find employee and update with validated data
-        $company = $user->company::findOrFail($id)->first()->update($updateData);
+        $company = Company::findOrFail($id)->update($updateData);
 
         // log the company on successful update
-        activity('company')
-            ->performedOn($company)
-            ->causedBy($user)
-            ->log('Company updated by ' . $user->name);
+        //activity('company')
+        //    ->performedOn($company)
+        //    ->causedBy($user)
+        //    ->log('Company updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Company has been successfully updated');

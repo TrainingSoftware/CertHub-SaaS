@@ -64,7 +64,7 @@
                             <!--begin::Toolbar-->
                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                 <!--begin::Add user-->
-                                <a href="/users/create" class="btn btn-primary">
+                                <a href="/settings/users/create" class="btn btn-primary">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                     <span class="svg-icon svg-icon-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -96,6 +96,8 @@
                                     </div>
                                 </th>
                                 <th class="min-w-125px">User</th>
+                                <th class="min-w-125px">Email</th>
+                                <th class="min-w-125px">Added on</th>
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
                             <!--end::Table row-->
@@ -118,6 +120,24 @@
                                         <!--begin::User details-->
                                         <div class="d-flex flex-column ">
                                             <a href="/users/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1 p-2">{{ $item->name }}</a>
+                                        </div>
+                                        <!--begin::User details-->
+                                    </td>
+                                    <!--end::User=-->
+                                    <!--begin::User=-->
+                                    <td class="border-bottom-0">
+                                        <!--begin::User details-->
+                                        <div class="d-flex flex-column ">
+                                            <span class="text-gray-800 text-hover-primary mb-1 p-2">{{ $item->email }}</span>
+                                        </div>
+                                        <!--begin::User details-->
+                                    </td>
+                                    <!--end::User=-->
+                                    <!--begin::User=-->
+                                    <td class="border-bottom-0">
+                                        <!--begin::User details-->
+                                        <div class="d-flex flex-column ">
+                                            <span class="text-gray-800 text-hover-primary mb-1 p-2">{{ $item->created_at->format('d/m/Y') }}</span>
                                         </div>
                                         <!--begin::User details-->
                                     </td>

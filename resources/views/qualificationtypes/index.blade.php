@@ -40,7 +40,7 @@
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Card-->
                 <div class="card">
-                @if(Auth::user()->qualificationtypes->count() != 0 )
+                @if(Auth::user()->companies->first()->qualificationtypes->count() != 0 )
                     <!--begin::Card header-->
                     <div class="card-header border-0 pt-6">
                         <!--begin::Card title-->
@@ -85,7 +85,7 @@
                     @endif
                     <!--end::Card header-->
                     <!--begin::Card body-->
-                    @if(Auth::user()->qualificationtypes->count() == 0 )
+                    @if(Auth::user()->companies->first()->qualificationtypes->count() == 0 )
                         <div class="card-body p-0">
                             <!--begin::Wrapper-->
                             <div class="card-px text-center py-20 my-10">
@@ -104,7 +104,7 @@
                             <!--end::Wrapper-->
                             <!--begin::Illustration-->
                             <div class="text-center px-4">
-                                <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/sigma-1/2.png" />
+                                <img class="mw-100 mh-300px" alt="" src="/assets/media/illustrations/sigma-1/2.png" />
                             </div>
                             <!--end::Illustration-->
                         </div>

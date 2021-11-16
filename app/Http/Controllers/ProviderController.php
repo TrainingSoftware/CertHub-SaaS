@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Provider;
+use App\Models\Qualification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,11 +16,11 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         // get providers that belong to authenticated user
-        $providers = Provider::where('user_id', '=', $user->id)
+        $providers = Provider::where('company_id', '=', $company->id)
             ->paginate(10);
 
         return view('providers.index', compact('providers'));
@@ -43,17 +44,31 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
         $storeData = $request->validate([
             'name' => 'required',
-            'body' => 'max:1000|nullable'
+            'email' => 'nullable',
+            'phone' => 'nullable',
+            'website' => 'nullable',
+            'line_1' => 'nullable',
+            'line_2' => 'nullable',
+            'line_3' => 'nullable',
+            'town' => 'nullable',
+            'city' => 'nullable',
+            'county' => 'nullable',
+            'country' => 'nullable',
+            'postcode' => 'nullable',
+            'company_reg' => 'nullable'
         ]);
 
         // create provider with validated data
-        $provider = $user->providers()->create($storeData);
+        $provider = $company->providers()->create($storeData);
 
         // log the provider on successful creation
         if ($provider){
@@ -63,7 +78,7 @@ class ProviderController extends Controller
                 ->log('Provider created by ' . $user->name);
         }
 
-        return redirect('/settings/providers/' . $provider->id)
+        return redirect('/providers/' . $provider->id)
             ->with('success', 'Provider successfully created');
     }
 
@@ -125,7 +140,18 @@ class ProviderController extends Controller
         // get and validate data
         $updateData = $request->validate([
             'name' => 'required',
-            'body' => 'nullable'
+            'email' => 'nullable',
+            'phone' => 'nullable',
+            'website' => 'nullable',
+            'line_1' => 'nullable',
+            'line_2' => 'nullable',
+            'line_3' => 'nullable',
+            'town' => 'nullable',
+            'city' => 'nullable',
+            'county' => 'nullable',
+            'country' => 'nullable',
+            'postcode' => 'nullable',
+            'company_reg' => 'nullable'
         ]);
 
         // find provider
@@ -158,6 +184,37 @@ class ProviderController extends Controller
         // delete provider
         $provider->delete();
 
-        return redirect('/settings/providers')->with('success', 'Provider has been deleted');
+        return redirect('/providers')->with('success', 'Provider has been deleted');
+    }
+
+    /**
+     * Show qualifications that belong to employee.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function qualifications($id)
+    {
+        // get the company
+        $company = Auth::user()->companies()->first();
+
+        // get current logged in user
+        $user = Auth::user();
+
+        // load provider
+        $provider = Provider::find($id);
+
+        $qualifications = Qualification::where('company_id', '=', $company->id)
+            ->where('provider_id', '=', $provider->id)
+            ->get();
+
+        if ($user->can('view', $provider)) {
+            return view('providers.qualifications')
+                ->with('qualifications', $qualifications)
+                ->with('provider', $provider);
+        } else {
+            echo 'This provider does not belong to you.';
+        }
     }
 }

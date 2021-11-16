@@ -11,14 +11,14 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         $query = $request->input('q');
 
         //get all the qualifications
         $employees = \App\Models\Employee::query()
-            ->where('user_id', '=', $user->id)
+            ->where('company_id', '=', $company->id)
             ->orwhere('firstname','like','%'.$query.'%')
             ->orWhere('lastname','like','%'.$query.'%')
             ->orWhere('email','like','%'.$query.'%')

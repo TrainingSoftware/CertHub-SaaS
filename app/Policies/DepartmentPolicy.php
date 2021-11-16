@@ -30,7 +30,7 @@ class DepartmentPolicy
      */
     public function view(User $user, Department $department)
     {
-        return $user->id === $department->user->id;
+        return $user->companies()->first()->id === $department->company->id;
     }
 
     /**
@@ -53,7 +53,7 @@ class DepartmentPolicy
      */
     public function update(User $user, Department $department)
     {
-        return $user->id === $department->user->id;
+        return $user->companies()->first()->id === $department->company->id;
     }
 
     /**
@@ -65,7 +65,7 @@ class DepartmentPolicy
      */
     public function delete(User $user, Department $department)
     {
-        return $user->id === $department->user->id;
+        return $user->companies()->first()->id === $department->company->id;
     }
 
     /**

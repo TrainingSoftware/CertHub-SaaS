@@ -11,6 +11,9 @@ class UploadController extends Controller
 {
     public function uploadQualificationFile(Request $request, Qualification $qualification)
     {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
         // get current logged in user
         $user = Auth::user();
 
@@ -26,7 +29,7 @@ class UploadController extends Controller
 
         $hashName = $file->hashName();
 
-        $storagePath = Storage::disk('vultr')->putFile('uploads/' . $user->id . '/' . $request->qualification_id, $file, 'public');
+        $storagePath = Storage::disk('vultr')->putFile('uploads/' . $company->id . '/' . $request->qualification_id, $file, 'public');
 
         if ($storagePath) {
 
@@ -35,7 +38,7 @@ class UploadController extends Controller
             ]);
 
             $upload = new Upload();
-            $upload->user_id = $user->id;
+            $upload->company_id = $company->id;
             $upload->qualification_id = $request->qualification_id;
             $upload->url = $storagePath;
             $upload->save();

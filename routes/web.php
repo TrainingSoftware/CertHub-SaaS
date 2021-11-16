@@ -55,9 +55,11 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('qualifications', QualificationController::class);
             Route::post('upload',[UploadController::class, 'uploadQualificationFile'])->name('upload.qualification.file');
             Route::post('qualifications/{qualification}/sendSMS',[SendSMSController::class, 'sendQualificationSMS'])->name('send.sms');
+            Route::resource('providers', ProviderController::class);
+            Route::get('/providers/{id}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
+            Route::get('/import-provider', [\App\Http\Controllers\ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
             Route::group(['prefix'=>'settings'], function() {
                 Route::resource('departments', DepartmentController::class);
-                Route::resource('providers', ProviderController::class);
                 Route::resource('qualificationtypes', QualificationTypeController::class);
                 Route::resource('users', UserController::class);
                 Route::get('/personal-access-tokens', [APIController::class, 'index'])->name('api');

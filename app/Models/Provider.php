@@ -11,9 +11,19 @@ class Provider extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
         'name',
-        'body',
+        'line_1',
+        'line_2',
+        'line_3',
+        'town',
+        'city',
+        'county',
+        'country',
+        'postcode',
+        'company_reg',
+        'email',
+        'phone',
+        'website',
     ];
 
     protected static function newFactory()
@@ -21,8 +31,8 @@ class Provider extends Model
         return ProviderFactory::new();
     }
 
-    public function user()
+    public function company()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Company::class);
     }
 }

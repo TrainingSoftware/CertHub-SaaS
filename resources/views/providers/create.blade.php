@@ -65,7 +65,7 @@
                     <!--begin::Content-->
                     <div id="kt_account_profile_details">
                         <!--begin::Form-->
-                        <form class="form" method="POST" action="/settings/providers">
+                        <form class="form" method="POST" action="/providers">
                             @csrf
                             <!--begin::Card body-->
                             <div class="card-body border-top p-9">
@@ -90,20 +90,28 @@
                                     </div>
                                     <!--end::Col-->
                                 </div>
-                                <!--end::Input group-->
                                 <div class="row mb-6">
                                     <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-bold fs-6">Description</label>
+                                    <label class="col-lg-4 col-form-label required fw-bold fs-6">
+                                        Contact Details
+                                    </label>
                                     <!--end::Label-->
                                     <!--begin::Col-->
                                     <div class="col-lg-8">
                                         <!--begin::Row-->
                                         <div class="row">
                                             <!--begin::Col-->
-                                            <div class="col-lg-12 fv-row">
-                                                <textarea type="text" name="body"
-                                                          class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                                          placeholder="The best training provider" value="" ></textarea>
+                                            <div class="col-lg-6 fv-row">
+                                                <input type="text" name="phone"
+                                                       class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                                       placeholder="0114 2345 232" value="" />
+                                            </div>
+                                            <!--end::Col-->
+                                            <!--begin::Col-->
+                                            <div class="col-lg-6 fv-row">
+                                                <input type="text" name="email"
+                                                       class="form-control form-control-lg form-control-solid"
+                                                       placeholder="training@acme-training.com" value="" />
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -111,7 +119,26 @@
                                     </div>
                                     <!--end::Col-->
                                 </div>
-                                <!--end::Input group-->
+                                <div class="row mb-6">
+                                    <!--begin::Label-->
+                                    <label class="col-lg-4 col-form-label required fw-bold fs-6">Website</label>
+                                    <!--end::Label-->
+                                    <!--begin::Col-->
+                                    <div class="col-lg-8">
+                                        <!--begin::Row-->
+                                        <div class="row">
+                                            <!--begin::Col-->
+                                            <div class="col-lg-12 fv-row">
+                                                <input type="text" name="website"
+                                                       class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                                       placeholder="acme-training.com" value="" />
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Row-->
+                                    </div>
+                                    <!--end::Col-->
+                                </div>
                             </div>
                             <!--end::Card body-->
                             <!--begin::Actions-->

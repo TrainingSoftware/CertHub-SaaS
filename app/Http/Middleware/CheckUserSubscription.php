@@ -17,7 +17,7 @@ class CheckUserSubscription
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() && ! Auth::user()->subscribed()) {
+        if (Auth::user() && ! Auth::user()->companies()->first()->subscribed('default')) {
             return redirect('/payments?plan=standard');
         }
 

@@ -16,10 +16,10 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+            $table->bigInteger('company_id')->unsigned()->index();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->bigInteger('employee_id')->unsigned()->index();
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');;
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->string('title')->nullable();
             $table->string('firstname');
             $table->string('lastname');

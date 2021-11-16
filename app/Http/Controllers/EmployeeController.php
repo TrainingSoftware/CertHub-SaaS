@@ -21,13 +21,13 @@ class EmployeeController extends Controller
 
     public function index(Request $request)
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         $search = $request->input('q');
 
         // get employees that belong to authenticated user
-        $employees = Employee::where('user_id', '=', $user->id)
+        $employees = Employee::where('company_id', '=', $company->id)
             //->where('firstname','like','%'.$search.'%')
             //->orWhere('lastname','like','%'.$search.'%')
             //->orWhere('email','like','%'.$search.'%')
@@ -55,6 +55,9 @@ class EmployeeController extends Controller
 
     public function store(Request $request)
     {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
         // get current logged in user
         $user = Auth::user();
 
@@ -67,7 +70,7 @@ class EmployeeController extends Controller
         ]);
 
         // create employee with validated data
-        $employee = $user->employees()->create($storeData);
+        $employee = $company->employees()->create($storeData);
 
         // log the provider on successful creation
         if ($employee){

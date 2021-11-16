@@ -15,9 +15,9 @@ class EmployeeExport implements FromCollection, headings
     public function collection()
     {
         // get current logged in user
-        $user = Auth::user();
+        $company = Auth::user()->companies()->first();
 
-        $employees = $user->employees;
+        $employees = $company->employees;
 
         return $employees;
     }

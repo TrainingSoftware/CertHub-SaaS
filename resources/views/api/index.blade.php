@@ -128,7 +128,7 @@
                                 </p>
                                 <!--end::Description-->
                                 <!--begin::Action-->
-                                <a href="/settings/personal-access-tokens" class="btn btn-primary">Create Token</a>
+                                <a href="/settings/personal-access-tokens/create" class="btn btn-primary">Create Token</a>
                                 <!--end::Action-->
                             </div>
                             <!--end::Wrapper-->

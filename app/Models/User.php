@@ -46,43 +46,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function company()
+    public function companies()
     {
-        return $this->hasOne(Company::class);
+        return $this->belongsToMany(
+            Company::class,
+            'companies_users',
+            'user_id',
+            'company_id');
     }
 
-    public function plan()
-    {
-        return $this->hasOne(Plan::class);
-    }
-
-    public function departments()
-    {
-        return $this->hasMany(Department::class);
-    }
-
-    public function employees()
-    {
-        return $this->hasMany(Employee::class);
-    }
-
-    public function providers()
-    {
-        return $this->hasMany(Provider::class);
-    }
-
-    public function qualifications()
-    {
-        return $this->hasMany(Qualification::class);
-    }
-
-    public function qualificationtypes()
-    {
-        return $this->hasMany(QualificationType::class);
-    }
-
-    public function uploads()
-    {
-        return $this->hasMany(Upload::class);
-    }
 }

@@ -65,7 +65,7 @@
                     <!--begin::Content-->
                     <div id="kt_account_profile_details">
                         <!--begin::Form-->
-                        <form class="form" method="POST" action="/users">
+                        <form class="form" method="POST" action="/settings/users">
                         @csrf
                         <!--begin::Card body-->
                             <div class="card-body border-top p-9">

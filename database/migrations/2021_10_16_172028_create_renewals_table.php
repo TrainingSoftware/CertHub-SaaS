@@ -16,8 +16,8 @@ class CreateRenewalsTable extends Migration
         Schema::create('renewals', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->bigInteger('user_id')->unsigned()->index();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigInteger('company_id')->unsigned()->index();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->bigInteger('qualification_id')->unsigned()->index();
             $table->foreign('qualification_id')->references('id')->on('qualifications');
             $table->bigInteger('qualificationtype_id')->unsigned()->index();

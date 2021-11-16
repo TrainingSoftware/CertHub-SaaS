@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'View Provider')
+@section('title', $provider->name)
 @section('content')
     <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
         <!--begin::Toolbar-->
@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/settings/providers" class="text-muted text-hover-primary">
+                            <a href="/providers" class="text-muted text-hover-primary">
                                 Providers
                             </a>
                         </li>
@@ -46,11 +46,13 @@
             <!--end::Container-->
         </div>
         <!--end::Toolbar-->
+
         <!--begin::Post-->
         <div class="post d-flex flex-column-fluid" id="kt_post">
             <!--begin::Container-->
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Navbar-->
+            @include('partials.providers.header')
             <!--end::Navbar-->
                 <!--begin::details View-->
                 <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
@@ -58,11 +60,11 @@
                     <div class="card-header cursor-pointer">
                         <!--begin::Card title-->
                         <div class="card-title m-0">
-                            <h3 class="fw-bolder m-0">{{ $provider->name }} Details</h3>
+                            <h3 class="fw-bolder m-0">Provider Details</h3>
                         </div>
                         <!--end::Card title-->
                         <!--begin::Action-->
-                        <a href="/settings/providers/{{ $provider->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Provider</a>
+                        <a href="/providers/{{ $provider->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Provider</a>
                         <!--end::Action-->
                     </div>
                     <!--begin::Card header-->
@@ -81,18 +83,68 @@
                         </div>
                         <!--end::Row-->
                         <!--begin::Row-->
+                        <!--begin::Input group-->
                         <div class="row mb-7">
                             <!--begin::Label-->
-                            <label class="col-lg-4 fw-bold text-muted">Description</label>
+                            <label class="col-lg-4 fw-bold text-muted">Address</label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
-                                @if($provider->body)
-                                    <span class="fw-bolder fs-6 text-gray-800">{{ $provider->body }}</span>
+                                @if($provider->line_1)
+                                    <span class="fw-bolder fs-6 text-gray-800">
+                                        @if($provider->line_1)
+                                            {{ $provider->line_1 }},
+                                        @endif
+                                        @if($provider->line_2)
+                                            {{ $provider->line_2 }},
+                                        @endif
+                                        @if($provider->town)
+                                            {{ $provider->town }},
+                                        @endif
+                                        @if($provider->county)
+                                            {{ $provider->county }},
+                                        @endif
+                                        @if($provider->postcode)
+                                            {{ $provider->postcode }}
+                                        @endif
+                                        @if($provider->country)
+                                            {{ $provider->country }}
+                                        @endif
+                                    </span>
                                 @else
-                                    <span class="fw-bold text-gray-500 fs-6">No provider description available</span>
+                                    <span class="fw-bolder fs-6 text-gray-500">No address information available</span>
                                 @endif
-
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Row-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-bold text-muted">Website</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8">
+                                @if($provider->website)
+                                    <span class="fw-bolder fs-6 text-gray-800">{{ $provider->website }}</span>
+                                @else
+                                    <span class="fw-bolder fs-6 text-gray-500">No website available</span>
+                                @endif
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Row-->
+                        <div class="row mb-7">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-bold text-muted">Company Reg</label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8">
+                                @if($provider->company_reg)
+                                    <span class="fw-bolder fs-6 text-gray-800">{{ $provider->company_reg }}</span>
+                                @else
+                                    <span class="fw-bolder fs-6 text-gray-500">No company registration available</span>
+                                @endif
                             </div>
                             <!--end::Col-->
                         </div>

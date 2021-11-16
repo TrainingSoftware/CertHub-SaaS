@@ -21,8 +21,8 @@ class QualificationType extends Model
         return QualificationTypeFactory::new();
     }
 
-    public function user()
+    public function company()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Company::class);
     }
 }

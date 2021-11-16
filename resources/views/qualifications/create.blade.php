@@ -111,7 +111,16 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8">
-                                    {!! Form::select('provider_id', $providers, null, ['class' => 'form-control form-control-lg form-select form-select-solid mb-3 mb-lg-0', 'placeholder' => 'Select provider']) !!}
+                                    @if(request()->query("provider"))
+                                        <div class="input-group">
+                                            <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 disbled" type="text" value="{{ $providers[0]['name'] }}" disabled>
+                                            <span class="input-group-text border-0" id="basic-addon1">
+                                                <a href="/qualifications/create">Clear</a>
+                                            </span>
+                                        </div>
+                                    @else
+                                        {!! Form::select('provider_id', $providers, null, ['class' => 'form-control form-control-lg form-select form-select-solid mb-3 mb-lg-0', 'placeholder' => 'Select provider']) !!}
+                                    @endif
                                 </div>
                                 <!--end::Col-->
                             </div>

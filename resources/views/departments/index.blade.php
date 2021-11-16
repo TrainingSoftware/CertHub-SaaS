@@ -40,7 +40,7 @@
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Card-->
                 <div class="card">
-                    @if(Auth::user()->departments->count() != 0 )
+                    @if(Auth::user()->companies->first()->departments->count() != 0 )
                     <!--begin::Card header-->
                     <div class="card-header border-0 pt-6">
                         <!--begin::Card title-->
@@ -83,7 +83,7 @@
                     </div>
                     @endif
                     <!--end::Card header-->
-                    @if(Auth::user()->departments->count() == 0 )
+                    @if(Auth::user()->companies->first()->departments->count() == 0 )
                     <div class="card-body p-0">
                         <!--begin::Wrapper-->
                         <div class="card-px text-center py-20 my-10">

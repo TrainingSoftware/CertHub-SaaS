@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyPolicy
 {
@@ -30,7 +31,7 @@ class CompanyPolicy
      */
     public function view(User $user, Company $company)
     {
-        return $user->id === $company->user->id;
+        return $user->companies()->first()->id === $company->id;
     }
 
     /**
@@ -53,7 +54,7 @@ class CompanyPolicy
      */
     public function update(User $user, Company $company)
     {
-        return $user->id === $company->user->id;
+        return $user->companies()->first()->id === $company->id;
     }
 
     /**

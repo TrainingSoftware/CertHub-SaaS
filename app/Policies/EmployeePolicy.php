@@ -31,7 +31,7 @@ class EmployeePolicy
      */
     public function view(User $user, Employee $employee)
     {
-        return $user->id === $employee->user->id;
+        return $user->companies()->first()->id === $employee->company->id;
     }
 
     /**
@@ -54,7 +54,7 @@ class EmployeePolicy
      */
     public function update(User $user, Employee $employee)
     {
-        return $user->id === $employee->user->id;
+        return $user->companies()->first()->id === $employee->company->id;
     }
 
     /**
@@ -66,7 +66,7 @@ class EmployeePolicy
      */
     public function delete(User $user, Employee $employee)
     {
-        return $user->id === $employee->user_id;
+        return $user->companies()->first()->id === $employee->company->id;
     }
 
     /**

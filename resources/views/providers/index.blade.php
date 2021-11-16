@@ -40,7 +40,7 @@
             <div id="kt_content_container" class="container-xxl">
                 <!--begin::Card-->
                 <div class="card">
-                    @if(Auth::user()->providers->count() != 0 )
+                    @if(Auth::user()->companies->first()->providers->count() != 0 )
                     <!--begin::Card header-->
                     <div class="card-header border-0 pt-6">
                         <!--begin::Card title-->
@@ -65,7 +65,7 @@
                             <!--begin::Toolbar-->
                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                 <!--begin::Add user-->
-                                <a href="/settings/providers/create" class="btn btn-primary">
+                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProvider">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                     <span class="svg-icon svg-icon-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -75,7 +75,87 @@
                                     </span>
                                     <!--end::Svg Icon-->Add Provider
                                 </a>
-                                <!--end::Add user-->
+                                <!--begin::Modal - Select Users-->
+                                <div class="modal fade" id="addProvider" tabindex="-1" aria-hidden="true">
+                                    <!--begin::Modal dialog-->
+                                    <div class="modal-dialog mw-700px">
+                                        <!--begin::Modal content-->
+                                        <div class="modal-content">
+                                            <!--begin::Modal header-->
+                                            <div class="modal-header pb-0 border-0 d-flex justify-content-end">
+                                                <!--begin::Close-->
+                                                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                                                    <span class="svg-icon svg-icon-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                    <!--end::Svg Icon-->
+                                                </div>
+                                                <!--end::Close-->
+                                            </div>
+                                            <!--end::Modal header-->
+                                            <!--begin::Modal body-->
+                                            <div class="modal-body scroll-y mx-5 mx-xl-10 pt-0 pb-15">
+                                                <!--begin::Heading-->
+                                                <div class="text-center mb-13">
+                                                    <!--begin::Title-->
+                                                    <h1 class="d-flex justify-content-center align-items-center mb-3">Add a training provider</h1>
+                                                    <!--end::Title-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fw-bold fs-5">How do you want to add your training provider to CertHub?
+                                                        <a href="#" class="link-primary fw-bolder">FAQ Page</a>.
+                                                    </div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <!--end::Heading-->
+                                                <!--begin::Users-->
+                                                <div class="mh-475px text-center">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <a href="/providers/create" class="btn btn-primary w-100">Add manually</a>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <button
+                                                                class="btn btn-primary w-100 collapsed"
+                                                                type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#searchCompany"
+                                                                aria-expanded="false"
+                                                                aria-controls="kt_accordion_1_body_1"
+                                                            >
+                                                                Import from Companies House
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="searchCompany"
+                                                         class="accordion-collapse collapse">
+                                                            <div class="row mt-10">
+                                                                <div class="col-12">
+                                                                <div class="accordion-body">
+                                                                    <form action="/import-provider" method="get">
+                                                                        @csrf
+                                                                        <div class="form-group">
+                                                                            {!! Form::text('query', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Enter company registration number...']) !!}
+                                                                        </div>
+                                                                        <button type="submit">Find Company</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Users-->
+                                            </div>
+                                            <!--end::Modal Body-->
+                                        </div>
+                                        <!--end::Modal content-->
+                                    </div>
+                                    <!--end::Modal dialog-->
+                                </div>
+                                <!--end::Modal - Select Users-->
                             </div>
                             <!--end::Toolbar-->
                         </div>
@@ -83,7 +163,7 @@
                     </div>
                     @endif
                     <!--end::Card header-->
-                    @if(Auth::user()->providers->count() == 0 )
+                    @if(Auth::user()->companies->first()->providers->count() == 0 )
                         <div class="card-body p-0">
                             <!--begin::Wrapper-->
                             <div class="card-px text-center py-20 my-10">
@@ -96,13 +176,13 @@
                                 </p>
                                 <!--end::Description-->
                                 <!--begin::Action-->
-                                <a href="/settings/providers/create" class="btn btn-primary">Add Provider</a>
+                                <a href="/providers/create" class="btn btn-primary">Add Provider</a>
                                 <!--end::Action-->
                             </div>
                             <!--end::Wrapper-->
                             <!--begin::Illustration-->
                             <div class="text-center px-4">
-                                <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/sigma-1/2.png" />
+                                <img class="mw-100 mh-300px" alt="" src="/assets/media/illustrations/sigma-1/2.png" />
                             </div>
                             <!--end::Illustration-->
                         </div>
@@ -142,9 +222,20 @@
                                     <!--end::Checkbox-->
                                     <!--begin::User=-->
                                     <td class="d-flex align-items-center">
+                                        <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                                            <a href="/providers/{{ $item->id }}">
+                                                <div class="symbol-label">
+                                                    @if($item->website)
+                                                        <img src="//logo.clearbit.com/{{ $item->website }}" class="w-100">
+                                                    @else
+                                                        <img src="/assets/media/avatars/blank.png" class="w-100" />
+                                                    @endif
+                                                </div>
+                                            </a>
+                                        </div>
                                         <!--begin::User details-->
                                         <div class="d-flex flex-column">
-                                            <a href="/settings/providers/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">{{ $item->name }}</a>
+                                            <a href="/providers/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">{{ $item->name }}</a>
                                         </div>
                                         <!--begin::User details-->
                                     </td>
@@ -152,9 +243,6 @@
                                     <!--begin::Role=-->
                                     <td>{{ $item->phone }}</td>
                                     <!--end::Role=-->
-                                    <!--begin::Two step=-->
-                                    <td></td>
-                                    <!--end::Two step=-->
                                     <!--begin::Joined-->
                                     <td>{{ $item->email }}</td>
                                     <!--begin::Joined-->
@@ -174,7 +262,7 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="/settings/providers/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
+                                                <a href="/providers/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->

@@ -25,7 +25,7 @@ class PaymentController extends Controller
             ->orWhere('identifier', 'basic')
             ->first();
 
-        $request->user()->newSubscription('default', $plan->stripe_id)->create($request->token);
+        $request->user()->companies()->first()->newSubscription('default', $plan->stripe_id)->create($request->token);
 
         return redirect('/home');
     }

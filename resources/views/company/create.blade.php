@@ -229,8 +229,8 @@
                                         <div class="col">
                                             <!--begin::Option-->
                                             <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
-                                                <input type="radio" class="btn-check" name="size" value="10-50" />
-                                                <span class="fw-bolder fs-3">10-50</span>
+                                                <input type="radio" class="btn-check" name="size" value="11-50" />
+                                                <span class="fw-bolder fs-3">11-50</span>
                                             </label>
                                             <!--end::Option-->
                                         </div>

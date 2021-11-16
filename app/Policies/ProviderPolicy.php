@@ -30,7 +30,7 @@ class ProviderPolicy
      */
     public function view(User $user, Provider $provider)
     {
-        return $user->id === $provider->user->id;
+        return $user->companies()->first()->id === $provider->company->id;
     }
 
     /**
@@ -53,7 +53,7 @@ class ProviderPolicy
      */
     public function update(User $user, Provider $provider)
     {
-        return $user->id === $provider->user->id;
+        return $user->companies()->first()->id === $provider->company->id;
     }
 
     /**
@@ -65,7 +65,7 @@ class ProviderPolicy
      */
     public function delete(User $user, Provider $provider)
     {
-        return $user->id === $provider->user->id;
+        return $user->companies()->first()->id === $provider->company->id;
     }
 
     /**

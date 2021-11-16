@@ -17,11 +17,11 @@ class ContactController extends Controller
 
     public function index()
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->company;
 
         // get contacts that belong to authenticated user
-        $contacts = $user->contacts;
+        $contacts = $company->contacts;
 
         return view('contacts.index', compact('contacts'));
     }
@@ -45,6 +45,9 @@ class ContactController extends Controller
 
     public function store(Request $request)
     {
+        // get current company
+        $company = Auth::user()->company;
+
         // get current logged in user
         $user = Auth::user();
 
@@ -57,7 +60,7 @@ class ContactController extends Controller
         ]);
 
         // create contact with validated data
-        $contact = $user->contacts()->create($storeData);
+        $contact = $company->contacts()->create($storeData);
 
         // log the contact on successful creation
         if ($contact){
@@ -101,6 +104,9 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
+        // get current company
+        $company = Auth::user()->company;
+
         // get current logged in user
         $user = Auth::user();
 
@@ -108,7 +114,7 @@ class ContactController extends Controller
         $contact = Contact::findOrFail($id);
 
         // get employees
-        $employees = Employee::where('user_id', '=', $user->id)
+        $employees = Employee::where('company_id', '=', $company->id)
             ->pluck('name', 'id');
 
         // define genders

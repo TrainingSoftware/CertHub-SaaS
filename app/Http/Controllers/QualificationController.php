@@ -17,11 +17,14 @@ class QualificationController extends Controller
      */
     public function index()
     {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
         // get current logged in user
         $user = Auth::user();
 
         // get qualifications that belong to authenticated user
-        $qualifications = $user->qualifications;
+        $qualifications = $company->qualifications;
 
         return view('qualifications.index', compact('qualifications'));
     }
@@ -31,23 +34,32 @@ class QualificationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
         // get current logged in user
         $user = Auth::user();
 
         // get employee with concatenated first & last name, id
-        $employees = \App\Models\Employee::where('user_id', '=', $user->id)
+        $employees = \App\Models\Employee::where('company_id', '=', $company->id)
             ->select(DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
             ->pluck('name', 'id');
 
         // get qualification types with name, id
-        $qualificationtypes = \App\Models\QualificationType::where('user_id', '=', $user->id)
+        $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)
         ->pluck('name', 'id');
 
         // get providers with name, id
-        $providers = \App\Models\Provider::where('user_id', '=', $user->id)
-        ->pluck('name', 'id');
+        if ($request->provider){
+            $providers = \App\Models\Provider::where('company_id', '=', $company->id)
+                ->where('id', '=', $request->provider)
+            ->get();
+        } else {
+            $providers = \App\Models\Provider::where('company_id', '=', $company->id)
+                ->pluck('name', 'id');
+        }
 
         return view('qualifications.create', compact('employees', 'qualificationtypes', 'providers'));
     }
@@ -60,6 +72,9 @@ class QualificationController extends Controller
      */
     public function store(Request $request)
     {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
         // get current logged in user
         $user = Auth::user();
 
@@ -74,7 +89,7 @@ class QualificationController extends Controller
         ]);
 
         // create qualifications with validated data
-        $qualification = $user->qualifications()->create($storeData);
+        $qualification = $company->qualifications()->create($storeData);
 
         // log the qualification on successful creation
         if ($qualification){
@@ -119,6 +134,9 @@ class QualificationController extends Controller
      */
     public function edit($id)
     {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
         // get current logged in user
         $user = Auth::user();
 
@@ -126,16 +144,16 @@ class QualificationController extends Controller
         $qualification = Qualification::findOrFail($id);
 
         // get providers with name, id
-        $providers = \App\Models\Provider::where('user_id', '=', $user->id)
+        $providers = \App\Models\Provider::where('company_id', '=', $company->id)
             ->pluck('name', 'id');
 
         // get employee with concatenated first & last name, id
-        $employees = \App\Models\Employee::where('user_id', '=', $user->id)
+        $employees = \App\Models\Employee::where('company_id', '=', $company->id)
             ->select(DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
             ->pluck('name', 'id');
 
         // get qualification types with name, id
-        $qualificationtypes = \App\Models\QualificationType::where('user_id', '=', $user->id)
+        $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)
             ->pluck('name', 'id');
 
         if ($user->can('update', $qualification)) {

@@ -34,8 +34,8 @@ class ReportController extends Controller
 
     public function thisMonth()
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         // get the dates
         $thisMonth = Carbon::now();
@@ -43,19 +43,19 @@ class ReportController extends Controller
         $endOfMonth = Carbon::now()->endOfMonth();
 
         // get qualifications expiring in current month
-        $qualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', now()->month)
             ->whereYear('expiry_date', now()->year)
             ->get();
 
         // sum qualifications expiring in current month
-        $qualificationsPrice = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', now()->month)
             ->whereYear('expiry_date', now()->year)
             ->sum('price');
 
         // Count qualifications expiring in current month
-        $qualificationsCount = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsCount = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', now()->month)
             ->whereYear('expiry_date', now()->year)
             ->count();
@@ -73,8 +73,8 @@ class ReportController extends Controller
 
     public function nextMonth()
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         // get the dates
         $nextMonth = Carbon::now()->addMonth();
@@ -82,19 +82,19 @@ class ReportController extends Controller
         $endOfMonth = Carbon::now()->addMonth()->endOfMonth();
 
         // get qualifications expiring next month
-        $qualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', $nextMonth->month)
             ->whereYear('expiry_date', $nextMonth->year)
             ->get();
 
         // sum qualifications expiring next month
-        $qualificationsPrice = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', $nextMonth->month)
             ->whereYear('expiry_date', $nextMonth->year)
             ->sum('price');
 
         // count qualifications expiring next month
-        $qualificationsCount = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsCount = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', $nextMonth->month)
             ->whereYear('expiry_date', $nextMonth->year)
             ->count();
@@ -112,25 +112,25 @@ class ReportController extends Controller
 
     public function thisQuarter()
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         // get the dates
         $start = Carbon::now()->startOfMonth();
         $end = Carbon::now()->endOfMonth()->addMonths(2);
 
         // get qualifications expiring this quarter
-        $qualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->get();
 
         // sum qualifications expiring this quarter
-        $qualificationsPrice = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->sum('price');
 
         // count qualifications expiring this quarter
-        $qualificationsCount = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsCount = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->count();
 
@@ -146,25 +146,25 @@ class ReportController extends Controller
 
     public function nextQuarter()
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         // get the dates
         $start = Carbon::now()->startOfMonth()->addMonths(3);
         $end = Carbon::now()->endOfMonth()->addMonths(5);
 
         // get qualifications expiring next quarter
-        $qualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->get();
 
         // sum qualifications expiring next quarter
-        $qualificationsPrice = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->sum('price');
 
         // count qualifications expiring next quarter
-        $qualificationsCount = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsCount = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->count();
 
@@ -180,25 +180,25 @@ class ReportController extends Controller
 
     public function thisYear()
     {
-        // get current logged in user
-        $user = Auth::user();
+        // get current company
+        $company = Auth::user()->companies()->first();
 
         // get the dates
         $start = Carbon::now()->startOfYear();
         $end = Carbon::now()->endOfYear();
 
         // get qualifications expiring next quarter
-        $qualifications = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->get();
 
         // sum qualifications expiring next quarter
-        $qualificationsPrice = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->sum('price');
 
         // count qualifications expiring next quarter
-        $qualificationsCount = \App\Models\Qualification::where('user_id', '=', $user->id)
+        $qualificationsCount = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->count();
 
