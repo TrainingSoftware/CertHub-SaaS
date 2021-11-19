@@ -27,7 +27,8 @@ class EmployeeController extends Controller
         $search = $request->input('q');
 
         // get employees that belong to authenticated user
-        $employees = Employee::where('company_id', '=', $company->id)
+        $employees = $company->employees()
+            ->where('is_archived', '=', 0)
             //->where('firstname','like','%'.$search.'%')
             //->orWhere('lastname','like','%'.$search.'%')
             //->orWhere('email','like','%'.$search.'%')
@@ -267,7 +268,7 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function files($id)
+    public function files()
     {
         // get current logged in user
         $user = Auth::user();
@@ -286,7 +287,7 @@ class EmployeeController extends Controller
     /**
      * @return \Illuminate\Support\Collection
      */
-    public function importView()
+    public function importLanding()
     {
         return view('employees.import');
     }

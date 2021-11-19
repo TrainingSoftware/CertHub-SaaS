@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'All Employees')
+@section('title', 'Archived Employees')
 @section('content')
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Toolbar-->
@@ -24,7 +24,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-dark">Employees</li>
+                    <li class="breadcrumb-item text-dark">Archived Employees</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -79,71 +79,15 @@
 
                             <!--end::Export Employee-->
                             <!--begin::Add user-->
-                            <a href="#" class="btn btn-sm btn-primary me-5" data-bs-toggle="modal" data-bs-target="#addProvider">
-                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                            <a href="/employees/create" class="btn btn-sm btn-primary bg-success me-5">
                                 <span class="svg-icon svg-icon-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
-                                        </svg>
-                                    </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+                                    </svg>
+                                </span>
                                 Add Employee
                             </a>
-                            <!--begin::Modal - Select Users-->
-                            <div class="modal fade" id="addProvider" tabindex="-1" aria-hidden="true">
-                                <!--begin::Modal dialog-->
-                                <div class="modal-dialog mw-700px">
-                                    <!--begin::Modal content-->
-                                    <div class="modal-content">
-                                        <!--begin::Modal header-->
-                                        <div class="modal-header pb-0 border-0 d-flex justify-content-end">
-                                            <!--begin::Close-->
-                                            <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-                                                <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
-                                                <span class="svg-icon svg-icon-1">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
-                                                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
-                                                        </svg>
-                                                    </span>
-                                                <!--end::Svg Icon-->
-                                            </div>
-                                            <!--end::Close-->
-                                        </div>
-                                        <!--end::Modal header-->
-                                        <!--begin::Modal body-->
-                                        <div class="modal-body scroll-y mx-5 mx-xl-10 pt-0 pb-15">
-                                            <!--begin::Heading-->
-                                            <div class="text-center mb-13">
-                                                <!--begin::Title-->
-                                                <h1 class="d-flex justify-content-center align-items-center mb-3">Add an Employee</h1>
-                                                <!--end::Title-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fw-bold fs-5">How do you want to add your employees to CertHub?
-                                                </div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Heading-->
-                                            <!--begin::Users-->
-                                            <div class="mh-475px text-center">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <a href="/employees/create" class="btn btn-primary w-100">Add manually</a>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <a href="/import/employees" class="btn btn-primary w-100">Bulk Import</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--end::Users-->
-                                        </div>
-                                        <!--end::Modal Body-->
-                                    </div>
-                                    <!--end::Modal content-->
-                                </div>
-                                <!--end::Modal dialog-->
-                            </div>
-                            <!--end::Modal - Select Users-->
                             <div class="me-0">
                                 <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                                     <i class="bi bi-three-dots fs-3"></i>

@@ -16,6 +16,11 @@ class Employee extends Model
         'end_date'
     ];
 
+    protected $casts = [
+        'is_archived' => 'boolean',
+        'is_admin' => 'boolean'
+    ];
+
     protected $fillable = [
         'title',
         'firstname',
@@ -37,7 +42,8 @@ class Employee extends Model
         'salary',
         'employment',
         'department_id',
-        'user_id'
+        'is_archived',
+        'is_admin'
     ];
 
     protected static function newFactory()

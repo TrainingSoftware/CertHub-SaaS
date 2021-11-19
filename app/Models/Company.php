@@ -24,7 +24,8 @@ class Company extends Model
         'email',
         'phone',
         'company_reg',
-        'company_vat'
+        'company_vat',
+        'citb_levy'
     ];
 
     public function plan()

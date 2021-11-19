@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/settings/qualificationtypes" class="text-muted text-hover-primary">
+                            <a href="/qualificationtypes" class="text-muted text-hover-primary">
                                 Qualification Types
                             </a>
                         </li>
@@ -65,7 +65,7 @@
                     <!--begin::Content-->
                     <div id="kt_account_profile_details">
                         <!--begin::Form-->
-                        <form class="form" method="POST" action="/settings/qualificationtypes">
+                        <form class="form" method="POST" action="/qualificationtypes">
                             @csrf
                             <!--begin::Card body-->
                             <div class="card-body border-top p-9">

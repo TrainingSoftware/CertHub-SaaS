@@ -49,11 +49,11 @@
                             <div class="d-flex align-items-center position-relative my-1">
                                 <!--begin::Svg Icon | path: icons/duotune/general/gen021.svg-->
                                 <span class="svg-icon svg-icon-1 position-absolute ms-6">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
-                                    <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
-                                </svg>
-                            </span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <rect opacity="0.5" x="17.0365" y="15.1223" width="8.15546" height="2" rx="1" transform="rotate(45 17.0365 15.1223)" fill="black" />
+                                        <path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
+                                    </svg>
+                                </span>
                                 <!--end::Svg Icon-->
                                 <input type="text" data-kt-user-table-filter="search" class="form-control form-control-solid w-250px ps-14" placeholder="Search providers" />
                             </div>
@@ -65,7 +65,7 @@
                             <!--begin::Toolbar-->
                             <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                 <!--begin::Add user-->
-                                <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProvider">
+                                <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addProvider">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                     <span class="svg-icon svg-icon-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -73,7 +73,7 @@
                                             <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
                                         </svg>
                                     </span>
-                                    <!--end::Svg Icon-->Add Provider
+                                    Add Provider
                                 </a>
                                 <!--begin::Modal - Select Users-->
                                 <div class="modal fade" id="addProvider" tabindex="-1" aria-hidden="true">
@@ -177,7 +177,96 @@
                                 </p>
                                 <!--end::Description-->
                                 <!--begin::Action-->
-                                <a href="/providers/create" class="btn btn-primary">Add Provider</a>
+                                <a href="#" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addProvider">
+                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                                    <span class="svg-icon svg-icon-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+                                        </svg>
+                                    </span>
+                                    Add Provider
+                                </a>
+                                <div class="modal fade" id="addProvider" tabindex="-1" aria-hidden="true">
+                                    <!--begin::Modal dialog-->
+                                    <div class="modal-dialog mw-700px">
+                                        <!--begin::Modal content-->
+                                        <div class="modal-content">
+                                            <!--begin::Modal header-->
+                                            <div class="modal-header pb-0 border-0 d-flex justify-content-end">
+                                                <!--begin::Close-->
+                                                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
+                                                    <span class="svg-icon svg-icon-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                                        </svg>
+                                                    </span>
+                                                    <!--end::Svg Icon-->
+                                                </div>
+                                                <!--end::Close-->
+                                            </div>
+                                            <!--end::Modal header-->
+                                            <!--begin::Modal body-->
+                                            <div class="modal-body scroll-y mx-5 mx-xl-10 pt-0 pb-15">
+                                                <!--begin::Heading-->
+                                                <div class="text-center mb-13">
+                                                    <!--begin::Title-->
+                                                    <h1 class="d-flex justify-content-center align-items-center mb-3">Add a training provider</h1>
+                                                    <!--end::Title-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fw-bold fs-5">How do you want to add your training provider to CertHub?
+                                                    </div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <!--end::Heading-->
+                                                <!--begin::Users-->
+                                                <div class="mh-475px text-center">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <a href="/providers/create" class="btn btn-primary w-100">Add manually</a>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <button
+                                                                class="btn btn-primary w-100 collapsed"
+                                                                type="button"
+                                                                data-bs-toggle="collapse"
+                                                                data-bs-target="#searchCompany"
+                                                                aria-expanded="false"
+                                                                aria-controls="kt_accordion_1_body_1"
+                                                            >
+                                                                Import from Companies House
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="searchCompany" class="accordion-collapse collapse">
+                                                        <div class="row mt-10">
+                                                            <div class="col-12">
+                                                                <div class="accordion-body">
+                                                                    <form action="/import-provider" method="get">
+                                                                        @csrf
+                                                                        <div class="input-group mb-5">
+                                                                            {!! Form::text('query', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Enter company registration number...']) !!}
+                                                                            <span class="input-group-text border-0" id="basic-addon2">
+                                                                                <button class="btn btn-primary bg-success" type="submit">Find Company</button>
+                                                                            </span>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                                <p>Not sure on the Provider's company number? <a href="https://find-and-update.company-information.service.gov.uk" target="_blank">Find it here</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Users-->
+                                            </div>
+                                            <!--end::Modal Body-->
+                                        </div>
+                                        <!--end::Modal content-->
+                                    </div>
+                                    <!--end::Modal dialog-->
+                                </div>
                                 <!--end::Action-->
                             </div>
                             <!--end::Wrapper-->

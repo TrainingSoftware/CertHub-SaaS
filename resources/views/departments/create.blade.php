@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/settings/departments" class="text-muted text-hover-primary">Departments</a>
+                            <a href="/departments" class="text-muted text-hover-primary">Departments</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -63,7 +63,7 @@
                     <!--begin::Content-->
                     <div id="kt_account_profile_details">
                         <!--begin::Form-->
-                        <form class="form" method="POST" action="/settings/departments">
+                        <form class="form" method="POST" action="/departments">
                             @csrf
                             <!--begin::Card body-->
                             <div class="card-body border-top p-9">

@@ -18,6 +18,8 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\EmployeeQualificationPortfolioController;
+use App\Http\Controllers\EmployeeArchiveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,37 +38,53 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
+
     Route::resource('company', CompanyController::class);
+
     Route::group(['middleware' => 'CheckUserCompany'], function () {
+
         Route::group(['namespace' => 'Subscriptions'], function() {
             Route::get('/plans',[SubscriptionController::class, 'index'])->name('plans');
             Route::get('/payments',[PaymentController::class, 'index'])->name('payments');
             Route::post('/payments',[PaymentController::class, 'store'])->name('payments.store');
         });
+
         Route::group(['middleware' => 'CheckUserSubscription'], function(){
+
             Route::get('/home', [DashboardController::class, 'index'])->name('home');
+
             Route::resource('employees', EmployeeController::class);
-            Route::get('/employees/{id}/qualifications',[EmployeeController::class, 'qualifications'])->name('employee-qualifications');
-            Route::get('/employees/{id}/contacts',[EmployeeController::class, 'contacts'])->name('employee-contacts');
-            Route::get('/employees/{id}/files',[EmployeeController::class, 'files'])->name('employee-files');
-            Route::get('/import-employees', [EmployeeController::class, 'importView']);
-            Route::get('/import-employees/export', [EmployeeController::class, 'export'])->name('exportEmployees');
-            Route::post('/import-employees/import', [EmployeeController::class, 'import'])->name('importEmployees');
+            Route::get('/employees/{id}/qualifications',[EmployeeController::class, 'qualifications'])->name('employee.qualifications');
+            Route::get('/employees/{id}/contacts',[EmployeeController::class, 'contacts'])->name('employee.contacts');
+            Route::get('/employees/{id}/files',[EmployeeController::class, 'files'])->name('employee.files');
+            Route::post('/employees/{employee}', [EmployeeArchiveController::class, 'archive']);
+            Route::get('/employees/archived', [EmployeeArchiveController::class, 'archived']);
+            Route::get('/employees/{id}/qualifications/export',[EmployeeQualificationPortfolioController::class, 'generatePortfolio'])->name('employee.portfolio');
+
+            Route::get('/import/employees', [EmployeeController::class, 'importLanding'])->name('employees.landing');
+            Route::get('/import/employees/export', [EmployeeController::class, 'export'])->name('employees.export');
+            Route::post('/import/employees/import', [EmployeeController::class, 'import'])->name('employees.import');
+
+            Route::resource('departments', DepartmentController::class);
+
             Route::resource('qualifications', QualificationController::class);
             Route::post('upload',[UploadController::class, 'uploadQualificationFile'])->name('upload.qualification.file');
             Route::post('qualifications/{qualification}/sendSMS',[SendSMSController::class, 'sendQualificationSMS'])->name('send.sms');
+
+            Route::resource('qualificationtypes', QualificationTypeController::class);
+
             Route::resource('providers', ProviderController::class);
             Route::get('/providers/{id}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
             Route::get('/import-provider', [\App\Http\Controllers\ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
+
             Route::group(['prefix'=>'settings'], function() {
-                Route::resource('departments', DepartmentController::class);
-                Route::resource('qualificationtypes', QualificationTypeController::class);
                 Route::resource('users', UserController::class);
                 Route::get('/personal-access-tokens', [APIController::class, 'index'])->name('api');
                 Route::get('/personal-access-tokens/create', [APIController::class, 'create'])->name('apiCreate');
                 Route::post('/personal-access-tokens/create', [APIController::class, 'store'])->name('apiStore');
                 Route::post('/personal-access-tokens/{id}/destroy', [APIController::class, 'destroy'])->name('apiDestroy');
             });
+
             Route::group(['prefix'=>'reports'], function() {
                 Route::get('', [ReportController::class, 'index']);
                 Route::get('1', [ReportController::class, 'thisMonth']);
@@ -75,13 +93,17 @@ Route::group(['middleware' => 'auth'], function () {
                 Route::get('4', [ReportController::class, 'nextQuarter']);
                 Route::get('5', [ReportController::class, 'thisYear']);
             });
+
             Route::group(['prefix'=>'training'], function() {
                 Route::get('', [TrainingController::class, 'index']);
             });
+
             Route::get('/billing-portal', function (Request $request) {
                 return Auth::user()->redirectToBillingPortal(route('home'));
             });
+
             Route::get('/search', [SearchController::class, 'search']);
+
             Route::get('/portal/{qualification}', [PortalController::class, 'show'] )->name('portal')->middleware('signed');
         });
     });

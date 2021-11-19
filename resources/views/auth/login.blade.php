@@ -28,6 +28,7 @@
                         <!--end::Link-->
                     </div>
                     <!--begin::Heading-->
+                        @include('partials.layout.alert')
                     <!--begin::Input group-->
                     <div class="fv-row mb-10">
                         <!--begin::Label-->

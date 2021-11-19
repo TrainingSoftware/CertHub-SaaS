@@ -24,7 +24,12 @@
                     <div class="d-flex flex-column">
                         <!--begin::Name-->
                         <div class="d-flex align-items-center mb-2">
-                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">{{ $employee->firstname }} {{ $employee->lastname }}</a>
+                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">
+                                {{ $employee->firstname }} {{ $employee->lastname }}
+                            </a>
+                            @if($employee->is_archived = 1)
+                                <span class="badge badge-light-danger">Archived</span>
+                            @endif
                             @if ($employee->end_date || $employee->start_date)
                                 @if ($employee->end_date)
                                 <a href="#" class="btn btn-light-danger fw-bolder ms-2 fs-8 py-1 px-3">Terminated</a>
@@ -74,7 +79,33 @@
                     <!--end::User-->
                     <!--begin::Actions-->
                     <div class="d-flex my-4">
-                        <a href="#" class="btn btn-sm btn-success">Add Qualification</a>
+                        <a href="#" class="btn btn-sm btn-success me-5">Add Qualification</a>
+                        <div class="me-0">
+                            <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                <i class="bi bi-three-dots fs-3"></i>
+                            </button>
+                            <!--begin::Menu 3-->
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
+                                <!--begin::Heading-->
+                                <div class="menu-item px-3">
+                                    <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Quick links</div>
+                                </div>
+                                <!--end::Heading-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a href="/employees/{{ $employee->id }}/qualifications/export" class="menu-link px-3">Download Portfolio</a>
+                                </div>
+                                <div class="menu-item px-3">
+                                    <form action="/employees/{{$employee->id}}" method="post">
+                                        @csrf
+                                        <button type="submit" class="menu-link px-3 bg-transparent border-0 bg-hover-light w-100">Archive</button>
+                                    </form>
+                                </div>
+                                <!--end::Menu item-->
+                            </div>
+                            <!--end::Menu 3-->
+                        </div>
+                        <!--end::Menu-->
                     </div>
                     <!--end::Actions-->
                 </div>

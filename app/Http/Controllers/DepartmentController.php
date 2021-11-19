@@ -44,7 +44,7 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         // get current company
-        $company = Auth::user()->company;
+        $company = Auth::user()->companies()->first();
 
         // get current logged in user
         $user = Auth::user();

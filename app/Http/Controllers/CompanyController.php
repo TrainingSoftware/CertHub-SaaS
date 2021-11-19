@@ -105,7 +105,7 @@ class CompanyController extends Controller
             return view('company.show')
                 ->with('company', $company);
         } else {
-            echo 'This employee does not belong to you.';
+            echo 'This company does not belong to you.';
         }
     }
 
@@ -171,7 +171,7 @@ class CompanyController extends Controller
             'type' => 'required', 'string',
             'size' => 'required', 'string',
             'phone' => '',
-            'email' => 'email',
+            'email' => 'nullable', 'email',
             'line_1' => 'required', 'string',
             'line_2' => 'required', 'string',
             'town' => 'required', 'string',
@@ -180,6 +180,7 @@ class CompanyController extends Controller
             'country' => 'required', 'string',
             'company_reg' => '',
             'company_vat' => '',
+            'citb_levy' => 'required'
         ]);
 
         // find employee and update with validated data

@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/settings/qualificationtypes" class="text-muted text-hover-primary">
+                            <a href="/qualificationtypes" class="text-muted text-hover-primary">
                                 Qualification Types
                             </a>
                         </li>
@@ -62,7 +62,7 @@
                         </div>
                         <!--end::Card title-->
                         <!--begin::Action-->
-                        <a href="/settings/qualificationtypes/{{ $qualificationtype->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Qualification Type</a>
+                        <a href="/qualificationtypes/{{ $qualificationtype->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Qualification Type</a>
                         <!--end::Action-->
                     </div>
                     <!--begin::Card header-->

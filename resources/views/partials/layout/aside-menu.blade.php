@@ -55,17 +55,17 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="/employees/vaxtrax">
+                            <a class="menu-link" href="/departments">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">VaxTrax</span>
+                                <span class="menu-title">Departments</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('qualifications*')) ? 'hover show' : '' }}">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('qualification*')) ? 'hover show' : '' }} ">
                     <span class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
@@ -89,6 +89,7 @@
                                 <span class="menu-title">View All</span>
                             </a>
                         </div>
+                        @if(Auth::user()->companies()->first()->qualifications()->count() != 0)
                         <div class="menu-item">
                             <a class="menu-link" href="/qualifications/create">
                                 <span class="menu-bullet">
@@ -97,11 +98,20 @@
                                 <span class="menu-title">Create New</span>
                             </a>
                         </div>
+                        @endif
+                        <div class="menu-item">
+                            <a class="menu-link" href="/qualificationtypes">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Qualification Types</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="menu-item">
-                    <a class="menu-link" href="/training">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('training*')) ? 'hover show' : '' }}">
+                    <span class="menu-link">
                         <span class="menu-icon">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr001.svg-->
                             <span class="svg-icon svg-icon-5">
@@ -113,7 +123,34 @@
                             <!--end::Svg Icon-->
                         </span>
                         <span class="menu-title">Training</span>
-                    </a>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion {{ (request()->is('training*')) ? 'show' : '' }}">
+                        <div class="menu-item">
+                            <a class="menu-link" href="/training/cpd">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">CPD</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="/training/commercial">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Commercial</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="/training/nvqs">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">NVQs</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="menu-item {{ (request()->is('providers')) ? 'hover show' : '' }}">
@@ -166,36 +203,19 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion {{ (request()->is('settings*')) ? 'show' : '' }}">
                         <div class="menu-item">
-                            <a class="menu-link" href="/settings/departments">
+                            <a class="menu-link" href="/settings/users">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Departments</span>
+                                <span class="menu-title">Users</span>
                             </a>
                         </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="/settings/qualificationtypes">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Qualification Types</span>
-                            </a>
-                        </div>
-
                         <div class="menu-item">
                             <a class="menu-link" href="/settings/personal-access-tokens">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">API</span>
-                            </a>
-                        </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="/settings/users">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Users</span>
                             </a>
                         </div>
                     </div>

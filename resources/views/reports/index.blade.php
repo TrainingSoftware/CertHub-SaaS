@@ -108,6 +108,26 @@
                                     <!--begin::Joined-->
                                 </tr>
                                 <!--end::Table row-->
+                                <tr>
+                                    <td rowspan="1">Departments</td>
+                                    <!--begin::Two step=-->
+                                    <td class="p-0"><a href="/reports/#">Annual Training Spend by Department</a></td>
+                                    <!--end::Two step=-->
+                                    <!--begin::Joined-->
+                                    <td>Shows training spend split by Department</td>
+                                    <!--begin::Joined-->
+                                </tr>
+                                <!--end::Table row-->
+                                <tr>
+                                    <td rowspan="1">Providers</td>
+                                    <!--begin::Two step=-->
+                                    <td class="p-0"><a href="/reports/#">Annual Training Spend by Provider</a></td>
+                                    <!--end::Two step=-->
+                                    <!--begin::Joined-->
+                                    <td>Shows training spend split by Provider</td>
+                                    <!--begin::Joined-->
+                                </tr>
+                                <!--end::Table row-->
                             </tbody>
                             <!--end::Table body-->
                         </table>

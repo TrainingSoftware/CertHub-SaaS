@@ -36,6 +36,8 @@ class CreateEmployeesTable extends Migration
             $table->date('end_date')->nullable();
             $table->integer('salary')->nullable();
             $table->string('employment')->nullable();
+            $table->boolean('is_archived')->default(0);
+            $table->boolean('is_admin')->default(0);
             $table->integer('department_id')->references('id')->on('departments')->nullable();
             $table->timestamps();
         });

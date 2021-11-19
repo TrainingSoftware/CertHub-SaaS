@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/settings/qualificationtypes" class="text-muted text-hover-primary">
+                            <a href="/qualificationtypes" class="text-muted text-hover-primary">
                                 Qualification Types
                             </a>
                         </li>

@@ -223,7 +223,8 @@
                         <!--begin::Input group-->
                         <div class="row mb-20 d-flex h-100">
                             <!--begin::Label-->
-                            <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
+                            <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
+                                <span class="required">Legal Details</span></label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
@@ -248,6 +249,30 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                     {{ Form::text('company_vat', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+                                    <!--end::Input-->
+                                    </div>
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Col-->
+                        </div>
+                        <!--end::Input group-->
+                        <div class="row mb-20 d-flex h-100">
+                            <!--begin::Label-->
+                            <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
+                                <span class="required">CITB Levy Payer</span>
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Col-->
+                            <div class="col-lg-8">
+                                <!--begin::Row-->
+                                <!--begin::Input group-->
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <!--begin::Input-->
+                                        <label class="form-check form-switch form-check-custom form-check-solid">
+                                            {{ Form::checkbox('citb_levy', 0, false) }}
+                                        </label>
                                     <!--end::Input-->
                                     </div>
                                 </div>

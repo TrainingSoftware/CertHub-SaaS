@@ -27,7 +27,6 @@
 	<!--end::Head-->
 	<!--begin::Body-->
 	<body id="kt_body">
-
     <!--begin::Main-->
 		<!--begin::Root-->
 		<div class="d-flex flex-column flex-root">
@@ -40,6 +39,27 @@
 					@include('partials.layout.header')
 					<!--end::Header-->
 					<!--begin::Content-->
+                    @if(Auth::user()->email_verified_at === null)
+                        <!--begin::Alert-->
+                            <div class="alert bg-danger mx-12 mt-10 mb-0">
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-column pe-0 pe-sm-10">
+                                    <!--begin::Title-->
+                                    <h4 class="fw-bold text-white">IMPORTANT</h4>
+                                    <!--end::Title-->
+                                    <!--begin::Content-->
+                                    <span class="text-white">Please verify your email address.
+                                        <form method="POST" action="/email/verification-notification" class="d-inline">
+                                            @csrf
+                                            <button class="btn btn-link d-inline-flex text-white fw-bolder">Resend?</button>
+                                        </form>
+                                    </span>
+                                    <!--end::Content-->
+                                </div>
+                                <!--end::Wrapper-->
+                            </div>
+                            <!--end::Alert-->
+                    @endif
                     @yield('content')
 					<!--end::Content-->
                     <!--begin::Footer-->

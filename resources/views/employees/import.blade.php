@@ -46,23 +46,37 @@
                             <!--begin::Wrapper-->
                             <div class="card-px text-center py-20 my-10">
                                 <!--begin::Title-->
-                                <h2 class="fs-2x fw-bolder mb-10">Bulk import your Employees!</h2>
+                                <h2 class="fs-2x fw-bolder mb-5">Bulk import your Employees!</h2>
+                                <div class="text-muted fw-bold fs-5 mb-5">
+                                    How do you want to add your training provider to CertHub?
+                                </div>
                                 <!--end::Title-->
                                 <!--begin::Description-->
-                                <form action="{{ route('importEmployees') }}" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="file" name="file" class="form-control">
-                                    <button type="submit">Upload</button>
-                                </form>
+                                <div class="row">
+                                    <div class="col-md-6 offset-md-3">
+                                        <form action="/import/employees" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="input-group mb-5">
+                                                <input type="file" name="file" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0">
+                                                <span class="input-group-text border-0" id="basic-addon2">
+                                                    <button class="btn btn-sm btn-primary bg-success" type="submit">Upload</button>
+                                                </span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                                 <!--end::Description-->
                                 <!--begin::Action-->
-                                <a class="btn btn-warning" href="{{ route('exportEmployees') }}">Export User Data</a>
+                                <div class="text-muted fw-bold fs-5 mb-5">
+                                    <a class="text-primary" href="/import/employees/export">Export Employees</a>
+                                </div>
+
                                 <!--end::Action-->
                             </div>
                             <!--end::Wrapper-->
                             <!--begin::Illustration-->
                             <div class="text-center px-4">
-                                <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/sigma-1/2.png" />
+                                <img class="mw-100 mh-300px" alt="" src="/assets/media/illustrations/sigma-1/2.png" />
                             </div>
                             <!--end::Illustration-->
                         </div>

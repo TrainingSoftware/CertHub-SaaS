@@ -28,6 +28,7 @@ class CreateCompaniesTable extends Migration
             $table->string('phone')->nullable();
             $table->string('company_reg')->nullable();
             $table->string('company_vat')->nullable();
+            $table->boolean('citb_levy')->default(0);
             $table->timestamps();
         });
     }

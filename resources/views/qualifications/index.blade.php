@@ -71,12 +71,12 @@
                                 <a href="/qualifications/create" class="btn btn-primary">
                                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                                     <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
-                                    </svg>
-                                </span>
-                                    <!--end::Svg Icon-->Add Qualification
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
+                                        </svg>
+                                    </span>
+                                    Add Qualification
                                 </a>
                                 <!--end::Add user-->
                             </div>
@@ -111,7 +111,7 @@
                                     @endif
                                     @if(Auth::user()->companies->first()->providers->count() == 0)
                                         <li class="h4 mb-4">
-                                            <a href="/settings/providers/create">Add your first Provider</a>
+                                            <a href="/providers/create">Add your first Provider</a>
                                         </li>
                                     @else
                                         <li class="text-success h4 mb-4">
@@ -120,7 +120,7 @@
                                     @endif
                                     @if(Auth::user()->companies->first()->qualificationtypes->count() == 0)
                                         <li class="h4 mb-4">
-                                            <a href="/settings/qualificationtypes/create">Add your first Qualification Type</a>
+                                            <a href="/qualificationtypes/create">Add your first Qualification Type</a>
                                         </li>
                                     @else
                                         <li class="text-success h4 mb-4">

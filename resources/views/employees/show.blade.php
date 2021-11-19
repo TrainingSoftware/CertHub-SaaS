@@ -24,7 +24,9 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Employees</li>
+                    <li class="breadcrumb-item text-muted">
+                        <a href="/employees" class="text-muted text-hover-primary">Employees</a>
+                    </li>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
@@ -55,7 +57,9 @@
                 <div class="card-header cursor-pointer">
                     <!--begin::Card title-->
                     <div class="card-title m-0">
-                        <h3 class="fw-bolder m-0">{{ $employee->firstname }}'s Details</h3>
+                        <h3 class="fw-bolder m-0">
+                            {{ $employee->firstname }}'s Details
+                        </h3>
                     </div>
                     <!--end::Card title-->
                     <!--begin::Action-->
