@@ -128,30 +128,6 @@
                 @endif
                 <!--end::Card header-->
                 <!--begin::Card body-->
-                @if(Auth::user()->companies()->first()->employees->count() == 0 )
-                    <div class="card-body p-0">
-                        <!--begin::Wrapper-->
-                        <div class="card-px text-center py-20 my-10">
-                            <!--begin::Title-->
-                            <h2 class="fs-2x fw-bolder mb-10">Add Your First Employee!</h2>
-                            <!--end::Title-->
-                            <!--begin::Description-->
-                            <p class="text-gray-400 fs-4 fw-bold mb-10">
-                                It looks like you have not added any employees yet...
-                            </p>
-                            <!--end::Description-->
-                            <!--begin::Action-->
-                            <a href="/employees/create" class="btn btn-primary">Add Employee</a>
-                            <!--end::Action-->
-                        </div>
-                        <!--end::Wrapper-->
-                        <!--begin::Illustration-->
-                        <div class="text-center px-4">
-                            <img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/sigma-1/2.png" />
-                        </div>
-                        <!--end::Illustration-->
-                    </div>
-                @else
                     <div class="card-body pt-0">
                     <!--begin::Table-->
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
@@ -237,12 +213,10 @@
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="/employees/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                                                <form action="/employees/{{ $item->id }}/unarchive" method="post">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-link">Unarchive</button>
+                                                </form>
                                             </div>
                                             <!--end::Menu item-->
                                         </div>
@@ -259,7 +233,6 @@
                         {{ $employees->links() }}
                 </div>
                 <!--end::Card body-->
-                @endif
             </div>
             <!--end::Card-->
         </div>

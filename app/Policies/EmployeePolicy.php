@@ -32,6 +32,7 @@ class EmployeePolicy
     public function view(User $user, Employee $employee)
     {
         return $user->companies()->first()->id === $employee->company->id;
+
     }
 
     /**

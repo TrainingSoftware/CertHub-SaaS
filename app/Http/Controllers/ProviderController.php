@@ -88,13 +88,10 @@ class ProviderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Provider $provider)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load provider
-        $provider = Provider::find($id);
 
         if ($user->can('view', $provider)) {
             return view('providers.show')
@@ -110,13 +107,10 @@ class ProviderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Provider $provider)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load provider
-        $provider = Provider::findOrFail($id);
 
         if ($user->can('update', $provider)) {
             return view('providers.edit', compact('provider'));
@@ -132,7 +126,7 @@ class ProviderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Provider $provider)
     {
         // get current logged in user
         $user = Auth::user();
@@ -154,9 +148,6 @@ class ProviderController extends Controller
             'company_reg' => 'nullable'
         ]);
 
-        // find provider
-        $provider = Provider::findOrFail($id);
-
         // update provider with validated data
         $provider->update($updateData);
 
@@ -176,11 +167,8 @@ class ProviderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Provider $provider)
     {
-        // find provider
-        $provider = Provider::findOrFail($id);
-
         // delete provider
         $provider->delete();
 
@@ -194,16 +182,13 @@ class ProviderController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function qualifications($id)
+    public function qualifications(Provider $provider)
     {
         // get the company
         $company = Auth::user()->companies()->first();
 
         // get current logged in user
         $user = Auth::user();
-
-        // load provider
-        $provider = Provider::find($id);
 
         $qualifications = Qualification::where('company_id', '=', $company->id)
             ->where('provider_id', '=', $provider->id)

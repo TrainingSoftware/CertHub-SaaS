@@ -4,13 +4,18 @@ namespace App\Models;
 
 use Database\Factories\EmployeeFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use App\Policies\EmployeePolicy;
-use App\Models\Department;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use \LaravelArchivable\Archivable;
 
-class Employee extends Model
+class Employee extends Authenticatable
 {
+    use Notifiable, Archivable;
+
+    protected $guard = 'employee';
+
     use HasFactory;
+
     protected $dates = [
         'start_date',
         'end_date'
@@ -43,12 +48,38 @@ class Employee extends Model
         'employment',
         'department_id',
         'is_archived',
-        'is_admin'
+        'password'
+    ];
+
+    protected $hidden = [
+        'password', 'remember_token',
     ];
 
     protected static function newFactory()
     {
         return EmployeeFactory::new();
+    }
+
+    /**
+     * Get the employees's first name.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getFirstNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    /**
+     * Get the employees's last name.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getLastNameAttribute($value)
+    {
+        return ucfirst($value);
     }
 
     public function contacts()

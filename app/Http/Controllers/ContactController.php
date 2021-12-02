@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Department;
 use App\Models\Employee;
 use Illuminate\Http\Request;
@@ -80,13 +81,10 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Contact $contact)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load employee
-        $contact = Contact::find($id);
 
         if ($user->can('view', $contact)) {
             return view('contacts.show')
@@ -102,16 +100,13 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Contact $contact)
     {
         // get current company
         $company = Auth::user()->company;
 
         // get current logged in user
         $user = Auth::user();
-
-        // load contact
-        $contact = Contact::findOrFail($id);
 
         // get employees
         $employees = Employee::where('company_id', '=', $company->id)
@@ -139,7 +134,7 @@ class ContactController extends Controller
      * @param  \App\Models\Employee  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Contact $contact)
     {
         // get current logged in user
         $user = Auth::user();
@@ -162,9 +157,6 @@ class ContactController extends Controller
             'relation' => 'string|nullable',
         ]);
 
-        // find contact
-        $contact = Contact::findOrFail($id);
-
         // update contact with validated data
         $contact->update($updateData);
 
@@ -184,11 +176,8 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Contact $contact)
     {
-        // find employee
-        $contact = Contact::findOrFail($id);
-
         // delete employee
         $contact->delete();
 

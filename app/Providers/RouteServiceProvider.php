@@ -49,6 +49,17 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
+
+    /**
+     * Define the routes for the application.
+     *
+     * @return void
+     */
+    public function map()
+    {
+        $this->mapPortalRoutes();
+    }
+
     /**
      * Configure the rate limiters for the application.
      *

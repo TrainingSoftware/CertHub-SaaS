@@ -20,6 +20,7 @@ use App\Http\Controllers\APIController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\EmployeeQualificationPortfolioController;
 use App\Http\Controllers\EmployeeArchiveController;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,12 +55,13 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
             Route::resource('employees', EmployeeController::class);
-            Route::get('/employees/{id}/qualifications',[EmployeeController::class, 'qualifications'])->name('employee.qualifications');
-            Route::get('/employees/{id}/contacts',[EmployeeController::class, 'contacts'])->name('employee.contacts');
-            Route::get('/employees/{id}/files',[EmployeeController::class, 'files'])->name('employee.files');
-            Route::post('/employees/{employee}', [EmployeeArchiveController::class, 'archive']);
-            Route::get('/employees/archived', [EmployeeArchiveController::class, 'archived']);
-            Route::get('/employees/{id}/qualifications/export',[EmployeeQualificationPortfolioController::class, 'generatePortfolio'])->name('employee.portfolio');
+            Route::get('/employees/{employee}/qualifications', [EmployeeController::class, 'qualifications'])->name('employee.qualifications');
+            Route::get('/employees/{employee}/contacts', [EmployeeController::class, 'contacts'])->name('employee.contacts');
+            Route::get('/employees/{employee}/files', [EmployeeController::class, 'files'])->name('employee.files');
+            Route::get('/archived', [EmployeeArchiveController::class, 'archived'])->name('employee.archive.index');
+            Route::post('/employees/{employee}', [EmployeeArchiveController::class, 'archive'])->name('employees.archive');
+            Route::post('/employees/{employee}', [EmployeeArchiveController::class, 'unarchive'])->name('employees.unarchive');;
+            Route::get('/employees/{employee}/qualifications/export', [EmployeeQualificationPortfolioController::class, 'generatePortfolio'])->name('employee.portfolio');
 
             Route::get('/import/employees', [EmployeeController::class, 'importLanding'])->name('employees.landing');
             Route::get('/import/employees/export', [EmployeeController::class, 'export'])->name('employees.export');
@@ -74,7 +76,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('qualificationtypes', QualificationTypeController::class);
 
             Route::resource('providers', ProviderController::class);
-            Route::get('/providers/{id}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
+            Route::get('/providers/{provider}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
             Route::get('/import-provider', [\App\Http\Controllers\ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
 
             Route::group(['prefix'=>'settings'], function() {
@@ -99,13 +101,30 @@ Route::group(['middleware' => 'auth'], function () {
             });
 
             Route::get('/billing-portal', function (Request $request) {
-                return Auth::user()->redirectToBillingPortal(route('home'));
+                return Auth::user()->companies()->first()->redirectToBillingPortal(route('home'));
             });
 
             Route::get('/search', [SearchController::class, 'search']);
 
-            Route::get('/portal/{qualification}', [PortalController::class, 'show'] )->name('portal')->middleware('signed');
+            //Route::get('/portal/{qualification}', [PortalController::class, 'show'] )->name('portal')->middleware('signed');
         });
     });
+});
 
+Route::prefix('portal')->name('portal.')->group(function() {
+    Route::view('/login', 'portal/login')->name('login');
+
+    $limiter = config('fortify.limiters.login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+        ->middleware(array_filter([
+            'guest:'.config('fortify.guard'),
+            $limiter ? 'throttle:'.$limiter : null,
+        ]));
+
+    Route::view('/home', 'portal/portal')->name('home');
+    Route::view('/qualifications', 'portal/qualifications/index')->name('qualifications');
+    Route::view('/qualifications/{id}', 'portal/qualifications/show')->name('qualification');
+    Route::view('/training', 'portal/training')->name('training');
+    Route::view('/files', 'portal/files/index')->name('files');
+    Route::view('/files/{id}', 'portal/file/show')->name('file');
 });

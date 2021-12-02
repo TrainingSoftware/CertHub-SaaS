@@ -12,11 +12,8 @@ class PortalController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Qualification $qualification)
     {
-        // load qualification
-        $qualification = Qualification::find($id);
-
         return view('portal')
             ->with('qualification', $qualification);
     }

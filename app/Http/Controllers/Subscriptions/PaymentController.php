@@ -10,7 +10,7 @@ class PaymentController extends Controller
 {
     public function index() {
         $data = [
-            'intent' => auth()->user()->createSetupIntent()
+            'intent' => auth()->user()->companies()->first()->createSetupIntent()
         ];
 
         return view('subscriptions.payment')->with($data);

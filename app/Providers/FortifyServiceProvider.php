@@ -21,7 +21,9 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if(request()->is('portal/*')){
+            config()->set('fortify.guard', 'portal');
+        }
     }
 
     /**

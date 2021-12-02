@@ -15,12 +15,10 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('company_id')->unsigned()->index();
-            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->string('title')->nullable();
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('email')->nullable();
+            $table->string('email')->unique()->nullable();
             $table->string('phone')->nullable();
             $table->string('position')->nullable();
             $table->date('dob')->nullable();
@@ -36,10 +34,13 @@ class CreateEmployeesTable extends Migration
             $table->date('end_date')->nullable();
             $table->integer('salary')->nullable();
             $table->string('employment')->nullable();
-            $table->boolean('is_archived')->default(0);
-            $table->boolean('is_admin')->default(0);
-            $table->integer('department_id')->references('id')->on('departments')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
+            $table->archivedAt();
+            $table->bigInteger('company_id')->unsigned()->index();
+            $table->integer('department_id')->references('id')->on('departments')->nullable();
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 

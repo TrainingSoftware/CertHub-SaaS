@@ -28,9 +28,9 @@ class QualificationTypePolicy
      * @param  \App\Models\QualificationType  $qualificationType
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, QualificationType $qualificationtype)
+    public function view(User $user, QualificationType $qualificationType)
     {
-        return $user->companies()->first()->id === $qualificationtype->company->id;
+        return $user->companies()->first()->id === $qualificationType->company->id;
     }
 
     /**
@@ -51,9 +51,9 @@ class QualificationTypePolicy
      * @param  \App\Models\QualificationType  $qualificationType
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, QualificationType $qualificationtype)
+    public function update(User $user, QualificationType $qualificationType)
     {
-        return $user->companies()->first()->id === $qualificationtype->company->id;
+        return $user->companies()->first()->id === $qualificationType->company->id;
     }
 
     /**
@@ -65,7 +65,7 @@ class QualificationTypePolicy
      */
     public function delete(User $user, QualificationType $qualificationtype)
     {
-        return $user->companies()->first()->id === $qualificationtype->company->id;
+        return $user->companies()->first()->id === $qualificationType->company->id;
     }
 
     /**

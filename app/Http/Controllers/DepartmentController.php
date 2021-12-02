@@ -76,13 +76,10 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Department $department)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load department
-        $department = Department::find($id);
 
         if ($user->can('view', $department)) {
             return view('departments.show')
@@ -99,13 +96,10 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Department $department)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load department
-        $department = Department::findOrFail($id);
 
         if ($user->can('update', $department)) {
             return view('departments.edit', compact('department'));
@@ -121,7 +115,7 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Department $department)
     {
         // get current logged in user
         $user = Auth::user();
@@ -131,9 +125,6 @@ class DepartmentController extends Controller
             'name' => 'required',
             'body' => 'nullable'
         ]);
-
-        // find department
-        $department = Department::findOrFail($id);
 
         // update department with validated data
         $department->update($updateData);
@@ -154,13 +145,10 @@ class DepartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Department $department)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // find department
-        $department = Department::findOrFail($id);
 
         // delete department
         $department->delete();

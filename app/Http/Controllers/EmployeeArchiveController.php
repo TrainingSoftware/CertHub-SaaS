@@ -10,10 +10,15 @@ class EmployeeArchiveController extends Controller
 {
     public function archive(Request $request, Employee $employee)
     {
-        $employee->update([
-            'is_archived' => 1
-        ]);
-        return redirect()->refresh()
+        $employee->archive();
+        return redirect('/employees')
+            ->with('success', 'Employee has been successfully archived');
+    }
+
+    public function unarchive(Request $request, Employee $employee)
+    {
+        $employee->unArchive();
+        return redirect('/employees/'. $employee->id)
             ->with('success', 'Employee has been successfully archived');
     }
 
@@ -22,16 +27,10 @@ class EmployeeArchiveController extends Controller
         // get current company
         $company = Auth::user()->companies()->first();
 
-        $search = $request->input('q');
-
-        // get employees that belong to authenticated user
-        $employees = $company->employees()
-            ->where('is_archived', '=', 1)
-            //->where('firstname','like','%'.$search.'%')
-            //->orWhere('lastname','like','%'.$search.'%')
-            //->orWhere('email','like','%'.$search.'%')
+        // get employees that are archived and belong to authenticated user
+        $employees = $company->employees()->onlyArchived()
             ->paginate(10);
 
-        return view('employees.archived', compact('employees'));
+        return view('employees.archive', compact('employees'));
     }
 }

@@ -8,11 +8,10 @@ use PDF;
 
 class EmployeeQualificationPortfolioController extends Controller
 {
-    public function generatePortfolio($id)
+    public function generatePortfolio(Employee $employee)
     {
-        $employee = Employee::findOrFail($id);
-
         view()->share('employee',$employee);
+
         $pdf = PDF::loadView('employees.portfolio', $employee);
 
         return $pdf->download($employee->firstname . '_' . $employee->lastname . '_CertHub_Portfolio.pdf');

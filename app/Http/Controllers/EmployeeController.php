@@ -8,8 +8,10 @@ use App\Models\Qualification;
 use Illuminate\Http\Request;
 use App\Exports\EmployeeExport;
 use App\Imports\EmployeeImport;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class EmployeeController extends Controller
 {
@@ -28,7 +30,6 @@ class EmployeeController extends Controller
 
         // get employees that belong to authenticated user
         $employees = $company->employees()
-            ->where('is_archived', '=', 0)
             //->where('firstname','like','%'.$search.'%')
             //->orWhere('lastname','like','%'.$search.'%')
             //->orWhere('email','like','%'.$search.'%')
@@ -71,7 +72,9 @@ class EmployeeController extends Controller
         ]);
 
         // create employee with validated data
-        $employee = $company->employees()->create($storeData);
+        $employee = $company->employees()->create(array_merge($storeData, [
+            'password' => Hash::make(Str::random(40))
+        ]));
 
         // log the provider on successful creation
         if ($employee){
@@ -91,13 +94,10 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Employee $employee)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load employee
-        $employee = Employee::find($id);
 
         if ($user->can('view', $employee)) {
             return view('employees.show')
@@ -113,13 +113,10 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Employee $employee)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load employee
-        $employee = Employee::findOrFail($id);
 
         // get departments
         $departments = Department::pluck('name', 'id');
@@ -154,7 +151,7 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Employee $employee)
     {
         // get current logged in user
         $user = Auth::user();
@@ -182,9 +179,6 @@ class EmployeeController extends Controller
             'department_id' => 'exists:departments,id|int',
         ]);
 
-        // find employee
-        $employee = Employee::findOrFail($id);
-
         // update department with validated data
         $employee->update($updateData);
 
@@ -204,11 +198,8 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Employee $employee)
     {
-        // find employee
-        $employee = Employee::findOrFail($id);
-
         // delete employee
         $employee->delete();
 
@@ -222,13 +213,10 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function qualifications($id)
+    public function qualifications(Employee $employee)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load employee
-        $employee = Employee::find($id);
 
         if ($user->can('view', $employee)) {
             return view('employees.qualifications')
@@ -245,13 +233,10 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function contacts($id)
+    public function contacts(Employee $employee)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load employee
-        $employee = Employee::find($id);
 
         if ($user->can('view', $employee)) {
             return view('employees.contacts')
@@ -268,13 +253,10 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function files()
+    public function files(Employee $employee)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load employee
-        $employee = Employee::find($id);
 
         if ($user->can('view', $employee)) {
             return view('employees.files')

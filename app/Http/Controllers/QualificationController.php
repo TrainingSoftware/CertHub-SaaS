@@ -39,9 +39,6 @@ class QualificationController extends Controller
         // get current company
         $company = Auth::user()->companies()->first();
 
-        // get current logged in user
-        $user = Auth::user();
-
         // get employee with concatenated first & last name, id
         $employees = \App\Models\Employee::where('company_id', '=', $company->id)
             ->select(DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
@@ -109,13 +106,10 @@ class QualificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Qualification $qualification)
     {
         // get current logged in user
         $user = Auth::user();
-
-        // load qualification
-        $qualification = Qualification::find($id);
 
         if ($user->can('view', $qualification)) {
             return view('qualifications.show')
@@ -132,16 +126,13 @@ class QualificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Qualification $qualification)
     {
         // get current company
         $company = Auth::user()->companies()->first();
 
         // get current logged in user
         $user = Auth::user();
-
-        // load qualification
-        $qualification = Qualification::findOrFail($id);
 
         // get providers with name, id
         $providers = \App\Models\Provider::where('company_id', '=', $company->id)
@@ -170,7 +161,7 @@ class QualificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Qualification $qualification)
     {
         // get current logged in user
         $user = Auth::user();
@@ -185,9 +176,6 @@ class QualificationController extends Controller
             'slug' => 'string',
             'price' => 'numeric',
         ]);
-
-        // find qualification
-        $qualification = Qualification::findOrFail($id);
 
         // update qualification with validated data
         if(!$qualification->expiry_date->isPast()){
@@ -210,11 +198,8 @@ class QualificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Qualification $qualification)
     {
-        // find employee
-        $qualification = Qualification::findOrFail($id);
-
         // delete employee
         $qualification->delete();
 

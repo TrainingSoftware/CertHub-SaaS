@@ -27,17 +27,11 @@
                             <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">
                                 {{ $employee->firstname }} {{ $employee->lastname }}
                             </a>
-                            @if($employee->is_archived = 1)
+                            @if($employee->is_archived === true)
                                 <span class="badge badge-light-danger">Archived</span>
+                            @else
+                                <span class="badge badge-light-success">Active</span>
                             @endif
-                            @if ($employee->end_date || $employee->start_date)
-                                @if ($employee->end_date)
-                                <a href="#" class="btn btn-light-danger fw-bolder ms-2 fs-8 py-1 px-3">Terminated</a>
-                                @else
-                                <a href="#" class="btn btn-light-success fw-bolder ms-2 fs-8 py-1 px-3">Employed</a>
-                                @endif
-                            @endif
-
                         </div>
                         <!--end::Name-->
                         <!--begin::Info-->
