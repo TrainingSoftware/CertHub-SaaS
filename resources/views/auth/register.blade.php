@@ -23,7 +23,7 @@
                         <h1 class="text-dark mb-3">Register for CertHub</h1>
                         <!--end::Title-->
                         <!--begin::Link-->
-                        <div class="text-gray-400 fw-bold fs-4">New Here?
+                        <div class="text-gray-400 fw-bold fs-4">Already have an account?
                         <a href="/login" class="link-primary fw-bolder">Login</a></div>
                         <!--end::Link-->
                     </div>
@@ -32,20 +32,20 @@
                     <!--begin::Input group-->
                     <div class="fv-row mb-10">
                         <!--begin::Label-->
-                        <label class="form-label fs-6 fw-bolder text-dark">Name</label>
+                        <label class="form-label fs-6 fw-bolder text-dark">Your name</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input class="form-control form-control-lg form-control-solid" type="text" name="name" autocomplete="off" />
+                        <input class="form-control form-control-lg form-control-solid" type="text" name="name" value="{{ old('name') }}" autocomplete="off" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->
                     <!--begin::Input group-->
                     <div class="fv-row mb-10">
                         <!--begin::Label-->
-                        <label class="form-label fs-6 fw-bolder text-dark">Email</label>
+                        <label class="form-label fs-6 fw-bolder text-dark">Your email</label>
                         <!--end::Label-->
                         <!--begin::Input-->
-                        <input class="form-control form-control-lg form-control-solid" type="email" name="email" autocomplete="off" />
+                        <input class="form-control form-control-lg form-control-solid" type="email" name="email" value="{{ old('email') }}" autocomplete="off" />
                         <!--end::Input-->
                     </div>
                     <!--end::Input group-->
@@ -54,7 +54,7 @@
                         <!--begin::Wrapper-->
                         <div class="mb-1">
                             <!--begin::Label-->
-                            <label class="form-label fw-bolder text-dark fs-6">Password</label>
+                            <label class="form-label fw-bolder text-dark fs-6">Create a password</label>
                             <!--end::Label-->
                             <!--begin::Input wrapper-->
                             <div class="position-relative mb-3">
@@ -76,13 +76,13 @@
                         </div>
                         <!--end::Wrapper-->
                         <!--begin::Hint-->
-                        <div class="text-muted">Use 8 or more characters with a mix of letters, numbers &amp; symbols.</div>
+                        <div class="text-muted"><i><strong>Tip</strong>: Use 8 or more characters with a mix of letters, numbers &amp; symbols.</i></div>
                         <!--end::Hint-->
                     </div>
                     <!--end::Input group=-->
                     <!--begin::Input group=-->
                     <div class="fv-row mb-10">
-                        <label class="form-label fw-bolder text-dark fs-6">Confirm Password</label>
+                        <label class="form-label fw-bolder text-dark fs-6">Confirm your password</label>
                         <input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="password_confirmation" autocomplete="off" />
                     </div>
                     <!--end::Input group=-->
@@ -90,26 +90,8 @@
                     <div class="text-center">
                         <!--begin::Submit button-->
                         <button type="submit" {{-- id="kt_sign_in_submit" --}} class="btn btn-lg btn-primary w-100 mb-5"> Continue
-                            {{-- <span class="indicator-label">Continue</span>
-                            <span class="indicator-progress">Please wait...
-                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> --}}
                         </button>
                         <!--end::Submit button-->
-                        {{-- <!--begin::Separator-->
-                        <div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
-                        <!--end::Separator-->
-                        <!--begin::Google link-->
-                        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-                        <img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Continue with Google</a>
-                        <!--end::Google link-->
-                        <!--begin::Google link-->
-                        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
-                        <img alt="Logo" src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-3" />Continue with Facebook</a>
-                        <!--end::Google link-->
-                        <!--begin::Google link-->
-                        <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100">
-                        <img alt="Logo" src="assets/media/svg/brand-logos/apple-black.svg" class="h-20px me-3" />Continue with Apple</a>
-                        <!--end::Google link--> --}}
                     </div>
                     <!--end::Actions-->
                 </form>
@@ -122,9 +104,8 @@
         <div class="d-flex flex-center flex-column-auto p-10">
             <!--begin::Links-->
             <div class="d-flex align-items-center fw-bold fs-6">
-                <a href="#" class="text-muted text-hover-primary px-2">About</a>
-                <a href="#" class="text-muted text-hover-primary px-2">Contact</a>
-                <a href="#" class="text-muted text-hover-primary px-2">Contact Us</a>
+                <a href="https://certhub.co/about" target="_blank" class="text-muted text-hover-primary px-2">About</a>
+                <a href="https://certhub.co/contact" target="_blank" class="text-muted text-hover-primary px-2">Contact Us</a>
             </div>
             <!--end::Links-->
         </div>

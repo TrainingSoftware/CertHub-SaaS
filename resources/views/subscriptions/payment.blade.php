@@ -13,8 +13,62 @@
                     <!--begin::Header-->
                     <div class="d-flex flex-row-fluid flex-column flex-center p-10 pt-lg-20">
                         <!--begin::Logo-->
-                        <a href="../../demo10/dist/index.html" class="mb-10 mb-lg-20">
-                            <img alt="Logo" src="/assets/media/logos/logo-1.svg" class="h-40px" />
+                        <a href="/" class="mb-10 mb-lg-20">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="text/ecmascript" width="200" zoomAndPan="magnify" contentStyleType="text/css" viewBox="0 0 375 149.999998" preserveAspectRatio="xMidYMid meet" version="1.0">
+                            <defs>
+                                <g>
+                                    <g id="glyph-0-0"/>
+                                    <g id="glyph-0-1">
+                                        <path d="M 10.765625 -7.421875 C 5.347656 -12.679688 2.640625 -19.351562 2.640625 -27.4375 C 2.640625 -35.53125 5.347656 -42.207031 10.765625 -47.46875 C 16.179688 -52.738281 22.804688 -55.375 30.640625 -55.375 C 36.703125 -55.375 42.09375 -53.765625 46.8125 -50.546875 C 51.53125 -47.328125 54.820312 -42.867188 56.6875 -37.171875 L 40.828125 -37.171875 C 38.753906 -41.160156 35.4375 -43.15625 30.875 -43.15625 C 26.3125 -43.15625 22.71875 -41.726562 20.09375 -38.875 C 17.476562 -36.03125 16.171875 -32.222656 16.171875 -27.453125 C 16.171875 -22.679688 17.476562 -18.867188 20.09375 -16.015625 C 22.71875 -13.171875 26.3125 -11.75 30.875 -11.75 C 35.4375 -11.75 38.753906 -13.742188 40.828125 -17.734375 L 56.6875 -17.734375 C 54.820312 -12.023438 51.53125 -7.5625 46.8125 -4.34375 C 42.09375 -1.132812 36.703125 0.46875 30.640625 0.46875 C 22.804688 0.46875 16.179688 -2.160156 10.765625 -7.421875 Z M 10.765625 -7.421875 "/>
+                                    </g>
+                                    <g id="glyph-0-2">
+                                        <path d="M 24.265625 0.546875 C 17.941406 0.546875 12.753906 -1.488281 8.703125 -5.5625 C 4.660156 -9.632812 2.640625 -15.039062 2.640625 -21.78125 C 2.640625 -28.519531 4.648438 -33.882812 8.671875 -37.875 C 12.691406 -41.863281 17.890625 -43.859375 24.265625 -43.859375 C 30.640625 -43.859375 35.925781 -41.890625 40.125 -37.953125 C 44.320312 -34.015625 46.421875 -28.546875 46.421875 -21.546875 C 46.421875 -20.035156 46.316406 -18.632812 46.109375 -17.34375 L 16.25 -17.34375 C 16.507812 -15.425781 17.363281 -13.859375 18.8125 -12.640625 C 20.269531 -11.421875 21.835938 -10.8125 23.515625 -10.8125 C 25.203125 -10.8125 26.460938 -10.976562 27.296875 -11.3125 C 28.128906 -11.65625 28.738281 -11.992188 29.125 -12.328125 C 29.507812 -12.660156 30.015625 -13.21875 30.640625 -14 L 45.03125 -14 C 43.78125 -9.644531 41.289062 -6.128906 37.5625 -3.453125 C 33.832031 -0.785156 29.398438 0.546875 24.265625 0.546875 Z M 32.578125 -25.65625 C 32.367188 -27.6875 31.488281 -29.332031 29.9375 -30.59375 C 28.382812 -31.863281 26.546875 -32.5 24.421875 -32.5 C 22.296875 -32.5 20.503906 -31.863281 19.046875 -30.59375 C 17.597656 -29.332031 16.691406 -27.6875 16.328125 -25.65625 Z M 32.578125 -25.65625 "/>
+                                    </g>
+                                    <g id="glyph-0-3">
+                                        <path d="M 19.125 -43.390625 L 19.125 -35.3125 C 22.238281 -41.007812 26.390625 -43.859375 31.578125 -43.859375 L 31.578125 -30.328125 L 28.3125 -30.328125 C 25.25 -30.328125 22.953125 -29.597656 21.421875 -28.140625 C 19.890625 -26.691406 19.125 -24.15625 19.125 -20.53125 L 19.125 0 L 5.828125 0 L 5.828125 -43.390625 Z M 19.125 -43.390625 "/>
+                                    </g>
+                                    <g id="glyph-0-4">
+                                        <path d="M 24.265625 -11.28125 L 29 -11.28125 L 29 0 L 22.234375 0 C 17.367188 0 13.597656 -1.070312 10.921875 -3.21875 C 8.253906 -5.375 6.921875 -9.070312 6.921875 -14.3125 L 6.921875 -32.34375 L 2.875 -32.34375 L 2.875 -43.390625 L 6.921875 -43.390625 L 6.921875 -53.96875 L 20.21875 -53.96875 L 20.21875 -43.390625 L 28.921875 -43.390625 L 28.921875 -32.34375 L 20.21875 -32.34375 L 20.21875 -14.3125 C 20.21875 -12.289062 21.566406 -11.28125 24.265625 -11.28125 Z M 24.265625 -11.28125 "/>
+                                    </g>
+                                    <g id="glyph-0-5">
+                                        <path d="M 40.203125 -54.59375 L 53.5 -54.59375 L 53.5 0 L 40.203125 0 L 40.203125 -22.625 L 19.125 -22.625 L 19.125 0 L 5.828125 0 L 5.828125 -54.59375 L 19.125 -54.59375 L 19.125 -32.734375 L 40.203125 -32.734375 Z M 40.203125 -54.59375 "/>
+                                    </g>
+                                    <g id="glyph-0-6">
+                                        <path d="M 35.3125 -43.390625 L 48.609375 -43.390625 L 48.609375 0 L 35.3125 0 L 35.3125 -6.375 C 32.5625 -1.8125 28.175781 0.46875 22.15625 0.46875 C 17.1875 0.46875 13.15625 -1.1875 10.0625 -4.5 C 6.976562 -7.820312 5.4375 -12.335938 5.4375 -18.046875 L 5.4375 -43.390625 L 18.65625 -43.390625 L 18.65625 -19.828125 C 18.65625 -17.023438 19.394531 -14.859375 20.875 -13.328125 C 22.351562 -11.804688 24.390625 -11.046875 26.984375 -11.046875 C 29.578125 -11.046875 31.613281 -11.804688 33.09375 -13.328125 C 34.570312 -14.859375 35.3125 -17.023438 35.3125 -19.828125 Z M 35.3125 -43.390625 "/>
+                                    </g>
+                                    <g id="glyph-0-7">
+                                        <path d="M 35.21875 -13.71875 C 37.144531 -15.5625 38.109375 -18.191406 38.109375 -21.609375 C 38.109375 -25.035156 37.144531 -27.679688 35.21875 -29.546875 C 33.300781 -31.410156 31.097656 -32.34375 28.609375 -32.34375 C 26.128906 -32.34375 23.925781 -31.421875 22 -29.578125 C 20.082031 -27.742188 19.125 -25.113281 19.125 -21.6875 C 19.125 -18.269531 20.082031 -15.628906 22 -13.765625 C 23.925781 -11.898438 26.128906 -10.96875 28.609375 -10.96875 C 31.097656 -10.96875 33.300781 -11.882812 35.21875 -13.71875 Z M 19.125 -37.71875 C 22.082031 -41.8125 26.320312 -43.859375 31.84375 -43.859375 C 37.363281 -43.859375 42.039062 -41.769531 45.875 -37.59375 C 49.71875 -33.425781 51.640625 -28.097656 51.640625 -21.609375 C 51.640625 -15.128906 49.71875 -9.816406 45.875 -5.671875 C 42.039062 -1.523438 37.398438 0.546875 31.953125 0.546875 C 26.515625 0.546875 22.238281 -1.734375 19.125 -6.296875 L 19.125 0 L 5.828125 0 L 5.828125 -57.546875 L 19.125 -57.546875 Z M 19.125 -37.71875 "/>
+                                    </g>
+                                    <g id="glyph-0-8">
+                                        <path d="M 17.265625 -7.265625 C 17.265625 -5.222656 16.5625 -3.5 15.15625 -2.09375 C 13.757812 -0.695312 12.035156 0 9.984375 0 C 7.941406 0 6.21875 -0.695312 4.8125 -2.09375 C 3.414062 -3.5 2.71875 -5.222656 2.71875 -7.265625 C 2.71875 -9.316406 3.414062 -11.039062 4.8125 -12.4375 C 6.21875 -13.84375 7.941406 -14.546875 9.984375 -14.546875 C 12.035156 -14.546875 13.757812 -13.84375 15.15625 -12.4375 C 16.5625 -11.039062 17.265625 -9.316406 17.265625 -7.265625 Z M 17.265625 -7.265625 "/>
+                                    </g>
+                                </g>
+                            </defs>
+                            <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" x="20.21127" y="97.217603" xlink:href="#glyph-0-1" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                            </g>
+                            <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" x="75.733144" y="97.217603" xlink:href="#glyph-0-2" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                            </g>
+                            <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" x="120.990471" y="97.217603" xlink:href="#glyph-0-3" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                            </g>
+                            <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" x="150.073365" y="97.217603" xlink:href="#glyph-0-4" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                            </g>
+                            <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" x="178.456401" y="97.217603" xlink:href="#glyph-0-5" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                            </g>
+                            <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" x="233.900502" y="97.217603" xlink:href="#glyph-0-6" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                            </g>
+                            <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" x="284.445615" y="97.217603" xlink:href="#glyph-0-7" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                            </g>
+                            <g fill="rgb(3.529358%, 41.178894%, 76.469421%)" fill-opacity="1">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" x="334.816023" y="97.217603" xlink:href="#glyph-0-8" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                            </g>
+                        </svg>
                         </a>
                         <!--end::Logo-->
                         <!--begin::Nav-->
@@ -54,8 +108,6 @@
                                 <!--end::Label-->
                             </div>
                             <!--end::Step 2-->
-                        </div>
-                        <div class="stepper-nav min-w-75">
                             <!--begin::Step 3-->
                             <div class="stepper-item current" data-kt-stepper-element="nav">
                                 <!--begin::Line-->
@@ -94,25 +146,6 @@
                                 <!--end::Label-->
                             </div>
                             <!--end::Step 4-->
-                            <!--begin::Step 5-->
-                            <div class="stepper-item" data-kt-stepper-element="nav">
-                                <!--begin::Line-->
-                                <div class="stepper-line w-40px"></div>
-                                <!--end::Line-->
-                                <!--begin::Icon-->
-                                <div class="stepper-icon w-40px h-40px">
-                                    <i class="stepper-check fas fa-check"></i>
-                                    <span class="stepper-number">5</span>
-                                </div>
-                                <!--end::Icon-->
-                                <!--begin::Label-->
-                                <div class="stepper-label">
-                                    <h3 class="stepper-title">Complete Billing</h3>
-                                    <div class="stepper-desc fw-bold">Let's get you started!</div>
-                                </div>
-                                <!--end::Label-->
-                            </div>
-                            <!--end::Step 5-->
                         </div>
                         <!--end::Nav-->
                     </div>
@@ -142,12 +175,7 @@
                                     <div class="pb-10 pb-lg-15">
                                         <!--begin::Title-->
                                         <h2 class="fw-bolder d-flex align-items-center text-dark">Choose Your Plan
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Billing is issued based on your selected account type"></i></h2>
                                         <!--end::Title-->
-                                        <!--begin::Notice-->
-                                        <div class="text-muted fw-bold fs-6">If you need more info, please check out
-                                            <a href="#" class="link-primary fw-bolder">Help Page</a>.</div>
-                                        <!--end::Notice-->
                                     </div>
                                     <!--end::Heading-->
                                     <!--begin::Input group-->
@@ -158,7 +186,7 @@
                                             <div class="col-lg-6">
                                                 <!--begin::Option-->
                                                 <input type="radio" class="btn-check" name="account_type" value="personal" checked="checked" id="kt_create_account_form_account_type_personal" />
-                                                <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10" for="kt_create_account_form_account_type_personal">
+                                                <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10 active" for="kt_create_account_form_account_type_personal">
                                                     <!--begin::Svg Icon | path: icons/duotune/communication/com005.svg-->
                                                     <span class="svg-icon svg-icon-3x me-5">
 															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -169,31 +197,8 @@
                                                     <!--end::Svg Icon-->
                                                     <!--begin::Info-->
                                                     <span class="d-block fw-bold text-start">
-															<span class="text-dark fw-bolder d-block fs-4 mb-2">Monthly</span>
-															<span class="text-muted fw-bold fs-6">This is the best plan for small businesses</span>
-														</span>
-                                                    <!--end::Info-->
-                                                </label>
-                                                <!--end::Option-->
-                                            </div>
-                                            <!--end::Col-->
-                                            <!--begin::Col-->
-                                            <div class="col-lg-6">
-                                                <!--begin::Option-->
-                                                <input type="radio" class="btn-check" name="account_type" value="corporate" id="kt_create_account_form_account_type_corporate" />
-                                                <label class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center" for="kt_create_account_form_account_type_corporate">
-                                                    <!--begin::Svg Icon | path: icons/duotune/finance/fin006.svg-->
-                                                    <span class="svg-icon svg-icon-3x me-5">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-																<path opacity="0.3" d="M20 15H4C2.9 15 2 14.1 2 13V7C2 6.4 2.4 6 3 6H21C21.6 6 22 6.4 22 7V13C22 14.1 21.1 15 20 15ZM13 12H11C10.5 12 10 12.4 10 13V16C10 16.5 10.4 17 11 17H13C13.6 17 14 16.6 14 16V13C14 12.4 13.6 12 13 12Z" fill="black" />
-																<path d="M14 6V5H10V6H8V5C8 3.9 8.9 3 10 3H14C15.1 3 16 3.9 16 5V6H14ZM20 15H14V16C14 16.6 13.5 17 13 17H11C10.5 17 10 16.6 10 16V15H4C3.6 15 3.3 14.9 3 14.7V18C3 19.1 3.9 20 5 20H19C20.1 20 21 19.1 21 18V14.7C20.7 14.9 20.4 15 20 15Z" fill="black" />
-															</svg>
-														</span>
-                                                    <!--end::Svg Icon-->
-                                                    <!--begin::Info-->
-                                                    <span class="d-block fw-bold text-start">
-															<span class="text-dark fw-bolder d-block fs-4 mb-2">Annual</span>
-															<span class="text-muted fw-bold fs-6">Subscribe for 12 months and pay for 10!</span>
+															<span class="text-dark fw-bolder d-block fs-4 mb-2">Free</span>
+															<span class="text-muted fw-bold fs-6">This is the best plan!</span>
 														</span>
                                                     <!--end::Info-->
                                                 </label>
@@ -218,8 +223,7 @@
                                         <h2 class="fw-bolder text-dark">Billing Details</h2>
                                         <!--end::Title-->
                                         <!--begin::Notice-->
-                                        <div class="text-muted fw-bold fs-6">If you need more info, please check out
-                                            <a href="#" class="link-primary fw-bolder">Help Page</a>.</div>
+                                        <div class="text-muted fw-bold fs-6">Don't worry, you wont be charged! We just use your card details to verify you.</div>
                                         <!--end::Notice-->
                                     </div>
                                     <!--end::Heading-->
@@ -227,17 +231,17 @@
                                     <!--begin::Input group-->
                                     <div class="mb-10 fv-row">
                                         <!--begin::Label-->
-                                        <label class="form-label mb-3">Name on Card</label>
+                                        <label class="form-label mb-3 required">Name on Card</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" name="name" id="card-holder-name" class="form-control" value="" placeholder="Name on the card">
+                                        <input type="text" name="name" id="card-holder-name" class="form-control" value="" placeholder="Name on the card " required>
                                         <!--end::Input-->
                                     </div>
                                     <!--end::Input group-->
 
                                     <div class="mb-10 fv-row">
                                         <!--begin::Label-->
-                                        <label class="form-label mb-3">Card Details</label>
+                                        <label class="form-label mb-3 required">Card Details</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <div id="card-element" class="form-control"></div>
@@ -298,9 +302,8 @@
                 <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                     <!--begin::Links-->
                     <div class="d-flex flex-center fw-bold fs-6">
-                        <a href="#" class="text-muted text-hover-primary px-2" target="_blank">About</a>
-                        <a href="#" class="text-muted text-hover-primary px-2" target="_blank">Support</a>
-                        <a href="#" class="text-muted text-hover-primary px-2" target="_blank">Purchase</a>
+                    <a href="https://certhub.co/about" target="_blank" class="text-muted text-hover-primary px-2">About</a>
+                    <a href="https://certhub.co/contact" target="_blank" class="text-muted text-hover-primary px-2">Contact Us</a>
                     </div>
                     <!--end::Links-->
                 </div>

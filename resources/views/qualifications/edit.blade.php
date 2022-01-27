@@ -180,7 +180,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    {!! Form::date('expiry_date', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Select expiry date']) !!}
+                                    {!! Form::text('expiry_date', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Select expiry date']) !!}
                                 </div>
                             </div>
                         </div>

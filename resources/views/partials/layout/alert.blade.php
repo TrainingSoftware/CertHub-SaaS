@@ -3,9 +3,9 @@
         <!--begin::Post-->
         <div class="post d-flex flex-column-fluid">
             <!--begin::Container-->
-            <div id="kt_content_container" class="container-xxl">
+            <div id="kt_content_container" class="container-xxl p-0">
                 <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <strong>Whoops!</strong> There were some issues...<br><br>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>

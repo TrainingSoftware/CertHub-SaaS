@@ -23,7 +23,7 @@ class ProviderFactory extends Factory
     {
         return [
             'name' => $this->faker->company(),
-            'user_id' => 1
+            'company_id' => 1
         ];
     }
 }

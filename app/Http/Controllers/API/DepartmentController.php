@@ -26,7 +26,7 @@ class DepartmentController extends BaseController
         $validator = Validator::make($input, [
             'name' => 'required',
             'body' => '',
-            'user_id' => 'required'
+            'company_id' => 'required'
         ]);
         if ($validator->fails()) {
             return $this->sendError($validator->errors());

@@ -1,7 +1,6 @@
 @extends('layouts.auth')
 @section('title', 'Your Company Details')
 @section('content')
-    @include('partials.layout.alert')
 <div class="d-flex flex-column flex-root">
     <!--begin::Authentication - Multi-steps-->
     <div class="d-flex flex-column flex-lg-row flex-column-fluid stepper stepper-pills stepper-column" id="kt_create_account_stepper">
@@ -13,26 +12,61 @@
                 <div class="d-flex flex-row-fluid flex-column flex-center p-10 pt-lg-20">
                     <!--begin::Logo-->
                     <a href="/" class="mb-10 mb-lg-20">
-                        <h1 class="d-none d-md-inline text-dark pt-2">
-                            <span class="svg-icon svg-icon-muted svg-icon-2hx">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="black"></path>
-                                    <path d="M12.0006 11.1542C13.1434 11.1542 14.0777 10.22 14.0777 9.0771C14.0777 7.93424 13.1434 7 12.0006 7C10.8577 7 9.92348 7.93424 9.92348 9.0771C9.92348 10.22 10.8577 11.1542 12.0006 11.1542Z" fill="black"></path>
-                                    <path d="M15.5652 13.814C15.5108 13.6779 15.4382 13.551 15.3566 13.4331C14.9393 12.8163 14.2954 12.4081 13.5697 12.3083C13.479 12.2993 13.3793 12.3174 13.3067 12.3718C12.9257 12.653 12.4722 12.7981 12.0006 12.7981C11.5289 12.7981 11.0754 12.653 10.6944 12.3718C10.6219 12.3174 10.5221 12.2902 10.4314 12.3083C9.70578 12.4081 9.05272 12.8163 8.64456 13.4331C8.56293 13.551 8.49036 13.687 8.43595 13.814C8.40875 13.8684 8.41781 13.9319 8.44502 13.9864C8.51759 14.1133 8.60828 14.2403 8.68991 14.3492C8.81689 14.5215 8.95295 14.6757 9.10715 14.8208C9.23413 14.9478 9.37925 15.0657 9.52439 15.1836C10.2409 15.7188 11.1026 15.9999 11.9915 15.9999C12.8804 15.9999 13.7421 15.7188 14.4586 15.1836C14.6038 15.0748 14.7489 14.9478 14.8759 14.8208C15.021 14.6757 15.1661 14.5215 15.2931 14.3492C15.3838 14.2312 15.4655 14.1133 15.538 13.9864C15.5833 13.9319 15.5924 13.8684 15.5652 13.814Z" fill="black"></path>
-                                </svg>
-                            </span>
-                            Cert<strong>Hub</strong>
-                        </h1>
-                        <h1 class="d-inline d-md-none text-dark pt-2">
-                            <span class="svg-icon svg-icon-muted svg-icon-2hx">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="black"></path>
-                                    <path d="M12.0006 11.1542C13.1434 11.1542 14.0777 10.22 14.0777 9.0771C14.0777 7.93424 13.1434 7 12.0006 7C10.8577 7 9.92348 7.93424 9.92348 9.0771C9.92348 10.22 10.8577 11.1542 12.0006 11.1542Z" fill="black"></path>
-                                    <path d="M15.5652 13.814C15.5108 13.6779 15.4382 13.551 15.3566 13.4331C14.9393 12.8163 14.2954 12.4081 13.5697 12.3083C13.479 12.2993 13.3793 12.3174 13.3067 12.3718C12.9257 12.653 12.4722 12.7981 12.0006 12.7981C11.5289 12.7981 11.0754 12.653 10.6944 12.3718C10.6219 12.3174 10.5221 12.2902 10.4314 12.3083C9.70578 12.4081 9.05272 12.8163 8.64456 13.4331C8.56293 13.551 8.49036 13.687 8.43595 13.814C8.40875 13.8684 8.41781 13.9319 8.44502 13.9864C8.51759 14.1133 8.60828 14.2403 8.68991 14.3492C8.81689 14.5215 8.95295 14.6757 9.10715 14.8208C9.23413 14.9478 9.37925 15.0657 9.52439 15.1836C10.2409 15.7188 11.1026 15.9999 11.9915 15.9999C12.8804 15.9999 13.7421 15.7188 14.4586 15.1836C14.6038 15.0748 14.7489 14.9478 14.8759 14.8208C15.021 14.6757 15.1661 14.5215 15.2931 14.3492C15.3838 14.2312 15.4655 14.1133 15.538 13.9864C15.5833 13.9319 15.5924 13.8684 15.5652 13.814Z" fill="black"></path>
-                                </svg>
-                            </span>
-                            Cert<strong>Hub</strong>
-                        </h1>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="text/ecmascript" width="200" zoomAndPan="magnify" contentStyleType="text/css" viewBox="0 0 375 149.999998" preserveAspectRatio="xMidYMid meet" version="1.0">
+                        <defs>
+                            <g>
+                                <g id="glyph-0-0"/>
+                                <g id="glyph-0-1">
+                                    <path d="M 10.765625 -7.421875 C 5.347656 -12.679688 2.640625 -19.351562 2.640625 -27.4375 C 2.640625 -35.53125 5.347656 -42.207031 10.765625 -47.46875 C 16.179688 -52.738281 22.804688 -55.375 30.640625 -55.375 C 36.703125 -55.375 42.09375 -53.765625 46.8125 -50.546875 C 51.53125 -47.328125 54.820312 -42.867188 56.6875 -37.171875 L 40.828125 -37.171875 C 38.753906 -41.160156 35.4375 -43.15625 30.875 -43.15625 C 26.3125 -43.15625 22.71875 -41.726562 20.09375 -38.875 C 17.476562 -36.03125 16.171875 -32.222656 16.171875 -27.453125 C 16.171875 -22.679688 17.476562 -18.867188 20.09375 -16.015625 C 22.71875 -13.171875 26.3125 -11.75 30.875 -11.75 C 35.4375 -11.75 38.753906 -13.742188 40.828125 -17.734375 L 56.6875 -17.734375 C 54.820312 -12.023438 51.53125 -7.5625 46.8125 -4.34375 C 42.09375 -1.132812 36.703125 0.46875 30.640625 0.46875 C 22.804688 0.46875 16.179688 -2.160156 10.765625 -7.421875 Z M 10.765625 -7.421875 "/>
+                                </g>
+                                <g id="glyph-0-2">
+                                    <path d="M 24.265625 0.546875 C 17.941406 0.546875 12.753906 -1.488281 8.703125 -5.5625 C 4.660156 -9.632812 2.640625 -15.039062 2.640625 -21.78125 C 2.640625 -28.519531 4.648438 -33.882812 8.671875 -37.875 C 12.691406 -41.863281 17.890625 -43.859375 24.265625 -43.859375 C 30.640625 -43.859375 35.925781 -41.890625 40.125 -37.953125 C 44.320312 -34.015625 46.421875 -28.546875 46.421875 -21.546875 C 46.421875 -20.035156 46.316406 -18.632812 46.109375 -17.34375 L 16.25 -17.34375 C 16.507812 -15.425781 17.363281 -13.859375 18.8125 -12.640625 C 20.269531 -11.421875 21.835938 -10.8125 23.515625 -10.8125 C 25.203125 -10.8125 26.460938 -10.976562 27.296875 -11.3125 C 28.128906 -11.65625 28.738281 -11.992188 29.125 -12.328125 C 29.507812 -12.660156 30.015625 -13.21875 30.640625 -14 L 45.03125 -14 C 43.78125 -9.644531 41.289062 -6.128906 37.5625 -3.453125 C 33.832031 -0.785156 29.398438 0.546875 24.265625 0.546875 Z M 32.578125 -25.65625 C 32.367188 -27.6875 31.488281 -29.332031 29.9375 -30.59375 C 28.382812 -31.863281 26.546875 -32.5 24.421875 -32.5 C 22.296875 -32.5 20.503906 -31.863281 19.046875 -30.59375 C 17.597656 -29.332031 16.691406 -27.6875 16.328125 -25.65625 Z M 32.578125 -25.65625 "/>
+                                </g>
+                                <g id="glyph-0-3">
+                                    <path d="M 19.125 -43.390625 L 19.125 -35.3125 C 22.238281 -41.007812 26.390625 -43.859375 31.578125 -43.859375 L 31.578125 -30.328125 L 28.3125 -30.328125 C 25.25 -30.328125 22.953125 -29.597656 21.421875 -28.140625 C 19.890625 -26.691406 19.125 -24.15625 19.125 -20.53125 L 19.125 0 L 5.828125 0 L 5.828125 -43.390625 Z M 19.125 -43.390625 "/>
+                                </g>
+                                <g id="glyph-0-4">
+                                    <path d="M 24.265625 -11.28125 L 29 -11.28125 L 29 0 L 22.234375 0 C 17.367188 0 13.597656 -1.070312 10.921875 -3.21875 C 8.253906 -5.375 6.921875 -9.070312 6.921875 -14.3125 L 6.921875 -32.34375 L 2.875 -32.34375 L 2.875 -43.390625 L 6.921875 -43.390625 L 6.921875 -53.96875 L 20.21875 -53.96875 L 20.21875 -43.390625 L 28.921875 -43.390625 L 28.921875 -32.34375 L 20.21875 -32.34375 L 20.21875 -14.3125 C 20.21875 -12.289062 21.566406 -11.28125 24.265625 -11.28125 Z M 24.265625 -11.28125 "/>
+                                </g>
+                                <g id="glyph-0-5">
+                                    <path d="M 40.203125 -54.59375 L 53.5 -54.59375 L 53.5 0 L 40.203125 0 L 40.203125 -22.625 L 19.125 -22.625 L 19.125 0 L 5.828125 0 L 5.828125 -54.59375 L 19.125 -54.59375 L 19.125 -32.734375 L 40.203125 -32.734375 Z M 40.203125 -54.59375 "/>
+                                </g>
+                                <g id="glyph-0-6">
+                                    <path d="M 35.3125 -43.390625 L 48.609375 -43.390625 L 48.609375 0 L 35.3125 0 L 35.3125 -6.375 C 32.5625 -1.8125 28.175781 0.46875 22.15625 0.46875 C 17.1875 0.46875 13.15625 -1.1875 10.0625 -4.5 C 6.976562 -7.820312 5.4375 -12.335938 5.4375 -18.046875 L 5.4375 -43.390625 L 18.65625 -43.390625 L 18.65625 -19.828125 C 18.65625 -17.023438 19.394531 -14.859375 20.875 -13.328125 C 22.351562 -11.804688 24.390625 -11.046875 26.984375 -11.046875 C 29.578125 -11.046875 31.613281 -11.804688 33.09375 -13.328125 C 34.570312 -14.859375 35.3125 -17.023438 35.3125 -19.828125 Z M 35.3125 -43.390625 "/>
+                                </g>
+                                <g id="glyph-0-7">
+                                    <path d="M 35.21875 -13.71875 C 37.144531 -15.5625 38.109375 -18.191406 38.109375 -21.609375 C 38.109375 -25.035156 37.144531 -27.679688 35.21875 -29.546875 C 33.300781 -31.410156 31.097656 -32.34375 28.609375 -32.34375 C 26.128906 -32.34375 23.925781 -31.421875 22 -29.578125 C 20.082031 -27.742188 19.125 -25.113281 19.125 -21.6875 C 19.125 -18.269531 20.082031 -15.628906 22 -13.765625 C 23.925781 -11.898438 26.128906 -10.96875 28.609375 -10.96875 C 31.097656 -10.96875 33.300781 -11.882812 35.21875 -13.71875 Z M 19.125 -37.71875 C 22.082031 -41.8125 26.320312 -43.859375 31.84375 -43.859375 C 37.363281 -43.859375 42.039062 -41.769531 45.875 -37.59375 C 49.71875 -33.425781 51.640625 -28.097656 51.640625 -21.609375 C 51.640625 -15.128906 49.71875 -9.816406 45.875 -5.671875 C 42.039062 -1.523438 37.398438 0.546875 31.953125 0.546875 C 26.515625 0.546875 22.238281 -1.734375 19.125 -6.296875 L 19.125 0 L 5.828125 0 L 5.828125 -57.546875 L 19.125 -57.546875 Z M 19.125 -37.71875 "/>
+                                </g>
+                                <g id="glyph-0-8">
+                                    <path d="M 17.265625 -7.265625 C 17.265625 -5.222656 16.5625 -3.5 15.15625 -2.09375 C 13.757812 -0.695312 12.035156 0 9.984375 0 C 7.941406 0 6.21875 -0.695312 4.8125 -2.09375 C 3.414062 -3.5 2.71875 -5.222656 2.71875 -7.265625 C 2.71875 -9.316406 3.414062 -11.039062 4.8125 -12.4375 C 6.21875 -13.84375 7.941406 -14.546875 9.984375 -14.546875 C 12.035156 -14.546875 13.757812 -13.84375 15.15625 -12.4375 C 16.5625 -11.039062 17.265625 -9.316406 17.265625 -7.265625 Z M 17.265625 -7.265625 "/>
+                                </g>
+                            </g>
+                        </defs>
+                        <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" x="20.21127" y="97.217603" xlink:href="#glyph-0-1" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                        </g>
+                        <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" x="75.733144" y="97.217603" xlink:href="#glyph-0-2" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                        </g>
+                        <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" x="120.990471" y="97.217603" xlink:href="#glyph-0-3" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                        </g>
+                        <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" x="150.073365" y="97.217603" xlink:href="#glyph-0-4" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                        </g>
+                        <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" x="178.456401" y="97.217603" xlink:href="#glyph-0-5" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                        </g>
+                        <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" x="233.900502" y="97.217603" xlink:href="#glyph-0-6" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                        </g>
+                        <g fill="rgb(0%, 15.289307%, 27.059937%)" fill-opacity="1">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" x="284.445615" y="97.217603" xlink:href="#glyph-0-7" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                        </g>
+                        <g fill="rgb(3.529358%, 41.178894%, 76.469421%)" fill-opacity="1">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" x="334.816023" y="97.217603" xlink:href="#glyph-0-8" xlink:type="simple" xlink:actuate="onLoad" xlink:show="embed"/>
+                        </g>
+                    </svg>
                     </a>
                     <!--end::Logo-->
                     <!--begin::Nav-->
@@ -113,25 +147,6 @@
                             <!--end::Label-->
                         </div>
                         <!--end::Step 4-->
-                        <!--begin::Step 5-->
-                        <div class="stepper-item">
-                            <!--begin::Line-->
-                            <div class="stepper-line w-40px"></div>
-                            <!--end::Line-->
-                            <!--begin::Icon-->
-                            <div class="stepper-icon w-40px h-40px">
-                                <i class="stepper-check fas fa-check"></i>
-                                <span class="stepper-number">5</span>
-                            </div>
-                            <!--end::Icon-->
-                            <!--begin::Label-->
-                            <div class="stepper-label">
-                                <h3 class="stepper-title">Complete Billing</h3>
-                                <div class="stepper-desc fw-bold">Let's get you started!</div>
-                            </div>
-                            <!--end::Label-->
-                        </div>
-                        <!--end::Step 5-->
                     </div>
                     <!--end::Nav-->
                 </div>
@@ -145,6 +160,7 @@
         <!--begin::Aside-->
         <!--begin::Body-->
         <div class="d-flex flex-column flex-lg-row-fluid py-10">
+            @include('partials.layout.alert')
             <!--begin::Content-->
             <div class="d-flex flex-center flex-column flex-column-fluid">
                 <!--begin::Wrapper-->
@@ -162,7 +178,7 @@
                                     <h2 class="fw-bolder text-dark">Business Details</h2>
                                     <!--end::Title-->
                                     <!--begin::Notice-->
-                                    <div class="text-muted fw-bold fs-6">If you need more info, please check out
+                                    <div class="text-muted fw-bold fs-6 d-none">If you need more info, please check out
                                     <a href="#" class="link-primary fw-bolder">Help Page</a>.</div>
                                     <!--end::Notice-->
                                 </div>
@@ -173,7 +189,7 @@
                                     <label class="form-label required">Business Name</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <input name="name" class="form-control form-control-lg form-control-solid" value="{{ Request::old('name') }}" />
+                                    <input name="name" class="form-control form-control-lg form-control-solid" value="{{ old('name') }}" />
                                     <!--end::Input-->
                                 </div>
                                 <!--end::Input group-->
@@ -200,56 +216,53 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10 fv-row">
                                     <!--begin::Label-->
-                                    <label class="d-flex align-items-center form-label mb-3">Specify Team Size
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Provide your team size to help us setup your billing"></i></label>
+                                    <label class="d-flex align-items-center form-label mb-3 required">Specify Team Size
+                                    <i class="fas fa-exclamation-circle ms-2 fs-7 d-none" data-bs-toggle="tooltip" title="Provide your team size to help us setup your billing"></i></label>
                                     <!--end::Label-->
                                     <!--begin::Row-->
                                     <div class="row mb-2" data-kt-buttons="true">
                                         <!--begin::Col-->
-                                        <div class="col">
+                                        <div class="col-md col-12 mb-5 mb-sm-0">
                                             <!--begin::Option-->
                                             <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
                                                 <input type="radio" class="btn-check" name="size" value="1-1" />
-                                                <span class="fw-bolder fs-3">1-1</span>
+                                                <span class="fw-bolder fs-3">1 - 10</span>
                                             </label>
                                             <!--end::Option-->
                                         </div>
                                         <!--end::Col-->
                                         <!--begin::Col-->
-                                        <div class="col">
+                                        <div class="col-md col-12 mb-5 mb-sm-0">
                                             <!--begin::Option-->
                                             <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4 active">
-                                                <input type="radio" class="btn-check" name="size" checked="checked" value="2-10" />
-                                                <span class="fw-bolder fs-3">2-10</span>
+                                                <input type="radio" class="btn-check" name="size" checked="checked" value="11 - 50" />
+                                                <span class="fw-bolder fs-3">11 - 50</span>
                                             </label>
                                             <!--end::Option-->
                                         </div>
                                         <!--end::Col-->
                                         <!--begin::Col-->
-                                        <div class="col">
+                                        <div class="col-md col-12 mb-5 mb-sm-0">
                                             <!--begin::Option-->
                                             <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
                                                 <input type="radio" class="btn-check" name="size" value="11-50" />
-                                                <span class="fw-bolder fs-3">11-50</span>
+                                                <span class="fw-bolder fs-3">51 - 100</span>
                                             </label>
                                             <!--end::Option-->
                                         </div>
                                         <!--end::Col-->
                                         <!--begin::Col-->
-                                        <div class="col">
+                                        <div class="col-md col-12 mb-5 mb-sm-0">
                                             <!--begin::Option-->
                                             <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
                                                 <input type="radio" class="btn-check" name="size" value="50+" />
-                                                <span class="fw-bolder fs-3">50+</span>
+                                                <span class="fw-bolder fs-3">100+</span>
                                             </label>
                                             <!--end::Option-->
                                         </div>
                                         <!--end::Col-->
                                     </div>
                                     <!--end::Row-->
-                                    <!--begin::Hint-->
-                                    <div class="form-text">Customers will see this shortened version of your statement descriptor</div>
-                                    <!--end::Hint-->
                                 </div>
                                 <!--end::Input <group-->
                             </div>
@@ -265,10 +278,6 @@
                                     <!--begin::Title-->
                                     <h2 class="fw-bolder text-dark">Address</h2>
                                     <!--end::Title-->
-                                    <!--begin::Notice-->
-                                    <div class="text-muted fw-bold fs-6">If you need more info, please check out
-                                    <a href="#" class="link-primary fw-bolder">Help Page</a>.</div>
-                                    <!--end::Notice-->
                                 </div>
                                 <!--end::Heading-->
 
@@ -281,7 +290,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="line_1" class="form-control form-control-lg form-control-solid" value="{{ Request::old('line_1') }}" />
+                                        <input name="line_1" class="form-control form-control-lg form-control-solid" value="{{ old('line_1') }}" />
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -291,7 +300,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="line_2" class="form-control form-control-lg form-control-solid" value="{{ Request::old('line_2') }}" />
+                                        <input name="line_2" class="form-control form-control-lg form-control-solid" value="{{ old('line_2') }}" />
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -305,7 +314,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="town" class="form-control form-control-lg form-control-solid" value="" />
+                                        <input name="town" class="form-control form-control-lg form-control-solid" value="{{ old('line_3') }}" />
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -315,7 +324,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="county" class="form-control form-control-lg form-control-solid" value="" />
+                                        <input name="county" class="form-control form-control-lg form-control-solid" value="{{ old('county') }}" />
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -328,7 +337,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="postcode" class="form-control form-control-lg form-control-solid" value="" />
+                                        <input name="postcode" class="form-control form-control-lg form-control-solid" vvalue="{{ old('postcode') }}"/>
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -338,7 +347,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="country" class="form-control form-control-lg form-control-solid" value="" />
+                                        <input name="country" class="form-control form-control-lg form-control-solid" value="{{ old('country') }}" />
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -397,9 +406,8 @@
             <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
                 <!--begin::Links-->
                 <div class="d-flex flex-center fw-bold fs-6">
-                    <a href="#" class="text-muted text-hover-primary px-2" target="_blank">About</a>
-                    <a href="#" class="text-muted text-hover-primary px-2" target="_blank">Support</a>
-                    <a href="#" class="text-muted text-hover-primary px-2" target="_blank">Purchase</a>
+                    <a href="https://certhub.co/about" target="_blank" class="text-muted text-hover-primary px-2">About</a>
+                    <a href="https://certhub.co/contact" target="_blank" class="text-muted text-hover-primary px-2">Contact Us</a>
                 </div>
                 <!--end::Links-->
             </div>

@@ -34,7 +34,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('auth.login');
 });
 
 

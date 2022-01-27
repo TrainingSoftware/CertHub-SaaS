@@ -34,13 +34,13 @@ class ProviderLookupController extends Controller
         $data = json_decode($response, true);
 
         $provider = $company->providers()->create([
-            'name' => ucwords($data['items'][0]['title']),
+            'name' => $data['items'][0]['title'] ?? null,
             'line_1' => $data['items'][0]['address']['premises'] ?? null,
             'line_2' => $data['items'][0]['address']['address_line_1'] ?? null,
             'town' => $data['items'][0]['address']['locality'] ?? null,
             'postcode' => $data['items'][0]['address']['postal_code'] ?? null,
             'country' => $data['items'][0]['address']['country'] ?? null,
-            'company_reg' => $data['items'][0]['company_number'],
+            'company_reg' => $data['items'][0]['company_number'] ?? null,
         ]);
 
         return redirect('/providers/' . $provider->id . '/edit')

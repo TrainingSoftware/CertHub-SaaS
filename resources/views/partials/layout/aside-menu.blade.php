@@ -127,7 +127,7 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion {{ (request()->is('training*')) ? 'show' : '' }}">
                         <div class="menu-item">
-                            <a class="menu-link" href="/training/cpd">
+                            <a class="menu-link" href="https://certhub.co/cpd-courses" target="_blank">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -135,15 +135,15 @@
                             </a>
                         </div>
                         <div class="menu-item">
-                            <a class="menu-link" href="/training/commercial">
+                            <a class="menu-link" href="https://certhub.co/courses" target="_blank">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">Commercial</span>
                             </a>
                         </div>
-                        <div class="menu-item">
-                            <a class="menu-link" href="/training/nvqs">
+                        <div class="menu-item d-none">
+                            <a class="menu-link" href="/training/nvqs" target="_blank">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>

@@ -27,8 +27,9 @@ class EmployeeFactory extends Factory
             'lastname' => $this->faker->lastName(),
             'email' => $this->faker->firstName() . '.' . $this->faker->lastName() . '@gmail.com',
             'phone' => '07878632582',
-            'user_id' => 1,
+            'company_id' => 1,
             'position' => $this->faker->jobTitle(),
+            'password' => 'password'
         ];
     }
 }
