@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Employee;
-
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class SearchEmployee extends Component
@@ -18,7 +18,12 @@ class SearchEmployee extends Component
     public function render()
     {
         sleep(1);
-        $employees = Employee::search($this->term)->get();
+        
+        // get current company
+        $company = Auth::user()->companies()->first();
+
+        $employees = Employee::where('company_id', '=', $company->id)
+            ->search($this->term)->get();
 
         $data = [
             'employees' => $employees,
