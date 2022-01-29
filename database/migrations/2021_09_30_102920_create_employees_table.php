@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateEmployeesTable extends Migration
@@ -42,6 +43,11 @@ class CreateEmployeesTable extends Migration
             $table->integer('department_id')->references('id')->on('departments')->nullable();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
+
+        DB::statement(
+            'ALTER TABLE employees ADD FULLTEXT fulltext_index(firstname, lastname, email)'
+        );
+
     }
 
     /**

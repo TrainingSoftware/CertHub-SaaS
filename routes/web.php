@@ -20,6 +20,7 @@ use App\Http\Controllers\APIController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\EmployeeQualificationPortfolioController;
 use App\Http\Controllers\EmployeeArchiveController;
+use App\Http\Controllers\TenderController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -78,6 +79,8 @@ Route::group(['middleware' => 'auth'], function () {
             Route::resource('providers', ProviderController::class);
             Route::get('/providers/{provider}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
             Route::get('/import-provider', [\App\Http\Controllers\ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
+
+            Route::resource('tenders', TenderController::class);
 
             Route::group(['prefix'=>'settings'], function() {
                 Route::resource('users', UserController::class);

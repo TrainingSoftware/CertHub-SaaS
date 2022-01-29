@@ -35,6 +35,7 @@ class AuthServiceProvider extends ServiceProvider
         Qualification::class => QualificationPolicy::class,
         QualificationType::class => QualificationTypePolicy::class,
         Company::class => CompanyPolicy::class,
+        Tender::class => TenderPolicy::class,
     ];
 
     /**

@@ -16,6 +16,14 @@ class Employee extends Authenticatable
 
     use HasFactory;
 
+    use Search;
+
+    protected $searchable = [
+        'firstname',
+        'lastname',
+        'email'
+    ];
+
     protected $dates = [
         'start_date',
         'end_date'
@@ -100,6 +108,15 @@ class Employee extends Authenticatable
     public function department()
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function tenders()
+    {
+        return $this->belongsToMany(
+            Tender::class,
+            'tenders_employees',
+            'tender_id',
+            'employee_id');
     }
 
 }

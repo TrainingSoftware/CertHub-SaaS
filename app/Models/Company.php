@@ -57,6 +57,11 @@ class Company extends Model
         return $this->hasMany(Provider::class);
     }
 
+    public function tenders()
+    {
+        return $this->hasMany(Tender::class);
+    }
+
     public function qualifications()
     {
         return $this->hasMany(Qualification::class);
