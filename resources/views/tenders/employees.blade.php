@@ -147,7 +147,7 @@
                                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                         <!--begin::Number-->
                                         <div class="d-flex align-items-center">
-                                            <div class="fs-4 fw-bolder">{{ $renewals->count() }}</div>
+                                            <div class="fs-4 fw-bolder">{{ $renewalsCount }}</div>
                                         </div>
                                         <!--end::Number-->
                                         <!--begin::Label-->
@@ -159,7 +159,7 @@
                                 <!--end::Stats-->
                                 <!--begin::Users-->
                                 <div class="symbol-group symbol-hover mb-3">
-                                    @foreach($tender->employees->slice(0, 5) as $employee)    
+                                    @foreach($slicedEmployees as $employee)    
                                     <!--begin::User-->
                                     <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="{{ $employee->firstname }}{{ $employee->lastname }}">
                                         <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
@@ -167,15 +167,13 @@
                                     <!--end::User-->
                                     @endforeach
                                     <!--begin::All users-->
+                                    @if($tender->employees->count() > 5)
                                     <a href="/tenders/{{ $tender->id }}/employees" class="symbol symbol-35px symbol-circle">
                                         <span class="symbol-label bg-secondary text-dark fs-8 fw-bolder" data-bs-toggle="tooltip" data-bs-trigger="hover" title="View all ({{ $tender->employees->count() }}) employees">
-                                            @if($tender->employees->count() > 5)
-                                                + {{ $tender->employees->count() - 5 }}
-                                            @else   
-                                                {{ $tender->employees->count() }}
-                                            @endif
+                                            + {{ $remainingEmployees }}
                                         </span>
                                     </a>
+                                    @endif
                                     <!--end::All users-->
                                 </div>
                                 <!--end::Users-->
@@ -240,7 +238,7 @@
                                     <!--end::Head-->
                                     <!--begin::Body-->
                                     <tbody class="fs-6">
-                                        @foreach($tender->employees as $employee)
+                                        @foreach($tenderEmployees as $employee)
                                         <tr>
                                             <td>
                                                 <!--begin::User-->

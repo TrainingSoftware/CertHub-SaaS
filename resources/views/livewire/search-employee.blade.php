@@ -29,7 +29,7 @@
                     <div class="rounded d-flex flex-stack bg-active-lighten p-4">
                         <div class="d-flex align-items-center">
                             <label class="form-check form-check-custom form-check-solid me-5">
-                                <input class="form-check-input" type="checkbox" wire:model="selectedEmployees" value="{{ $employee->id }}"/>
+                                <input class="form-check-input" type="checkbox" wire:model="selectedEmployees" value="{{ $employee->id }}" wire:loading.attr="disabled"/>
                             </label>
                             <div class="symbol symbol-35px symbol-circle">
                                 <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
