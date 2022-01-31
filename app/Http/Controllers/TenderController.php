@@ -93,30 +93,26 @@ class TenderController extends Controller
             $start = $tender->start_date;
             $end = $tender->end_date;
             
-            // get current company
-            $company = Auth::user()->companies()->first();
-            
-            // get company employees
-            $employees = Employee::where('company_id', '=', $company->id)
-                ->paginate(10);
-
             // get company qualifications due for renewal
-            
             $renewals = $tender->employees()->whereHas('qualifications', function ($query) use ($start, $end) {
                 $query->whereBetween('expiry_date', [$start, $end]);
             })->get();
 
-            $qualifications = $tender->employees()->whereHas('qualifications')->get();
+            // count company qualifications due for renewal
+            $renewalsCount = $tender->employees()->whereHas('qualifications', function ($query) use ($start, $end) {
+                $query->whereBetween('expiry_date', [$start, $end]);
+            })->count();
 
+            // count total
             $activeQualification = $tender->employees()->whereHas('qualifications', function ($query) use ($end) {
                 $query->where('expiry_date', '>', $end);
-            })->get();
+            })->count();
 
         
             return view('tenders.show')
                 ->with('tender', $tender)
                 ->with('renewals', $renewals)
-                ->with('qualifications', $qualifications)
+                ->with('renewalsCount',$renewalsCount)
                 ->with('activeQualifications', $activeQualification);
 
         } else {
@@ -161,14 +157,55 @@ class TenderController extends Controller
     }
 
     /**
-     * Attach Employees to specified resource in storage.
+     * View Employees to attached specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function attachEmployees(Request $request, $id)
+    public function employees(Tender $tender)
     {
-        //
+        // get current logged in user
+        $user = Auth::user();
+        
+        if ($user->can('view', $tender)) {
+
+            // get the tender dates
+            $start = $tender->start_date;
+            $end = $tender->end_date;
+
+            // get current company
+            $company = Auth::user()->companies()->first();
+
+            // get company employees
+            $employees = Employee::where('company_id', '=', $company->id);
+            
+            // get company qualifications due for renewal
+            $renewals = $tender->employees()->whereHas('qualifications', function ($query) use ($start, $end) {
+                $query->whereBetween('expiry_date', [$start, $end]);
+            })->get();
+
+            // count company qualifications due for renewal
+            $renewalsCount = $tender->employees()->whereHas('qualifications', function ($query) use ($start, $end) {
+                $query->whereBetween('expiry_date', [$start, $end]);
+            })->count();
+
+            // count total
+            $activeQualification = $tender->employees()->whereHas('qualifications', function ($query) use ($end) {
+                $query->where('expiry_date', '>', $end);
+            })->count();
+
+        
+            return view('tenders.show')
+                ->with('tender', $tender)
+                ->with('renewals', $renewals)
+                ->with('renewalsCount',$renewalsCount)
+                ->with('activeQualifications', $activeQualification);
+
+        } else {
+
+            echo 'This Tender does not belong to you.';
+
+        }
     }
 }

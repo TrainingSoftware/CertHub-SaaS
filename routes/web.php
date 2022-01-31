@@ -81,6 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('/import-provider', [\App\Http\Controllers\ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
 
             Route::resource('tenders', TenderController::class);
+            Route::get('/tenders/{tender}/employees',[TenderController::class, 'employees'])->name('tenderEmployees');
 
             Route::group(['prefix'=>'settings'], function() {
                 Route::resource('users', UserController::class);

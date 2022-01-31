@@ -97,11 +97,6 @@
                                         </button>
                                         <!--begin::Menu 3-->
                                         <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
-                                            <!--begin::Heading-->
-                                            <div class="menu-item px-3">
-                                                <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
-                                            </div>
-                                            <!--end::Heading-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a href="/tenders/{{ $tender->id }}/edit" class="menu-link px-3">Edit project</a>
@@ -110,11 +105,6 @@
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a href="#" class="menu-link px-3">Generate Tender</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3 my-1">
-                                                <a href="#" class="menu-link px-3">Settings</a>
                                             </div>
                                             <!--end::Menu item-->
                                         </div>
@@ -179,10 +169,10 @@
                                     <!--begin::All users-->
                                     <a href="/tenders/{{ $tender->id }}/employees" class="symbol symbol-35px symbol-circle">
                                         <span class="symbol-label bg-secondary text-dark fs-8 fw-bolder" data-bs-toggle="tooltip" data-bs-trigger="hover" title="View all employees">
-                                            @if($tender->employees->count() > 5)
-                                                + {{ $tender->employees->count() - 5 }}
+                                            @if($renewalsCount > 5)
+                                                + {{ $renewalsCount - 5 }}
                                             @else
-                                                {{ $tender->employees->count() }}
+                                                {{ $renewalsCount }}
                                             @endif
                                         </span>
                                     </a>
@@ -200,12 +190,12 @@
                     <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder">
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6 active" href="">Overview</a>
+                            <a class="nav-link text-active-primary py-5 me-6 active" href="/tenders/{{ $tender->id }}">Overview</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary py-5 me-6" href="">Employees</a>
+                            <a class="nav-link text-active-primary py-5 me-6" href="/tenders/{{ $tender->id }}/employees">Employees</a>
                         </li>
                         <!--end::Nav item-->
                         <!--begin::Nav item-->
@@ -257,15 +247,15 @@
                                     <!--begin::Label-->
                                     <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                                         <div class="bullet bg-success me-3"></div>
-                                        <div class="text-gray-400">Valid Qualifications</div>
-                                        <div class="ms-auto fw-bolder text-gray-700">{{ $activeQualifications->count() }}</div>
+                                        <div class="text-gray-400">Valid Qualifications <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Valid qualifications expire after the project end date"></i></div>
+                                        <div class="ms-auto fw-bolder text-gray-700">{{ $activeQualifications }}</div>
                                     </div>
                                     <!--end::Label-->
                                     <!--begin::Label-->
                                     <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                                         <div class="bullet bg-danger me-3"></div>
-                                        <div class="text-gray-400">Expired Qualifications</div>
-                                        <div class="ms-auto fw-bolder text-gray-700">{{ $renewals->count() }}</div>
+                                        <div class="text-gray-400">Expired Qualifications <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Expired qualifications expire after during project dates"></i></div>
+                                        <div class="ms-auto fw-bolder text-gray-700">{{ $renewalsCount }}</div>
                                     </div>
                                     <!--end::Label-->
                                 </div>

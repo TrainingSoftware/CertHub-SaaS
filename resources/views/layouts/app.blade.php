@@ -132,7 +132,7 @@
                                 new Chart(e, {
                                     type: "doughnut",
                                     data: { datasets: [
-                                        { data: [{{ $activeQualifications->count() }}, {{ $renewals->count() }},], backgroundColor: ["#50CD89", "#F1416C"] }], labels: ["Active", "Expired"] },
+                                        { data: [{{ $activeQualifications }}, {{ $renewalsCount }},], backgroundColor: ["#50CD89", "#F1416C"] }], labels: ["Active", "Expired"] },
                                     options: {
                                         chart: { fontFamily: "inherit" },
                                         cutoutPercentage: 75,
