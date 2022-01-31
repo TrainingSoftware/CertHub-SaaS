@@ -113,6 +113,8 @@
     <!--begin::Page Custom Javascript(used by this page)-->
     @if(request()->is('tenders/*'))
         @include('partials.tenders.search-modal')
+    @endif
+    @if(\Route::is('tenders.show'))
         <script>
             "use strict";
             var KTProjectOverview = (function () {

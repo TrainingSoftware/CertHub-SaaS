@@ -123,6 +123,16 @@ class TenderController extends Controller
                 $query->where('expiry_date', '>', $end);
             })->count();
 
+            // get employees with expired qualifications
+           $expiredQualifications = $tender->employees()
+           ->with('qualifications')
+           ->whereHas('qualifications', function ($query) use ($start, $end) {
+               $query->whereBetween('expiry_date', [$start, $end]);
+           })
+           ->get();
+   
+            $expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
+
         
             return view('tenders.show')
                 ->with('tender', $tender)
@@ -132,7 +142,9 @@ class TenderController extends Controller
                 ->with('remainingEmployees', $remainingEmployees)
                 ->with('renewals', $renewals)
                 ->with('renewalsCount', $renewalsCount)
-                ->with('activeQualifications', $activeQualifications);
+                ->with('activeQualifications', $activeQualifications)
+                ->with('expiredQualifications', $expiredQualifications)
+            ->with('expiredQualificationsCount', $expiredQualificationsCount);
 
         } else {
 
@@ -193,9 +205,6 @@ class TenderController extends Controller
            $start = $tender->start_date;
            $end = $tender->end_date;
 
-           // get current company
-           $company = Auth::user()->companies()->first();
-
            // get tender employees
            $tenderEmployees = $tender->employees;
 
@@ -205,34 +214,72 @@ class TenderController extends Controller
            // slice tender employees
            $slicedEmployees = $tenderEmployees->slice(0, 5);
 
-           // count remaining tender employees
-           $remainingEmployees = $tender->employees->count() - 5;
-           
-           // get company qualifications due for renewal
-           $renewals = $tender->employees()->whereHas('qualifications', function ($query) use ($start, $end) {
-               $query->whereBetween('expiry_date', [$start, $end]);
-           })->get();
-
-           // count company qualifications due for renewal
-           $renewalsCount = $tender->employees()->whereHas('qualifications', function ($query) use ($start, $end) {
-               $query->whereBetween('expiry_date', [$start, $end]);
-           })->count();
-
-           // count total
-           $activeQualifications = $tender->employees()->whereHas('qualifications', function ($query) use ($end) {
-               $query->where('expiry_date', '>', $end);
-           })->count();
+           // get employees with expired qualifications
+           $expiredQualifications = $tender->employees()
+                ->with('qualifications')
+                ->whereHas('qualifications', function ($query) use ($start, $end) {
+                    $query->whereBetween('expiry_date', [$start, $end]);
+                })
+                ->get();
+        
+            $expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
 
        
            return view('tenders.employees')
+            ->with('tender', $tender)
+            ->with('tenderEmployees', $tenderEmployees)
+            ->with('slicedEmployees', $slicedEmployees)
+            ->with('expiredQualifications', $expiredQualifications)
+            ->with('expiredQualificationsCount', $expiredQualificationsCount);
+
+       } else {
+
+           echo 'This Tender does not belong to you.';
+
+       }
+    }
+
+
+
+    /**
+     * View qualifications attached specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function renewals(Tender $tender)
+    {
+       // get current logged in user
+       $user = Auth::user();
+        
+       if ($user->can('view', $tender)) {
+
+           // get the tender dates
+           $start = $tender->start_date;
+           $end = $tender->end_date;
+
+           // get tender employees
+           $tenderEmployees = $tender->employees;
+
+           // slice tender employees
+           $slicedEmployees = $tenderEmployees->slice(0, 5);
+
+           // get employees with expired qualifications
+           $expiredQualifications = $tender->employees()
+                ->with('qualifications')
+                ->whereHas('qualifications', function ($query) use ($start, $end) {
+                    $query->whereBetween('expiry_date', [$start, $end]);
+                })
+                ->get();
+        
+            $expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
+       
+           return view('tenders.renewals')
                ->with('tender', $tender)
-               ->with('tenderEmployees', $tenderEmployees)
-               ->with('tenderEmployeesCount', $tenderEmployeesCount)
                ->with('slicedEmployees', $slicedEmployees)
-               ->with('remainingEmployees', $remainingEmployees)
-               ->with('renewals', $renewals)
-               ->with('renewalsCount', $renewalsCount)
-               ->with('activeQualifications', $activeQualifications);
+               ->with('expiredQualifications', $expiredQualifications)
+               ->with('expiredQualificationsCount', $expiredQualificationsCount);
 
        } else {
 
