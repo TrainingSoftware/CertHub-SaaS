@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use \LaravelArchivable\Archivable;
+use Illuminate\Support\Str;
 
 class Employee extends Authenticatable
 {
@@ -66,7 +67,8 @@ class Employee extends Authenticatable
     protected static function newFactory()
     {
         return EmployeeFactory::new();
-    }
+    }       
+
 
     /**
      * Get the employees's first name.

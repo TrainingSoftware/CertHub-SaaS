@@ -3,23 +3,23 @@
 namespace App\Http\Livewire;
 
 use App\Models\Employee;
+use App\Models\Tender;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class SearchEmployee extends Component
 {
     public $term = "";
-    
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
+    public $selectedEmployees = [];
+    public Tender $tender;
+
+
 
     public function render()
     {
         sleep(1);
         
-        // get current company
         $company = Auth::user()->companies()->first();
 
         $employees = Employee::where('company_id', '=', $company->id)
@@ -30,5 +30,17 @@ class SearchEmployee extends Component
         ];
 
         return view('livewire.search-employee', $data);
+    }       
+
+
+
+    public function attachEmployee($id) 
+    {
+        
+        Tender::findOrFail($id)->employees()->attach($this->selectedEmployees);
+
+        return redirect()->to('/tenders/' . $this->tender->id)
+            ->with('success', 'Employees successfully added');;
+
     }
 }

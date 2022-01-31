@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tender;
 use App\Models\Employee;
+use App\Models\Qualifications;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -86,17 +87,42 @@ class TenderController extends Controller
         // get current logged in user
         $user = Auth::user();
         
-        // get current company
-        $company = Auth::user()->companies()->first();
-        
-        $employees = Employee::where('company_id', '=', $company->id)
-            ->paginate(10);
-
         if ($user->can('view', $tender)) {
+
+            // get the tender dates
+            $start = $tender->start_date;
+            $end = $tender->end_date;
+            
+            // get current company
+            $company = Auth::user()->companies()->first();
+            
+            // get company employees
+            $employees = Employee::where('company_id', '=', $company->id)
+                ->paginate(10);
+
+            // get company qualifications due for renewal
+            
+            $renewals = $tender->employees()->whereHas('qualifications', function ($query) use ($start, $end) {
+                $query->whereBetween('expiry_date', [$start, $end]);
+            })->get();
+
+            $qualifications = $tender->employees()->whereHas('qualifications')->get();
+
+            $activeQualification = $tender->employees()->whereHas('qualifications', function ($query) use ($end) {
+                $query->where('expiry_date', '>', $end);
+            })->get();
+
+        
             return view('tenders.show')
-                ->with('tender', $tender);
+                ->with('tender', $tender)
+                ->with('renewals', $renewals)
+                ->with('qualifications', $qualifications)
+                ->with('activeQualifications', $activeQualification);
+
         } else {
+
             echo 'This Tender does not belong to you.';
+
         }
     }
 

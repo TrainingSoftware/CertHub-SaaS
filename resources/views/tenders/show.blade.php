@@ -89,7 +89,7 @@
                                 <!--end::Details-->
                                 <!--begin::Actions-->
                                 <div class="d-flex mb-4">
-                                    <a href="#" class="btn btn-sm btn-primary btn-active-color-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search">Add Employee</a>
+                                    <a href="#" class="btn btn-sm btn-primary btn-active-color-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search">Add Employees</a>
                                     <!--begin::Menu-->
                                     <div class="me-0">
                                         <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
@@ -104,64 +104,12 @@
                                             <!--end::Heading-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Create Invoice</a>
+                                                <a href="/tenders/{{ $tender->id }}/edit" class="menu-link px-3">Edit project</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="#" class="menu-link flex-stack px-3">Create Payment
-                                                <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference"></i></a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Generate Bill</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
-                                                <a href="#" class="menu-link px-3">
-                                                <span class="menu-title">Subscription</span>
-                                                <span class="menu-arrow"></span>
-                                                </a>
-                                                <!--begin::Menu sub-->
-                                                <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link px-3">Plans</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link px-3">Billing</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link px-3">Statements</a>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                    <!--begin::Menu separator-->
-                                                    <div class="separator my-2"></div>
-                                                    <!--end::Menu separator-->
-                                                    <!--begin::Menu item-->
-                                                    <div class="menu-item px-3">
-                                                        <div class="menu-content px-3">
-                                                            <!--begin::Switch-->
-                                                            <label class="form-check form-switch form-check-custom form-check-solid">
-                                                                <!--begin::Input-->
-                                                                <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                                                <!--end::Input-->
-                                                                <!--end::Label-->
-                                                                <span class="form-check-label text-muted fs-6">Recuring</span>
-                                                                <!--end::Label-->
-                                                            </label>
-                                                            <!--end::Switch-->
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Menu item-->
-                                                </div>
-                                                <!--end::Menu sub-->
+                                                <a href="#" class="menu-link px-3">Generate Tender</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
@@ -209,7 +157,7 @@
                                     <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                         <!--begin::Number-->
                                         <div class="d-flex align-items-center">
-                                            <div class="fs-4 fw-bolder">30</div>
+                                            <div class="fs-4 fw-bolder">{{ $renewals->count() }}</div>
                                         </div>
                                         <!--end::Number-->
                                         <!--begin::Label-->
@@ -221,49 +169,22 @@
                                 <!--end::Stats-->
                                 <!--begin::Users-->
                                 <div class="symbol-group symbol-hover mb-3">
+                                    @foreach($tender->employees->slice(0, 5) as $employee)    
                                     <!--begin::User-->
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">A</span>
+                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="{{ $employee->firstname }}{{ $employee->lastname }}">
+                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
                                     </div>
                                     <!--end::User-->
-                                    <!--begin::User-->
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">A</span>
-                                    </div>
-                                    <!--end::User-->
-                                    <!--begin::User-->
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">A</span>
-                                    </div>
-                                    <!--end::User-->
-                                    <!--begin::User-->
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">A</span>
-                                    </div>
-                                    <!--end::User-->
-                                    <!--begin::User-->
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">A</span>
-                                    </div>
-                                    <!--end::User-->
-                                    <!--begin::User-->
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">A</span>
-                                    </div>
-                                    <!--end::User-->
-                                    <!--begin::User-->
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">A</span>
-                                    </div>
-                                    <!--end::User-->
-                                    <!--begin::User-->
-                                    <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="Alan Warden">
-                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">A</span>
-                                    </div>
-                                    <!--end::User-->
+                                    @endforeach
                                     <!--begin::All users-->
-                                    <a href="#" class="symbol symbol-35px symbol-circle" data-bs-toggle="modal" data-bs-target="#kt_modal_view_users">
-                                    <span class="symbol-label bg-secondary text-dark fs-8 fw-bolder" data-bs-toggle="tooltip" data-bs-trigger="hover" title="View more users">+108</span>
+                                    <a href="/tenders/{{ $tender->id }}/employees" class="symbol symbol-35px symbol-circle">
+                                        <span class="symbol-label bg-secondary text-dark fs-8 fw-bolder" data-bs-toggle="tooltip" data-bs-trigger="hover" title="View all employees">
+                                            @if($tender->employees->count() > 5)
+                                                + {{ $tender->employees->count() - 5 }}
+                                            @else
+                                                {{ $tender->employees->count() }}
+                                            @endif
+                                        </span>
                                     </a>
                                     <!--end::All users-->
                                 </div>
@@ -308,7 +229,7 @@
                             <!--begin::Card title-->
                             <div class="card-title flex-column">
                                 <h3 class="fw-bolder mb-1">Tender Overview</h3>
-                                <div class="fs-6 fw-bold text-gray-400">24 Renewals Due</div>
+                                <div class="fs-6 fw-bold text-gray-400">{{ $renewals->count() }} Renewals Due</div>
                             </div>
                             <!--end::Card title-->
                             <!--begin::Card toolbar-->
@@ -325,8 +246,8 @@
                                 <!--begin::Chart-->
                                 <div class="position-relative d-flex flex-center h-175px w-175px me-15 mb-7">
                                     <div class="position-absolute translate-middle start-50 top-50 d-flex flex-column flex-center">
-                                        <span class="fs-2qx fw-bolder">120</span>
-                                        <span class="fs-6 fw-bold text-gray-400">Total Quals</span>
+                                        <span class="fs-2qx fw-bolder">{{ $tender->employees()->count() }}</span>
+                                        <span class="fs-6 fw-bold text-gray-400">Employees</span>
                                     </div>
                                     <canvas id="project_overview_chart"></canvas>
                                 </div>
@@ -336,15 +257,15 @@
                                     <!--begin::Label-->
                                     <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                                         <div class="bullet bg-success me-3"></div>
-                                        <div class="text-gray-400">Active</div>
-                                        <div class="ms-auto fw-bolder text-gray-700">30</div>
+                                        <div class="text-gray-400">Valid Qualifications</div>
+                                        <div class="ms-auto fw-bolder text-gray-700">{{ $activeQualifications->count() }}</div>
                                     </div>
                                     <!--end::Label-->
                                     <!--begin::Label-->
                                     <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                                         <div class="bullet bg-danger me-3"></div>
-                                        <div class="text-gray-400">Renewal</div>
-                                        <div class="ms-auto fw-bolder text-gray-700">0</div>
+                                        <div class="text-gray-400">Expired Qualifications</div>
+                                        <div class="ms-auto fw-bolder text-gray-700">{{ $renewals->count() }}</div>
                                     </div>
                                     <!--end::Label-->
                                 </div>
@@ -358,7 +279,7 @@
                                     <!--begin::Content-->
                                     <div class="fw-bold">
                                         <div class="fs-6 text-gray-700">
-                                            <a href="#" class="fw-bolder me-1">Important:</a> This report runs every 5 minutes
+                                            <a href="#" class="fw-bolder me-1">Important:</a> This report updates in realtime
                                         </div>
                                     </div>
                                     <!--end::Content-->
