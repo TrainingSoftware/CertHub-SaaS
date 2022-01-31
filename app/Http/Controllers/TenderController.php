@@ -131,7 +131,7 @@ class TenderController extends Controller
            })
            ->get();
    
-            $expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
+            //$expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
 
         
             return view('tenders.show')
@@ -221,7 +221,7 @@ class TenderController extends Controller
                 })
                 ->get();
         
-            $expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
+            //$expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
 
        
            return view('tenders.employees')
@@ -271,7 +271,7 @@ class TenderController extends Controller
                 })
                 ->get();
         
-            $expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
+            //$expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
        
            return view('tenders.renewals')
                ->with('tender', $tender)
