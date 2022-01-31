@@ -143,8 +143,7 @@ class TenderController extends Controller
                 ->with('renewals', $renewals)
                 ->with('renewalsCount', $renewalsCount)
                 ->with('activeQualifications', $activeQualifications)
-                ->with('expiredQualifications', $expiredQualifications)
-            ->with('expiredQualificationsCount', $expiredQualificationsCount);
+                ->with('expiredQualifications', $expiredQualifications);
 
         } else {
 
@@ -229,8 +228,7 @@ class TenderController extends Controller
             ->with('tender', $tender)
             ->with('tenderEmployees', $tenderEmployees)
             ->with('slicedEmployees', $slicedEmployees)
-            ->with('expiredQualifications', $expiredQualifications)
-            ->with('expiredQualificationsCount', $expiredQualificationsCount);
+            ->with('expiredQualifications', $expiredQualifications);
 
        } else {
 
@@ -278,8 +276,7 @@ class TenderController extends Controller
            return view('tenders.renewals')
                ->with('tender', $tender)
                ->with('slicedEmployees', $slicedEmployees)
-               ->with('expiredQualifications', $expiredQualifications)
-               ->with('expiredQualificationsCount', $expiredQualificationsCount);
+               ->with('expiredQualifications', $expiredQualifications);
 
        } else {
 
