@@ -67,7 +67,6 @@ class CompanyController extends Controller
             'type' => ['required', 'string'],
             'size' => ['required', 'string'],
             'line_1' => ['required', 'string'],
-            'line_2' => ['required', 'string'],
             'town' => ['required', 'string'],
             'county' => ['required', 'string'],
             'postcode' => ['required', 'string'],

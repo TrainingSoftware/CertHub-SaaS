@@ -6,3 +6,4 @@ $(function() {
 
     $("#datepicker").datepicker("option", "altFormat", "dd-mm-yy");
 });
+
