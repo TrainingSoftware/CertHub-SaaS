@@ -327,7 +327,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="town" id="posttown" class="form-control form-control-lg form-control-solid" value="{{ old('line_3') }}" />
+                                        <input name="town" id="posttown" class="form-control form-control-lg form-control-solid" value="{{ old('town') }}" />
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -350,7 +350,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input name="postcode" id="postcode" class="form-control form-control-lg form-control-solid" vvalue="{{ old('postcode') }}"/>
+                                        <input name="postcode" id="postcode" class="form-control form-control-lg form-control-solid" value="{{ old('postcode') }}"/>
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -358,7 +358,7 @@
                                         <label class="form-label required">Country</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <select name="country" id="country" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="false">
+                                        <select name="country" disabled value="United Kingdom" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="false">
                                             <option></option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
@@ -588,7 +588,7 @@
                                             <option value="Turks & Caicos Is">Turks & Caicos Is</option>
                                             <option value="Tuvalu">Tuvalu</option>
                                             <option value="Uganda">Uganda</option>
-                                            <option value="UK">United Kingdom</option>
+                                            <option value="United Kingdom" selected>United Kingdom</option>
                                             <option value="Ukraine">Ukraine</option>
                                             <option value="United Arab Erimates">United Arab Emirates</option>
                                             <option value="United States of America">United States of America</option>

@@ -5,7 +5,7 @@
         <!--begin::Toolbar-->
         <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
             <!--begin::Container-->
-            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack flex-wrap">
+            <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column me-5 py-2">
                     <!--begin::Title-->
@@ -15,7 +15,7 @@
                     <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/" class="text-muted text-hover-primary">Home</a>
+                            <a href="/home" class="text-muted text-hover-primary">Home</a>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -180,7 +180,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    {!! Form::text('expiry_date', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Select expiry date']) !!}
+                                    {!! Form::text('expiry_date', null, ['id' => 'qualExpiry', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Select expiry date']) !!}
                                 </div>
                             </div>
                         </div>
@@ -188,12 +188,12 @@
                         <!--begin::Row-->
                         <div class="row mb-20 d-flex h-100">
                             <!--begin::Label-->
-                            <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Employee</span></label>
+                            <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Reg No.</span></label>
                             <!--end::Label-->
                             <!--begin::Col-->
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    {!! Form::text('regno', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Select employee']) !!}
+                                    {!! Form::text('regno', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '123-456-789']) !!}
                                 </div>
                             </div>
                         </div>

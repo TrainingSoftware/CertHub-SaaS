@@ -5,7 +5,7 @@
         <!--begin::Toolbar-->
         <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
             <!--begin::Container-->
-            <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack flex-wrap">
+            <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column me-5 py-2">
                     <!--begin::Title-->

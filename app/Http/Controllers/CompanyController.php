@@ -70,7 +70,7 @@ class CompanyController extends Controller
             'town' => ['required', 'string'],
             'county' => ['required', 'string'],
             'postcode' => ['required', 'string'],
-            'country' => ['required', 'string'],
+            'country' => ['nullable', 'string'],
         ]);
 
         // create department with validated data

@@ -80,7 +80,7 @@ class QualificationController extends Controller
             'employee_id' => 'required',
             'qualificationtype_id' => 'required',
             'provider_id' => 'required',
-            'regno' => 'required|string',
+            'regno' => 'nullable|string',
             'expiry_date' => 'required|date'
 
         ]);

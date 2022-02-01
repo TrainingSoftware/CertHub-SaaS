@@ -24,7 +24,7 @@ class CreateQualificationsTable extends Migration
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->bigInteger('provider_id')->unsigned()->index();
             $table->foreign('provider_id')->references('id')->on('providers');
-            $table->integer('regno')->default(12345678);
+            $table->integer('regno')->nullable();
             $table->integer('price')->nullable()->default(0);
             $table->string('slug')->nullable();
             $table->date('expiry_date');

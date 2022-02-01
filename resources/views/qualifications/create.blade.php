@@ -5,7 +5,7 @@
     <!--begin::Toolbar-->
     <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
         <!--begin::Container-->
-        <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack flex-wrap">
+        <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column me-5 py-2">
                 <!--begin::Title-->
@@ -15,7 +15,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="/" class="text-muted text-hover-primary">
+                        <a href="/home" class="text-muted text-hover-primary">
                             Dashboard
                         </a>
                     </li>
@@ -160,7 +160,7 @@
                                     <div class="row">
                                         <!--begin::Col-->
                                         <div class="col-lg-12 fv-row">
-                                            {{ Form::text('expiry_date', date('d-m-Y'), ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'id' => 'datepicker']) }}
+                                            {{ Form::text('expiry_date', date('d-m-Y'), ['id' => 'qualExpiry', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) }}
                                         </div>
                                         <!--end::Col-->
                                     </div>

@@ -5,7 +5,7 @@
     <!--begin::Toolbar-->
     <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
         <!--begin::Container-->
-        <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack flex-wrap">
+        <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column me-5 py-2">
                 <!--begin::Title-->
@@ -191,7 +191,7 @@
                         <!--begin::Col-->
                         <div class="col-lg-6">
                             @if($employee->end_date)
-                                <span class="fw-bold text-gray-800 fs-6">{{ $employee->end_date }}</span>
+                                <span class="fw-bold text-gray-800 fs-6">{{ $employee->end_date->format('d/m/Y') }}</span>
                             @else
                                 <span class="fw-bold text-gray-500 fs-6">No employment end date available</span>
                             @endif

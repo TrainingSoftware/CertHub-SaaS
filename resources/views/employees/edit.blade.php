@@ -5,7 +5,7 @@
     <!--begin::Toolbar-->
     <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
         <!--begin::Container-->
-        <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack flex-wrap">
+        <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column me-5 py-2">
                 <!--begin::Title-->
@@ -15,7 +15,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="/" class="text-muted text-hover-primary">Home</a>
+                        <a href="/home" class="text-muted text-hover-primary">Home</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -272,10 +272,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {{ Form::date('start_date', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '01/07/2021')) }}
-                                        @if($employee->start_date)
-                                        <input type="hidden" value="{{ $employee->start_date->format('d-m-Y') }}" id="alt-date">
-                                        @endif
+                                        {{ Form::text('start_date', null, array('id' => 'employeeStart', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '01/07/2021')) }}
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -285,7 +282,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {{ Form::date('end_date', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '21/09/2011')) }}
+                                        {{ Form::text('end_date', null, array('id' => 'employeeEnd', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '21/09/2011')) }}
                                         <!--end::Input-->
                                     </div>
                                 </div>
