@@ -208,12 +208,6 @@
     </script>
     @endif
     <!--end::Javascript-->
-    <!-- Start of HubSpot Embed Code -->
-    @if (App::environment('production')) {
-    <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25074209.js"></script>
-    }
-    @endif
-    <!-- End of HubSpot Embed Code -->
     @livewireScripts
 </body>
 <!--end::Body-->
