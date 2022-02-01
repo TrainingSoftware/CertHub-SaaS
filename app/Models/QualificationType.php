@@ -11,9 +11,9 @@ class QualificationType extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
         'name',
-        'body',
+        'has_citb',
+        'citb_value'
     ];
 
     protected static function newFactory()
@@ -24,5 +24,10 @@ class QualificationType extends Model
     public function company()
     {
         return $this->belongsTo(Company::class);
+    }
+
+    public function qualifications()
+    {
+        return $this->hasMany(Qualification::class);
     }
 }

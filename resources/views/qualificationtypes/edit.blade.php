@@ -88,27 +88,6 @@
                             <!--end::Col-->
                         </div>
                         <!--end::Row-->
-                        <!--begin::Row-->
-                        <div class="row mb-20 d-flex h-100">
-                            <!--begin::Label-->
-                            <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Description</label>
-                            <!--end::Label-->
-                            <!--begin::Col-->
-                            <div class="col-lg-8">
-                                <!--begin::Row-->
-                                <!--begin::Input group-->
-                                <div class="row">
-                                    <div class="form-group col-md-12">
-                                        <!--begin::Input-->
-                                        {{ Form::textarea('body', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Input group-->
-                            </div>
-                            <!--end::Col-->
-                        </div>
-                        <!--end::Row-->
                     </div>
                     <!--end::Card body-->
                     <div class="card-footer">

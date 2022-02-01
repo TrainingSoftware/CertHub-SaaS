@@ -96,7 +96,7 @@
                                     <div class="d-flex fs-6 fw-bold align-items-center mb-3">
                                         <div class="bullet bg-danger me-3"></div>
                                         <div class="text-gray-400">Expired Qualifications <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Expired qualifications expire after during project dates"></i></div>
-                                        <div class="ms-auto fw-bolder text-gray-700">{{ $renewalsCount }}</div>
+                                        <div class="ms-auto fw-bolder text-gray-700">{{ $expiredQualificationsTotal }}</div>
                                     </div>
                                     <!--end::Label-->
                                 </div>

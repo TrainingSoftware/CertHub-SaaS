@@ -18,18 +18,8 @@ class CreateQualificationTypesTable extends Migration
             $table->timestamps();
             $table->bigInteger('company_id')->unsigned()->index();
             $table->string('name');
-            $table->string('slug');
-            $table->text('overview')->nullable();
-            $table->text('agenda')->nullable();
-            $table->text('attend')->nullable();
-            $table->text('certification')->nullable();
-            $table->text('entry_requirements')->nullable();
-            $table->integer('max_delegates')->nullable();
-            $table->string('valid_for')->nullable();
-            $table->string('funding')->nullable();
-            $table->string('duration')->nullable();
-            $table->integer('accreditation')->nullable();
-            $table->string('delivery')->nullable();
+            $table->boolean('has_citb')->default(0);
+            $table->string('citb_value')->nullable();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }

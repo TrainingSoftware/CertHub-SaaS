@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\QualificationType;
+use App\Models\Qualification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -52,7 +53,6 @@ class QualificationTypeController extends Controller
         // get and validate data
         $storeData = $request->validate([
             'name' => 'required',
-            'body' => 'max:1000|nullable'
         ]);
 
         // create qualification type with validated data
@@ -84,9 +84,14 @@ class QualificationTypeController extends Controller
         // load qualification type
         $qualificationtype = QualificationType::find($id);
 
+        // get qualifications that belong to qualification type
+        $qualifications = Qualification::where('qualificationtype_id', '=', $qualificationtype->id)
+            ->get();
+
         if ($user->can('view', $qualificationtype)) {
             return view('qualificationtypes.show')
-                ->with('qualificationtype', $qualificationtype);
+                ->with('qualificationtype', $qualificationtype)
+                ->with('qualifications', $qualifications);
         } else {
             echo 'This qualification type does not belong to you.';
         }
@@ -129,7 +134,6 @@ class QualificationTypeController extends Controller
         // get and validate data
         $updateData = $request->validate([
             'name' => 'required',
-            'body' => 'nullable'
         ]);
 
         // find qualification type
@@ -163,6 +167,6 @@ class QualificationTypeController extends Controller
         // delete qualification type
         $quaificationtype->delete();
 
-        return redirect('/qualificationtypes')->with('success', 'Department has been deleted');
+        return redirect('/qualificationtypes')->with('success', 'Qualification Type has been deleted');
     }
 }

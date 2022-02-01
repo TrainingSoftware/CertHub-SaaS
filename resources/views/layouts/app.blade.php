@@ -85,9 +85,6 @@
         </span>
         <!--end::Svg Icon-->
     </div>
-    @if(request()->is('tenders/*'))
-        @include('partials.tenders.search-modal')
-    @endif
     <!--end::Main-->
     <script>
         var hostUrl = "assets/";
@@ -100,20 +97,13 @@
     <!--end::Page Vendors Javascript-->
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $('input[type="date"]').datepicker({
-                altFormat: "dd-mm-yyyy",
-                altField: "#alt-date"
-            });
-
-            $("#datepicker").datepicker("option", "altFormat", "dd-mm-yy");
-        });
-    </script>
+    <script src="/assets/js/custom.js"></script>
     <!--begin::Page Custom Javascript(used by this page)-->
     @if(request()->is('tenders/*'))
-        @include('partials.tenders.search-modal')
-    @endif
+        @if(!Route::is('tenders.create'))
+                @include('partials.tenders.search-modal')
+            @endif
+        @endif
     @if(\Route::is('tenders.show'))
         <script>
             "use strict";
@@ -180,11 +170,6 @@
     <script src="/assets/js/custom/modals/create-api-key.js"></script>
     <!--end::Page Custom Javascript-->
     @if ($message = Session::get('success'))
-    <style>
-        .toast-top-right {
-            top: 90px !important;
-        }
-    </style>
     <script>
         toastr.options = {
             "closeButton": true,

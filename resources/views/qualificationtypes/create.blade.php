@@ -82,7 +82,7 @@
                                             <div class="col-lg-12 fv-row">
                                                 <input type="text" name="name"
                                                        class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                                       placeholder="Blue CSCS Card" value="" />
+                                                       placeholder="Working at Height Awareness"/>
                                             </div>
                                             <!--end::Col-->
                                         </div>
@@ -90,28 +90,6 @@
                                     </div>
                                     <!--end::Col-->
                                 </div>
-                                <!--end::Input group-->
-                                <div class="row mb-6">
-                                    <!--begin::Label-->
-                                    <label class="col-lg-4 col-form-label fw-bold fs-6">Description</label>
-                                    <!--end::Label-->
-                                    <!--begin::Col-->
-                                    <div class="col-lg-8">
-                                        <!--begin::Row-->
-                                        <div class="row">
-                                            <!--begin::Col-->
-                                            <div class="col-lg-12 fv-row">
-                                                <textarea type="text" name="body"
-                                                          class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                                          placeholder="Employees who have achieved a construction related NVQ or SVQ level 2" value="" ></textarea>
-                                            </div>
-                                            <!--end::Col-->
-                                        </div>
-                                        <!--end::Row-->
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-                                <!--end::Input group-->
                             </div>
                             <!--end::Card body-->
                             <!--begin::Actions-->

@@ -73,12 +73,12 @@
                             <thead>
                             <!--begin::Table row-->
                             <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                <th class="min-w-125px">Qualification Type</th>
+                                <th class="min-w-150px">Qualification Type</th>
                                 <th class="min-w-125px">Employee</th>
-                                <th class="min-w-125px">Expiry Date</th>
-                                <th class="min-w-125px">Status</th>
+                                <th class="min-w-100px">Expiry Date</th>
+                                <th class="min-w-50px">Status</th>
                                 <th class="min-w-15px"></th>
-                                <th class="text-end min-w-100px">Actions</th>
+                                <th class="min-w-50px"></th>
                             </tr>
                             <!--end::Table row-->
                             </thead>
@@ -129,31 +129,8 @@
                                         @endif
                                     </td>
                                     <!--begin::Action=-->
-                                    <td class="text-end">
-                                        <a href="#" class="btn btn-link btn-sm p-0" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                            <span class="svg-icon svg-icon-muted svg-icon-2hx">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <rect x="10" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                <rect x="17" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                <rect x="3" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                </svg>
-                                            </span>
-                                            <!--end::Svg Icon-->
-                                        </a>
-                                        <!--begin::Menu-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="/qualifications/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu-->
+                                    <td class="">
+                                        <a href="/qualifications/{{ $item->id }}" class="btn btn-light btn-sm w-100">View</a>
                                     </td>
                                     <!--end::Action=-->
                                 </tr>

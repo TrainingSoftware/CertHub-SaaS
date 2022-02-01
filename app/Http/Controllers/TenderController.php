@@ -125,13 +125,13 @@ class TenderController extends Controller
 
             // get employees with expired qualifications
            $expiredQualifications = $tender->employees()
-           ->with('qualifications')
-           ->whereHas('qualifications', function ($query) use ($start, $end) {
-               $query->whereBetween('expiry_date', [$start, $end]);
-           })
-           ->get();
-   
-            //$expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
+                ->withCount('qualifications')
+                ->join('qualifications', 'qualifications.employee_id', '=', 'employees.id')
+                ->whereBetween('qualifications.expiry_date', [$start, $end])
+                ->get();
+
+            // get total count of employees with expired qualifications        
+            $expiredQualificationsTotal = $expiredQualifications->sum('qualifications_count');
 
         
             return view('tenders.show')
@@ -143,7 +143,8 @@ class TenderController extends Controller
                 ->with('renewals', $renewals)
                 ->with('renewalsCount', $renewalsCount)
                 ->with('activeQualifications', $activeQualifications)
-                ->with('expiredQualifications', $expiredQualifications);
+                ->with('expiredQualifications', $expiredQualifications)
+                ->with('expiredQualificationsTotal', $expiredQualificationsTotal);;
 
         } else {
 
@@ -215,20 +216,21 @@ class TenderController extends Controller
 
            // get employees with expired qualifications
            $expiredQualifications = $tender->employees()
-                ->with('qualifications')
-                ->whereHas('qualifications', function ($query) use ($start, $end) {
-                    $query->whereBetween('expiry_date', [$start, $end]);
-                })
+                ->withCount('qualifications')
+                ->join('qualifications', 'qualifications.employee_id', '=', 'employees.id')
+                ->whereBetween('qualifications.expiry_date', [$start, $end])
                 ->get();
-        
-            //$expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
+
+            // get total count of employees with expired qualifications        
+            $expiredQualificationsTotal = $expiredQualifications->sum('qualifications_count');
 
        
            return view('tenders.employees')
             ->with('tender', $tender)
             ->with('tenderEmployees', $tenderEmployees)
             ->with('slicedEmployees', $slicedEmployees)
-            ->with('expiredQualifications', $expiredQualifications);
+            ->with('expiredQualifications', $expiredQualifications)
+            ->with('expiredQualificationsTotal', $expiredQualificationsTotal);
 
        } else {
 
@@ -265,18 +267,19 @@ class TenderController extends Controller
 
            // get employees with expired qualifications
            $expiredQualifications = $tender->employees()
-                ->with('qualifications')
-                ->whereHas('qualifications', function ($query) use ($start, $end) {
-                    $query->whereBetween('expiry_date', [$start, $end]);
-                })
+                ->withCount('qualifications')
+                ->join('qualifications', 'qualifications.employee_id', '=', 'employees.id')
+                ->whereBetween('qualifications.expiry_date', [$start, $end])
                 ->get();
-        
-            //$expiredQualificationsCount = $expiredQualifications[1]->qualifications_count;
+
+            // get total count of employees with expired qualifications        
+            $expiredQualificationsTotal = $expiredQualifications->sum('qualifications_count');
        
            return view('tenders.renewals')
                ->with('tender', $tender)
                ->with('slicedEmployees', $slicedEmployees)
-               ->with('expiredQualifications', $expiredQualifications);
+               ->with('expiredQualifications', $expiredQualifications)
+               ->with('expiredQualificationsTotal', $expiredQualificationsTotal);
 
        } else {
 
