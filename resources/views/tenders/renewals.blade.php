@@ -69,7 +69,7 @@
                                     <div class="col-lg-5">
                                         <h5>Qualification</h5>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-4">
                                         <h5>Expiry</h5>
                                     </div>
                                     <div class="col-lg-3">
@@ -97,10 +97,10 @@
                                         <div class="col-lg-5">
                                             <p class="mb-0">{{ $item->qualificationtype->name }}</p>
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-4">
                                             {{ $item->expiry_date->format('d M Y') }} ({{ $item->expiry_date->diffForHumans() }})
                                         </div>
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-2">
                                             £{{ $item->price }}
                                         </div>
                                         <div class="col-lg-1 text-right">
