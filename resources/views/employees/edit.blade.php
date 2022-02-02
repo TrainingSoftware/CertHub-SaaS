@@ -532,7 +532,8 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {{ Form::text('start_date', null, array('id' => 'employeeStart', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '01/07/2021')) }}
+                                        <input name="start_date" id="employeeStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($employee->start_date){{ $employee->start_date->format('j-n-Y') }}@endif">
+
                                         <!--end::Input-->
                                     </div>
                                     <div class="form-group col-md-6">
@@ -542,7 +543,7 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {{ Form::text('end_date', null, array('id' => 'employeeEnd', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '21/09/2011')) }}
+                                        <input name="end_date" id="tenderStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($employee->end_date){{ $employee->end_date->format('j-n-Y') }}@endif">
                                         <!--end::Input-->
                                     </div>
                                 </div>

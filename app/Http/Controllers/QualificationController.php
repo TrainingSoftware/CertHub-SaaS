@@ -42,11 +42,10 @@ class QualificationController extends Controller
         // get employee with concatenated first & last name, id
         $employees = \App\Models\Employee::where('company_id', '=', $company->id)
             ->select(DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
-            ->pluck('name', 'id');
+            ->get();
 
         // get qualification types with name, id
-        $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)
-        ->pluck('name', 'id');
+        $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)->get();
 
         // get providers with name, id
         if ($request->provider){
@@ -54,8 +53,7 @@ class QualificationController extends Controller
                 ->where('id', '=', $request->provider)
             ->get();
         } else {
-            $providers = \App\Models\Provider::where('company_id', '=', $company->id)
-                ->pluck('name', 'id');
+            $providers = \App\Models\Provider::where('company_id', '=', $company->id)->get();
         }
 
         return view('qualifications.create', compact('employees', 'qualificationtypes', 'providers'));
@@ -134,20 +132,21 @@ class QualificationController extends Controller
         // get current logged in user
         $user = Auth::user();
 
-        // get providers with name, id
-        $providers = \App\Models\Provider::where('company_id', '=', $company->id)
-            ->pluck('name', 'id');
-
-        // get employee with concatenated first & last name, id
-        $employees = \App\Models\Employee::where('company_id', '=', $company->id)
-            ->select(DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
-            ->pluck('name', 'id');
-
-        // get qualification types with name, id
-        $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)
-            ->pluck('name', 'id');
-
         if ($user->can('update', $qualification)) {
+
+            // get providers with name, id
+            $providers = \App\Models\Provider::where('company_id', '=', $company->id)
+                ->get();
+
+            // get employee with concatenated first & last name, id
+            $employees = \App\Models\Employee::where('company_id', '=', $company->id)
+                ->select(DB::raw("CONCAT(firstname,' ',lastname) AS name"),'id')
+                ->get();
+
+            // get qualification types with name, id
+            $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)
+                ->get();
+
             return view('qualifications.edit', compact('qualification','employees', 'qualificationtypes', 'providers'));
         } else {
             echo 'This qualification does not belong to you.';
@@ -171,8 +170,7 @@ class QualificationController extends Controller
             'employee_id' => 'required',
             'qualificationtype_id' => 'required',
             'provider_id' => 'required',
-            'regno' => 'required|string',
-            'expiry_date' => 'required|date',
+            'expiry_date' => 'required',
             'slug' => 'string',
             'price' => 'numeric',
         ]);

@@ -144,7 +144,12 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8">
+                            @if($qualification->price)
                             <span class="fw-bolder fs-6 text-gray-800">{{ $qualification->regno }}</span>
+                            @else
+                                <span class="fw-bold text-gray-500 fs-6">No reg no available</span>
+                            @endif
+                            
                         </div>
                         <!--end::Col-->
                     </div>

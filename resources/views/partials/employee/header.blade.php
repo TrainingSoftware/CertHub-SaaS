@@ -5,7 +5,7 @@
             <!--begin: Pic-->
             <div class="me-7 mb-4">
                 <div class="symbol symbol-50px symbol-lg-60px symbol-fixed position-relative">
-                    <img src="/assets/media/avatars/150-26.jpg" alt="image" />
+                    <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
                     @if ($employee->end_date || $employee->start_date)
                         @if ($employee->end_date)
                         <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-danger rounded-circle border border-4 border-white h-20px w-20px"></div>

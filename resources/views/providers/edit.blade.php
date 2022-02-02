@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/settings/providers" class="text-muted text-hover-primary">
+                            <a href="/providers" class="text-muted text-hover-primary">
                                 Providers
                             </a>
                         </li>

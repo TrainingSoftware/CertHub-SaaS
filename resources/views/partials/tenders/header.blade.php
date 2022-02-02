@@ -30,7 +30,7 @@
 						<!--begin::Description-->
 						<div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400">
 							<span class="">
-							{{ $tender->location }}
+							{{ $tender->line_1 }}, @if($tender->line_2){{ $tender->line_2 }}, @endif{{ $tender->town }}, {{ $tender->county }}, {{ $tender->postcode }}@if($tender->country), {{ $tender->country }}@endif
 							</span>
 						</div>
 						<!--end::Description-->

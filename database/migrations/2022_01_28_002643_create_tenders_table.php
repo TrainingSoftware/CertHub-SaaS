@@ -19,6 +19,12 @@ class CreateTendersTable extends Migration
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
             $table->string('location')->nullable();
+            $table->string('line_1')->nullable();
+            $table->string('line_2')->nullable();
+            $table->string('town')->nullable();
+            $table->string('county')->nullable();
+            $table->string('postcode')->nullable();
+            $table->string('country')->nullable();
             $table->archivedAt();
             $table->bigInteger('company_id')->unsigned()->index();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');

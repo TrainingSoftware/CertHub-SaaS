@@ -29,9 +29,11 @@ class ProviderLookupController extends Controller
             'Accept-Encoding' => 'gzip, deflate, br',
             'Accept' => '*/*'
 
-        ])->get('https://api.companieshouse.gov.uk/search/companies?q=' . $query['query']);
+        ])->get('https://api.companieshouse.gov.uk/company/' . $query['query']);
 
         $data = json_decode($response, true);
+
+        dd($data);
 
         $provider = $company->providers()->create([
             'name' => $data['items'][0]['title'] ?? null,

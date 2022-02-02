@@ -134,7 +134,6 @@
                                 <span class="menu-title">View All</span>
                             </a>
                         </div>
-                        @if(Auth::user()->companies()->first()->qualificationtypes()->count() != 0)
                         <div class="menu-item">
                             <a class="menu-link" href="/tenders/create">
                                 <span class="menu-bullet">
@@ -143,7 +142,6 @@
                                 <span class="menu-title">Create New</span>
                             </a>
                         </div>
-                        @endif
                     </div>
                 </div>
 
@@ -273,7 +271,7 @@
             <div class="d-flex align-items-center">
                 <!--begin::Avatar-->
                 <div class="symbol symbol-circle symbol-40px">
-                    <img src="/assets/media/avatars/blank.png" alt="photo" />
+                    <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ Auth::user()->name[0] }}</span>
                 </div>
                 <!--end::Avatar-->
                 <!--begin::User info-->

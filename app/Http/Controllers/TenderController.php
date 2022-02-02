@@ -56,7 +56,6 @@ class TenderController extends Controller
         // get and validate data
         $storeData = $request->validate([
             'name' => 'required',
-            'location' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',
         ]);
@@ -159,9 +158,17 @@ class TenderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Tender $tender) 
     {
-        //
+        // get current logged in user
+        $user = Auth::user();
+
+        if ($user->can('update', $tender)) {
+
+            return view('tenders.edit', compact('tender'));
+        } else {
+            echo 'This tender does not belong to you.';
+        }
     }
 
     /**
@@ -171,9 +178,35 @@ class TenderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Tender $tender)
     {
-        //
+        // get current logged in user
+        $user = Auth::user();
+
+        if ($user->can('update', $tender)) {
+
+            // get and validate data
+            $updateData = $request->validate([
+                'name' => 'required',
+                'start_date' => 'date',
+                'end_date' => 'date',
+                'line_1' => 'string|nullable',
+                'line_2' => 'string|nullable',
+                'town' => 'string|nullable',
+                'county' => 'string|nullable',
+                'postcode' => 'string|nullable',
+                'country' => 'string|nullable',
+            ]);
+
+            // update department with validated data
+            $tender->update($updateData);
+
+            return redirect()->refresh()
+            ->with('success', 'Tender has been successfully updated');
+
+        } else {
+            echo 'This tender does not belong to you.';
+        }
     }
 
     /**

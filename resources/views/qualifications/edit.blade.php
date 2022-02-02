@@ -141,7 +141,12 @@
                             <!--begin::Col-->
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    {!! Form::select('employee_id', $employees, null, ['class' => 'form-control form-control-lg form-select form-select-solid mb-3 mb-lg-0', 'placeholder' => 'Select employee']) !!}
+                                    <select name="employee_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select employee" data-allow-clear="true" data-hide-search="false">
+                                        <option></option>
+                                        @foreach($employees as $item)
+                                            <option value="{{ $item->id }}" @if($qualification->employee->id === $item->id) selected @endif>{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +159,12 @@
                             <!--begin::Col-->
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    {!! Form::select('qualificationtype_id', $qualificationtypes, null, ['class' => 'form-control form-control-lg form-select form-select-solid mb-3 mb-lg-0', 'placeholder' => 'Select qualiification type']) !!}
+                                    <select name="qualificationtype_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select qualification type" data-allow-clear="true" data-hide-search="false">
+                                        <option></option>
+                                        @foreach($qualificationtypes as $item)
+                                            <option value="{{ $item->id }}" @if($qualification->qualificationtype->id === $item->id) selected @endif>{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -167,7 +177,12 @@
                             <!--begin::Col-->
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    {!! Form::select('provider_id', $providers, null, ['class' => 'form-control form-control-lg form-select form-select-solid mb-3 mb-lg-0', 'placeholder' => 'Select provider']) !!}
+                                    <select name="provider_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select provider" data-allow-clear="true" data-hide-search="false">
+                                        <option></option>
+                                        @foreach($providers as $item)
+                                            <option value="{{ $item->id }}" @if($qualification->provider->id === $item->id) selected @endif>{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -180,7 +195,7 @@
                             <!--begin::Col-->
                             <div class="col-lg-8">
                                 <div class="form-group">
-                                    {!! Form::text('expiry_date', null, ['id' => 'qualExpiry', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Select expiry date']) !!}
+                                    <input name="expiry_date" id="qualExpiry" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($qualification->expiry_date){{ $qualification->expiry_date->format('j-n-Y') }}@endif">
                                 </div>
                             </div>
                         </div>

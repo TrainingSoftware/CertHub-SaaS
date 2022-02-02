@@ -18,7 +18,13 @@ class Tender extends Model
         'name',
         'start_date',
         'end_date',
-        'location'
+        'location',
+        'line_1',
+        'line_2',
+        'town',
+        'county',
+        'postcode',
+        'country'
     ];
 
     public function company()

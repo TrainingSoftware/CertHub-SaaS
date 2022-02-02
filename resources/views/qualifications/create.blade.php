@@ -81,7 +81,12 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8">
-                                    {!! Form::select('employee_id', $employees, null, ['class' => 'form-control form-control-lg form-select form-select-solid mb-3 mb-lg-0', 'placeholder' => 'Select employee']) !!}
+                                    <select name="employee_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select employee" data-allow-clear="true" data-hide-search="false">
+                                        <option></option>
+                                        @foreach($employees as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -96,7 +101,12 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8">
-                                    {!! Form::select('qualificationtype_id', $qualificationtypes, null, ['class' => 'form-control form-control-lg form-select form-select-solid mb-3 mb-lg-0', 'placeholder' => 'Select qualification type']) !!}
+                                    <select name="qualificationtype_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select qualification" data-allow-clear="true" data-hide-search="false">
+                                        <option></option>
+                                        @foreach($qualificationtypes as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -119,7 +129,13 @@
                                             </span>
                                         </div>
                                     @else
-                                        {!! Form::select('provider_id', $providers, null, ['class' => 'form-control form-control-lg form-select form-select-solid mb-3 mb-lg-0', 'placeholder' => 'Select provider']) !!}
+                                        <!--begin::Input-->
+                                        <select name="provider_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select provider" data-allow-clear="true" data-hide-search="false">
+                                            <option></option>
+                                            @foreach($providers as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
                                     @endif
                                 </div>
                                 <!--end::Col-->

@@ -24,7 +24,9 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Employees</li>
+                    <li class="breadcrumb-item text-muted">
+                        <a href="/employees" class="text-muted text-hover-primary">Employees</a>
+                    </li>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">

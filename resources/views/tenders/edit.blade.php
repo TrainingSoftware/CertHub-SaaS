@@ -1,194 +1,480 @@
 @extends('layouts.app')
 @section('title', 'Update ' . $tender->name)
 @section('content')
-    <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-        <!--begin::Toolbar-->
-        <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
-            <!--begin::Container-->
-            <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
-                <!--begin::Page title-->
-                <div class="page-title d-flex flex-column me-5 py-2">
-                    <!--begin::Title-->
-                    <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Edit: {{ $tender->name }}</h1>
-                    <!--end::Title-->
-                    <!--begin::Breadcrumb-->
-                    <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">
-                            <a href="/home" class="text-muted text-hover-primary">Dashboard</a>
-                        </li>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item text-dark">
-                            <a href="/tenders" class="text-muted text-hover-primary">Tenders</a>
-                        </li>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item">
-                            <span class="bullet bg-gray-200 w-5px h-2px"></span>
-                        </li>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <li class="breadcrumb-item text-dark">{{ $tender->name }}</li>
-                        <!--end::Item-->
-                    </ul>
-                    <!--end::Breadcrumb-->
-                </div>
-                <!--end::Page title-->
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+    <!--begin::Toolbar-->
+    <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
+        <!--begin::Container-->
+        <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
+            <!--begin::Page title-->
+            <div class="page-title d-flex flex-column me-5 py-2">
+                <!--begin::Title-->
+                <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Edit: {{ $tender->name }}</h1>
+                <!--end::Title-->
+                <!--begin::Breadcrumb-->
+                <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-muted">
+                        <a href="/home" class="text-muted text-hover-primary">Dashboard</a>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-200 w-5px h-2px"></span>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-dark">
+                        <a href="/tenders" class="text-muted text-hover-primary">Tenders</a>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-200 w-5px h-2px"></span>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-dark">{{ $tender->name }}</li>
+                    <!--end::Item-->
+                </ul>
+                <!--end::Breadcrumb-->
             </div>
-            <!--end::Container-->
+            <!--end::Page title-->
         </div>
-        <!--end::Toolbar-->
-        <!--begin::Post-->
-        <div class="post d-flex flex-column-fluid" id="kt_post">
-            <!--begin::Container-->
-            <div id="kt_content_container" class="container-xxl">
-                <!--begin::Card-->
-
-                <!--begin::Alert-->
-                <div class="alert bg-light-danger border border-danger border-dashed d-flex flex-column flex-sm-row w-100 p-5 mb-10">
-                    <!--begin::Icon-->
-                    <span class="svg-icon svg-icon-2hx svg-icon-danger me-4 mb-5 mb-sm-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path opacity="0.3" d="M12 22C13.6569 22 15 20.6569 15 19C15 17.3431 13.6569 16 12 16C10.3431 16 9 17.3431 9 19C9 20.6569 10.3431 22 12 22Z" fill="black"></path>
-                            <path d="M19 15V18C19 18.6 18.6 19 18 19H6C5.4 19 5 18.6 5 18V15C6.1 15 7 14.1 7 13V10C7 7.6 8.7 5.6 11 5.1V3C11 2.4 11.4 2 12 2C12.6 2 13 2.4 13 3V5.1C15.3 5.6 17 7.6 17 10V13C17 14.1 17.9 15 19 15ZM11 10C11 9.4 11.4 9 12 9C12.6 9 13 8.6 13 8C13 7.4 12.6 7 12 7C10.3 7 9 8.3 9 10C9 10.6 9.4 11 10 11C10.6 11 11 10.6 11 10Z" fill="black"></path>
-                        </svg>
-                    </span>
-                    <!--end::Icon-->
-
-                    <!--begin::Wrapper-->
-                    <div class="d-flex flex-column pe-0 pe-sm-10">
-                        <!--begin::Title-->
-                        <h5 class="mb-1">About this report...</h5>
-                        <!--end::Title-->
-                        <!--begin::Content-->
-                        <span>This report shows all qualifications expiring in the current Quarter.</span>
-                        <!--end::Content-->
-                    </div>
-                    <!--end::Wrapper-->
-                </div>
-                <!--end::Alert-->
-
-                <div class="row align-items-end">
-                    <div class="col-md-3">
-                        <div class="card bg-white">
-                            <div class="card-header top-left top-right">
-                                <div class="card-title text-black hint-text">
-                                    <span class="font-montserrat fs-11 all-caps">Employees</span>
-                                </div>
-                            </div>
-                            <div class="card-body p-t-40">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h4 class="no-margin p-b-5 text-danger semi-bold"></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card bg-white">
-                            <div class="card-header top-left top-right">
-                                <div class="card-title text-black hint-text">
-                                    <span class="font-montserrat fs-11 all-caps">Renewals due</span>
-                                </div>
-                            </div>
-                            <div class="card-body p-t-40">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h4 class="no-margin p-b-5 text-danger semi-bold"></h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card bg-white">
-                            <div class="card-header top-left top-right">
-                                <div class="card-title text-black hint-text">
-                                    <span class="font-montserrat fs-11 all-caps">Est Cost of Renewals</span>
-                                </div>
-                            </div>
-                            <div class="card-body p-t-40">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <h4 class="no-margin p-b-5 text-danger semi-bold">£</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 offset-md-3 text-xl-left">
-                        <div class="align-bottom text-right">
-                            <div class="input-group">
-                                <span class="input-group-text">
-                                    <!--begin::Svg Icon | path: assets/media/icons/duotune/general/gen014.svg-->
-                                    <span class="svg-icon svg-icon-muted svg-icon-1hx"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path opacity="0.3" d="M21 22H3C2.4 22 2 21.6 2 21V5C2 4.4 2.4 4 3 4H21C21.6 4 22 4.4 22 5V21C22 21.6 21.6 22 21 22Z" fill="black"/>
-                                    <path d="M6 6C5.4 6 5 5.6 5 5V3C5 2.4 5.4 2 6 2C6.6 2 7 2.4 7 3V5C7 5.6 6.6 6 6 6ZM11 5V3C11 2.4 10.6 2 10 2C9.4 2 9 2.4 9 3V5C9 5.6 9.4 6 10 6C10.6 6 11 5.6 11 5ZM15 5V3C15 2.4 14.6 2 14 2C13.4 2 13 2.4 13 3V5C13 5.6 13.4 6 14 6C14.6 6 15 5.6 15 5ZM19 5V3C19 2.4 18.6 2 18 2C17.4 2 17 2.4 17 3V5C17 5.6 17.4 6 18 6C18.6 6 19 5.6 19 5Z" fill="black"/>
-                                    <path d="M8.8 13.1C9.2 13.1 9.5 13 9.7 12.8C9.9 12.6 10.1 12.3 10.1 11.9C10.1 11.6 10 11.3 9.8 11.1C9.6 10.9 9.3 10.8 9 10.8C8.8 10.8 8.59999 10.8 8.39999 10.9C8.19999 11 8.1 11.1 8 11.2C7.9 11.3 7.8 11.4 7.7 11.6C7.6 11.8 7.5 11.9 7.5 12.1C7.5 12.2 7.4 12.2 7.3 12.3C7.2 12.4 7.09999 12.4 6.89999 12.4C6.69999 12.4 6.6 12.3 6.5 12.2C6.4 12.1 6.3 11.9 6.3 11.7C6.3 11.5 6.4 11.3 6.5 11.1C6.6 10.9 6.8 10.7 7 10.5C7.2 10.3 7.49999 10.1 7.89999 10C8.29999 9.90003 8.60001 9.80003 9.10001 9.80003C9.50001 9.80003 9.80001 9.90003 10.1 10C10.4 10.1 10.7 10.3 10.9 10.4C11.1 10.5 11.3 10.8 11.4 11.1C11.5 11.4 11.6 11.6 11.6 11.9C11.6 12.3 11.5 12.6 11.3 12.9C11.1 13.2 10.9 13.5 10.6 13.7C10.9 13.9 11.2 14.1 11.4 14.3C11.6 14.5 11.8 14.7 11.9 15C12 15.3 12.1 15.5 12.1 15.8C12.1 16.2 12 16.5 11.9 16.8C11.8 17.1 11.5 17.4 11.3 17.7C11.1 18 10.7 18.2 10.3 18.3C9.9 18.4 9.5 18.5 9 18.5C8.5 18.5 8.1 18.4 7.7 18.2C7.3 18 7 17.8 6.8 17.6C6.6 17.4 6.4 17.1 6.3 16.8C6.2 16.5 6.10001 16.3 6.10001 16.1C6.10001 15.9 6.2 15.7 6.3 15.6C6.4 15.5 6.6 15.4 6.8 15.4C6.9 15.4 7.00001 15.4 7.10001 15.5C7.20001 15.6 7.3 15.6 7.3 15.7C7.5 16.2 7.7 16.6 8 16.9C8.3 17.2 8.6 17.3 9 17.3C9.2 17.3 9.5 17.2 9.7 17.1C9.9 17 10.1 16.8 10.3 16.6C10.5 16.4 10.5 16.1 10.5 15.8C10.5 15.3 10.4 15 10.1 14.7C9.80001 14.4 9.50001 14.3 9.10001 14.3C9.00001 14.3 8.9 14.3 8.7 14.3C8.5 14.3 8.39999 14.3 8.39999 14.3C8.19999 14.3 7.99999 14.2 7.89999 14.1C7.79999 14 7.7 13.8 7.7 13.7C7.7 13.5 7.79999 13.4 7.89999 13.2C7.99999 13 8.2 13 8.5 13H8.8V13.1ZM15.3 17.5V12.2C14.3 13 13.6 13.3 13.3 13.3C13.1 13.3 13 13.2 12.9 13.1C12.8 13 12.7 12.8 12.7 12.6C12.7 12.4 12.8 12.3 12.9 12.2C13 12.1 13.2 12 13.6 11.8C14.1 11.6 14.5 11.3 14.7 11.1C14.9 10.9 15.2 10.6 15.5 10.3C15.8 10 15.9 9.80003 15.9 9.70003C15.9 9.60003 16.1 9.60004 16.3 9.60004C16.5 9.60004 16.7 9.70003 16.8 9.80003C16.9 9.90003 17 10.2 17 10.5V17.2C17 18 16.7 18.4 16.2 18.4C16 18.4 15.8 18.3 15.6 18.2C15.4 18.1 15.3 17.8 15.3 17.5Z" fill="black"/>
-                                    </svg></span>
-                                    <!--end::Svg Icon-->
-                                </span>
-                                <input type="text" class="form-control" placeholder="" aria-label="Username" disabled/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--begin::Card -->
-                <div class="card mt-10">
-                    <!--begin::Card body-->
-                    <div class="card-body pt-0">
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
-                            <!--begin::Table-->
-                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-                                <!--begin::Table head-->
-                                <thead>
-                                <!--begin::Table row-->
-                                <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px">Name</th>
-                                    <th class="min-w-125px">Type</th>
-                                    <th class="min-w-125px">Expiry Date</th>
-                                    <th class="min-w-125px">Status</th>
-                                    <th class="min-w-125px">Cost</th>
-                                </tr>
-                                <!--end::Table row-->
-                                </thead>
-                                <!--end::Table head-->
-                                <!--begin::Table body-->
-                                <tbody class="text-gray-600 fw-bold">
-                                
-                                <tr>
-                                    <!--begin::Two step=-->
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <!--end::Two step=-->
-                                    <!--begin::Joined-->
-                                    <td></td>
-                                    <!--begin::Joined-->
-                                    <td><strong>£</strong></td>
-                                </tr>
-                                </tbody>
-                                <!--end::Table body-->
-                            </table>
-                            <!--end::Table-->
-                        </div>
-                        <!--end::Card body-->
-                    </div>
-                    <!--end::Card body-->
-                </div>
-                <!--end::Card-->
-            </div>
-            <!--end::Container-->
-        </div>
-        <!--end::Post-->
+        <!--end::Container-->
     </div>
+    <!--end::Toolbar-->
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::details View-->
+            <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+                <!--begin::Card header-->
+                <div class="card-header cursor-pointer">
+                    <!--begin::Card title-->
+                    <div class="card-title m-0">
+                        <h3 class="fw-bolder m-0">Profile Details</h3>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--begin::Card header-->
+                <!--begin::Card body-->
+                <div class="card-body p-9">
+                    {{ Form::model($tender, array('route' => array('tenders.update', $tender->id), 'method' => 'PUT')) }}
+                    <!--begin::Row-->
+                    <div class="row mb-20 d-flex h-100">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <!--begin::Row-->
+                            <!--begin::Input group-->
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <!--begin::Input-->
+                                    {{ Form::text('name', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Row-->
+                    <!--begin::Input group-->
+                    <div class="row mb-20 d-flex h-100">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Tender dates</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <!--begin::Input group-->
+                            <div class="row mb-7">
+                                <div class="form-group col-md-6">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center form-label">
+                                    Start Date
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input name="start_date" id="tenderStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $tender->start_date->format('j-n-Y') }}">
+                                    <!--end::Input-->
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center form-label">
+                                    End Date
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input name="end_date" id="tenderStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $tender->end_date->format('j-n-Y') }}">
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--begin::Input group-->
+                    <div class="row mb-20 d-flex h-100">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Site Address</label>
+                        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">
+                            <div class="row mb-10">
+                                <div class="form-group col-md-12">
+                                    <a href="#" class="btn btn-light-primary fw-bolder w-100" data-bs-toggle="modal" data-bs-target="#kt_modal_postcode">Search address</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="d-flex align-items-center mb-10">
+                                        <div class="border-bottom border-gray-300 mw-50 w-100"></div>
+                                        <span class="fw-bold text-gray-400 fs-7 mx-2">OR</span>
+                                        <div class="border-bottom border-gray-300 mw-50 w-100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-7">
+                                <div class="form-group col-md-6">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center form-label">
+                                    Building Name / Number
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    {{ Form::text('line_1', null, array('id' => 'address_line_1', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '6')) }}
+                                    <!--end::Input-->
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center form-label">
+                                    Line 2
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    {{ Form::text('line_2', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Dale Road')) }}
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="row mb-7">
+                                <div class="form-group col-md-6">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center form-label">
+                                    Town
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    {{ Form::text('town', null, array('id' => 'posttown', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Chesterfield')) }}
+                                    <!--end::Input-->
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center form-label">
+                                    County
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    {{ Form::text('county', null, array('id' => 'county', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Derbyshire')) }}
+                                    <!--end::Input-->
+                                </div>
+                            </div>
+                            <!--begin::Input group-->
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <!--begin::Label-->
+                                    <label class="d-flex align-items-center form-label">
+                                    Postcode
+                                    </label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    {{ Form::text('postcode', null, array('id' => 'postcode', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'S18 1XJ')) }}
+                                    <!--end::Input-->
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <!--begin::Label-->
+                                    <label class="form-label required">Country</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <select name="country" disabled value="United Kingdom" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="false">
+                                        <option></option>
+                                        <option value="Afganistan">Afghanistan</option>
+                                        <option value="Albania">Albania</option>
+                                        <option value="Algeria">Algeria</option>
+                                        <option value="American Samoa">American Samoa</option>
+                                        <option value="Andorra">Andorra</option>
+                                        <option value="Angola">Angola</option>
+                                        <option value="Anguilla">Anguilla</option>
+                                        <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Armenia">Armenia</option>
+                                        <option value="Aruba">Aruba</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Austria">Austria</option>
+                                        <option value="Azerbaijan">Azerbaijan</option>
+                                        <option value="Bahamas">Bahamas</option>
+                                        <option value="Bahrain">Bahrain</option>
+                                        <option value="Bangladesh">Bangladesh</option>
+                                        <option value="Barbados">Barbados</option>
+                                        <option value="Belarus">Belarus</option>
+                                        <option value="Belgium">Belgium</option>
+                                        <option value="Belize">Belize</option>
+                                        <option value="Benin">Benin</option>
+                                        <option value="Bermuda">Bermuda</option>
+                                        <option value="Bhutan">Bhutan</option>
+                                        <option value="Bolivia">Bolivia</option>
+                                        <option value="Bonaire">Bonaire</option>
+                                        <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+                                        <option value="Botswana">Botswana</option>
+                                        <option value="Brazil">Brazil</option>
+                                        <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+                                        <option value="Brunei">Brunei</option>
+                                        <option value="Bulgaria">Bulgaria</option>
+                                        <option value="Burkina Faso">Burkina Faso</option>
+                                        <option value="Burundi">Burundi</option>
+                                        <option value="Cambodia">Cambodia</option>
+                                        <option value="Cameroon">Cameroon</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Canary Islands">Canary Islands</option>
+                                        <option value="Cape Verde">Cape Verde</option>
+                                        <option value="Cayman Islands">Cayman Islands</option>
+                                        <option value="Central African Republic">Central African Republic</option>
+                                        <option value="Chad">Chad</option>
+                                        <option value="Channel Islands">Channel Islands</option>
+                                        <option value="Chile">Chile</option>
+                                        <option value="China">China</option>
+                                        <option value="Christmas Island">Christmas Island</option>
+                                        <option value="Cocos Island">Cocos Island</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Comoros">Comoros</option>
+                                        <option value="Congo">Congo</option>
+                                        <option value="Cook Islands">Cook Islands</option>
+                                        <option value="Costa Rica">Costa Rica</option>
+                                        <option value="Cote DIvoire">Cote DIvoire</option>
+                                        <option value="Croatia">Croatia</option>
+                                        <option value="Cuba">Cuba</option>
+                                        <option value="Curaco">Curacao</option>
+                                        <option value="Cyprus">Cyprus</option>
+                                        <option value="Czech Republic">Czech Republic</option>
+                                        <option value="Denmark">Denmark</option>
+                                        <option value="Djibouti">Djibouti</option>
+                                        <option value="Dominica">Dominica</option>
+                                        <option value="Dominican Republic">Dominican Republic</option>
+                                        <option value="East Timor">East Timor</option>
+                                        <option value="Ecuador">Ecuador</option>
+                                        <option value="Egypt">Egypt</option>
+                                        <option value="El Salvador">El Salvador</option>
+                                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                        <option value="Eritrea">Eritrea</option>
+                                        <option value="Estonia">Estonia</option>
+                                        <option value="Ethiopia">Ethiopia</option>
+                                        <option value="Falkland Islands">Falkland Islands</option>
+                                        <option value="Faroe Islands">Faroe Islands</option>
+                                        <option value="Fiji">Fiji</option>
+                                        <option value="Finland">Finland</option>
+                                        <option value="France">France</option>
+                                        <option value="French Guiana">French Guiana</option>
+                                        <option value="French Polynesia">French Polynesia</option>
+                                        <option value="French Southern Ter">French Southern Ter</option>
+                                        <option value="Gabon">Gabon</option>
+                                        <option value="Gambia">Gambia</option>
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Germany">Germany</option>
+                                        <option value="Ghana">Ghana</option>
+                                        <option value="Gibraltar">Gibraltar</option>
+                                        <option value="Great Britain">Great Britain</option>
+                                        <option value="Greece">Greece</option>
+                                        <option value="Greenland">Greenland</option>
+                                        <option value="Grenada">Grenada</option>
+                                        <option value="Guadeloupe">Guadeloupe</option>
+                                        <option value="Guam">Guam</option>
+                                        <option value="Guatemala">Guatemala</option>
+                                        <option value="Guinea">Guinea</option>
+                                        <option value="Guyana">Guyana</option>
+                                        <option value="Haiti">Haiti</option>
+                                        <option value="Hawaii">Hawaii</option>
+                                        <option value="Honduras">Honduras</option>
+                                        <option value="Hong Kong">Hong Kong</option>
+                                        <option value="Hungary">Hungary</option>
+                                        <option value="Iceland">Iceland</option>
+                                        <option value="Indonesia">Indonesia</option>
+                                        <option value="India">India</option>
+                                        <option value="Iran">Iran</option>
+                                        <option value="Iraq">Iraq</option>
+                                        <option value="Ireland">Ireland</option>
+                                        <option value="Isle of Man">Isle of Man</option>
+                                        <option value="Israel">Israel</option>
+                                        <option value="Italy">Italy</option>
+                                        <option value="Jamaica">Jamaica</option>
+                                        <option value="Japan">Japan</option>
+                                        <option value="Jordan">Jordan</option>
+                                        <option value="Kazakhstan">Kazakhstan</option>
+                                        <option value="Kenya">Kenya</option>
+                                        <option value="Kiribati">Kiribati</option>
+                                        <option value="Korea North">Korea North</option>
+                                        <option value="Korea Sout">Korea South</option>
+                                        <option value="Kuwait">Kuwait</option>
+                                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                        <option value="Laos">Laos</option>
+                                        <option value="Latvia">Latvia</option>
+                                        <option value="Lebanon">Lebanon</option>
+                                        <option value="Lesotho">Lesotho</option>
+                                        <option value="Liberia">Liberia</option>
+                                        <option value="Libya">Libya</option>
+                                        <option value="Liechtenstein">Liechtenstein</option>
+                                        <option value="Lithuania">Lithuania</option>
+                                        <option value="Luxembourg">Luxembourg</option>
+                                        <option value="Macau">Macau</option>
+                                        <option value="Macedonia">Macedonia</option>
+                                        <option value="Madagascar">Madagascar</option>
+                                        <option value="Malaysia">Malaysia</option>
+                                        <option value="Malawi">Malawi</option>
+                                        <option value="Maldives">Maldives</option>
+                                        <option value="Mali">Mali</option>
+                                        <option value="Malta">Malta</option>
+                                        <option value="Marshall Islands">Marshall Islands</option>
+                                        <option value="Martinique">Martinique</option>
+                                        <option value="Mauritania">Mauritania</option>
+                                        <option value="Mauritius">Mauritius</option>
+                                        <option value="Mayotte">Mayotte</option>
+                                        <option value="Mexico">Mexico</option>
+                                        <option value="Midway Islands">Midway Islands</option>
+                                        <option value="Moldova">Moldova</option>
+                                        <option value="Monaco">Monaco</option>
+                                        <option value="Mongolia">Mongolia</option>
+                                        <option value="Montserrat">Montserrat</option>
+                                        <option value="Morocco">Morocco</option>
+                                        <option value="Mozambique">Mozambique</option>
+                                        <option value="Myanmar">Myanmar</option>
+                                        <option value="Nambia">Nambia</option>
+                                        <option value="Nauru">Nauru</option>
+                                        <option value="Nepal">Nepal</option>
+                                        <option value="Netherland Antilles">Netherland Antilles</option>
+                                        <option value="Netherlands">Netherlands (Holland, Europe)</option>
+                                        <option value="Nevis">Nevis</option>
+                                        <option value="New Caledonia">New Caledonia</option>
+                                        <option value="New Zealand">New Zealand</option>
+                                        <option value="Nicaragua">Nicaragua</option>
+                                        <option value="Niger">Niger</option>
+                                        <option value="Nigeria">Nigeria</option>
+                                        <option value="Niue">Niue</option>
+                                        <option value="Norfolk Island">Norfolk Island</option>
+                                        <option value="Norway">Norway</option>
+                                        <option value="Oman">Oman</option>
+                                        <option value="Pakistan">Pakistan</option>
+                                        <option value="Palau Island">Palau Island</option>
+                                        <option value="Palestine">Palestine</option>
+                                        <option value="Panama">Panama</option>
+                                        <option value="Papua New Guinea">Papua New Guinea</option>
+                                        <option value="Paraguay">Paraguay</option>
+                                        <option value="Peru">Peru</option>
+                                        <option value="Phillipines">Philippines</option>
+                                        <option value="Pitcairn Island">Pitcairn Island</option>
+                                        <option value="Poland">Poland</option>
+                                        <option value="Portugal">Portugal</option>
+                                        <option value="Puerto Rico">Puerto Rico</option>
+                                        <option value="Qatar">Qatar</option>
+                                        <option value="Republic of Montenegro">Republic of Montenegro</option>
+                                        <option value="Republic of Serbia">Republic of Serbia</option>
+                                        <option value="Reunion">Reunion</option>
+                                        <option value="Romania">Romania</option>
+                                        <option value="Russia">Russia</option>
+                                        <option value="Rwanda">Rwanda</option>
+                                        <option value="St Barthelemy">St Barthelemy</option>
+                                        <option value="St Eustatius">St Eustatius</option>
+                                        <option value="St Helena">St Helena</option>
+                                        <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+                                        <option value="St Lucia">St Lucia</option>
+                                        <option value="St Maarten">St Maarten</option>
+                                        <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                                        <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+                                        <option value="Saipan">Saipan</option>
+                                        <option value="Samoa">Samoa</option>
+                                        <option value="Samoa American">Samoa American</option>
+                                        <option value="San Marino">San Marino</option>
+                                        <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+                                        <option value="Saudi Arabia">Saudi Arabia</option>
+                                        <option value="Senegal">Senegal</option>
+                                        <option value="Seychelles">Seychelles</option>
+                                        <option value="Sierra Leone">Sierra Leone</option>
+                                        <option value="Singapore">Singapore</option>
+                                        <option value="Slovakia">Slovakia</option>
+                                        <option value="Slovenia">Slovenia</option>
+                                        <option value="Solomon Islands">Solomon Islands</option>
+                                        <option value="Somalia">Somalia</option>
+                                        <option value="South Africa">South Africa</option>
+                                        <option value="Spain">Spain</option>
+                                        <option value="Sri Lanka">Sri Lanka</option>
+                                        <option value="Sudan">Sudan</option>
+                                        <option value="Suriname">Suriname</option>
+                                        <option value="Swaziland">Swaziland</option>
+                                        <option value="Sweden">Sweden</option>
+                                        <option value="Switzerland">Switzerland</option>
+                                        <option value="Syria">Syria</option>
+                                        <option value="Tahiti">Tahiti</option>
+                                        <option value="Taiwan">Taiwan</option>
+                                        <option value="Tajikistan">Tajikistan</option>
+                                        <option value="Tanzania">Tanzania</option>
+                                        <option value="Thailand">Thailand</option>
+                                        <option value="Togo">Togo</option>
+                                        <option value="Tokelau">Tokelau</option>
+                                        <option value="Tonga">Tonga</option>
+                                        <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                                        <option value="Tunisia">Tunisia</option>
+                                        <option value="Turkey">Turkey</option>
+                                        <option value="Turkmenistan">Turkmenistan</option>
+                                        <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+                                        <option value="Tuvalu">Tuvalu</option>
+                                        <option value="Uganda">Uganda</option>
+                                        <option value="United Kingdom" selected>United Kingdom</option>
+                                        <option value="Ukraine">Ukraine</option>
+                                        <option value="United Arab Erimates">United Arab Emirates</option>
+                                        <option value="United States of America">United States of America</option>
+                                        <option value="Uraguay">Uruguay</option>
+                                        <option value="Uzbekistan">Uzbekistan</option>
+                                        <option value="Vanuatu">Vanuatu</option>
+                                        <option value="Vatican City State">Vatican City State</option>
+                                        <option value="Venezuela">Venezuela</option>
+                                        <option value="Vietnam">Vietnam</option>
+                                        <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                                        <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                                        <option value="Wake Island">Wake Island</option>
+                                        <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+                                        <option value="Yemen">Yemen</option>
+                                        <option value="Zaire">Zaire</option>
+                                        <option value="Zambia">Zambia</option>
+                                        <option value="Zimbabwe">Zimbabwe</option>
+                                    </select>
+                                    <!--end::Input-->   
+                                </div>
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <!--end::Input group-->
+                </div>
+                <!--end::Card body-->
+                <div class="card-footer">
+                    <!--begin::Card title-->
+                    <!--begin::Action-->
+                    <button type="submit" class="btn btn-primary align-self-center">Update</button>
+                    <!--end::Action-->
+                    {{ Form::close() }}
+                    @include('partials.global.postcode-search')
+                    {{ Form::model($tender, array('route' => array('tenders.destroy', $tender->id), 'method' => 'DELETE', 'class' => 'd-inline')) }}
+                    <button type="submit" class="btn btn-danger align-self-center">Delete</button>
+                    {{ Form::close() }}
+                </div>
+            </div>
+            <!--end::details View-->
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Post-->
+</div>
 @endsection

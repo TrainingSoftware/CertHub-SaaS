@@ -139,7 +139,7 @@
                         <div class="menu-content d-flex align-items-center px-3">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-50px me-5">
-                                <img alt="Logo" src="/assets/media/avatars/blank.png" />
+                                <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ Auth::user()->name[0] }}</span>
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Username-->

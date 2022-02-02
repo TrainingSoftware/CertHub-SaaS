@@ -96,8 +96,8 @@
     <script src="/assets/js/scripts.bundle.js"></script>
     <!--end::Global Javascript Bundle-->
     <!--end::Page Vendors Javascript-->
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <!--<script src="//code.jquery.com/jquery-1.10.2.js"></script>-->
+    <!--<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script src="/assets/js/custom.js"></script>
@@ -173,9 +173,8 @@
     <script src="/assets/js/custom/modals/create-api-key.js"></script>
     <!--end::Page Custom Javascript-->
 
-    @if(\Route::is('employees.edit'))
+    @if(\Route::is('employees.edit') or \Route::is('tenders.edit'))
         <script>
-            $('#mySelect2').find(':selected');
 			$(function() {
                 var api_key = "{{ env('ALLIES_API')}}";
 

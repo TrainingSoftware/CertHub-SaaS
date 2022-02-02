@@ -86,18 +86,6 @@
                             <!--begin::Input group-->
                             <div class="row mb-6 d-flex h-100">
                                 <!--begin::Label-->
-                                <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Location</label>
-                                <!--end::Label-->
-                                <!--begin::Col-->
-                                <div class="col-lg-8">
-                                {{ Form::text('location', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'London']) }}
-                                </div>
-                                <!--end::Col-->
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="row mb-6 d-flex h-100">
-                                <!--begin::Label-->
                                 <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Date period</label>
                                 <!--end::Label-->
                                 <!--begin::Col-->

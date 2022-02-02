@@ -95,7 +95,8 @@
                                 <div class="col-lg-12">
                                     <div class="row p-3 align-items-center">
                                         <div class="col-lg-5">
-                                            <p class="mb-0">{{ $item->qualificationtype->name }}</p>
+                                            <p class="mb-0">
+                                                <a href="/qualifications/{{ $item->id }}">{{ $item->qualificationtype->name }} {{ $item->id }}</a></p>
                                         </div>
                                         <div class="col-lg-4">
                                             {{ $item->expiry_date->format('d M Y') }} ({{ $item->expiry_date->diffForHumans() }})
