@@ -1,43 +1,22 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "../../../themes/metronic/html/demo10/src/js/custom/landing.js":
-/*!*********************************************************************!*\
-  !*** ../../../themes/metronic/html/demo10/src/js/custom/landing.js ***!
-  \*********************************************************************/
+/***/ "./resources/src/js/custom/landing.js":
+/*!********************************************!*\
+  !*** ./resources/src/js/custom/landing.js ***!
+  \********************************************/
 /***/ ((module) => {
 
-
-
-// Class definition
-var KTLandingPage = function () {
-    // Private methods
-    var initTyped = function() {
-        var typed = new Typed("#kt_landing_hero_text", {
-            strings: ["The Best Theme Ever", "The Most Trusted Theme", "#1 Selling Theme"],
-            typeSpeed: 50
-        });
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            //initTyped();
-        }   
-    }
-}();
-
-// Webpack support
-if (true) {
-    module.exports = KTLandingPage;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTLandingPage.init();
-});
-
+eval(" // Class definition\n\nvar KTLandingPage = function () {\n  // Private methods\n  var initTyped = function initTyped() {\n    var typed = new Typed(\"#kt_landing_hero_text\", {\n      strings: [\"The Best Theme Ever\", \"The Most Trusted Theme\", \"#1 Selling Theme\"],\n      typeSpeed: 50\n    });\n  }; // Public methods\n\n\n  return {\n    init: function init() {//initTyped();\n    }\n  };\n}(); // Webpack support\n\n\nif (true) {\n  module.exports = KTLandingPage;\n} // On document ready\n\n\nKTUtil.onDOMContentLoaded(function () {\n  KTLandingPage.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9sYW5kaW5nLmpzLmpzIiwibWFwcGluZ3MiOiJDQUVBOztBQUNBLElBQUlBLGFBQWEsR0FBRyxZQUFZO0FBQzVCO0FBQ0EsTUFBSUMsU0FBUyxHQUFHLFNBQVpBLFNBQVksR0FBVztBQUN2QixRQUFJQyxLQUFLLEdBQUcsSUFBSUMsS0FBSixDQUFVLHVCQUFWLEVBQW1DO0FBQzNDQyxNQUFBQSxPQUFPLEVBQUUsQ0FBQyxxQkFBRCxFQUF3Qix3QkFBeEIsRUFBa0Qsa0JBQWxELENBRGtDO0FBRTNDQyxNQUFBQSxTQUFTLEVBQUU7QUFGZ0MsS0FBbkMsQ0FBWjtBQUlILEdBTEQsQ0FGNEIsQ0FTNUI7OztBQUNBLFNBQU87QUFDSEMsSUFBQUEsSUFBSSxFQUFFLGdCQUFZLENBQ2Q7QUFDSDtBQUhFLEdBQVA7QUFLSCxDQWZtQixFQUFwQixDLENBaUJBOzs7QUFDQSxJQUFJLElBQUosRUFBbUM7QUFDL0JDLEVBQUFBLE1BQU0sQ0FBQ0MsT0FBUCxHQUFpQlIsYUFBakI7QUFDSCxDLENBRUQ7OztBQUNBUyxNQUFNLENBQUNDLGtCQUFQLENBQTBCLFlBQVc7QUFDakNWLEVBQUFBLGFBQWEsQ0FBQ00sSUFBZDtBQUNILENBRkQiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9sYW5kaW5nLmpzPzhiMTQiXSwic291cmNlc0NvbnRlbnQiOlsiXCJ1c2Ugc3RyaWN0XCI7XHJcblxyXG4vLyBDbGFzcyBkZWZpbml0aW9uXHJcbnZhciBLVExhbmRpbmdQYWdlID0gZnVuY3Rpb24gKCkge1xyXG4gICAgLy8gUHJpdmF0ZSBtZXRob2RzXHJcbiAgICB2YXIgaW5pdFR5cGVkID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgdmFyIHR5cGVkID0gbmV3IFR5cGVkKFwiI2t0X2xhbmRpbmdfaGVyb190ZXh0XCIsIHtcclxuICAgICAgICAgICAgc3RyaW5nczogW1wiVGhlIEJlc3QgVGhlbWUgRXZlclwiLCBcIlRoZSBNb3N0IFRydXN0ZWQgVGhlbWVcIiwgXCIjMSBTZWxsaW5nIFRoZW1lXCJdLFxyXG4gICAgICAgICAgICB0eXBlU3BlZWQ6IDUwXHJcbiAgICAgICAgfSk7XHJcbiAgICB9XHJcblxyXG4gICAgLy8gUHVibGljIG1ldGhvZHNcclxuICAgIHJldHVybiB7XHJcbiAgICAgICAgaW5pdDogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAvL2luaXRUeXBlZCgpO1xyXG4gICAgICAgIH0gICBcclxuICAgIH1cclxufSgpO1xyXG5cclxuLy8gV2VicGFjayBzdXBwb3J0XHJcbmlmICh0eXBlb2YgbW9kdWxlICE9PSAndW5kZWZpbmVkJykge1xyXG4gICAgbW9kdWxlLmV4cG9ydHMgPSBLVExhbmRpbmdQYWdlO1xyXG59XHJcblxyXG4vLyBPbiBkb2N1bWVudCByZWFkeVxyXG5LVFV0aWwub25ET01Db250ZW50TG9hZGVkKGZ1bmN0aW9uKCkge1xyXG4gICAgS1RMYW5kaW5nUGFnZS5pbml0KCk7XHJcbn0pO1xyXG4iXSwibmFtZXMiOlsiS1RMYW5kaW5nUGFnZSIsImluaXRUeXBlZCIsInR5cGVkIiwiVHlwZWQiLCJzdHJpbmdzIiwidHlwZVNwZWVkIiwiaW5pdCIsIm1vZHVsZSIsImV4cG9ydHMiLCJLVFV0aWwiLCJvbkRPTUNvbnRlbnRMb2FkZWQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/src/js/custom/landing.js\n");
 
 /***/ })
 
@@ -72,8 +51,7 @@ KTUtil.onDOMContentLoaded(function() {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("../../../themes/metronic/html/demo10/src/js/custom/landing.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./resources/src/js/custom/landing.js");
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=landing.js.map

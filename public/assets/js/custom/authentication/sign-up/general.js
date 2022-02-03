@@ -1,187 +1,33 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-var __webpack_exports__ = {};
-/*!********************************************************************************************!*\
-  !*** ../../../themes/metronic/html/demo10/src/js/custom/authentication/sign-up/general.js ***!
-  \********************************************************************************************/
+/******/ 	var __webpack_modules__ = ({
 
+/***/ "./resources/src/js/custom/authentication/sign-up/general.js":
+/*!*******************************************************************!*\
+  !*** ./resources/src/js/custom/authentication/sign-up/general.js ***!
+  \*******************************************************************/
+/***/ (() => {
 
-// Class definition
-var KTSignupGeneral = function() {
-    // Elements
-    var form;
-    var submitButton;
-    var validator;
-    var passwordMeter;
+eval(" // Class definition\n\nvar KTSignupGeneral = function () {\n  // Elements\n  var form;\n  var submitButton;\n  var validator;\n  var passwordMeter; // Handle form\n\n  var handleForm = function handleForm(e) {\n    // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/\n    validator = FormValidation.formValidation(form, {\n      fields: {\n        'first-name': {\n          validators: {\n            notEmpty: {\n              message: 'First Name is required'\n            }\n          }\n        },\n        'last-name': {\n          validators: {\n            notEmpty: {\n              message: 'Last Name is required'\n            }\n          }\n        },\n        'email': {\n          validators: {\n            notEmpty: {\n              message: 'Email address is required'\n            },\n            emailAddress: {\n              message: 'The value is not a valid email address'\n            }\n          }\n        },\n        'password': {\n          validators: {\n            notEmpty: {\n              message: 'The password is required'\n            },\n            callback: {\n              message: 'Please enter valid password',\n              callback: function callback(input) {\n                if (input.value.length > 0) {\n                  return validatePassword();\n                }\n              }\n            }\n          }\n        },\n        'confirm-password': {\n          validators: {\n            notEmpty: {\n              message: 'The password confirmation is required'\n            },\n            identical: {\n              compare: function compare() {\n                return form.querySelector('[name=\"password\"]').value;\n              },\n              message: 'The password and its confirm are not the same'\n            }\n          }\n        },\n        'toc': {\n          validators: {\n            notEmpty: {\n              message: 'You must accept the terms and conditions'\n            }\n          }\n        }\n      },\n      plugins: {\n        trigger: new FormValidation.plugins.Trigger({\n          event: {\n            password: false\n          }\n        }),\n        bootstrap: new FormValidation.plugins.Bootstrap5({\n          rowSelector: '.fv-row',\n          eleInvalidClass: '',\n          eleValidClass: ''\n        })\n      }\n    }); // Handle form submit\n\n    submitButton.addEventListener('click', function (e) {\n      e.preventDefault();\n      validator.revalidateField('password');\n      validator.validate().then(function (status) {\n        if (status == 'Valid') {\n          // Show loading indication\n          submitButton.setAttribute('data-kt-indicator', 'on'); // Disable button to avoid multiple click \n\n          submitButton.disabled = true; // Simulate ajax request\n\n          setTimeout(function () {\n            // Hide loading indication\n            submitButton.removeAttribute('data-kt-indicator'); // Enable button\n\n            submitButton.disabled = false; // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/\n\n            Swal.fire({\n              text: \"You have successfully reset your password!\",\n              icon: \"success\",\n              buttonsStyling: false,\n              confirmButtonText: \"Ok, got it!\",\n              customClass: {\n                confirmButton: \"btn btn-primary\"\n              }\n            }).then(function (result) {\n              if (result.isConfirmed) {\n                form.reset(); // reset form                    \n\n                passwordMeter.reset(); // reset password meter\n                //form.submit();\n              }\n            });\n          }, 1500);\n        } else {\n          // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/\n          Swal.fire({\n            text: \"Sorry, looks like there are some errors detected, please try again.\",\n            icon: \"error\",\n            buttonsStyling: false,\n            confirmButtonText: \"Ok, got it!\",\n            customClass: {\n              confirmButton: \"btn btn-primary\"\n            }\n          });\n        }\n      });\n    }); // Handle password input\n\n    form.querySelector('input[name=\"password\"]').addEventListener('input', function () {\n      if (this.value.length > 0) {\n        validator.updateFieldStatus('password', 'NotValidated');\n      }\n    });\n  }; // Password input validation\n\n\n  var validatePassword = function validatePassword() {\n    return passwordMeter.getScore() === 100;\n  }; // Public functions\n\n\n  return {\n    // Initialization\n    init: function init() {\n      // Elements\n      form = document.querySelector('#kt_sign_up_form');\n      submitButton = document.querySelector('#kt_sign_up_submit');\n      passwordMeter = KTPasswordMeter.getInstance(form.querySelector('[data-kt-password-meter=\"true\"]'));\n      handleForm();\n    }\n  };\n}(); // On document ready\n\n\nKTUtil.onDOMContentLoaded(function () {\n  KTSignupGeneral.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9hdXRoZW50aWNhdGlvbi9zaWduLXVwL2dlbmVyYWwuanMuanMiLCJtYXBwaW5ncyI6IkNBRUE7O0FBQ0EsSUFBSUEsZUFBZSxHQUFHLFlBQVc7QUFDN0I7QUFDQSxNQUFJQyxJQUFKO0FBQ0EsTUFBSUMsWUFBSjtBQUNBLE1BQUlDLFNBQUo7QUFDQSxNQUFJQyxhQUFKLENBTDZCLENBTzdCOztBQUNBLE1BQUlDLFVBQVUsR0FBSSxTQUFkQSxVQUFjLENBQVNDLENBQVQsRUFBWTtBQUMxQjtBQUNBSCxJQUFBQSxTQUFTLEdBQUdJLGNBQWMsQ0FBQ0MsY0FBZixDQUNqQlAsSUFEaUIsRUFFakI7QUFDQ1EsTUFBQUEsTUFBTSxFQUFFO0FBQ1Asc0JBQWM7QUFDYkMsVUFBQUEsVUFBVSxFQUFFO0FBQ1hDLFlBQUFBLFFBQVEsRUFBRTtBQUNUQyxjQUFBQSxPQUFPLEVBQUU7QUFEQTtBQURDO0FBREMsU0FEUDtBQVFRLHFCQUFhO0FBQzNCRixVQUFBQSxVQUFVLEVBQUU7QUFDWEMsWUFBQUEsUUFBUSxFQUFFO0FBQ1RDLGNBQUFBLE9BQU8sRUFBRTtBQURBO0FBREM7QUFEZSxTQVJyQjtBQWVQLGlCQUFTO0FBQ1VGLFVBQUFBLFVBQVUsRUFBRTtBQUM3QkMsWUFBQUEsUUFBUSxFQUFFO0FBQ1RDLGNBQUFBLE9BQU8sRUFBRTtBQURBLGFBRG1CO0FBSVJDLFlBQUFBLFlBQVksRUFBRTtBQUNsQ0QsY0FBQUEsT0FBTyxFQUFFO0FBRHlCO0FBSk47QUFEdEIsU0FmRjtBQXlCUSxvQkFBWTtBQUNSRixVQUFBQSxVQUFVLEVBQUU7QUFDUkMsWUFBQUEsUUFBUSxFQUFFO0FBQ05DLGNBQUFBLE9BQU8sRUFBRTtBQURILGFBREY7QUFJUkUsWUFBQUEsUUFBUSxFQUFFO0FBQ05GLGNBQUFBLE9BQU8sRUFBRSw2QkFESDtBQUVORSxjQUFBQSxRQUFRLEVBQUUsa0JBQVNDLEtBQVQsRUFBZ0I7QUFDdEIsb0JBQUlBLEtBQUssQ0FBQ0Ms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Q0gsQ0FGRCIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3Jlc291cmNlcy9zcmMvanMvY3VzdG9tL2F1dGhlbnRpY2F0aW9uL3NpZ24tdXAvZ2VuZXJhbC5qcz8yZTcxIl0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xyXG5cclxuLy8gQ2xhc3MgZGVmaW5pdGlvblxyXG52YXIgS1RTaWdudXBHZW5lcmFsID0gZnVuY3Rpb24oKSB7XHJcbiAgICAvLyBFbGVtZW50c1xyXG4gICAgdmFyIGZvcm07XHJcbiAgICB2YXIgc3VibWl0QnV0dG9uO1xyXG4gICAgdmFyIHZhbGlkYXRvcjtcclxuICAgIHZhciBwYXNzd29yZE1ldGVyO1xyXG5cclxuICAgIC8vIEhhbmRsZSBmb3JtXHJcbiAgICB2YXIgaGFuZGxlRm9ybSAgPSBmdW5jdGlvbihlKSB7XHJcbiAgICAgICAgLy8gSW5pdCBmb3JtIHZhbGlkYXRpb24gcnVsZXMuIEZvciBtb3JlIGluZm8gY2hlY2sgdGhlIEZvcm1WYWxpZGF0aW9uIHBsdWdpbidzIG9mZmljaWFsIGRvY3VtZW50YXRpb246aHR0cHM6Ly9mb3JtdmFsaWRhdGlvbi5pby9cclxuICAgICAgICB2YWxpZGF0b3IgPSBGb3JtVmFsaWRhdGlvbi5mb3JtVmFsaWRhdGlvbihcclxuXHRcdFx0Zm9ybSxcclxuXHRcdFx0e1xyXG5cdFx0XHRcdGZpZWxkczoge1xyXG5cdFx0XHRcdFx0J2ZpcnN0LW5hbWUnOiB7XHJcblx0XHRcdFx0XHRcdHZhbGlkYXRvcnM6IHtcclxuXHRcdFx0XHRcdFx0XHRub3RFbXB0eToge1xyXG5cdFx0XHRcdFx0XHRcdFx0bWVzc2FnZTogJ0ZpcnN0IE5hbWUgaXMgcmVxdWlyZWQnXHJcblx0XHRcdFx0XHRcdFx0fVxyXG5cdFx0XHRcdFx0XHR9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICAnbGFzdC1uYW1lJzoge1xyXG5cdFx0XHRcdFx0XHR2YWxpZGF0b3JzOiB7XHJcblx0XHRcdFx0XHRcdFx0bm90RW1wdHk6IHtcclxuXHRcdFx0XHRcdFx0XHRcdG1lc3NhZ2U6ICdMYXN0IE5hbWUgaXMgcmVxdWlyZWQnXHJcblx0XHRcdFx0XHRcdFx0fVxyXG5cdFx0XHRcdFx0XHR9XHJcblx0XHRcdFx0XHR9LFxyXG5cdFx0XHRcdFx0J2VtYWlsJzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWxpZGF0b3JzOiB7XHJcblx0XHRcdFx0XHRcdFx0bm90RW1wdHk6IHtcclxuXHRcdFx0XHRcdFx0XHRcdG1lc3NhZ2U6ICdFbWFpbCBhZGRyZXNzIGlzIHJlcXVpcmVkJ1xyXG5cdFx0XHRcdFx0XHRcdH0sXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbWFpbEFkZHJlc3M6IHtcclxuXHRcdFx0XHRcdFx0XHRcdG1lc3NhZ2U6ICdUaGUgdmFsdWUgaXMgbm90IGEgdmFsaWQgZW1haWwgYWRkcmVzcydcclxuXHRcdFx0XHRcdFx0XHR9XHJcblx0XHRcdFx0XHRcdH1cclxuXHRcdFx0XHRcdH0sXHJcbiAgICAgICAgICAgICAgICAgICAgJ3Bhc3N3b3JkJzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWxpZGF0b3JzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBub3RFbXB0eToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1lc3NhZ2U6ICdUaGUgcGFzc3dvcmQgaXMgcmVxdWlyZWQnXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY2FsbGJhY2s6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlOiAnUGxlYXNlIGVudGVyIHZhbGlkIHBhc3N3b3JkJyxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjYWxsYmFjazogZnVuY3Rpb24oaW5wdXQpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGlucHV0LnZhbHVlLmxlbmd0aCA+IDApIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiB2YWxpZGF0ZVBhc3N3b3JkKCk7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICB9LFxyXG4gICAgICAgICAgICAgICAgICAgICdjb25maXJtLXBhc3N3b3JkJzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWxpZGF0b3JzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBub3RFbXB0eToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1lc3NhZ2U6ICdUaGUgcGFzc3dvcmQgY29uZmlybWF0aW9uIGlzIHJlcXVpcmVkJ1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlkZW50aWNhbDoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBhcmU6IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gZm9ybS5xdWVyeVNlbGVjdG9yKCdbbmFtZT1cInBhc3N3b3JkXCJdJykudmFsdWU7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtZXNzYWdlOiAnVGhlIHBhc3N3b3JkIGFuZCBpdHMgY29uZmlybSBhcmUgbm90IHRoZSBzYW1lJ1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICAndG9jJzoge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YWxpZGF0b3JzOiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBub3RFbXB0eToge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1lc3NhZ2U6ICdZb3UgbXVzdCBhY2NlcHQgdGhlIHRlcm1zIGFuZCBjb25kaXRpb25zJ1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG5cdFx0XHRcdH0sXHJcblx0XHRcdFx0cGx1Z2luczoge1xyXG5cdFx0XHRcdFx0dHJpZ2dlcjogbmV3IEZvcm1WYWxpZGF0aW9uLnBsdWdpbnMuVHJpZ2dlcih7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGV2ZW50OiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwYXNzd29yZDogZmFsc2VcclxuICAgICAgICAgICAgICAgICAgICAgICAgfSAgXHJcbiAgICAgICAgICAgICAgICAgICAgfSksXHJcblx0XHRcdFx0XHRib290c3RyYXA6IG5ldyBGb3JtVmFsaWRhdGlvbi5wbHVnaW5zLkJvb3RzdHJhcDUoe1xyXG4gICAgICAgICAgICAgICAgICAgICAgICByb3dTZWxlY3RvcjogJy5mdi1yb3cnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBlbGVJbnZhbGlkQ2xhc3M6ICcnLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBlbGVWYWxpZENsYXNzOiAnJ1xyXG4gICAgICAgICAgICAgICAgICAgIH0pXHJcblx0XHRcdFx0fVxyXG5cdFx0XHR9XHJcblx0XHQpO1xyXG5cclxuICAgICAgICAvLyBIYW5kbGUgZm9ybSBzdWJtaXRcclxuICAgICAgICBzdWJtaXRCdXR0b24uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbiAoZSkge1xyXG4gICAgICAgICAgICBlLnByZXZlbnREZWZhdWx0KCk7XHJcblxyXG4gICAgICAgICAgICB2YWxpZGF0b3IucmV2YWxpZGF0ZUZpZWxkKCdwYXNzd29yZCcpO1xyXG5cclxuICAgICAgICAgICAgdmFsaWRhdG9yLnZhbGlkYXRlKCkudGhlbihmdW5jdGlvbihzdGF0dXMpIHtcclxuXHRcdCAgICAgICAgaWYgKHN0YXR1cyA9PSAnVmFsaWQnKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgLy8gU2hvdyBsb2FkaW5nIGluZGljYXRpb25cclxuICAgICAgICAgICAgICAgICAgICBzdWJtaXRCdXR0b24uc2V0QXR0cmlidXRlKCdkYXRhLWt0LWluZGljYXRvcicsICdvbicpO1xyXG5cclxuICAgICAgICAgICAgICAgICAgICAvLyBEaXNhYmxlIGJ1dHRvbiB0byBhdm9pZCBtdWx0aXBsZSBjbGljayBcclxuICAgICAgICAgICAgICAgICAgICBzdWJtaXRCdXR0b24uZGlzYWJsZWQgPSB0cnVlO1xyXG5cclxuICAgICAgICAgICAgICAgICAgICAvLyBTaW11bGF0ZSBhamF4IHJlcXVlc3RcclxuICAgICAgICAgICAgICAgICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAvLyBIaWRlIGxvYWRpbmcgaW5kaWNhdGlvblxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdWJtaXRCdXR0b24ucmVtb3ZlQXR0cmlidXRlKCdkYXRhLWt0LWluZGljYXRvcicpO1xyXG5cclxuICAgICAgICAgICAgICAgICAgICAgICAgLy8gRW5hYmxlIGJ1dHRvblxyXG4gICAgICAgICAgICAgICAgICAgICAgICBzdWJtaXRCdXR0b24uZGlzYWJsZWQgPSBmYWxzZTtcclxuXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIC8vIFNob3cgbWVzc2FnZSBwb3B1cC4gRm9yIG1vcmUgaW5mbyBjaGVjayB0aGUgcGx1Z2luJ3Mgb2ZmaWNpYWwgZG9jdW1lbnRhdGlvbjogaHR0cHM6Ly9zd2VldGFsZXJ0Mi5naXRodWIuaW8vXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIFN3YWwuZmlyZSh7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0OiBcIllvdSBoYXZlIHN1Y2Nlc3NmdWxseSByZXNldCB5b3VyIHBhc3N3b3JkIVwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaWNvbjogXCJzdWNjZXNzXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBidXR0b25zU3R5bGluZzogZmFsc2UsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25maXJtQnV0dG9uVGV4dDogXCJPaywgZ290IGl0IVwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgY3VzdG9tQ2xhc3M6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25maXJtQnV0dG9uOiBcImJ0biBidG4tcHJpbWFyeVwiXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIH0pLnRoZW4oZnVuY3Rpb24gKHJlc3VsdCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgaWYgKHJlc3VsdC5pc0NvbmZpcm1lZCkgeyBcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb3JtLnJlc2V0KCk7ICAvLyByZXNldCBmb3JtICAgICAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwYXNzd29yZE1ldGVyLnJlc2V0KCk7ICAvLyByZXNldCBwYXNzd29yZCBtZXRlclxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8vZm9ybS5zdWJtaXQoKTtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgICAgICAgICAgfSwgMTUwMCk7ICAgXHRcdFx0XHRcdFx0XHJcbiAgICAgICAgICAgICAgICB9IGVsc2Uge1xyXG4gICAgICAgICAgICAgICAgICAgIC8vIFNob3cgZXJyb3IgcG9wdXAuIEZvciBtb3JlIGluZm8gY2hlY2sgdGhlIHBsdWdpbidzIG9mZmljaWFsIGRvY3VtZW50YXRpb246IGh0dHBzOi8vc3dlZXRhbGVydDIuZ2l0aHViLmlvL1xyXG4gICAgICAgICAgICAgICAgICAgIFN3YWwuZmlyZSh7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHRleHQ6IFwiU29ycnksIGxvb2tzIGxpa2UgdGhlcmUgYXJlIHNvbWUgZXJyb3JzIGRldGVjdGVkLCBwbGVhc2UgdHJ5IGFnYWluLlwiLFxyXG4gICAgICAgICAgICAgICAgICAgICAgICBpY29uOiBcImVycm9yXCIsXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIGJ1dHRvbnNTdHlsaW5nOiBmYWxzZSxcclxuICAgICAgICAgICAgICAgICAgICAgICAgY29uZmlybUJ1dHRvblRleHQ6IFwiT2ssIGdvdCBpdCFcIixcclxuICAgICAgICAgICAgICAgICAgICAgICAgY3VzdG9tQ2xhc3M6IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbmZpcm1CdXR0b246IFwiYnRuIGJ0bi1wcmltYXJ5XCJcclxuICAgICAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgICAgIH0pO1xyXG4gICAgICAgICAgICAgICAgfVxyXG5cdFx0ICAgIH0pO1xyXG4gICAgICAgIH0pO1xyXG5cclxuICAgICAgICAvLyBIYW5kbGUgcGFzc3dvcmQgaW5wdXRcclxuICAgICAgICBmb3JtLnF1ZXJ5U2VsZWN0b3IoJ2lucHV0W25hbWU9XCJwYXNzd29yZFwiXScpLmFkZEV2ZW50TGlzdGVuZXIoJ2lucHV0JywgZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgICAgIGlmICh0aGlzLnZhbHVlLmxlbmd0aCA+IDApIHtcclxuICAgICAgICAgICAgICAgIHZhbGlkYXRvci51cGRhdGVGaWVsZFN0YXR1cygncGFzc3dvcmQnLCAnTm90VmFsaWRhdGVkJyk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9KTtcclxuICAgIH1cclxuXHJcbiAgICAvLyBQYXNzd29yZCBpbnB1dCB2YWxpZGF0aW9uXHJcbiAgICB2YXIgdmFsaWRhdGVQYXNzd29yZCA9IGZ1bmN0aW9uKCkge1xyXG4gICAgICAgIHJldHVybiAgKHBhc3N3b3JkTWV0ZXIuZ2V0U2NvcmUoKSA9PT0gMTAwKTtcclxuICAgIH1cclxuXHJcbiAgICAvLyBQdWJsaWMgZnVuY3Rpb25zXHJcbiAgICByZXR1cm4ge1xyXG4gICAgICAgIC8vIEluaXRpYWxpemF0aW9uXHJcbiAgICAgICAgaW5pdDogZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgICAgIC8vIEVsZW1lbnRzXHJcbiAgICAgICAgICAgIGZvcm0gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcja3Rfc2lnbl91cF9mb3JtJyk7XHJcbiAgICAgICAgICAgIHN1Ym1pdEJ1dHRvbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJyNrdF9zaWduX3VwX3N1Ym1pdCcpO1xyXG4gICAgICAgICAgICBwYXNzd29yZE1ldGVyID0gS1RQYXNzd29yZE1ldGVyLmdldEluc3RhbmNlKGZvcm0ucXVlcnlTZWxlY3RvcignW2RhdGEta3QtcGFzc3dvcmQtbWV0ZXI9XCJ0cnVlXCJdJykpO1xyXG5cclxuICAgICAgICAgICAgaGFuZGxlRm9ybSAoKTtcclxuICAgICAgICB9XHJcbiAgICB9O1xyXG59KCk7XHJcblxyXG4vLyBPbiBkb2N1bWVudCByZWFkeVxyXG5LVFV0aWwub25ET01Db250ZW50TG9hZGVkKGZ1bmN0aW9uKCkge1xyXG4gICAgS1RTaWdudXBHZW5lcmFsLmluaXQoKTtcclxufSk7XHJcbiJdLCJuYW1lcyI6WyJLVFNpZ251cEdlbmVyYWwiLCJmb3JtIiwic3VibWl0QnV0dG9uIiwidmFsaWRhdG9yIiwicGFzc3dvcmRNZXRlciIsImhhbmRsZUZvcm0iLCJlIiwiRm9ybVZhbGlkYXRpb24iLCJmb3JtVmFsaWRhdGlvbiIsImZpZWxkcyIsInZhbGlkYXRvcnMiLCJub3RFbXB0eSIsIm1lc3NhZ2UiLCJlbWFpbEFkZHJlc3MiLCJjYWxsYmFjayIsImlucHV0IiwidmFsdWUiLCJsZW5ndGgiLCJ2YWxpZGF0ZVBhc3N3b3JkIiwiaWRlbnRpY2FsIiwiY29tcGFyZSIsInF1ZXJ5U2VsZWN0b3IiLCJwbHVnaW5zIiwidHJpZ2dlciIsIlRyaWdnZXIiLCJldmVudCIsInBhc3N3b3JkIiwiYm9vdHN0cmFwIiwiQm9vdHN0cmFwNSIsInJvd1NlbGVjdG9yIiwiZWxlSW52YWxpZENsYXNzIiwiZWxlVmFsaWRDbGFzcyIsImFkZEV2ZW50TGlzdGVuZXIiLCJwcmV2ZW50RGVmYXVsdCIsInJldmFsaWRhdGVGaWVsZCIsInZhbGlkYXRlIiwidGhlbiIsInN0YXR1cyIsInNldEF0dHJpYnV0ZSIsImRpc2FibGVkIiwic2V0VGltZW91dCIsInJlbW92ZUF0dHJpYnV0ZSIsIlN3YWwiLCJmaXJlIiwidGV4dCIsImljb24iLCJidXR0b25zU3R5bGluZyIsImNvbmZpcm1CdXR0b25UZXh0IiwiY3VzdG9tQ2xhc3MiLCJjb25maXJtQnV0dG9uIiwicmVzdWx0IiwiaXNDb25maXJtZWQiLCJyZXNldCIsInVwZGF0ZUZpZWxkU3RhdHVzIiwiZ2V0U2NvcmUiLCJpbml0IiwiZG9jdW1lbnQiLCJLVFBhc3N3b3JkTWV0ZXIiLCJnZXRJbnN0YW5jZSIsIktUVXRpbCIsIm9uRE9NQ29udGVudExvYWRlZCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./resources/src/js/custom/authentication/sign-up/general.js\n");
 
-    // Handle form
-    var handleForm  = function(e) {
-        // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
-        validator = FormValidation.formValidation(
-			form,
-			{
-				fields: {
-					'first-name': {
-						validators: {
-							notEmpty: {
-								message: 'First Name is required'
-							}
-						}
-                    },
-                    'last-name': {
-						validators: {
-							notEmpty: {
-								message: 'Last Name is required'
-							}
-						}
-					},
-					'email': {
-                        validators: {
-							notEmpty: {
-								message: 'Email address is required'
-							},
-                            emailAddress: {
-								message: 'The value is not a valid email address'
-							}
-						}
-					},
-                    'password': {
-                        validators: {
-                            notEmpty: {
-                                message: 'The password is required'
-                            },
-                            callback: {
-                                message: 'Please enter valid password',
-                                callback: function(input) {
-                                    if (input.value.length > 0) {
-                                        return validatePassword();
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    'confirm-password': {
-                        validators: {
-                            notEmpty: {
-                                message: 'The password confirmation is required'
-                            },
-                            identical: {
-                                compare: function() {
-                                    return form.querySelector('[name="password"]').value;
-                                },
-                                message: 'The password and its confirm are not the same'
-                            }
-                        }
-                    },
-                    'toc': {
-                        validators: {
-                            notEmpty: {
-                                message: 'You must accept the terms and conditions'
-                            }
-                        }
-                    }
-				},
-				plugins: {
-					trigger: new FormValidation.plugins.Trigger({
-                        event: {
-                            password: false
-                        }  
-                    }),
-					bootstrap: new FormValidation.plugins.Bootstrap5({
-                        rowSelector: '.fv-row',
-                        eleInvalidClass: '',
-                        eleValidClass: ''
-                    })
-				}
-			}
-		);
+/***/ })
 
-        // Handle form submit
-        submitButton.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            validator.revalidateField('password');
-
-            validator.validate().then(function(status) {
-		        if (status == 'Valid') {
-                    // Show loading indication
-                    submitButton.setAttribute('data-kt-indicator', 'on');
-
-                    // Disable button to avoid multiple click 
-                    submitButton.disabled = true;
-
-                    // Simulate ajax request
-                    setTimeout(function() {
-                        // Hide loading indication
-                        submitButton.removeAttribute('data-kt-indicator');
-
-                        // Enable button
-                        submitButton.disabled = false;
-
-                        // Show message popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                        Swal.fire({
-                            text: "You have successfully reset your password!",
-                            icon: "success",
-                            buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
-                            customClass: {
-                                confirmButton: "btn btn-primary"
-                            }
-                        }).then(function (result) {
-                            if (result.isConfirmed) { 
-                                form.reset();  // reset form                    
-                                passwordMeter.reset();  // reset password meter
-                                //form.submit();
-                            }
-                        });
-                    }, 1500);   						
-                } else {
-                    // Show error popup. For more info check the plugin's official documentation: https://sweetalert2.github.io/
-                    Swal.fire({
-                        text: "Sorry, looks like there are some errors detected, please try again.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn btn-primary"
-                        }
-                    });
-                }
-		    });
-        });
-
-        // Handle password input
-        form.querySelector('input[name="password"]').addEventListener('input', function() {
-            if (this.value.length > 0) {
-                validator.updateFieldStatus('password', 'NotValidated');
-            }
-        });
-    }
-
-    // Password input validation
-    var validatePassword = function() {
-        return  (passwordMeter.getScore() === 100);
-    }
-
-    // Public functions
-    return {
-        // Initialization
-        init: function() {
-            // Elements
-            form = document.querySelector('#kt_sign_up_form');
-            submitButton = document.querySelector('#kt_sign_up_submit');
-            passwordMeter = KTPasswordMeter.getInstance(form.querySelector('[data-kt-password-meter="true"]'));
-
-            handleForm ();
-        }
-    };
-}();
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTSignupGeneral.init();
-});
-
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./resources/src/js/custom/authentication/sign-up/general.js"]();
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=general.js.map

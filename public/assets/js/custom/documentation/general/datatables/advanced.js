@@ -1,169 +1,33 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-var __webpack_exports__ = {};
-/*!*********************************************************************!*\
-  !*** ../src/js/custom/documentation/general/datatables/advanced.js ***!
-  \*********************************************************************/
+/******/ 	var __webpack_modules__ = ({
 
+/***/ "./resources/src/js/custom/documentation/general/datatables/advanced.js":
+/*!******************************************************************************!*\
+  !*** ./resources/src/js/custom/documentation/general/datatables/advanced.js ***!
+  \******************************************************************************/
+/***/ (() => {
 
-// Class definition
-var KTDatatablesAdvanced = function () {
-    // Private functions
+eval(" // Class definition\n\nvar KTDatatablesAdvanced = function () {\n  // Private functions\n  var _initExample1 = function _initExample1() {\n    var status = {\n      1: {\n        \"title\": \"Pending\",\n        \"state\": \"primary\"\n      },\n      2: {\n        \"title\": \"Delivered\",\n        \"state\": \"danger\"\n      },\n      3: {\n        \"title\": \"Canceled\",\n        \"state\": \"primary\"\n      },\n      4: {\n        \"title\": \"Success\",\n        \"state\": \"success\"\n      },\n      5: {\n        \"title\": \"Info\",\n        \"state\": \"info\"\n      },\n      6: {\n        \"title\": \"Danger\",\n        \"state\": \"danger\"\n      },\n      7: {\n        \"title\": \"Warning\",\n        \"state\": \"warning\"\n      }\n    };\n    $(\"#kt_datatable_example_1\").DataTable({\n      \"columnDefs\": [{\n        // The `data` parameter refers to the data for the cell (defined by the\n        // `data` option, which defaults to the column being worked with, in\n        // this case `data: 0`.\n        \"render\": function render(data, type, row) {\n          var index = KTUtil.getRandomInt(1, 7);\n          return data + '<span class=\"ms-2 badge badge-light-' + status[index]['state'] + ' fw-bold\">' + status[index]['title'] + '</span>';\n        },\n        \"targets\": 1\n      }]\n    });\n  };\n\n  var _initExample2 = function _initExample2() {\n    $(\"#kt_datatable_example_2\").DataTable({\n      \"columnDefs\": [{\n        \"visible\": false,\n        \"targets\": -1\n      }]\n    });\n  };\n\n  var _initExample3 = function _initExample3() {\n    var groupColumn = 2;\n    var table = $('#kt_datatable_example_3').DataTable({\n      \"columnDefs\": [{\n        \"visible\": false,\n        \"targets\": groupColumn\n      }],\n      \"order\": [[groupColumn, 'asc']],\n      \"displayLength\": 25,\n      \"drawCallback\": function drawCallback(settings) {\n        var api = this.api();\n        var rows = api.rows({\n          page: 'current'\n        }).nodes();\n        var last = null;\n        api.column(groupColumn, {\n          page: 'current'\n        }).data().each(function (group, i) {\n          if (last !== group) {\n            $(rows).eq(i).before('<tr class=\"group fs-5 fw-bolder\"><td colspan=\"5\">' + group + '</td></tr>');\n            last = group;\n          }\n        });\n      }\n    }); // Order by the grouping\n\n    $('#kt_datatable_example_3 tbody').on('click', 'tr.group', function () {\n      var currentOrder = table.order()[0];\n\n      if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc') {\n        table.order([groupColumn, 'desc']).draw();\n      } else {\n        table.order([groupColumn, 'asc']).draw();\n      }\n    });\n  };\n\n  var _initExample4 = function _initExample4() {\n    $(\"#kt_datatable_example_4\").DataTable({\n      \"footerCallback\": function footerCallback(row, data, start, end, display) {\n        var api = this.api(),\n            data; // Remove the formatting to get integer data for summation\n\n        var intVal = function intVal(i) {\n          return typeof i === \"string\" ? i.replace(/[\\$,]/g, \"\") * 1 : typeof i === \"number\" ? i : 0;\n        }; // Total over all pages\n\n\n        var total = api.column(4).data().reduce(function (a, b) {\n          return intVal(a) + intVal(b);\n        }, 0); // Total over this page\n\n        var pageTotal = api.column(4, {\n          page: \"current\"\n        }).data().reduce(function (a, b) {\n          return intVal(a) + intVal(b);\n        }, 0); // Update footer\n\n        $(api.column(4).footer()).html(\"$\" + pageTotal + \" ( $\" + total + \" total)\");\n      }\n    });\n  };\n\n  var _initExample5 = function _initExample5() {\n    $(\"#kt_datatable_example_5\").DataTable({\n      \"language\": {\n        \"lengthMenu\": \"Show _MENU_\"\n      },\n      \"dom\": \"<'row'\" + \"<'col-sm-6 d-flex align-items-center justify-conten-start'l>\" + \"<'col-sm-6 d-flex align-items-center justify-content-end'f>\" + \">\" + \"<'table-responsive'tr>\" + \"<'row'\" + \"<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>\" + \"<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>\" + \">\"\n    });\n  }; // Public methods\n\n\n  return {\n    init: function init() {\n      _initExample1();\n\n      _initExample2();\n\n      _initExample3();\n\n      _initExample4();\n\n      _initExample5();\n    }\n  };\n}(); // On document ready\n\n\nKTUtil.onDOMContentLoaded(function () {\n  KTDatatablesAdvanced.init();\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9kb2N1bWVudGF0aW9uL2dlbmVyYWwvZGF0YXRhYmxlcy9hZHZhbmNlZC5qcy5qcyIsIm1hcHBpbmdzIjoiQ0FFQTs7QUFDQSxJQUFJQSxvQkFBb0IsR0FBRyxZQUFZO0FBQ25DO0FBRUEsTUFBSUMsYUFBYSxHQUFHLFNBQWhCQSxhQUFnQixHQUFXO0FBQzNCLFFBQUlDLE1BQU0sR0FBRztBQUNULFNBQUc7QUFBQyxpQkFBUyxTQUFWO0FBQXFCLGlCQUFTO0FBQTlCLE9BRE07QUFFVCxTQUFHO0FBQUMsaUJBQVMsV0FBVjtBQUF1QixpQkFBUztBQUFoQyxPQUZNO0FBR1QsU0FBRztBQUFDLGlCQUFTLFVBQVY7QUFBc0IsaUJBQVM7QUFBL0IsT0FITTtBQUlULFNBQUc7QUFBQyxpQkFBUyxTQUFWO0FBQXFCLGlCQUFTO0FBQTlCLE9BSk07QUFLVCxTQUFHO0FBQUMsaUJBQVMsTUFBVjtBQUFrQixpQkFBUztBQUEzQixPQUxNO0FBTVQsU0FBRztBQUFDLGlCQUFTLFFBQVY7QUFBb0IsaUJBQVM7QUFBN0IsT0FOTTtBQU9ULFNBQUc7QUFBQyxpQkFBUyxTQUFWO0FBQXFCLGlCQUFTO0FBQTlCO0FBUE0sS0FBYjtBQVVBQyxJQUFBQSxDQUFDLENBQUMseUJBQUQsQ0FBRCxDQUE2QkMsU0FBN0IsQ0FBdUM7QUFDbkMsb0JBQWMsQ0FDVjtBQUNJO0FBQ0E7QUFDQTtBQUNBLGtCQUFVLGdCQUFXQyxJQUFYLEVBQWlCQyxJQUFqQixFQUF1QkMsR0FBdkIsRUFBNkI7QUFDbkMsY0FBSUMsS0FBSyxHQUFHQyxNQUFNLENBQUNDLFlBQVAsQ0FBb0IsQ0FBcEIsRUFBdUIsQ0FBdkIsQ0FBWjtBQUVBLGlCQUFPTCxJQUFJLEdBQUcsc0NBQVAsR0FBZ0RILE1BQU0sQ0FBQ00sS0FBRCxDQUFOLENBQWMsT0FBZCxDQUFoRCxHQUF5RSxZQUF6RSxHQUF3Rk4sTUFBTSxDQUFDTSxLQUFELENBQU4sQ0FBYyxPQUFkLENBQXhGLEdBQWlILFNB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QSx3QkFMQSxHQU9BLFFBUEEsR0FRQSxtR0FSQSxHQVNBLGlHQVRBLEdBVUE7QUFmK0IsS0FBdkM7QUFpQkgsR0FsQkQsQ0F6SG1DLENBNkluQzs7O0FBQ0EsU0FBTztBQUNIeUMsSUFBQUEsSUFBSSxFQUFFLGdCQUFZO0FBQ2Q1QyxNQUFBQSxhQUFhOztBQUNiVSxNQUFBQSxhQUFhOztBQUNiQyxNQUFBQSxhQUFhOztBQUNibUIsTUFBQUEsYUFBYTs7QUFDYmEsTUFBQUEsYUFBYTtBQUNoQjtBQVBFLEdBQVA7QUFTSCxDQXZKMEIsRUFBM0IsQyxDQXlKQTs7O0FBQ0FuQyxNQUFNLENBQUNxQyxrQkFBUCxDQUEwQixZQUFXO0FBQ2pDOUMsRUFBQUEsb0JBQW9CLENBQUM2QyxJQUFyQjtBQUNILENBRkQiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc3JjL2pzL2N1c3RvbS9kb2N1bWVudGF0aW9uL2dlbmVyYWwvZGF0YXRhYmxlcy9hZHZhbmNlZC5qcz8yN2Y1Il0sInNvdXJjZXNDb250ZW50IjpbIlwidXNlIHN0cmljdFwiO1xyXG5cclxuLy8gQ2xhc3MgZGVmaW5pdGlvblxyXG52YXIgS1REYXRhdGFibGVzQWR2YW5jZWQgPSBmdW5jdGlvbiAoKSB7XHJcbiAgICAvLyBQcml2YXRlIGZ1bmN0aW9uc1xyXG5cclxuICAgIHZhciBfaW5pdEV4YW1wbGUxID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgdmFyIHN0YXR1cyA9IHtcclxuICAgICAgICAgICAgMToge1widGl0bGVcIjogXCJQZW5kaW5nXCIsIFwic3RhdGVcIjogXCJwcmltYXJ5XCJ9LFxyXG4gICAgICAgICAgICAyOiB7XCJ0aXRsZVwiOiBcIkRlbGl2ZXJlZFwiLCBcInN0YXRlXCI6IFwiZGFuZ2VyXCJ9LFxyXG4gICAgICAgICAgICAzOiB7XCJ0aXRsZVwiOiBcIkNhbmNlbGVkXCIsIFwic3RhdGVcIjogXCJwcmltYXJ5XCJ9LFxyXG4gICAgICAgICAgICA0OiB7XCJ0aXRsZVwiOiBcIlN1Y2Nlc3NcIiwgXCJzdGF0ZVwiOiBcInN1Y2Nlc3NcIn0sXHJcbiAgICAgICAgICAgIDU6IHtcInRpdGxlXCI6IFwiSW5mb1wiLCBcInN0YXRlXCI6IFwiaW5mb1wifSxcclxuICAgICAgICAgICAgNjoge1widGl0bGVcIjogXCJEYW5nZXJcIiwgXCJzdGF0ZVwiOiBcImRhbmdlclwifSxcclxuICAgICAgICAgICAgNzoge1widGl0bGVcIjogXCJXYXJuaW5nXCIsIFwic3RhdGVcIjogXCJ3YXJuaW5nXCJ9LFxyXG4gICAgICAgIH07XHJcblxyXG4gICAgICAgICQoXCIja3RfZGF0YXRhYmxlX2V4YW1wbGVfMVwiKS5EYXRhVGFibGUoe1xyXG4gICAgICAgICAgICBcImNvbHVtbkRlZnNcIjogW1xyXG4gICAgICAgICAgICAgICAge1xyXG4gICAgICAgICAgICAgICAgICAgIC8vIFRoZSBgZGF0YWAgcGFyYW1ldGVyIHJlZmVycyB0byB0aGUgZGF0YSBmb3IgdGhlIGNlbGwgKGRlZmluZWQgYnkgdGhlXHJcbiAgICAgICAgICAgICAgICAgICAgLy8gYGRhdGFgIG9wdGlvbiwgd2hpY2ggZGVmYXVsdHMgdG8gdGhlIGNvbHVtbiBiZWluZyB3b3JrZWQgd2l0aCwgaW5cclxuICAgICAgICAgICAgICAgICAgICAvLyB0aGlzIGNhc2UgYGRhdGE6IDBgLlxyXG4gICAgICAgICAgICAgICAgICAgIFwicmVuZGVyXCI6IGZ1bmN0aW9uICggZGF0YSwgdHlwZSwgcm93ICkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB2YXIgaW5kZXggPSBLVFV0aWwuZ2V0UmFuZG9tSW50KDEsIDcpO1xyXG5cclxuICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGRhdGEgKyAnPHNwYW4gY2xhc3M9XCJtcy0yIGJhZGdlIGJhZGdlLWxpZ2h0LScgKyBzdGF0dXNbaW5kZXhdWydzdGF0ZSddICsgJyBmdy1ib2xkXCI+JyArIHN0YXR1c1tpbmRleF1bJ3RpdGxlJ10gKyAnPC9zcGFuPic7XHJcbiAgICAgICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgICAgICBcInRhcmdldHNcIjogMVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBdXHJcbiAgICAgICAgfSk7XHJcbiAgICB9XHJcblxyXG4gICAgdmFyIF9pbml0RXhhbXBsZTIgPSBmdW5jdGlvbigpIHtcclxuICAgICAgICAkKFwiI2t0X2RhdGF0YWJsZV9leGFtcGxlXzJcIikuRGF0YVRhYmxlKHtcclxuICAgICAgICAgICAgXCJjb2x1bW5EZWZzXCI6IFsge1xyXG4gICAgICAgICAgICAgICAgXCJ2aXNpYmxlXCI6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgXCJ0YXJnZXRzXCI6IC0xXHJcbiAgICAgICAgICAgIH1dXHJcbiAgICAgICAgfSk7XHJcbiAgICB9XHJcblxyXG4gICAgdmFyIF9pbml0RXhhbXBsZTMgPSBmdW5jdGlvbigpIHtcclxuICAgICAgICB2YXIgZ3JvdXBDb2x1bW4gPSAyO1xyXG5cclxuICAgICAgICB2YXIgdGFibGUgPSAkKCcja3RfZGF0YXRhYmxlX2V4YW1wbGVfMycpLkRhdGFUYWJsZSh7XHJcbiAgICAgICAgICAgIFwiY29sdW1uRGVmc1wiOiBbe1xyXG4gICAgICAgICAgICAgICAgXCJ2aXNpYmxlXCI6IGZhbHNlLFxyXG4gICAgICAgICAgICAgICAgXCJ0YXJnZXRzXCI6IGdyb3VwQ29sdW1uXHJcbiAgICAgICAgICAgIH1dLFxyXG4gICAgICAgICAgICBcIm9yZGVyXCI6IFtcclxuICAgICAgICAgICAgICAgIFtncm91cENvbHVtbiwgJ2FzYyddXHJcbiAgICAgICAgICAgIF0sXHJcbiAgICAgICAgICAgIFwiZGlzcGxheUxlbmd0aFwiOiAyNSxcclxuICAgICAgICAgICAgXCJkcmF3Q2FsbGJhY2tcIjogZnVuY3Rpb24oc2V0dGluZ3MpIHtcclxuICAgICAgICAgICAgICAgIHZhciBhcGkgPSB0aGlzLmFwaSgpO1xyXG4gICAgICAgICAgICAgICAgdmFyIHJvd3MgPSBhcGkucm93cyh7XHJcbiAgICAgICAgICAgICAgICAgICAgcGFnZTogJ2N1cnJlbnQnXHJcbiAgICAgICAgICAgICAgICB9KS5ub2RlcygpO1xyXG4gICAgICAgICAgICAgICAgdmFyIGxhc3QgPSBudWxsO1xyXG5cclxuICAgICAgICAgICAgICAgIGFwaS5jb2x1bW4oZ3JvdXBDb2x1bW4sIHtcclxuICAgICAgICAgICAgICAgICAgICBwYWdlOiAnY3VycmVudCdcclxuICAgICAgICAgICAgICAgIH0pLmRhdGEoKS5lYWNoKGZ1bmN0aW9uKGdyb3VwLCBpKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgaWYgKGxhc3QgIT09IGdyb3VwKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICQocm93cykuZXEoaSkuYmVmb3JlKFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgJzx0ciBjbGFzcz1cImdyb3VwIGZzLTUgZnctYm9sZGVyXCI+PHRkIGNvbHNwYW49XCI1XCI+JyArIGdyb3VwICsgJzwvdGQ+PC90cj4nXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICk7XHJcblxyXG4gICAgICAgICAgICAgICAgICAgICAgICBsYXN0ID0gZ3JvdXA7XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9KTtcclxuXHJcbiAgICAgICAgLy8gT3JkZXIgYnkgdGhlIGdyb3VwaW5nXHJcbiAgICAgICAgJCgnI2t0X2RhdGF0YWJsZV9leGFtcGxlXzMgdGJvZHknKS5vbignY2xpY2snLCAndHIuZ3JvdXAnLCBmdW5jdGlvbigpIHtcclxuICAgICAgICAgICAgdmFyIGN1cnJlbnRPcmRlciA9IHRhYmxlLm9yZGVyKClbMF07XHJcbiAgICAgICAgICAgIGlmIChjdXJyZW50T3JkZXJbMF0gPT09IGdyb3VwQ29sdW1uICYmIGN1cnJlbnRPcmRlclsxXSA9PT0gJ2FzYycpIHtcclxuICAgICAgICAgICAgICAgIHRhYmxlLm9yZGVyKFtncm91cENvbHVtbiwgJ2Rlc2MnXSkuZHJhdygpO1xyXG4gICAgICAgICAgICB9IGVsc2Uge1xyXG4gICAgICAgICAgICAgICAgdGFibGUub3JkZXIoW2dyb3VwQ29sdW1uLCAnYXNjJ10pLmRyYXcoKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIHZhciBfaW5pdEV4YW1wbGU0ID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgJChcIiNrdF9kYXRhdGFibGVfZXhhbXBsZV80XCIpLkRhdGFUYWJsZSh7XHJcbiAgICAgICAgICAgIFwiZm9vdGVyQ2FsbGJhY2tcIjogZnVuY3Rpb24gKCByb3csIGRhdGEsIHN0YXJ0LCBlbmQsIGRpc3BsYXkgKSB7XHJcbiAgICAgICAgICAgICAgICB2YXIgYXBpID0gdGhpcy5hcGkoKSwgZGF0YTtcclxuICAgICBcclxuICAgICAgICAgICAgICAgIC8vIFJlbW92ZSB0aGUgZm9ybWF0dGluZyB0byBnZXQgaW50ZWdlciBkYXRhIGZvciBzdW1tYXRpb25cclxuICAgICAgICAgICAgICAgIHZhciBpbnRWYWwgPSBmdW5jdGlvbiAoIGkgKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgcmV0dXJuIHR5cGVvZiBpID09PSBcInN0cmluZ1wiID9cclxuICAgICAgICAgICAgICAgICAgICAgICAgaS5yZXBsYWNlKC9bXFwkLF0vZywgXCJcIikqMSA6XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHR5cGVvZiBpID09PSBcIm51bWJlclwiID9cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGkgOiAwO1xyXG4gICAgICAgICAgICAgICAgfTtcclxuICAgICBcclxuICAgICAgICAgICAgICAgIC8vIFRvdGFsIG92ZXIgYWxsIHBhZ2VzXHJcbiAgICAgICAgICAgICAgICB2YXIgdG90YWwgPSBhcGlcclxuICAgICAgICAgICAgICAgICAgICAuY29sdW1uKCA0IClcclxuICAgICAgICAgICAgICAgICAgICAuZGF0YSgpXHJcbiAgICAgICAgICAgICAgICAgICAgLnJlZHVjZSggZnVuY3Rpb24gKGEsIGIpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGludFZhbChhKSArIGludFZhbChiKTtcclxuICAgICAgICAgICAgICAgICAgICB9LCAwICk7XHJcbiAgICAgXHJcbiAgICAgICAgICAgICAgICAvLyBUb3RhbCBvdmVyIHRoaXMgcGFnZVxyXG4gICAgICAgICAgICAgICAgdmFyIHBhZ2VUb3RhbCA9IGFwaVxyXG4gICAgICAgICAgICAgICAgICAgIC5jb2x1bW4oIDQsIHsgcGFnZTogXCJjdXJyZW50XCJ9IClcclxuICAgICAgICAgICAgICAgICAgICAuZGF0YSgpXHJcbiAgICAgICAgICAgICAgICAgICAgLnJlZHVjZSggZnVuY3Rpb24gKGEsIGIpIHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGludFZhbChhKSArIGludFZhbChiKTtcclxuICAgICAgICAgICAgICAgICAgICB9LCAwICk7XHJcbiAgICAgXHJcbiAgICAgICAgICAgICAgICAvLyBVcGRhdGUgZm9vdGVyXHJcbiAgICAgICAgICAgICAgICAkKCBhcGkuY29sdW1uKCA0ICkuZm9vdGVyKCkgKS5odG1sKFxyXG4gICAgICAgICAgICAgICAgICAgIFwiJFwiK3BhZ2VUb3RhbCArXCIgKCAkXCIrIHRvdGFsICtcIiB0b3RhbClcIlxyXG4gICAgICAgICAgICAgICAgKTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIHZhciBfaW5pdEV4YW1wbGU1ID0gZnVuY3Rpb24oKSB7XHJcbiAgICAgICAgJChcIiNrdF9kYXRhdGFibGVfZXhhbXBsZV81XCIpLkRhdGFUYWJsZSh7XHJcbiAgICAgICAgICAgIFwibGFuZ3VhZ2VcIjoge1x0XHRcclxuICAgICAgICAgICAgICAgIFwibGVuZ3RoTWVudVwiOiBcIlNob3cgX01FTlVfXCIsXHJcbiAgICAgICAgICAgIH0sXHJcbiAgICAgICAgICAgIFwiZG9tXCI6IFxyXG4gICAgICAgICAgICAgICAgXCI8J3JvdydcIiArXHJcbiAgICAgICAgICAgICAgICBcIjwnY29sLXNtLTYgZC1mbGV4IGFsaWduLWl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNvbnRlbi1zdGFydCdsPlwiICtcclxuICAgICAgICAgICAgICAgIFwiPCdjb2wtc20tNiBkLWZsZXggYWxpZ24taXRlbXMtY2VudGVyIGp1c3RpZnktY29udGVudC1lbmQnZj5cIiArXHJcbiAgICAgICAgICAgICAgICBcIj5cIiArXHJcbiAgICAgICAgICAgICAgICBcclxuICAgICAgICAgICAgICAgIFwiPCd0YWJsZS1yZXNwb25zaXZlJ3RyPlwiICtcclxuICAgICAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAgICAgXCI8J3JvdydcIiArIFxyXG4gICAgICAgICAgICAgICAgXCI8J2NvbC1zbS0xMiBjb2wtbWQtNSBkLWZsZXggYWxpZ24taXRlbXMtY2VudGVyIGp1c3RpZnktY29udGVudC1jZW50ZXIganVzdGlmeS1jb250ZW50LW1kLXN0YXJ0J2k+XCIgKyBcclxuICAgICAgICAgICAgICAgIFwiPCdjb2wtc20tMTIgY29sLW1kLTcgZC1mbGV4IGFsaWduLWl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNvbnRlbnQtY2VudGVyIGp1c3RpZnktY29udGVudC1tZC1lbmQncD5cIiArXHJcbiAgICAgICAgICAgICAgICBcIj5cIlxyXG4gICAgICAgIH0pO1xyXG4gICAgfVxyXG5cclxuICAgIC8vIFB1YmxpYyBtZXRob2RzXHJcbiAgICByZXR1cm4ge1xyXG4gICAgICAgIGluaXQ6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICAgICAgX2luaXRFeGFtcGxlMSgpO1xyXG4gICAgICAgICAgICBfaW5pdEV4YW1wbGUyKCk7XHJcbiAgICAgICAgICAgIF9pbml0RXhhbXBsZTMoKTtcclxuICAgICAgICAgICAgX2luaXRFeGFtcGxlNCgpO1xyXG4gICAgICAgICAgICBfaW5pdEV4YW1wbGU1KCk7XHJcbiAgICAgICAgfVxyXG4gICAgfVxyXG59KCk7XHJcblxyXG4vLyBPbiBkb2N1bWVudCByZWFkeVxyXG5LVFV0aWwub25ET01Db250ZW50TG9hZGVkKGZ1bmN0aW9uKCkge1xyXG4gICAgS1REYXRhdGFibGVzQWR2YW5jZWQuaW5pdCgpO1xyXG59KTsiXSwibmFtZXMiOlsiS1REYXRhdGFibGVzQWR2YW5jZWQiLCJfaW5pdEV4YW1wbGUxIiwic3RhdHVzIiwiJCIsIkRhdGFUYWJsZSIsImRhdGEiLCJ0eXBlIiwicm93IiwiaW5kZXgiLCJLVFV0aWwiLCJnZXRSYW5kb21JbnQiLCJfaW5pdEV4YW1wbGUyIiwiX2luaXRFeGFtcGxlMyIsImdyb3VwQ29sdW1uIiwidGFibGUiLCJzZXR0aW5ncyIsImFwaSIsInJvd3MiLCJwYWdlIiwibm9kZXMiLCJsYXN0IiwiY29sdW1uIiwiZWFjaCIsImdyb3VwIiwiaSIsImVxIiwiYmVmb3JlIiwib24iLCJjdXJyZW50T3JkZXIiLCJvcmRlciIsImRyYXciLCJfaW5pdEV4YW1wbGU0Iiwic3RhcnQiLCJlbmQiLCJkaXNwbGF5IiwiaW50VmFsIiwicmVwbGFjZSIsInRvdGFsIiwicmVkdWNlIiwiYSIsImIiLCJwYWdlVG90YWwiLCJmb290ZXIiLCJodG1sIiwiX2luaXRFeGFtcGxlNSIsImluaXQiLCJvbkRPTUNvbnRlbnRMb2FkZWQiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/src/js/custom/documentation/general/datatables/advanced.js\n");
 
-    var _initExample1 = function() {
-        var status = {
-            1: {"title": "Pending", "state": "primary"},
-            2: {"title": "Delivered", "state": "danger"},
-            3: {"title": "Canceled", "state": "primary"},
-            4: {"title": "Success", "state": "success"},
-            5: {"title": "Info", "state": "info"},
-            6: {"title": "Danger", "state": "danger"},
-            7: {"title": "Warning", "state": "warning"},
-        };
+/***/ })
 
-        $("#kt_datatable_example_1").DataTable({
-            "columnDefs": [
-                {
-                    // The `data` parameter refers to the data for the cell (defined by the
-                    // `data` option, which defaults to the column being worked with, in
-                    // this case `data: 0`.
-                    "render": function ( data, type, row ) {
-                        var index = KTUtil.getRandomInt(1, 7);
-
-                        return data + '<span class="ms-2 badge badge-light-' + status[index]['state'] + ' fw-bold">' + status[index]['title'] + '</span>';
-                    },
-                    "targets": 1
-                }
-            ]
-        });
-    }
-
-    var _initExample2 = function() {
-        $("#kt_datatable_example_2").DataTable({
-            "columnDefs": [ {
-                "visible": false,
-                "targets": -1
-            }]
-        });
-    }
-
-    var _initExample3 = function() {
-        var groupColumn = 2;
-
-        var table = $('#kt_datatable_example_3').DataTable({
-            "columnDefs": [{
-                "visible": false,
-                "targets": groupColumn
-            }],
-            "order": [
-                [groupColumn, 'asc']
-            ],
-            "displayLength": 25,
-            "drawCallback": function(settings) {
-                var api = this.api();
-                var rows = api.rows({
-                    page: 'current'
-                }).nodes();
-                var last = null;
-
-                api.column(groupColumn, {
-                    page: 'current'
-                }).data().each(function(group, i) {
-                    if (last !== group) {
-                        $(rows).eq(i).before(
-                            '<tr class="group fs-5 fw-bolder"><td colspan="5">' + group + '</td></tr>'
-                        );
-
-                        last = group;
-                    }
-                });
-            }
-        });
-
-        // Order by the grouping
-        $('#kt_datatable_example_3 tbody').on('click', 'tr.group', function() {
-            var currentOrder = table.order()[0];
-            if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc') {
-                table.order([groupColumn, 'desc']).draw();
-            } else {
-                table.order([groupColumn, 'asc']).draw();
-            }
-        });
-    }
-
-    var _initExample4 = function() {
-        $("#kt_datatable_example_4").DataTable({
-            "footerCallback": function ( row, data, start, end, display ) {
-                var api = this.api(), data;
-     
-                // Remove the formatting to get integer data for summation
-                var intVal = function ( i ) {
-                    return typeof i === "string" ?
-                        i.replace(/[\$,]/g, "")*1 :
-                        typeof i === "number" ?
-                            i : 0;
-                };
-     
-                // Total over all pages
-                var total = api
-                    .column( 4 )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
-     
-                // Total over this page
-                var pageTotal = api
-                    .column( 4, { page: "current"} )
-                    .data()
-                    .reduce( function (a, b) {
-                        return intVal(a) + intVal(b);
-                    }, 0 );
-     
-                // Update footer
-                $( api.column( 4 ).footer() ).html(
-                    "$"+pageTotal +" ( $"+ total +" total)"
-                );
-            }
-        });
-    }
-
-    var _initExample5 = function() {
-        $("#kt_datatable_example_5").DataTable({
-            "language": {		
-                "lengthMenu": "Show _MENU_",
-            },
-            "dom": 
-                "<'row'" +
-                "<'col-sm-6 d-flex align-items-center justify-conten-start'l>" +
-                "<'col-sm-6 d-flex align-items-center justify-content-end'f>" +
-                ">" +
-                
-                "<'table-responsive'tr>" +
-                
-                "<'row'" + 
-                "<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'i>" + 
-                "<'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>" +
-                ">"
-        });
-    }
-
-    // Public methods
-    return {
-        init: function () {
-            _initExample1();
-            _initExample2();
-            _initExample3();
-            _initExample4();
-            _initExample5();
-        }
-    }
-}();
-
-// On document ready
-KTUtil.onDOMContentLoaded(function() {
-    KTDatatablesAdvanced.init();
-});
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./resources/src/js/custom/documentation/general/datatables/advanced.js"]();
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=advanced.js.map

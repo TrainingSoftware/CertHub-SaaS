@@ -31,10 +31,10 @@
 		<!--end::Main-->
         <!--begin::Javascript-->
         <script>var hostUrl = "/assets/";</script>
-		<!--begin::Global Javascript Bundle(used by all pages)-->
-		<script src="/assets/plugins/global/plugins.bundle.js"></script>
 		<script src="/assets/js/scripts.bundle.js"></script>
+		<script src="/assets/plugins/global/plugins.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
+		<!--begin::Global Javascript Bundle(used by all pages)-->
 		<!--begin::Page Custom Javascript(used by this page)-->
 		<script src="/assets/js/custom/authentication/sign-in/general.js"></script>
         <script src="/assets/js/custom/modals/create-account.js"></script>
