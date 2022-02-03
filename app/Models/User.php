@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\QueueVerifyEmailJob;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -54,6 +55,10 @@ class User extends Authenticatable implements MustVerifyEmail
             'companies_users',
             'user_id',
             'company_id');
+    }
+    public function sendEmailVerificationNotification()
+    {
+         QueueVerifyEmailJob::dispatch($this);
     }
 
 }

@@ -39,7 +39,7 @@ Route::get('/', function () {
 });
 
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth','verified']], function () {
 
     Route::resource('company', CompanyController::class);
 
