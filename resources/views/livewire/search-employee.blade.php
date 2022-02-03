@@ -9,28 +9,25 @@
         </span>
         <input type="text" class="form-control form-control-lg form-control-solid px-15" placeholder="Search by name or email..." wire:model="searchTerm" autofocus/>
     </form>
-    
     <div>
-
-
-            <div class="mh-375px scroll-y me-n7 pe-7">  
-                @foreach($employees as $employee)
-                    <div class="rounded d-flex flex-stack bg-active-lighten p-4">
-                        <div class="d-flex align-items-center">
-                            <label class="form-check form-check-custom form-check-solid me-5">
-                                <input class="form-check-input" type="checkbox" wire:model="selectedEmployees" value="{{ $employee->id }}" wire:loading.attr="disabled"/>
-                            </label>
-                            <div class="symbol symbol-35px symbol-circle">
-                                <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
-                            </div>
-                            <div class="ms-5">
-                                <a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary mb-2">{{ $employee->firstname }} {{ $employee->lastname}}</a>
-                                <div class="fw-bold text-muted">{{ $employee->email }}</div>
-                            </div>
-                        </div>
+        <div class="mh-375px scroll-y me-n7 pe-7">
+            @foreach($employees as $employee)
+            <div class="rounded d-flex flex-stack bg-active-lighten p-4">
+                <div class="d-flex align-items-center">
+                    <label class="form-check form-check-custom form-check-solid me-5">
+                    <input class="form-check-input" type="checkbox" wire:model="selectedEmployees" value="{{ $employee->id }}" wire:loading.attr="disabled"/>
+                    </label>
+                    <div class="symbol symbol-35px symbol-circle">
+                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
                     </div>
-                @endforeach
+                    <div class="ms-5">
+                        <a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary mb-2">{{ $employee->firstname }} {{ $employee->lastname}}</a>
+                        <div class="fw-bold text-muted">{{ $employee->email }}</div>
+                    </div>
+                </div>
             </div>
+            @endforeach
+        </div>
         <div class="d-flex flex-center mt-15">
             <button type="reset" data-bs-dismiss="modal" class="btn btn-active-light me-3">Cancel</button>
             <button wire:click="attachEmployee({{ $tender->id }})" class="btn btn-primary">Add Selected Users</button>

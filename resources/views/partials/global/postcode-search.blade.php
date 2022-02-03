@@ -1,4 +1,3 @@
-<!-- Postcode Modal -->
 <div class="modal fade" id="kt_modal_postcode" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered mw-650px">
 		<div class="modal-content">
@@ -35,4 +34,3 @@
 		</div>
 	</div>
 </div>
-<!-- End postcode modal -->
