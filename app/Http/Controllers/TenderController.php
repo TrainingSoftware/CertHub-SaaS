@@ -85,7 +85,7 @@ class TenderController extends Controller
     {
         // get current logged in user
         $user = Auth::user();
-        
+
         if ($user->can('view', $tender)) {
 
             // get the tender dates
@@ -106,7 +106,7 @@ class TenderController extends Controller
 
             // count remaining tender employees
             $remainingEmployees = $tender->employees->count() - 5;
-            
+
             // get company qualifications due for renewal
             $renewals = $tender->employees()->whereHas('qualifications', function ($query) use ($start, $end) {
                 $query->whereBetween('expiry_date', [$start, $end]);
@@ -129,10 +129,10 @@ class TenderController extends Controller
                 ->whereBetween('qualifications.expiry_date', [$start, $end])
                 ->get();
 
-            // get total count of employees with expired qualifications        
+            // get total count of employees with expired qualifications
             $expiredQualificationsTotal = $expiredQualifications->sum('qualifications_count');
 
-        
+
             return view('tenders.show')
                 ->with('tender', $tender)
                 ->with('tenderEmployees', $tenderEmployees)
@@ -158,7 +158,7 @@ class TenderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tender $tender) 
+    public function edit(Tender $tender)
     {
         // get current logged in user
         $user = Auth::user();
@@ -231,7 +231,7 @@ class TenderController extends Controller
     {
        // get current logged in user
        $user = Auth::user();
-        
+
        if ($user->can('view', $tender)) {
 
            // get the tender dates
@@ -254,10 +254,10 @@ class TenderController extends Controller
                 ->whereBetween('qualifications.expiry_date', [$start, $end])
                 ->get();
 
-            // get total count of employees with expired qualifications        
+            // get total count of employees with expired qualifications
             $expiredQualificationsTotal = $expiredQualifications->sum('qualifications_count');
 
-       
+
            return view('tenders.employees')
             ->with('tender', $tender)
             ->with('tenderEmployees', $tenderEmployees)
@@ -279,18 +279,19 @@ class TenderController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function renewals(Tender $tender)
     {
+
        // get current logged in user
        $user = Auth::user();
-        
+
        if ($user->can('view', $tender)) {
 
            // get the tender dates
            $start = $tender->start_date;
            $end = $tender->end_date;
+
 
            // get tender employees
            $tenderEmployees = $tender->employees;
@@ -305,9 +306,11 @@ class TenderController extends Controller
                 ->whereBetween('qualifications.expiry_date', [$start, $end])
                 ->get();
 
-            // get total count of employees with expired qualifications        
-            $expiredQualificationsTotal = $expiredQualifications->sum('qualifications_count');
-       
+
+            // get total count of employees with expired qualifications
+            $expiredQualificationsTotal = $expiredQualifications->count();
+
+
            return view('tenders.renewals')
                ->with('tender', $tender)
                ->with('slicedEmployees', $slicedEmployees)

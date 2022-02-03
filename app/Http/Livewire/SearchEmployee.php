@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Employee;
 use App\Models\Tender;
+use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -18,7 +19,7 @@ class SearchEmployee extends Component
 
     public function render()
     {
-        
+
         $company = Auth::user()->companies()->first();
 
         $this->employees = $company->employees()
@@ -27,17 +28,22 @@ class SearchEmployee extends Component
             ->get();
 
         return view('livewire.search-employee');
-    }       
+    }
 
 
 
-    public function attachEmployee($id) 
+    public function attachEmployee($id)
     {
-        
-        Tender::findOrFail($id)->employees()->attach($this->selectedEmployees);
+        try {
+            Tender::findOrFail($id)->employees()->attach($this->selectedEmployees);
+
+        }catch (QueryException $exception){
+            return redirect()->to('/tenders/' . $this->tender->id)
+            ->with('error', 'Employee already added');
+        }
 
         return redirect()->to('/tenders/' . $this->tender->id)
-            ->with('success', 'Employees successfully added');;
+            ->with('success', 'Employees successfully added');
 
     }
 }
