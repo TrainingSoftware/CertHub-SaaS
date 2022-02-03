@@ -19,10 +19,10 @@ const del = require("del");
 
 // Remove existing generated assets from public folder
 del.sync([
-    "public/assets/css/*",
-    "public/assets/js/*",
-    "public/assets/media/*",
-    "public/assets/plugins/*",
+    //"public/assets/css/*",
+    //"public/assets/js/*",
+    //"public/assets/media/*",
+    //"public/assets/plugins/*",
 ]);
 
 // Build 3rd party plugins css/js
