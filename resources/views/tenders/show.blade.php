@@ -65,7 +65,7 @@
                             <!--end::Card title-->
                             <!--begin::Card toolbar-->
                             <div class="card-toolbar">
-                                <a href="#" class="btn btn-light btn-sm">View Renewals</a>
+                                <a href="/tenders/{{ $tender->id }}/renewals" class="btn btn-light btn-sm">View Renewals</a>
                             </div>
                             <!--end::Card toolbar-->
                         </div>
