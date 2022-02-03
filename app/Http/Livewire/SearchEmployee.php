@@ -4,13 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\Employee;
 use App\Models\Tender;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class SearchEmployee extends Component
 {
-    public $term = "";
+    public $searchTerm = "";
+    public $employees;
     public $selectedEmployees = [];
     public Tender $tender;
 
@@ -18,18 +18,15 @@ class SearchEmployee extends Component
 
     public function render()
     {
-        sleep(1);
         
         $company = Auth::user()->companies()->first();
 
-        $employees = Employee::where('company_id', '=', $company->id)
-            ->search($this->term)->get();
+        $this->employees = $company->employees()
+            ->where('firstname', 'like', '%' . $this->searchTerm . '%')
+            ->orWhere('lastname', 'like', '%' . $this->searchTerm . '%')
+            ->get();
 
-        $data = [
-            'employees' => $employees,
-        ];
-
-        return view('livewire.search-employee', $data);
+        return view('livewire.search-employee');
     }       
 
 

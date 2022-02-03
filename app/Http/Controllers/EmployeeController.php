@@ -26,13 +26,8 @@ class EmployeeController extends Controller
         // get current company
         $company = Auth::user()->companies()->first();
 
-        $search = $request->input('q');
-
         // get employees that belong to authenticated user
         $employees = $company->employees()
-            //->where('firstname','like','%'.$search.'%')
-            //->orWhere('lastname','like','%'.$search.'%')
-            //->orWhere('email','like','%'.$search.'%')
             ->paginate(10);
 
         return view('employees.index', compact('employees'));

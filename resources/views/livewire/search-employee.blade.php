@@ -7,23 +7,12 @@
             </svg>
             <i wire:loading class="fas fa-spinner fa-spin fa-1x"></i>
         </span>
-        <input type="text" class="form-control form-control-lg form-control-solid px-15" placeholder="Search by name or email..." wire:model="term" autofocus/>
+        <input type="text" class="form-control form-control-lg form-control-solid px-15" placeholder="Search by name or email..." wire:model="searchTerm" autofocus/>
     </form>
     
     <div>
-        @if ($term == "")
-        @else
-            @if($employees->isEmpty())
-            <div class="text-center py-5">
-                <div class="fw-bold py-10">
-                    <div class="text-gray-600 fs-3 mb-2">No employees found</div>
-                    <div class="text-muted fs-6">Try to search by name or email...</div>
-                </div>
-                <div class="text-center px-5">
-                    <img src="/assets/media/illustrations/sketchy-1/1.png" alt="" class="w-50" />
-                </div>
-            </div>
-            @else
+
+
             <div class="mh-375px scroll-y me-n7 pe-7">  
                 @foreach($employees as $employee)
                     <div class="rounded d-flex flex-stack bg-active-lighten p-4">
@@ -42,13 +31,9 @@
                     </div>
                 @endforeach
             </div>
-            @endif
-        @endif
         <div class="d-flex flex-center mt-15">
             <button type="reset" data-bs-dismiss="modal" class="btn btn-active-light me-3">Cancel</button>
-            @if (!$term == "")
             <button wire:click="attachEmployee({{ $tender->id }})" class="btn btn-primary">Add Selected Users</button>
-            @endif
         </div>
     </div>
 </div>

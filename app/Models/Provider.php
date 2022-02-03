@@ -10,6 +10,12 @@ class Provider extends Model
 {
     use HasFactory;
 
+    use Search;
+
+    protected $searchable = [
+        'name',
+    ];
+
     protected $fillable = [
         'name',
         'line_1',

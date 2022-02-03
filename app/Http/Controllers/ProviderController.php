@@ -20,7 +20,7 @@ class ProviderController extends Controller
         $company = Auth::user()->companies()->first();
 
         // get providers that belong to authenticated user
-        $providers = Provider::where('company_id', '=', $company->id)
+        $providers = $company->providers()
             ->paginate(10);
 
         return view('providers.index', compact('providers'));
