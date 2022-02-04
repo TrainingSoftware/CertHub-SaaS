@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmployeeCreateRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
 use App\Models\Employee;
 use App\Models\Department;
 use App\Models\Qualification;
@@ -47,10 +49,9 @@ class EmployeeController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
 
-    public function store(Request $request)
+    public function store(EmployeeCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->companies()->first();
@@ -59,12 +60,7 @@ class EmployeeController extends Controller
         $user = Auth::user();
 
         // get and validate data
-        $storeData = $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|digits:11'
-        ]);
+        $storeData = $request->validated();
 
         // create employee with validated data
         $employee = $company->employees()->create(array_merge($storeData, [
@@ -146,33 +142,13 @@ class EmployeeController extends Controller
      * @param  \App\Models\Employee  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(EmployeeUpdateRequest $request, Employee $employee)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
-        $updateData = $request->validate([
-            'firstname' => 'required',
-            'lastname'  => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|digits:11',
-            'position' => 'string|nullable',
-            'dob' => 'date|nullable',
-            'gender' => 'string|nullable',
-            'line_1' => 'string|nullable',
-            'line_2' => 'string|nullable',
-            'line_3' => 'string|nullable',
-            'town' => 'string|nullable',
-            'city' => 'string|nullable',
-            'county' => 'string|nullable',
-            'postcode' => 'string|nullable',
-            'start_date' => 'date|nullable',
-            'end_date' => 'date|nullable',
-            'salary' => 'numeric|nullable',
-            'employment' => 'string|nullable',
-            'department_id' => 'exists:departments,id|int',
-        ]);
+        $updateData = $request->validated();
 
         // update department with validated data
         $employee->update($updateData);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactCreateRequest;
+use App\Http\Requests\ContactUpdateRequest;
 use App\Models\Contact;
 use App\Models\Department;
 use App\Models\Employee;
@@ -44,7 +46,7 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function store(Request $request)
+    public function store(ContactCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->company;
@@ -53,12 +55,7 @@ class ContactController extends Controller
         $user = Auth::user();
 
         // get and validate data
-        $storeData = $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|digits:11'
-        ]);
+        $storeData = $request->validated();
 
         // create contact with validated data
         $contact = $company->contacts()->create($storeData);
@@ -132,30 +129,14 @@ class ContactController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Employee  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(ContactUpdateRequest $request, Contact $contact)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
-        $updateData = $request->validate([
-            'firstname' => 'string|nullable',
-            'firstname' => 'required',
-            'lastname'  => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|numeric|digits:11',
-            'gender' => 'string|nullable',
-            'line_1' => 'string|nullable',
-            'line_2' => 'string|nullable',
-            'line_3' => 'string|nullable',
-            'town' => 'string|nullable',
-            'city' => 'string|nullable',
-            'county' => 'string|nullable',
-            'postcode' => 'string|nullable',
-            'relation' => 'string|nullable',
-        ]);
+        $updateData = $request->validated();
 
         // update contact with validated data
         $contact->update($updateData);
@@ -174,7 +155,6 @@ class ContactController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Contact $contact)
     {

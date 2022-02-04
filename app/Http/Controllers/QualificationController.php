@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QualificationCreateRequest;
+use App\Http\Requests\QualificationUpdateRequest;
 use App\Models\Qualification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,9 +65,8 @@ class QualificationController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QualificationCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->companies()->first();
@@ -74,14 +75,7 @@ class QualificationController extends Controller
         $user = Auth::user();
 
         // get and validate data
-        $storeData = $request->validate([
-            'employee_id' => 'required',
-            'qualificationtype_id' => 'required',
-            'provider_id' => 'required',
-            'regno' => 'nullable|string',
-            'expiry_date' => 'required|date'
-
-        ]);
+        $storeData = $request->validated();
 
         // create qualifications with validated data
         $qualification = $company->qualifications()->create($storeData);
@@ -160,20 +154,13 @@ class QualificationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Qualification $qualification)
+    public function update(QualificationUpdateRequest $request, Qualification $qualification)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
-        $updateData = $request->validate([
-            'employee_id' => 'required',
-            'qualificationtype_id' => 'required',
-            'provider_id' => 'required',
-            'expiry_date' => 'required',
-            'slug' => 'string',
-            'price' => 'numeric',
-        ]);
+        $updateData = $request->validated();
 
         // update qualification with validated data
         if(!$qualification->expiry_date->isPast()){

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\ContactCreateRequest;
+use App\Http\Requests\ContactUpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Validator;
@@ -18,30 +20,14 @@ class ContactController extends BaseController
     }
 
 
-    public function store(Request $request)
+    public function store(ContactCreateRequest $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'title' => '',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'email',
-            'phone' => '',
-            'gender' => '',
-            'line_1' => '',
-            'line_2' => '',
-            'line_3' => '',
-            'town' => '',
-            'city' => '',
-            'county' => '',
-            'postcode' => '',
-            'employee_id' => 'required',
-            'user_id' => 'required',
-        ]);
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
-        $contact = Contact::create($input);
+        $data = $request->validated();
+
+//        if ($validator->fails()) {
+//            return $this->sendError($validator->errors());
+//        }
+        $contact = Contact::create($data);
         return $this->sendResponse(new ContactResource($contact), 'Contact created.');
     }
 
@@ -56,49 +42,31 @@ class ContactController extends BaseController
     }
 
 
-    public function update(Request $request, Contact $contact)
+    public function update(ContactUpdateRequest $request, Contact $contact)
     {
-        $input = $request->all();
+        $input = $request->validated();
 
-        $validator = Validator::make($input, [
-            'title' => '',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'email',
-            'phone' => '',
-            'gender' => '',
-            'line_1' => '',
-            'line_2' => '',
-            'line_3' => '',
-            'town' => '',
-            'city' => '',
-            'county' => '',
-            'postcode' => '',
-            'employee_id' => 'required',
-            'user_id' => 'required',
-        ]);
+//        if ($validator->fails()) {
+//            return $this->sendError($validator->errors());
+//        }
 
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+//        $contact->title = $input['title'];
+//        $contact->firstname = $input['firstname'];
+//        $contact->lastname = $input['lastname'];
+//        $contact->email = $input['email'];
+//        $contact->phone = $input['phone'];
+//        $contact->gender = $input['gender'];
+//        $contact->line_1 = $input['line_1'];
+//        $contact->line_2 = $input['line_2'];
+//        $contact->line_3 = $input['line_3'];
+//        $contact->town = $input['town'];
+//        $contact->city = $input['city'];
+//        $contact->county = $input['county'];
+//        $contact->postcode = $input['postcode'];
+//        $contact->employee_id = $input['employee_id'];
+//        $contact->user_id = $input['user_id'];
 
-        $contact->title = $input['title'];
-        $contact->firstname = $input['firstname'];
-        $contact->lastname = $input['lastname'];
-        $contact->email = $input['email'];
-        $contact->phone = $input['phone'];
-        $contact->gender = $input['gender'];
-        $contact->line_1 = $input['line_1'];
-        $contact->line_2 = $input['line_2'];
-        $contact->line_3 = $input['line_3'];
-        $contact->town = $input['town'];
-        $contact->city = $input['city'];
-        $contact->county = $input['county'];
-        $contact->postcode = $input['postcode'];
-        $contact->employee_id = $input['employee_id'];
-        $contact->user_id = $input['user_id'];
-
-        $contact->save();
+        $contact->update($input);
 
         return $this->sendResponse(new ContactResource($contact), 'Contact updated.');
     }

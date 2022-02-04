@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyCreateRequest;
+use App\Http\Requests\CompanyUpdateRequest;
 use App\Models\Company;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -56,22 +58,13 @@ class CompanyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CompanyCreateRequest $request)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
-        $data = $this->validate($request, [
-            'name' => ['required', 'string'],
-            'type' => ['required', 'string'],
-            'size' => ['required', 'string'],
-            'line_1' => ['required', 'string'],
-            'town' => ['required', 'string'],
-            'county' => ['required', 'string'],
-            'postcode' => ['required', 'string'],
-            'country' => ['nullable', 'string'],
-        ]);
+        $data = $request->validated();
 
         // create department with validated data
         $company = $user->companies()->create($data);
@@ -157,30 +150,14 @@ class CompanyController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Company  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CompanyUpdateRequest $request, $id)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
-        $updateData = $request->validate([
-            'name' => 'required', 'string',
-            'type' => 'required', 'string',
-            'size' => 'required', 'string',
-            'phone' => '',
-            'email' => 'nullable', 'email',
-            'line_1' => 'required', 'string',
-            'line_2' => 'required', 'string',
-            'town' => 'required', 'string',
-            'county' => 'required', 'string',
-            'postcode' => 'required', 'string',
-            'country' => 'required', 'string',
-            'company_reg' => '',
-            'company_vat' => '',
-            'citb_levy' => 'required'
-        ]);
+        $updateData = $request->validated();
 
         // find employee and update with validated data
         $company = Company::findOrFail($id)->update($updateData);
@@ -199,7 +176,7 @@ class CompanyController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Company  $company
-     * @return \Illuminate\Http\Response
+
      */
     public function destroy(Company $company)
     {

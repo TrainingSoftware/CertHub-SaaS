@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\EmployeeCreateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Auth;
@@ -20,37 +21,15 @@ class EmployeeController extends BaseController
     }
 
 
-    public function store(Request $request)
+    public function store(EmployeeCreateRequest $request)
     {
         $user = Auth::user();
 
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'title' => '',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'email',
-            'phone' => '',
-            'position' => '',
-            'dob' => '',
-            'gender' => '',
-            'line_1' => '',
-            'line_2' => '',
-            'line_3' => '',
-            'town' => '',
-            'city' => '',
-            'county' => '',
-            'postcode' => '',
-            'start_date' => '',
-            'end_date' => '',
-            'salary' => '',
-            'employment' => '',
-            'department_id' => '',
-            'user_id' => ''
-        ]);
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+        $input = $request->validated();
+//
+//        if ($validator->fails()) {
+//            return $this->sendError($validator->errors());
+//        }
         $employee = $user->employees()->create($input);
         return $this->sendResponse(new EmployeeResource($employee), 'Employee created.');
     }

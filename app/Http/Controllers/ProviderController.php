@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProviderCreateRequest;
 use App\Models\Provider;
 use App\Models\Qualification;
 use Illuminate\Http\Request;
@@ -40,9 +41,8 @@ class ProviderController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProviderCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->companies()->first();
@@ -51,21 +51,7 @@ class ProviderController extends Controller
         $user = Auth::user();
 
         // get and validate data
-        $storeData = $request->validate([
-            'name' => 'required',
-            'email' => 'nullable',
-            'phone' => 'nullable',
-            'website' => 'nullable',
-            'line_1' => 'nullable',
-            'line_2' => 'nullable',
-            'line_3' => 'nullable',
-            'town' => 'nullable',
-            'city' => 'nullable',
-            'county' => 'nullable',
-            'country' => 'nullable',
-            'postcode' => 'nullable',
-            'company_reg' => 'nullable'
-        ]);
+        $storeData = $request->validated();
 
         // create provider with validated data
         $provider = $company->providers()->create($storeData);
@@ -124,29 +110,14 @@ class ProviderController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provider $provider)
+    public function update(ProviderUpdateRequest $request, Provider $provider)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
-        $updateData = $request->validate([
-            'name' => 'required',
-            'email' => 'nullable',
-            'phone' => 'nullable',
-            'website' => 'nullable',
-            'line_1' => 'nullable',
-            'line_2' => 'nullable',
-            'line_3' => 'nullable',
-            'town' => 'nullable',
-            'city' => 'nullable',
-            'county' => 'nullable',
-            'country' => 'nullable',
-            'postcode' => 'nullable',
-            'company_reg' => 'nullable'
-        ]);
+        $updateData = $request->validated();
 
         // update provider with validated data
         $provider->update($updateData);
