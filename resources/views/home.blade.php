@@ -16,7 +16,7 @@
                     <div class="card card-xl-stretch mb-xl-8">
                         <div class="card-body p-0">
                             <div class="px-9 pt-7 card-rounded h-275px w-100 bg-primary">
-                                <div class="d-flex flex-stack">
+                                <div class="d-flex flex-stack"> 
                                     <h3 class="m-0 text-white fw-bolder fs-3">Quarterly Training Summary</h3>
                                 </div>
                                 <div class="d-flex text-center flex-column text-white pt-8">

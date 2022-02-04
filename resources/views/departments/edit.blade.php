@@ -68,7 +68,7 @@
                     <div class="card-body p-9">
                     {{ Form::model($department, array('route' => array('departments.update', $department->id), 'method' => 'PUT')) }}
                     <!--begin::Row-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
                             <!--end::Label-->
@@ -89,7 +89,7 @@
                         </div>
                         <!--end::Row-->
                         <!--begin::Row-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Description</label>
                             <!--end::Label-->

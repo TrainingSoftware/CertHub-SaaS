@@ -84,7 +84,7 @@
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-bold text-muted">Registration Number</label>
                         <div class="col-lg-8">
-                            @if($qualification->price)
+                            @if($qualification->regno)
                             <span class="fw-bolder fs-6 text-gray-800">{{ $qualification->regno }}</span>
                             @else
                             <span class="fw-bold text-gray-500 fs-6">No reg no available</span>

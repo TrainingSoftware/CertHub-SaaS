@@ -33,7 +33,7 @@
                 </div>
                 <div class="card-body p-9">
                     {{ Form::model($company, array('route' => array('company.update', $company->id), 'method' => 'PUT')) }}
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Name</span></label>
                         <div class="col-lg-8">
                             <div class="row">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Type</label>
                         <div class="col-lg-8">
                             <div class="row">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Employees</label>
                         <div class="col-lg-8">
                             <div class="row">
@@ -63,14 +63,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
                         <span class="required">Phone</span></label>
                         <div class="col-lg-8 d-flex align-items-center">
                             {{ Form::text('phone', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
                         <span class="required">Email</span>
                         </label>
@@ -78,7 +78,7 @@
                             {{ Form::text('email', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Address</label>
                         <div class="col-lg-8">
                             <div class="row mb-7">
@@ -125,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
                         <span class="required">Legal Details</span></label>
                         <div class="col-lg-8">
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
                         <span class="required">CITB Levy Payer</span>
                         </label>

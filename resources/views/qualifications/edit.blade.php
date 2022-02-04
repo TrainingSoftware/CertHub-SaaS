@@ -81,7 +81,7 @@
                 </div>
                 <div class="card-body p-9">
                     {{ Form::model($qualification, array('route' => array('qualifications.update', $qualification->id), 'method' => 'PUT')) }}
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Employee</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Qualification Type</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Provider</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">
@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Expiry Date</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">
@@ -128,7 +128,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Reg No.</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">
@@ -136,7 +136,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="">Price</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">

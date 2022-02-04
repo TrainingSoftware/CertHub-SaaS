@@ -66,7 +66,7 @@
                 <div class="card-body p-9">
                     {{ Form::model($employee, array('route' => array('employees.update', $employee->id), 'method' => 'PUT')) }}
                         <!--begin::Row-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
                             <!--end::Label-->
@@ -102,7 +102,7 @@
                         </div>
                         <!--end::Row-->
                         <!--begin::Row-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Gender</label>
                             <!--end::Label-->
@@ -124,7 +124,7 @@
                         <!--end::Row-->
                     @if(Auth::user()->company)
                         <!--begin::Input group-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Company</label>
                             <!--end::Label-->
@@ -137,7 +137,7 @@
                         <!--end::Input group-->
                         @endif
                         <!--begin::Input group-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
                                 <span class="required">Contact Phone</span></label>
@@ -150,7 +150,7 @@
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
                                 <span class="required">Email</span>
@@ -164,7 +164,7 @@
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Address</label>
                             <!--end::Label-->
@@ -505,7 +505,7 @@
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Position</label>
                             <!--end::Label-->
@@ -517,7 +517,7 @@
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Employment Details</label>
                             <!--end::Label-->
@@ -574,7 +574,7 @@
                             <!--end::Col-->
                         </div>
                         <!--end::Input group-->
-                        <div class="row mb-20 d-flex h-100">
+                        <div class="row mb-7 d-flex h-100">
                             <!--begin::Label-->
                             <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Department</label>
                             <!--end::Label-->

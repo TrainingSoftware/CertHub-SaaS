@@ -60,7 +60,7 @@ var tenderExpiry = new Pikaday({
         const year = parseInt(parts[2], 10);
         return new Date(year, month, day);
     }
-    
+
 });
 
 var employeeEnd = new Pikaday({
@@ -82,7 +82,7 @@ var employeeEnd = new Pikaday({
         const year = parseInt(parts[2], 10);
         return new Date(year, month, day);
     }
-    
+
 });
 
 var employeeStart = new Pikaday({
@@ -104,11 +104,11 @@ var employeeStart = new Pikaday({
         const year = parseInt(parts[2], 10);
         return new Date(year, month, day);
     }
-    
+
 });
 
 // Select2
-$(document).ready(function() {
+$(document).ready(function () {
     $("#providerSelect").attr("data-control", "select2");
     $('#providerSelect').attr('data-placeholder', 'Select an option');
 });
