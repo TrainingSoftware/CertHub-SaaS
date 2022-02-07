@@ -28,8 +28,8 @@ class QualificationCreateRequest extends FormRequest
             'employee_id' => ['required'],
             'qualificationtype_id' => ['required'],
             'provider_id' => ['required'],
-            'regno' => ['nullable|string'],
-            'expiry_date' => ['required|date']
+            'regno' => ['nullable', 'string'],
+            'expiry_date' => ['required', 'date']
         ];
     }
 }
