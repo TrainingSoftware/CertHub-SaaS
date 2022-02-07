@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserCreateRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -38,7 +39,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->companies()->first();
@@ -47,13 +48,9 @@ class UserController extends Controller
         $user = Auth::user();
 
         // get and validate data
-        $storeData = $request->validate([
-            'name' => 'required',
-            'email' => 'required|email:rfc,dns|unique:users,email',
-            'password' => 'required|min:8',
-            'password_confirmation' => 'required|same:password'
-        ]);
+        $storeData = $request->validated();
 
+        $storeData['password'] = bcrypt($storeData['password']);
         // create department with validated data
         $newUser = $company->users()->create($storeData);
 

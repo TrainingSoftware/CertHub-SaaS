@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DepartmentCreateRequest;
+use App\Http\Requests\DepartmentUpdateRequest;
 use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,7 +43,7 @@ class DepartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DepartmentCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->companies()->first();
@@ -50,10 +52,7 @@ class DepartmentController extends Controller
         $user = Auth::user();
 
         // get and validate data
-        $storeData = $request->validate([
-            'name' => 'required',
-            'body' => 'max:1000|nullable'
-        ]);
+        $storeData = $request->validated();
 
         // create department with validated data
         $department = $company->departments()->create($storeData);
@@ -113,18 +112,14 @@ class DepartmentController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Department $department)
+    public function update(DepartmentUpdateRequest $request, Department $department)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
-        $updateData = $request->validate([
-            'name' => 'required',
-            'body' => 'nullable'
-        ]);
+        $updateData = $request->validated();
 
         // update department with validated data
         $department->update($updateData);
@@ -143,7 +138,6 @@ class DepartmentController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Department $department)
     {

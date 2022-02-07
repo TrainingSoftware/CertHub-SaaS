@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\QualificationCreateRequest;
+use App\Http\Requests\QualificationUpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Auth;
@@ -20,22 +22,13 @@ class QualificationController extends BaseController
     }
 
 
-    public function store(Request $request)
+    public function store(QualificationCreateRequest $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'user_id' => 'required',
-            'qualificationtype_id' => 'required',
-            'provider_id' => 'required',
-            'regno' => '',
-            'price' => '',
-            'slug' => '',
-            'expiry_date' => '',
-            'status' => ''
-        ]);
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+        $input = $request->validated();
+
+//        if ($validator->fails()) {
+//            return $this->sendError($validator->errors());
+//        }
         $qualification = Qualification::create($input);
         return $this->sendResponse(new QualificationResource($qualification), 'Qualification created.');
     }
@@ -51,35 +44,26 @@ class QualificationController extends BaseController
     }
 
 
-    public function update(Request $request, Qualification $qualification)
+    public function update(QualificationUpdateRequest $request, Qualification $qualification)
     {
-        $input = $request->all();
+        $input = $request->validated();
 
-        $validator = Validator::make($input, [
-            'user_id' => '',
-            'qualificationtype_id' => 'required',
-            'provider_id' => 'required',
-            'regno' => 'email',
-            'price' => '',
-            'slug' => '',
-            'expiry_date' => '',
-            'status' => ''
-        ]);
 
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+//
+//        if ($validator->fails()) {
+//            return $this->sendError($validator->errors());
+//        }
+//
+//        $qualification->user_id = $input['user_id'];
+//        $qualification->qualificationtype_id = $input['qualificationtype_id'];
+//        $qualification->provider_id = $input['provider_id'];
+//        $qualification->regno = $input['regno'];
+//        $qualification->price = $input['price'];
+//        $qualification->slug = $input['slug'];
+//        $qualification->expiry_date = $input['expiry_date'];
+//        $qualification->status = $input['status'];
 
-        $qualification->user_id = $input['user_id'];
-        $qualification->qualificationtype_id = $input['qualificationtype_id'];
-        $qualification->provider_id = $input['provider_id'];
-        $qualification->regno = $input['regno'];
-        $qualification->price = $input['price'];
-        $qualification->slug = $input['slug'];
-        $qualification->expiry_date = $input['expiry_date'];
-        $qualification->status = $input['status'];
-
-        $qualification->save();
+        $qualification->update($input);
 
         return $this->sendResponse(new QualificationResource($qualification), 'Qualification updated.');
     }

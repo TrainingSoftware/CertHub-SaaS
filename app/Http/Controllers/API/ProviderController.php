@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\ProviderCreateRequest;
+use App\Http\Requests\ProviderUpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Auth;
@@ -20,17 +22,10 @@ class ProviderController extends BaseController
     }
 
 
-    public function store(Request $request)
+    public function store(ProviderCreateRequest $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'body' => '',
-            'user_id' => 'required'
-        ]);
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+        $input = $request->validated();
+
         $provider = Provider::create($input);
         return $this->sendResponse(new ProviderResource($provider), 'Provider created.');
     }
@@ -46,25 +41,20 @@ class ProviderController extends BaseController
     }
 
 
-    public function update(Request $request, Provider $provider)
+    public function update(ProviderUpdateRequest $request, Provider $provider)
     {
-        $input = $request->all();
+        $input = $request->validated();
 
-        $validator = Validator::make($input, [
-            'name' => '',
-            'body' => '',
-            'user_id' => ''
-        ]);
+//
+//        if ($validator->fails()) {
+//            return $this->sendError($validator->errors());
+//        }
 
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+//        $provider->name = $input['name'];
+//        $provider->body = $input['body'];
+//        $provider->user_id = $input['user_id'];
 
-        $provider->name = $input['name'];
-        $provider->body = $input['body'];
-        $provider->user_id = $input['user_id'];
-
-        $provider->save();
+        $provider->update($input);
 
         return $this->sendResponse(new ProviderResource($provider), 'Provider updated.');
     }

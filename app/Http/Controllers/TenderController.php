@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TenderCreateRequest;
+use App\Http\Requests\TenderUpdateRequest;
 use App\Models\Tender;
 use App\Models\Employee;
 use App\Models\Qualifications;
@@ -43,9 +45,8 @@ class TenderController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TenderCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->companies()->first();
@@ -54,11 +55,7 @@ class TenderController extends Controller
         $user = Auth::user();
 
         // get and validate data
-        $storeData = $request->validate([
-            'name' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-        ]);
+        $storeData = $request->validated();
 
         // create department with validated data
         $tender = $company->tenders()->create($storeData);
@@ -174,11 +171,11 @@ class TenderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param TenderUpdateRequest $request
+     * @param Tender $tender
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Tender $tender)
+    public function update(TenderUpdateRequest $request, Tender $tender)
     {
         // get current logged in user
         $user = Auth::user();
@@ -186,17 +183,7 @@ class TenderController extends Controller
         if ($user->can('update', $tender)) {
 
             // get and validate data
-            $updateData = $request->validate([
-                'name' => 'required',
-                'start_date' => 'date',
-                'end_date' => 'date',
-                'line_1' => 'string|nullable',
-                'line_2' => 'string|nullable',
-                'town' => 'string|nullable',
-                'county' => 'string|nullable',
-                'postcode' => 'string|nullable',
-                'country' => 'string|nullable',
-            ]);
+            $updateData = $request->validated();
 
             // update department with validated data
             $tender->update($updateData);

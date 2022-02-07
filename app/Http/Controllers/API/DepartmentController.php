@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\DepartmentCreateRequest;
+use App\Http\Requests\DepartmentUpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Auth;
@@ -20,17 +22,17 @@ class DepartmentController extends BaseController
     }
 
 
-    public function store(Request $request)
+    public function store(DepartmentCreateRequest $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'body' => '',
-            'company_id' => 'required'
-        ]);
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+        $input = $request->validated();
+//        $validator = Validator::make($input, [
+//            'name' => 'required',
+//            'body' => '',
+//            'company_id' => 'required'
+//        ]);
+//        if ($validator->fails()) {
+//            return $this->sendError($validator->errors());
+//        }
         $department = Department::create($input);
         return $this->sendResponse(new DepartmentResource($department), 'Department created.');
     }
@@ -46,25 +48,25 @@ class DepartmentController extends BaseController
     }
 
 
-    public function update(Request $request, Department $department)
+    public function update(DepartmentUpdateRequest $request, Department $department)
     {
-        $input = $request->all();
+        $input = $request->validated();
 
-        $validator = Validator::make($input, [
-            'name' => 'required',
-            'body' => '',
-            'user_id' => 'required'
-        ]);
+//        $validator = Validator::make($input, [
+//            'name' => 'required',
+//            'body' => '',
+//            'company_id' => 'required'
+//        ]);
 
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+//        if ($validator->fails()) {
+//            return $this->sendError($validator->errors());
+//        }
 
-        $department->name = $input['name'];
-        $department->body = $input['body'];
-        $department->user_id = $input['user_id'];
+//        $department->name = $input['name'];
+//        $department->body = $input['body'];
+//        $department->user_id = $input['user_id'];
 
-        $department->save();
+        $department->update($input);
 
         return $this->sendResponse(new DepartmentResource($department), 'Department updated.');
     }

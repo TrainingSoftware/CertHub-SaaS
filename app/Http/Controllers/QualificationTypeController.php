@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QualificationTypeCreateRequest;
+use App\Http\Requests\QualificationTypeUpdateRequest;
 use App\Models\QualificationType;
 use App\Models\Qualification;
 use Illuminate\Http\Request;
@@ -42,7 +44,7 @@ class QualificationTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QualificationTypeCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->companies()->first();
@@ -51,9 +53,7 @@ class QualificationTypeController extends Controller
         $user = Auth::user();
 
         // get and validate data
-        $storeData = $request->validate([
-            'name' => 'required',
-        ]);
+        $storeData = $request->validated();
 
         // create qualification type with validated data
         $qualificationtype = $company->qualificationtypes()->create($storeData);
@@ -124,17 +124,15 @@ class QualificationTypeController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+
      */
-    public function update(Request $request, $id)
+    public function update(QualificationTypeUpdateRequest $request, $id)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
-        $updateData = $request->validate([
-            'name' => 'required',
-        ]);
+        $updateData = $request->validated();
 
         // find qualification type
         $qualificationtype = QualificationType::findOrFail($id);
