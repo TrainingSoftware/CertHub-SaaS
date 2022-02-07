@@ -325,7 +325,7 @@
                                             <td>
                                                 <div class="d-flex align-items-center">
                                                     <div class="symbol symbol-45px me-5">
-                                                        <img src="/assets/media/avatars/blank.png" alt="" />
+                                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $item->firstname[0] }}{{ $item->lastname[0] }}</span>
                                                     </div>
                                                     <div class="d-flex justify-content-start flex-column">
                                                         <a href="/employees/{{ $item->id }}" class="text-dark fw-bolder text-hover-primary fs-6">{{ $item->firstname }} {{ $item->lastname }}</a>
