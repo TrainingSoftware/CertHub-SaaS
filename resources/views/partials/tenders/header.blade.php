@@ -18,7 +18,12 @@
                         </div>
                         <div class="d-flex flex-wrap fw-bold mb-4 fs-5 text-gray-400">
                             <span class="">
-                            {{ $tender->line_1 }}, @if($tender->line_2){{ $tender->line_2 }}, @endif{{ $tender->town }}, {{ $tender->county }}, {{ $tender->postcode }}@if($tender->country), {{ $tender->country }}@endif
+                            @if($tender->line_1)
+                                {{ $tender->line_1 }}, @if($tender->line_2){{ $tender->line_2 }}, @endif{{ $tender->town }}, {{ $tender->county }}, {{ $tender->postcode }}@if($tender->country), {{ $tender->country }}@endif
+                            @else
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_postcode">Add location?</a>
+                                @include('partials/global/postcode-search')
+                            @endif
                             </span>
                         </div>
                     </div>

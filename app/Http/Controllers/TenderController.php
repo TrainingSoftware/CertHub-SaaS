@@ -202,9 +202,12 @@ class TenderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Tender $tender)
     {
-        //
+        // delete employee
+        $tender->delete();
+
+        return redirect('/tenders')->with('success', 'Tender has been deleted');
     }
 
     /**

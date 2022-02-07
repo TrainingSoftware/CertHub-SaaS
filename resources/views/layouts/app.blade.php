@@ -102,6 +102,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
     <script src="/assets/js/custom.js"></script>
     <!--begin::Page Custom Javascript(used by this page)-->
+    @include('partials.global.global-search')
     @if(request()->is('tenders/*'))
         @if(!Route::is('tenders.create'))
                 @include('partials.tenders.search-modal')

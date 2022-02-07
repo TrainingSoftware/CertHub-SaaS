@@ -111,4 +111,8 @@ var employeeStart = new Pikaday({
 $(document).ready(function () {
     $("#providerSelect").attr("data-control", "select2");
     $('#providerSelect').attr('data-placeholder', 'Select an option');
+
+    //$(".globalSearch").click(function () {
+    //    $("#globalSearch").modal("show");
+    //});
 });
