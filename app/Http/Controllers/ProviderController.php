@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProviderCreateRequest;
+use App\Http\Requests\ProviderUpdateRequest;
 use App\Models\Provider;
 use App\Models\Qualification;
 use Illuminate\Http\Request;

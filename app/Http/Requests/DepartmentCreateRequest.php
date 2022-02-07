@@ -26,7 +26,8 @@ class DepartmentCreateRequest extends FormRequest
         return [
             //
             'name' => ['required'],
-            'body' => ['max:1000','nullable']
+            'body' => ['max:1000','nullable'],
+            'company_id' => ['exists:companies,id','int'],
         ];
     }
 }

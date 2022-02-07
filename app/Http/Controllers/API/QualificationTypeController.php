@@ -16,24 +16,36 @@ class QualificationTypeController extends BaseController
 
     public function index()
     {
-        $user = Auth::user();
-        $qualificationtypes = $user->qualificationtypes;
+        $company = Auth::user()->companies()->first();
+
+        // get qualification types that belong to authenticated user
+        $qualificationtypes = QualificationType::where('company_id', '=', $company->id)
+            ->paginate(10);
         return $this->sendResponse(QualificationTypeResource::collection($qualificationtypes), 'Qualification Types fetched.');
     }
 
 
     public function store(QualificationTypeCreateRequest $request)
     {
-        $input = $request->validated();
-//        $validator = Validator::make($input, [
-//            'name' => 'required',
-//            'body' => '',
-//            'user_id' => 'required'
-//        ]);
-//        if ($validator->fails()) {
-//            return $this->sendError($validator->errors());
-//        }
-        $qualificationtype = QualificationType::create($input);
+        $company = Auth::user()->companies()->first();
+
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
+        $storeData = $request->validated();
+
+        // create qualification type with validated data
+        $qualificationtype = $company->qualificationtypes()->create($storeData);
+
+        // log the qualification type on successful update
+        if ($qualificationtype){
+            activity('qualificationtype')
+                ->performedOn($qualificationtype)
+                ->causedBy($user)
+                ->log('Qualification Type updated by ' . $user->name);
+        }
+
         return $this->sendResponse(new QualificationTypeResource($qualificationtype), 'Qualification Type created.');
     }
 

@@ -27,10 +27,10 @@ class EmployeeUpdateRequest extends FormRequest
             //
             'firstname' => ['required'],
             'lastname'  => ['required'],
-            'email' => ['required','email'],
+            'email' => ['required','email','unique:employees,email,'.$this->route('employee')->id],
             'phone' => ['required','numeric','digits:11'],
             'position' => ['string','nullable'],
-            'dob' => ['date|nullable'],
+            'dob' => ['date','nullable'],
             'gender' => ['string','nullable'],
             'line_1' => ['string','nullable'],
             'line_2' => ['string','nullable'],
@@ -44,6 +44,7 @@ class EmployeeUpdateRequest extends FormRequest
             'salary' => ['numeric','nullable'],
             'employment' => ['string','nullable'],
             'department_id' => ['exists:departments,id','int'],
+            'company_id' => ['exists:companies,id','int'],
         ];
     }
 }

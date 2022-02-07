@@ -15,21 +15,38 @@ class QualificationController extends BaseController
 {
 
     public function index()
-    {
-        $user = Auth::user();
-        $qualifications = $user->qualifications;
+    {// get current company
+
+        $company = Auth::user()->companies()->first();
+
+
+        // get qualifications that belong to authenticated user
+        $qualifications = $company->qualifications;
+
         return $this->sendResponse(QualificationResource::collection($qualifications), 'Qualifications fetched.');
     }
 
 
     public function store(QualificationCreateRequest $request)
     {
-        $input = $request->validated();
+        $company = Auth::user()->companies()->first();
 
-//        if ($validator->fails()) {
-//            return $this->sendError($validator->errors());
-//        }
-        $qualification = Qualification::create($input);
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
+        $storeData = $request->validated();
+
+        // create qualifications with validated data
+        $qualification = $company->qualifications()->create($storeData);
+
+        // log the qualification on successful creation
+        if ($qualification){
+            activity('qualification')
+                ->performedOn($qualification)
+                ->causedBy($user)
+                ->log('Qualification created by ' . $user->name);
+        }
         return $this->sendResponse(new QualificationResource($qualification), 'Qualification created.');
     }
 

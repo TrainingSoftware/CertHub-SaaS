@@ -28,7 +28,9 @@ class ContactCreateRequest extends FormRequest
             'firstname' => ['required'],
             'lastname' => ['required'],
             'email' => ['required','email'],
-            'phone' => ['required','numeric','digits:11']
+            'phone' => ['required','numeric','digits:11'],
+            'company_id' => ['required','exists:companies,id'],
+            'employee_id' => ['required','exists:employees,id']
         ];
     }
 }

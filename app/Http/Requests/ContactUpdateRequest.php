@@ -35,6 +35,8 @@ class ContactUpdateRequest extends FormRequest
             'line_3' => ['string','nullable'],
             'town' => ['string','nullable'],
             'city' => ['string','nullable'],
+            'company_id' => ['required','exists:companies,id'],
+            'employee_id' => ['required','exists:employees,id'],
             'county' => ['string','nullable'],
             'postcode' => ['string','nullable'],
             'relation' => ['string','nullable'],

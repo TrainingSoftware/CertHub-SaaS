@@ -16,17 +16,35 @@ class ProviderController extends BaseController
 
     public function index()
     {
-        $user = Auth::user();
-        $providers = $user->providers;
+        $company = Auth::user()->companies()->first();
+
+        // get providers that belong to authenticated user
+        $providers = $company->providers()
+            ->paginate(10);
         return $this->sendResponse(ProviderResource::collection($providers), 'Providers fetched.');
     }
 
 
     public function store(ProviderCreateRequest $request)
     {
-        $input = $request->validated();
+        $company = Auth::user()->companies()->first();
 
-        $provider = Provider::create($input);
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
+        $storeData = $request->validated();
+
+        // create provider with validated data
+        $provider = $company->providers()->create($storeData);
+
+        // log the provider on successful creation
+        if ($provider){
+            activity('provider')
+                ->performedOn($provider)
+                ->causedBy($user)
+                ->log('Provider created by ' . $user->name);
+        }
         return $this->sendResponse(new ProviderResource($provider), 'Provider created.');
     }
 
@@ -43,18 +61,19 @@ class ProviderController extends BaseController
 
     public function update(ProviderUpdateRequest $request, Provider $provider)
     {
-        $input = $request->validated();
+        $user = Auth::user();
 
-//
-//        if ($validator->fails()) {
-//            return $this->sendError($validator->errors());
-//        }
+        // get and validate data
+        $updateData = $request->validated();
 
-//        $provider->name = $input['name'];
-//        $provider->body = $input['body'];
-//        $provider->user_id = $input['user_id'];
+        // update provider with validated data
+        $provider->update($updateData);
 
-        $provider->update($input);
+        // log the provider on successful update
+        activity('provider')
+            ->performedOn($provider)
+            ->causedBy($user)
+            ->log('Provider updated by ' . $user->name);
 
         return $this->sendResponse(new ProviderResource($provider), 'Provider updated.');
     }

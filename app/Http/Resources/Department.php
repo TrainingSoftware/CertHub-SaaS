@@ -13,7 +13,7 @@ class Department extends JsonResource
             'id' => $this->id,
             'created_at' => $this->created_at->format('d/m/Y'),
             'updated_at' => $this->updated_at->format('d/m/Y'),
-            'user_id' => $this->user_id,
+            'company_id' => $this->company_id,
             'name' => $this->name,
             'body' => $this->body,
         ];

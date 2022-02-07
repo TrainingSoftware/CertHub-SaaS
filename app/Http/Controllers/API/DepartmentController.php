@@ -16,24 +16,36 @@ class DepartmentController extends BaseController
 
     public function index()
     {
-        $user = Auth::user();
-        $departments = $user->departments;
+         // get current company
+        $company = Auth::user()->companies()->first();
+
+        // get employees that belong to authenticated user
+        $departments = $company->departments;
         return $this->sendResponse(DepartmentResource::collection($departments), 'Departments fetched.');
     }
 
 
     public function store(DepartmentCreateRequest $request)
     {
-        $input = $request->validated();
-//        $validator = Validator::make($input, [
-//            'name' => 'required',
-//            'body' => '',
-//            'company_id' => 'required'
-//        ]);
-//        if ($validator->fails()) {
-//            return $this->sendError($validator->errors());
-//        }
-        $department = Department::create($input);
+
+        $company = Auth::user()->companies()->first();
+
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
+        $storeData = $request->validated();
+
+        // create department with validated data
+        $department = $company->departments()->create($storeData);
+
+        // log the department on successful creation
+        if ($department){
+            activity('department')
+                ->performedOn($department)
+                ->causedBy($user)
+                ->log('Department created by ' . $user->name);
+        }
         return $this->sendResponse(new DepartmentResource($department), 'Department created.');
     }
 
@@ -50,23 +62,19 @@ class DepartmentController extends BaseController
 
     public function update(DepartmentUpdateRequest $request, Department $department)
     {
-        $input = $request->validated();
+        $user = Auth::user();
 
-//        $validator = Validator::make($input, [
-//            'name' => 'required',
-//            'body' => '',
-//            'company_id' => 'required'
-//        ]);
+        // get and validate data
+        $updateData = $request->validated();
 
-//        if ($validator->fails()) {
-//            return $this->sendError($validator->errors());
-//        }
+        // update department with validated data
+        $department->update($updateData);
 
-//        $department->name = $input['name'];
-//        $department->body = $input['body'];
-//        $department->user_id = $input['user_id'];
-
-        $department->update($input);
+        // log the department on successful update
+        activity('department')
+            ->performedOn($department)
+            ->causedBy($user)
+            ->log('Department updated by ' . $user->name);
 
         return $this->sendResponse(new DepartmentResource($department), 'Department updated.');
     }
