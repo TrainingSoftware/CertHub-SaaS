@@ -13,7 +13,7 @@ class ContactUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,19 +25,19 @@ class ContactUpdateRequest extends FormRequest
     {
         return [
             //
-            'firstname' => ['string|nullable','required'],
+            'firstname' => ['string','nullable','required'],
             'lastname'  => ['required'],
-            'email' => ['required|email'],
-            'phone' => ['required|numeric|digits:11'],
-            'gender' => ['string|nullable'],
-            'line_1' => ['string|nullable'],
-            'line_2' => ['string|nullable'],
-            'line_3' => ['string|nullable'],
-            'town' => ['string|nullable'],
-            'city' => ['string|nullable'],
-            'county' => ['string|nullable'],
-            'postcode' => ['string|nullable'],
-            'relation' => ['string|nullable'],
+            'email' => ['required','email'],
+            'phone' => ['required','numeric','digits:11'],
+            'gender' => ['string','nullable'],
+            'line_1' => ['string','nullable'],
+            'line_2' => ['string','nullable'],
+            'line_3' => ['string','nullable'],
+            'town' => ['string','nullable'],
+            'city' => ['string','nullable'],
+            'county' => ['string','nullable'],
+            'postcode' => ['string','nullable'],
+            'relation' => ['string','nullable'],
         ];
     }
 }

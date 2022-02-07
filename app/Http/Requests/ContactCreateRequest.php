@@ -13,7 +13,7 @@ class ContactCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,8 +27,8 @@ class ContactCreateRequest extends FormRequest
             //
             'firstname' => ['required'],
             'lastname' => ['required'],
-            'email' => ['required|email'],
-            'phone' => ['required|numeric|digits:11']
+            'email' => ['required','email'],
+            'phone' => ['required','numeric','digits:11']
         ];
     }
 }

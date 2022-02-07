@@ -13,7 +13,7 @@ class DepartmentCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,7 +26,7 @@ class DepartmentCreateRequest extends FormRequest
         return [
             //
             'name' => ['required'],
-            'body' => ['max:1000|nullable']
+            'body' => ['max:1000','nullable']
         ];
     }
 }

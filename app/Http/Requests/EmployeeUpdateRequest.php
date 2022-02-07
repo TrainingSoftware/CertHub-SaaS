@@ -13,7 +13,7 @@ class EmployeeUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,23 +27,23 @@ class EmployeeUpdateRequest extends FormRequest
             //
             'firstname' => ['required'],
             'lastname'  => ['required'],
-            'email' => ['required|email'],
-            'phone' => ['required|numeric|digits:11'],
-            'position' => ['string|nullable'],
+            'email' => ['required','email'],
+            'phone' => ['required','numeric','digits:11'],
+            'position' => ['string','nullable'],
             'dob' => ['date|nullable'],
-            'gender' => ['string|nullable'],
-            'line_1' => ['string|nullable'],
-            'line_2' => ['string|nullable'],
-            'line_3' => ['string|nullable'],
-            'town' => ['string|nullable'],
-            'city' => ['string|nullable'],
-            'county' => ['string|nullable'],
-            'postcode' => ['string|nullable'],
-            'start_date' => ['date|nullable'],
-            'end_date' => ['date|nullable'],
-            'salary' => ['numeric|nullable'],
-            'employment' => ['string|nullable'],
-            'department_id' => ['exists:departments,id|int'],
+            'gender' => ['string','nullable'],
+            'line_1' => ['string','nullable'],
+            'line_2' => ['string','nullable'],
+            'line_3' => ['string','nullable'],
+            'town' => ['string','nullable'],
+            'city' => ['string','nullable'],
+            'county' => ['string','nullable'],
+            'postcode' => ['string','nullable'],
+            'start_date' => ['date','nullable'],
+            'end_date' => ['date','nullable'],
+            'salary' => ['numeric','nullable'],
+            'employment' => ['string','nullable'],
+            'department_id' => ['exists:departments,id','int'],
         ];
     }
 }

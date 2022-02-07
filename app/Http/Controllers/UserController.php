@@ -50,6 +50,7 @@ class UserController extends Controller
         // get and validate data
         $storeData = $request->validated();
 
+        $storeData['password'] = bcrypt($storeData['password']);
         // create department with validated data
         $newUser = $company->users()->create($storeData);
 

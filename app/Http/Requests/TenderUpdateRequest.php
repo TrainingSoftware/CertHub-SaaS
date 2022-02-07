@@ -13,7 +13,7 @@ class TenderUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -28,12 +28,12 @@ class TenderUpdateRequest extends FormRequest
             'name' => ['required'],
             'start_date' => ['date'],
             'end_date' => ['date'],
-            'line_1' => ['string|nullable'],
-            'line_2' => ['string|nullable'],
-            'town' => ['string|nullable'],
-            'county' => ['string|nullable'],
-            'postcode' => ['string|nullable'],
-            'country' => ['string|nullable'],
+            'line_1' => ['string','nullable'],
+            'line_2' => ['string','nullable'],
+            'town' => ['string','nullable'],
+            'county' => ['string','nullable'],
+            'postcode' => ['string','nullable'],
+            'country' => ['string','nullable'],
         ];
     }
 }
