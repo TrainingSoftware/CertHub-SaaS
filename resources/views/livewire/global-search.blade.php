@@ -19,12 +19,12 @@
 							<span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
 						</div>
 						<div class="ms-5">
-							<a href="#" class="fs-5 fw-bolder text-gray-900 text-hover-primary mb-2">{{ $employee->firstname }} {{ $employee->lastname }}</a>
+							<a href="/employees/{{ $employee->id }}" class="fs-5 fw-bolder text-gray-900 text-hover-primary mb-2">{{ $employee->firstname }} {{ $employee->lastname }}</a>
 							<div class="fw-bold text-muted">{{ $employee->email }}</div>
 						</div>
 					</div>
 					<div class="ms-2 w-100px">
-						<a href="/employees/{{ $employee->id }}/edit" class="btn btn-light">View</a>
+						<a href="/employees/{{ $employee->id }}" class="btn btn-light">View</a>
 					</div>
 				</div>
 				@endforeach

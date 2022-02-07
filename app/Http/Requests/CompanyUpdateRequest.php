@@ -31,14 +31,14 @@ class CompanyUpdateRequest extends FormRequest
             'phone' => ['digits:11', 'nullable'],
             'email' => ['nullable', 'email'],
             'line_1' => ['required', 'string'],
-            'line_2' => ['required', 'string'],
+            'line_2' => ['nullable', 'string'],
             'town' => ['required', 'string'],
             'county' => ['required', 'string'],
             'postcode' => ['required', 'string'],
             'country' => ['required', 'string'],
             'company_reg' => ['nullable'],
             'company_vat' => ['nullable'],
-            'citb_levy' => ['required']
+            'citb_levy' => ['nullable', 'boolean']
         ];
     }
 }
