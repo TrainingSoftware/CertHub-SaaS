@@ -38,7 +38,7 @@
                                     <a href="/tenders/{{ $tender->id }}/edit" class="menu-link px-3">Edit project</a>
                                 </div>
                                 <div class="menu-item px-3">
-                                    <a href="#" class="menu-link px-3">Generate Tender</a>
+                                    <a href="/tenders/{{ $tender->id }}/export" class="menu-link px-3">Generate Tender</a>
                                 </div>
                             </div>
                         </div>

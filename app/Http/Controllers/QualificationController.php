@@ -107,7 +107,7 @@ class QualificationController extends Controller
             return view('qualifications.show')
                 ->with('qualification', $qualification);
         } else {
-            echo 'This qualification does not belong to you.';
+            return abort(403);
         }
 
     }
@@ -143,7 +143,7 @@ class QualificationController extends Controller
 
             return view('qualifications.edit', compact('qualification','employees', 'qualificationtypes', 'providers'));
         } else {
-            echo 'This qualification does not belong to you.';
+            return abort(403);
         }
     }
 
@@ -185,9 +185,24 @@ class QualificationController extends Controller
      */
     public function destroy(Qualification $qualification)
     {
-        // delete employee
-        $qualification->delete();
 
-        return redirect('/qualifications')->with('success', 'Qualification has been deleted');
+        if ($user->can('delete', $qualification)) {
+
+            // delete department
+            $qualification->delete();
+
+            // log the department on successful deletion
+            activity('provider')
+                ->performedOn($qualification)
+                ->causedBy($user)
+                ->log('Qualification deleted by ' . $user->name);
+
+                return redirect('/qualifications')->with('success', 'Qualification has been deleted');
+
+        } else {
+
+            return abort(403);
+            
+        } 
     }
 }

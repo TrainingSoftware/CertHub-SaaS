@@ -21,6 +21,7 @@ use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\EmployeeQualificationPortfolioController;
 use App\Http\Controllers\EmployeeArchiveController;
 use App\Http\Controllers\TenderController;
+use App\Http\Controllers\TenderExportController;
 use App\Http\Controllers\ProviderLookupController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -84,6 +85,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::resource('tenders', TenderController::class);
             Route::get('/tenders/{tender}/employees',[TenderController::class, 'employees'])->name('tenders.employees');
             Route::get('/tenders/{tender}/renewals',[TenderController::class, 'renewals'])->name('tenders.renewals');
+            Route::get('/tenders/{tender}/export', [TenderExportController::class, 'generateExport'])->name('tender.export');
 
             Route::group(['prefix'=>'settings'], function() {
                 Route::resource('users', UserController::class);

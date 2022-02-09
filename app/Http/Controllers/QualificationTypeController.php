@@ -76,24 +76,22 @@ class QualificationTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(QualificationType $qualificationtype)
     {
         // get current logged in user
         $user = Auth::user();
 
-        // load qualification type
-        $qualificationtype = QualificationType::find($id);
-
-        // get qualifications that belong to qualification type
-        $qualifications = Qualification::where('qualificationtype_id', '=', $qualificationtype->id)
-            ->get();
-
         if ($user->can('view', $qualificationtype)) {
+
+            // get qualifications that belong to qualification type
+            $qualifications = Qualification::where('qualificationtype_id', '=', $qualificationtype->id)
+                ->get();
+        
             return view('qualificationtypes.show')
                 ->with('qualificationtype', $qualificationtype)
                 ->with('qualifications', $qualifications);
         } else {
-            echo 'This qualification type does not belong to you.';
+            return abort(403);
         }
 
     }
@@ -104,18 +102,19 @@ class QualificationTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(QualificationType $qualificationtype)
     {
         // get current logged in user
         $user = Auth::user();
 
-        // load qualification type
-        $qualificationtype = QualificationType::findOrFail($id);
-
         if ($user->can('update', $qualificationtype)) {
+
             return view('qualificationtypes.edit', compact('qualificationtype'));
+
         } else {
-            echo 'This qualification type does not belong to you.';
+
+            return abort(403);
+
         }
     }
 
@@ -126,16 +125,13 @@ class QualificationTypeController extends Controller
      * @param  int  $id
 
      */
-    public function update(QualificationTypeUpdateRequest $request, $id)
+    public function update(QualificationTypeUpdateRequest $request, QualificationType $qualificationtype)
     {
         // get current logged in user
         $user = Auth::user();
 
         // get and validate data
         $updateData = $request->validated();
-
-        // find qualification type
-        $qualificationtype = QualificationType::findOrFail($id);
 
         // update qualification type with validated data
         $qualificationtype->update($updateData);
@@ -157,10 +153,8 @@ class QualificationTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(QualificationType $qualificationtype)
     {
-        // find qualification type
-        $quaificationtype = QualificationType::findOrFail($id);
 
         // delete qualification type
         $quaificationtype->delete();

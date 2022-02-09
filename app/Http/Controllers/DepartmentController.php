@@ -84,7 +84,7 @@ class DepartmentController extends Controller
             return view('departments.show')
                 ->with('department', $department);
         } else {
-            echo 'This department does not belong to you.';
+            return abort(403);
         }
 
     }
@@ -103,7 +103,7 @@ class DepartmentController extends Controller
         if ($user->can('update', $department)) {
             return view('departments.edit', compact('department'));
         } else {
-            echo 'This department does not belong to you.';
+            return abort(403);
         }
     }
 
@@ -144,15 +144,22 @@ class DepartmentController extends Controller
         // get current logged in user
         $user = Auth::user();
 
-        // delete department
-        $department->delete();
+        if ($user->can('delete', $department)) {
 
-        // log the department on successful deletion
-        activity('department')
-            ->performedOn($department)
-            ->causedBy($user)
-            ->log('Department updated by ' . $user->name);
+            // delete department
+            $department->delete();
 
-        return redirect('/departments')->with('success', 'Department has been deleted');
+            // log the department on successful deletion
+            activity('department')
+                ->performedOn($department)
+                ->causedBy($user)
+                ->log('Department deleted by ' . $user->name);
+
+            return redirect('/departments')->with('success', 'Department has been deleted');
+
+        } else {
+
+            return abort(403);
+        }
     }
 }

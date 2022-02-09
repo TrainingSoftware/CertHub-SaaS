@@ -87,7 +87,7 @@ class ContactController extends Controller
             return view('contacts.show')
                 ->with('contact', $contact);
         } else {
-            echo 'This contact does not belong to you.';
+            return abort(403);
         }
     }
 
@@ -105,6 +105,8 @@ class ContactController extends Controller
         // get current logged in user
         $user = Auth::user();
 
+        if ($user->can('update', $contact)) {
+
         // get employees
         $employees = Employee::where('company_id', '=', $company->id)
             ->pluck('name', 'id');
@@ -116,10 +118,9 @@ class ContactController extends Controller
             'Female' => 'Female'
         ]);
 
-        if ($user->can('update', $contact)) {
             return view('contacts.edit', compact('contact', 'employees', 'genders'));
         } else {
-            echo 'This contact does not belong to you.';
+            return abort(403);
         }
 
     }
@@ -158,10 +159,18 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        // delete employee
-        $contact->delete();
 
-        return redirect('/contacts')->with('success', 'Contact has been deleted');
+        if ($user->can('delete', $contact)) {
+
+            $contact->delete();
+
+            return redirect('/contacts')->with('success', 'Contact has been deleted');
+
+        } else {
+
+            return abort(403);
+        }
+        
     }
 
 }

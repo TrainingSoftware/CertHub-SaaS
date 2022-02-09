@@ -20,6 +20,7 @@ class UserController extends Controller
     {
         $company = Auth::user()->companies()->first();
         $users = $company->users;
+        
         return view('users.index', compact('users'));
     }
 
@@ -74,7 +75,17 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return view('users.show', compact('user'));
+        if ($user->can('view', $user)) {
+
+            return view('users.show')
+                ->with('user', $user);
+
+        } else {
+
+            return abort(403);
+
+        }
+        
     }
 
     /**
@@ -84,8 +95,17 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
-    {
-        //
+    {        
+        if ($user->can('view', $user)) {
+
+            return view('users.edit')
+                ->with('user', $user);
+
+        } else {
+
+            return abort(403);
+
+        }
     }
 
     /**
@@ -97,7 +117,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+
+        
     }
 
     /**
@@ -108,6 +129,18 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+
+        if ($user->can('delete', $user)) {
+
+            $user->delete();
+
+            return redirect('/users')->with('success', 'User has been deleted');
+
+        } else {
+
+            return abort(403);
+
+        }
+        
     }
 }

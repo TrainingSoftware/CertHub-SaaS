@@ -48,8 +48,6 @@ class CompanyController extends Controller
         } else {
             return view('company.create');
         }
-
-        dd($company);
     }
 
     /**
@@ -97,7 +95,7 @@ class CompanyController extends Controller
             return view('company.show')
                 ->with('company', $company);
         } else {
-            echo 'This company does not belong to you.';
+            return abort(403);
         }
     }
 
@@ -114,6 +112,8 @@ class CompanyController extends Controller
 
         // load company
         $company = Auth::user()->companies()->first();
+
+        if ($user->can('update', $company)) {
 
         // define genders
         $types = array([
@@ -138,10 +138,9 @@ class CompanyController extends Controller
 
         ]);
 
-        if ($user->can('update', $company)) {
             return view('company.edit', compact('company', 'types', 'size'));
         } else {
-            echo 'This company does not belong to you.';
+            return abort(403);
         }
     }
 

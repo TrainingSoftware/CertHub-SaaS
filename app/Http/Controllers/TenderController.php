@@ -144,11 +144,14 @@ class TenderController extends Controller
 
         } else {
 
-            echo 'This Tender does not belong to you.';
+            return abort(403);
 
         }
     }
 
+
+
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -164,9 +167,11 @@ class TenderController extends Controller
 
             return view('tenders.edit', compact('tender'));
         } else {
-            echo 'This tender does not belong to you.';
+            return abort(403);
         }
     }
+
+    
 
     /**
      * Update the specified resource in storage.
@@ -192,9 +197,11 @@ class TenderController extends Controller
             ->with('success', 'Tender has been successfully updated');
 
         } else {
-            echo 'This tender does not belong to you.';
+            return abort(403);
         }
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -204,11 +211,28 @@ class TenderController extends Controller
      */
     public function destroy(Tender $tender)
     {
-        // delete employee
-        $tender->delete();
 
-        return redirect('/tenders')->with('success', 'Tender has been deleted');
+        if ($user->can('delete', $qualification)) {
+
+            // delete department
+            $tender->delete();
+
+            // log the department on successful deletion
+            activity('tender')
+                ->performedOn($tender)
+                ->causedBy($user)
+                ->log('Tender deleted by ' . $user->name);
+
+                return redirect('/tenders')->with('success', 'Tender has been deleted');
+
+        } else {
+
+            return abort(403);
+            
+        } 
     }
+
+
 
     /**
      * View Employees to attached specified resource in storage.
@@ -257,7 +281,7 @@ class TenderController extends Controller
 
        } else {
 
-           echo 'This Tender does not belong to you.';
+            return abort(403);
 
        }
     }
@@ -309,7 +333,7 @@ class TenderController extends Controller
 
        } else {
 
-           echo 'This Tender does not belong to you.';
+            return abort(403);
 
        }
     }

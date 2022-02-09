@@ -53,7 +53,7 @@
                                 </td>
                                 <td class="d-flex align-items-center border-bottom-0">
                                     <div class="d-flex flex-column ">
-                                        <a href="/users/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1 p-2">{{ $item->name }}</a>
+                                        <a href="/settings/users/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1 p-2">{{ $item->name }}</a>
                                     </div>
                                 </td>
                                 <td class="border-bottom-0">

@@ -83,7 +83,7 @@ class ProviderController extends Controller
             return view('providers.show')
                 ->with('provider', $provider);
         } else {
-            echo 'This provider does not belong to you.';
+            return abort(403);
         }
     }
 
@@ -101,7 +101,7 @@ class ProviderController extends Controller
         if ($user->can('update', $provider)) {
             return view('providers.edit', compact('provider'));
         } else {
-            echo 'This provider does not belong to you.';
+            return abort(403);
         }
     }
 
@@ -140,10 +140,23 @@ class ProviderController extends Controller
      */
     public function destroy(Provider $provider)
     {
-        // delete provider
-        $provider->delete();
+        if ($user->can('delete', $provider)) {
 
-        return redirect('/providers')->with('success', 'Provider has been deleted');
+            // delete department
+            $provider->delete();
+
+            // log the department on successful deletion
+            activity('provider')
+                ->performedOn($provider)
+                ->causedBy($user)
+                ->log('Provider deleted by ' . $user->name);
+
+                return redirect('/providers')->with('success', 'Provider has been deleted');
+
+        } else {
+
+            return abort(403);
+        } 
     }
 
     /**
@@ -161,16 +174,21 @@ class ProviderController extends Controller
         // get current logged in user
         $user = Auth::user();
 
-        $qualifications = Qualification::where('company_id', '=', $company->id)
-            ->where('provider_id', '=', $provider->id)
-            ->get();
-
         if ($user->can('view', $provider)) {
+
+            $qualifications = Qualification::where('company_id', '=', $company->id)
+                ->where('provider_id', '=', $provider->id)
+                ->get();
+
+        
             return view('providers.qualifications')
                 ->with('qualifications', $qualifications)
                 ->with('provider', $provider);
+
         } else {
-            echo 'This provider does not belong to you.';
+
+            return abort(403);
+            
         }
     }
 }
