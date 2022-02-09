@@ -19,6 +19,7 @@ class EmployeeController extends BaseController
 
     public function index()
     {
+
         $company = Auth::user()->companies()->first();
 
         // get employees that belong to authenticated user

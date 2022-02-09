@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\TenderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
@@ -28,4 +29,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('qualifications', QualificationController::class);
     Route::resource('qualificationtypes', QualificationTypeController::class);
     Route::resource('providers', ProviderController::class);
+    Route::resource('tenders', TenderController::class);
+    Route::post('/tenders/{tender}/employees/add',[TenderController::class,'attachEmployee']);
+    Route::post('/tenders/{tender}/employees/remove',[TenderController::class,'dettachEmployee']);
 });
