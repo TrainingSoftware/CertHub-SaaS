@@ -26,7 +26,8 @@ class DepartmentUpdateRequest extends FormRequest
         return [
             //
             'name' => ['required'],
-            'body' => ['nullable']
+            'body' => ['nullable'],
+            'company_id' => ['exists:companies,id','int'],
         ];
     }
 }

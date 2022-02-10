@@ -22,12 +22,24 @@ class ContactController extends BaseController
 
     public function store(ContactCreateRequest $request)
     {
-        $data = $request->validated();
+       $company = Auth::user()->company;
 
-//        if ($validator->fails()) {
-//            return $this->sendError($validator->errors());
-//        }
-        $contact = Contact::create($data);
+        // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
+        $storeData = $request->validated();
+
+        // create contact with validated data
+        $contact = $company->contacts()->create($storeData);
+
+        // log the contact on successful creation
+        if ($contact){
+            activity('contact')
+                ->performedOn($contact)
+                ->causedBy($user)
+                ->log('Contact created by ' . $user->name);
+        }
         return $this->sendResponse(new ContactResource($contact), 'Contact created.');
     }
 
@@ -46,25 +58,19 @@ class ContactController extends BaseController
     {
         $input = $request->validated();
 
-//        if ($validator->fails()) {
-//            return $this->sendError($validator->errors());
-//        }
+        $user = Auth::user();
 
-//        $contact->title = $input['title'];
-//        $contact->firstname = $input['firstname'];
-//        $contact->lastname = $input['lastname'];
-//        $contact->email = $input['email'];
-//        $contact->phone = $input['phone'];
-//        $contact->gender = $input['gender'];
-//        $contact->line_1 = $input['line_1'];
-//        $contact->line_2 = $input['line_2'];
-//        $contact->line_3 = $input['line_3'];
-//        $contact->town = $input['town'];
-//        $contact->city = $input['city'];
-//        $contact->county = $input['county'];
-//        $contact->postcode = $input['postcode'];
-//        $contact->employee_id = $input['employee_id'];
-//        $contact->user_id = $input['user_id'];
+        // get and validate data
+        $updateData = $request->validated();
+
+        // update contact with validated data
+        $contact->update($updateData);
+
+        // log the provider on successful update
+        activity('contact')
+            ->performedOn($contact)
+            ->causedBy($user)
+            ->log('Contact updated by ' . $user->name);
 
         $contact->update($input);
 

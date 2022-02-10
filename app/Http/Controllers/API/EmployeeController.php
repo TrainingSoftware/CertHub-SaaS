@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Requests\EmployeeCreateRequest;
+use App\Http\Requests\EmployeeUpdateRequest;
+use App\Http\Resources\EmployeeCollection;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Validator;
 use App\Models\Employee;
 use App\Http\Resources\Employee as EmployeeResource;
@@ -15,22 +19,40 @@ class EmployeeController extends BaseController
 
     public function index()
     {
-        $user = Auth::user();
-        $employees = $user->employees;
-        return $this->sendResponse(EmployeeResource::collection($employees), 'Employees fetched.');
+
+        $company = Auth::user()->companies()->first();
+
+        // get employees that belong to authenticated user
+        $employees = $company->employees()
+            ->paginate(10);
+
+        return $this->sendResponse(new EmployeeCollection($employees), 'Employees fetched.');
     }
 
 
     public function store(EmployeeCreateRequest $request)
     {
+       $company = Auth::user()->companies()->first();
+
+        // get current logged in user
         $user = Auth::user();
 
-        $input = $request->validated();
-//
-//        if ($validator->fails()) {
-//            return $this->sendError($validator->errors());
-//        }
-        $employee = $user->employees()->create($input);
+        // get and validate data
+        $storeData = $request->validated();
+
+        // create employee with validated data
+        $employee = $company->employees()->create(array_merge($storeData, [
+            'password' => Hash::make(Str::random(40))
+        ]));
+
+        // log the provider on successful creation
+        if ($employee){
+            activity('employee')
+                ->performedOn($employee)
+                ->causedBy($user)
+                ->log('Employee created by ' . $user->name);
+        }
+
         return $this->sendResponse(new EmployeeResource($employee), 'Employee created.');
     }
 
@@ -45,61 +67,20 @@ class EmployeeController extends BaseController
     }
 
 
-    public function update(Request $request, Employee $employee)
+    public function update(EmployeeUpdateRequest $request, Employee $employee)
     {
-        $input = $request->all();
+        $user = Auth::user();
 
-        $validator = Validator::make($input, [
-            'title' => '',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'email',
-            'phone' => '',
-            'position' => '',
-            'dob' => '',
-            'gender' => '',
-            'line_1' => '',
-            'line_2' => '',
-            'line_3' => '',
-            'town' => '',
-            'city' => '',
-            'county' => '',
-            'postcode' => '',
-            'start_date' => '',
-            'end_date' => '',
-            'salary' => '',
-            'employment' => '',
-            'department_id' => 'required',
-            'user_id' => ''
-        ]);
+        // get and validate data
+        $updateData = $request->validated();
 
-        if ($validator->fails()) {
-            return $this->sendError($validator->errors());
-        }
+        // update department with validated data
+        $employee->update($updateData);
 
-        $employee->title = $input['title'];
-        $employee->firstname = $input['firstname'];
-        $employee->lastname = $input['lastname'];
-        $employee->email = $input['email'];
-        $employee->phone = $input['phone'];
-        $employee->position = $input['position'];
-        $employee->dob = $input['dob'];
-        $employee->gender = $input['gender'];
-        $employee->line_1 = $input['line_1'];
-        $employee->line_2 = $input['line_2'];
-        $employee->line_3 = $input['line_3'];
-        $employee->town = $input['town'];
-        $employee->city = $input['city'];
-        $employee->county = $input['county'];
-        $employee->postcode = $input['postcode'];
-        $employee->start_date = $input['start_date'];
-        $employee->end_date = $input['end_date'];
-        $employee->salary = $input['salary'];
-        $employee->employment = $input['employment'];
-        $employee->department_id = $input['department_id'];
-        $employee->user_id = $input['user_id'];
-
-        $employee->save();
+        // log the provider on successful update
+        activity('employee')
+            ->performedOn($employee)
+            ->causedBy($user);
 
         return $this->sendResponse(new EmployeeResource($employee), 'Employee updated.');
     }

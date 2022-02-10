@@ -33,7 +33,7 @@ class Employee extends JsonResource
             'salary' => $this->salary,
             'employment' => $this->employment,
             'department_id' => $this->department_id,
-            'user_id' => $this->user_id,
+            'company_id' => $this->company_id,
         ];
     }
 }

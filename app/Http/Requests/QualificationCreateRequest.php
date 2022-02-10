@@ -25,11 +25,12 @@ class QualificationCreateRequest extends FormRequest
     {
         return [
             //
-            'employee_id' => ['required'],
-            'qualificationtype_id' => ['required'],
-            'provider_id' => ['required'],
-            'regno' => ['nullable', 'string'],
-            'expiry_date' => ['required', 'date']
+            'employee_id' => ['required','exists:employees,id'],
+            'qualificationtype_id' => ['required','exists:qualification_types,id'],
+            'provider_id' => ['required','exists:providers,id'],
+            'regno' => ['nullable','string'],
+            'expiry_date' => ['required','date']
+
         ];
     }
 }

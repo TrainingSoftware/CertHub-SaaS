@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use App\Models\Company;
 use Laravel\Cashier\Cashier;
 use Illuminate\Pagination\Paginator;
+use Laravel\Sanctum\PersonalAccessToken;
+use Laravel\Sanctum\Sanctum;
 
 class AppServiceProvider extends ServiceProvider
 {

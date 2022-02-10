@@ -40,7 +40,6 @@ class APIController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
@@ -49,6 +48,8 @@ class APIController extends Controller
 
         // Create the token
         $token = $request->user()->createToken($request->token_name);
+
+
 
         // log the token on successful creation
         //if ($token){
@@ -59,7 +60,8 @@ class APIController extends Controller
         //}
 
         return redirect('/settings/personal-access-tokens')
-            ->with('success', 'Token successfully created');
+            ->with(['success', 'Token successfully created'])
+            ->with(['token' => $token->plainTextToken]);
     }
 
 

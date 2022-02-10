@@ -6,6 +6,7 @@ use App\Http\Requests\CompanyCreateRequest;
 use App\Http\Requests\CompanyUpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
+use Illuminate\Support\Facades\Auth;
 use Nette\Schema\ValidationException;
 use Validator;
 use App\Models\Company;
@@ -16,7 +17,10 @@ class CompanyController extends BaseController
 
     public function index()
     {
-        $companies = Company::all();
+        $user = Auth::user();
+
+        // get company that belong to authenticated user
+        $companies = Auth::user()->companies;
         return $this->sendResponse(CompanyResource::collection($companies), 'Companies fetched.');
     }
 
@@ -24,10 +28,20 @@ class CompanyController extends BaseController
     public function store(CompanyCreateRequest $request)
     {
 
+         // get current logged in user
+        $user = Auth::user();
+
+        // get and validate data
         $data = $request->validated();
 
-        $company = Company::create($data);
+        // create department with validated data
+        $company = $user->companies()->create($data);
 
+        // log the company on successful creation
+        activity('company')
+            ->performedOn($company)
+            ->causedBy($user)
+            ->log('Company updated by ' . $user->name);
 
         return $this->sendResponse(new CompanyResource($company), 'Company created.');
     }

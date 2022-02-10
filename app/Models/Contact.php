@@ -24,7 +24,9 @@ class Contact extends Model
         'postcode',
         'user_id',
         'employee_id',
-        'relation'
+        'relation',
+        'company_id',
+        'employee_id'
     ];
 
     public function employee()
