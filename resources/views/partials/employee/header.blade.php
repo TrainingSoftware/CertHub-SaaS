@@ -74,6 +74,12 @@
                                     <a href="/employees/{{ $employee->id }}/qualifications/export" class="menu-link px-3">Download Portfolio</a>
                                 </div>
                                 <div class="menu-item px-3">
+                                    <a href="#" class="menu-link px-3">Send Welcome Email</a>
+                                </div>
+                                <div class="menu-item px-3">
+                                    <a href="#" class="menu-link px-3">Send Password Reset</a>
+                                </div>
+                                <div class="menu-item px-3">
                                     <form action="/employees/{{$employee->id}}" method="post">
                                         @csrf
                                         <button type="submit" class="menu-link px-3 bg-transparent border-0 bg-hover-light w-100">Archive</button>
