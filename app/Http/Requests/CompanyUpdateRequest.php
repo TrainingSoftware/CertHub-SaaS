@@ -28,17 +28,17 @@ class CompanyUpdateRequest extends FormRequest
             'name' => ['required', 'string'],
             'type' => ['required', 'string'],
             'size' => ['required', 'string'],
-            'phone' => [''],
+            'phone' => ['digits:11', 'nullable'],
             'email' => ['nullable', 'email'],
             'line_1' => ['required', 'string'],
-            'line_2' => ['required', 'string'],
+            'line_2' => ['nullable', 'string'],
             'town' => ['required', 'string'],
             'county' => ['required', 'string'],
             'postcode' => ['required', 'string'],
             'country' => ['required', 'string'],
-            'company_reg' => [''],
-            'company_vat' => [''],
-            'citb_levy' => ['required']
+            'company_reg' => ['nullable'],
+            'company_vat' => ['nullable'],
+            'citb_levy' => ['nullable', 'boolean']
         ];
     }
 }

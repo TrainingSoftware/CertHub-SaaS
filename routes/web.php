@@ -21,6 +21,8 @@ use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\EmployeeQualificationPortfolioController;
 use App\Http\Controllers\EmployeeArchiveController;
 use App\Http\Controllers\TenderController;
+use App\Http\Controllers\TenderExportController;
+use App\Http\Controllers\ProviderLookupController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -78,11 +80,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
             Route::resource('providers', ProviderController::class);
             Route::get('/providers/{provider}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
-            Route::get('/import-provider', [\App\Http\Controllers\ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
+            Route::get('/import-provider', [ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
 
             Route::resource('tenders', TenderController::class);
             Route::get('/tenders/{tender}/employees',[TenderController::class, 'employees'])->name('tenders.employees');
             Route::get('/tenders/{tender}/renewals',[TenderController::class, 'renewals'])->name('tenders.renewals');
+            Route::get('/tenders/{tender}/export', [TenderExportController::class, 'generateExport'])->name('tender.export');
 
             Route::group(['prefix'=>'settings'], function() {
                 Route::resource('users', UserController::class);
@@ -108,8 +111,6 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::get('/billing-portal', function (Request $request) {
                 return Auth::user()->companies()->first()->redirectToBillingPortal(route('home'));
             });
-
-            Route::get('/search', [SearchController::class, 'search']);
 
             //Route::get('/portal/{qualification}', [PortalController::class, 'show'] )->name('portal')->middleware('signed');
         });

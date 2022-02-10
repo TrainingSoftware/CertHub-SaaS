@@ -148,9 +148,38 @@
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary align-self-center">Update</button>
                     {{ Form::close() }}
-                    {{ Form::model($qualification, array('route' => array('qualifications.destroy', $qualification->id), 'method' => 'DELETE', 'class' => 'd-inline')) }}
-                    <button type="submit" class="btn btn-danger align-self-center">Delete</button>
-                    {{ Form::close() }}
+                    <button class="btn btn-danger align-self-center" data-bs-toggle="modal" data-bs-target="#kt_modal_confirm_delete">Delete</button>
+                    <div class="modal fade" id="kt_modal_confirm_delete" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered mw-800px">
+                            <div class="modal-content">
+                                <div class="modal-header pb-0 border-0 justify-content-end">
+                                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                        <span class="svg-icon svg-icon-1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                            </svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="modal-body scroll-y pt-0 pb-15">
+                                    <div class="mw-lg-600px mx-auto">
+                                        <div class="text-center">
+                                            <h1 class="mb-3">Delete <span class="text-danger">{{ $qualification->qualificationtype->name }}</span>?</h1>
+                                            <div class="text-muted fw-bold fs-5">
+                                                Are you sure you want to delete {{ $qualification->qualificationtype->name }}? This action cannot be undone.
+                                            </div>
+                                            <div class="text-center mt-10">
+                                                {{ Form::model($qualification, array('route' => array('qualifications.destroy', $qualification->id), 'method' => 'DELETE', 'class' => 'd-inline')) }}
+                                                <button class="btn btn-danger fw-bolder" type="submit">Confirm delete</button>
+                                                {{ Form::close() }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

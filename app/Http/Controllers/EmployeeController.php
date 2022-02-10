@@ -130,7 +130,7 @@ class EmployeeController extends Controller
         if ($user->can('update', $employee)) {
             return view('employees.edit', compact('employee', 'departments', 'genders', 'employment'));
         } else {
-            echo 'This employee does not belong to you.';
+            return abort(403);
         }
 
     }
@@ -171,10 +171,27 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        // delete employee
-        $employee->delete();
+        // get current logged in user
+        $user = Auth::user();
 
-        return redirect('/employees')->with('success', 'Employee has been deleted');
+        if ($user->can('delete', $employee)) {
+
+            // delete department
+            $employee->delete();
+
+            // log the department on successful deletion
+            activity('employee')
+                ->performedOn($employee)
+                ->causedBy($user)
+                ->log('Employee deleted by ' . $user->name);
+
+                return redirect('/employees')->with('success', 'Employee has been deleted');
+
+        } else {
+
+            return abort(403);
+        }
+        
     }
 
     /**
@@ -193,7 +210,7 @@ class EmployeeController extends Controller
             return view('employees.qualifications')
                 ->with('employee', $employee);
         } else {
-            echo 'This employee does not belong to you.';
+            return abort(403);
         }
     }
 

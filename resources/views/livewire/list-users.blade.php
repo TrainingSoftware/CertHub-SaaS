@@ -53,7 +53,7 @@
                                 </td>
                                 <td class="d-flex align-items-center border-bottom-0">
                                     <div class="d-flex flex-column ">
-                                        <a href="/users/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1 p-2">{{ $item->name }}</a>
+                                        <a href="/settings/users/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1 p-2">{{ $item->name }}</a>
                                     </div>
                                 </td>
                                 <td class="border-bottom-0">
@@ -67,24 +67,8 @@
                                     </div>
                                 </td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-link btn-sm p-0" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                        <span class="svg-icon svg-icon-muted svg-icon-2hx">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <rect x="10" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                <rect x="17" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                <rect x="3" y="10" width="4" height="4" rx="2" fill="black"/>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
-                                        <div class="menu-item px-3">
-                                            <a href="/users/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
-                                        </div>
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
+									<a href="/settings/users/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
+								</td>
                             </tr>
                             @endforeach
                         </tbody>

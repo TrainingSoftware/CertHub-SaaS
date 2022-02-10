@@ -17,7 +17,7 @@
                     </div>
                     <div class="card-toolbar">
                         <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                            <a href="/departments/create" class="btn btn-primary">
+                            <a href="/tenders/create" class="btn btn-primary">
                                 <span class="svg-icon svg-icon-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                         <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
@@ -89,21 +89,8 @@
                                     </div>
                                 </td>
                                 <td class="text-end">
-                                    <a href="#" class="btn btn-link btn-sm p-0" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                        <span class="svg-icon svg-icon-muted svg-icon-2hx">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <rect x="10" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                <rect x="17" y="10" width="4" height="4" rx="2" fill="black"/>
-                                                <rect x="3" y="10" width="4" height="4" rx="2" fill="black"/>
-                                            </svg>
-                                        </span>
-                                    </a>
-                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
-                                        <div class="menu-item px-3">
-                                            <a href="/tenders/{{ $item->id }}/edit" class="menu-link px-3">Edit</a>
-                                        </div>
-                                    </div>
-                                </td>
+									<a href="/tenders/{{ $item->id }}/edit" class="btn btn-light btn-sm">View</a>
+								</td>
                             </tr>
                             @endforeach
                         </tbody>
