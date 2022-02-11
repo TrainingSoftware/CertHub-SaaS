@@ -74,10 +74,10 @@
                                     <a href="/employees/{{ $employee->id }}/qualifications/export" class="menu-link px-3">Download Portfolio</a>
                                 </div>
                                 <div class="menu-item px-3">
-                                    <a href="#" class="menu-link px-3">Send Welcome Email</a>
+                                    <a href="{{route('employee.welcome-mail',$employee)}}" class="menu-link px-3">Send Welcome Email</a>
                                 </div>
                                 <div class="menu-item px-3">
-                                    <a href="#" class="menu-link px-3">Send Password Reset</a>
+                                    <a href="{{route('employee.send-reset-link',$employee)}}" class="menu-link px-3">Send Password Reset</a>
                                 </div>
                                 <div class="menu-item px-3">
                                     <form action="/employees/{{$employee->id}}" method="post">

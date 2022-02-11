@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
+use App\Mail\WelcomeMail;
 use Database\Factories\EmployeeFactory;
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Mail;
 use \LaravelArchivable\Archivable;
 use Illuminate\Support\Str;
 
-class Employee extends Authenticatable
+class Employee extends Authenticatable implements CanResetPassword
 {
     use Notifiable, Archivable;
 
@@ -67,7 +71,7 @@ class Employee extends Authenticatable
     protected static function newFactory()
     {
         return EmployeeFactory::new();
-    }       
+    }
 
 
     /**
@@ -119,6 +123,11 @@ class Employee extends Authenticatable
             'tenders_employees',
             'tender_id',
             'employee_id');
+    }
+
+    public function sendWelcomeEmail()
+    {
+        Mail::to($this)->send(new WelcomeMail($this));
     }
 
 }

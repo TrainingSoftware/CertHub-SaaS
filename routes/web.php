@@ -39,7 +39,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 Route::get('/', function () {
     return view('auth.login');
 });
-
+Route::post('employee/reset-password',[EmployeeController::class, 'resetPassword'])->name('employee.resetPassword');
 
 Route::group(['middleware' => ['auth','verified']], function () {
 
@@ -60,6 +60,10 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::resource('employees', EmployeeController::class);
             Route::get('/employees/{employee}/qualifications', [EmployeeController::class, 'qualifications'])->name('employee.qualifications');
             Route::get('/employees/{employee}/contacts', [EmployeeController::class, 'contacts'])->name('employee.contacts');
+            Route::get('employee/reset-password/{token}',[EmployeeController::class, 'showResetPassword'])->name('employee.show-reset-password');
+            Route::get('/employees/{employee}/send-welcome-mail', [EmployeeController::class, 'sendWelcomeEmail'])->name('employee.welcome-mail');
+            Route::get('/employees/{employee}/send-reset-link', [EmployeeController::class, 'sendResetLink'])->name('employee.send-reset-link');
+
             Route::get('/employees/{employee}/files', [EmployeeController::class, 'files'])->name('employee.files');
             Route::get('/archived', [EmployeeArchiveController::class, 'archived'])->name('employee.archive.index');
             Route::post('/employees/{employee}', [EmployeeArchiveController::class, 'archive'])->name('employees.archive');

@@ -7,10 +7,14 @@ use App\Http\Requests\EmployeeUpdateRequest;
 use App\Models\Employee;
 use App\Models\Department;
 use App\Models\Qualification;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Http\Request;
 use App\Exports\EmployeeExport;
 use App\Imports\EmployeeImport;
+use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -48,7 +52,7 @@ class EmployeeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      */
 
     public function store(EmployeeCreateRequest $request)
@@ -68,21 +72,21 @@ class EmployeeController extends Controller
         ]));
 
         // log the provider on successful creation
-        if ($employee){
+        if ($employee) {
             activity('employee')
                 ->performedOn($employee)
                 ->causedBy($user)
                 ->log('Employee created by ' . $user->name);
         }
 
-        return redirect('/employees/' . $employee->id )
+        return redirect('/employees/' . $employee->id)
             ->with('success', 'Employee successfully created');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Employee  $id
+     * @param \App\Models\Employee $id
      * @return \Illuminate\Http\Response
      */
     public function show(Employee $employee)
@@ -101,7 +105,7 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Employee  $id
+     * @param \App\Models\Employee $id
      * @return \Illuminate\Http\Response
      */
     public function edit(Employee $employee)
@@ -138,8 +142,8 @@ class EmployeeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Employee  $id
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Employee $id
      * @return \Illuminate\Http\Response
      */
     public function update(EmployeeUpdateRequest $request, Employee $employee)
@@ -166,7 +170,7 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy(Employee $employee)
@@ -185,19 +189,19 @@ class EmployeeController extends Controller
                 ->causedBy($user)
                 ->log('Employee deleted by ' . $user->name);
 
-                return redirect('/employees')->with('success', 'Employee has been deleted');
+            return redirect('/employees')->with('success', 'Employee has been deleted');
 
         } else {
 
             return abort(403);
         }
-        
+
     }
 
     /**
      * Show qualifications that belong to employee.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
 
@@ -217,7 +221,7 @@ class EmployeeController extends Controller
     /**
      * Show contacts that belong to employee.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
 
@@ -237,7 +241,7 @@ class EmployeeController extends Controller
     /**
      * Show files that belong to employee.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
 
@@ -275,10 +279,63 @@ class EmployeeController extends Controller
      */
     public function import()
     {
-        Excel::import(new EmployeeImport,request()->file('file'));
+        Excel::import(new EmployeeImport, request()->file('file'));
 
         return back()
             ->with('success', 'Employees successfully imported');
+    }
+
+    public function sendWelcomeEmail(Employee $employee)
+    {
+        $employee->sendWelcomeEmail();
+        return redirect()->back()->with('success', 'Mail sent successfully');
+    }
+
+    public function sendResetLink(Employee $employee)
+    {
+        $credentials = ['email' => $employee->email];
+        $path = env('APP_URL');
+        ResetPassword::createUrlUsing(function ($user, string $token) use ($employee, $path) {
+            return "$path/employee/reset-password/$token?email=$employee->email";
+        });
+        $response = Password::broker('employees')->sendResetLink($credentials);
+
+        switch ($response) {
+            case Password::RESET_LINK_SENT:
+                return redirect()->back()->with('success', trans($response));
+            case Password::INVALID_USER:
+                return redirect()->back()->withErrors(['email' => trans($response)]);
+        }
+    }
+
+    public function showResetPassword($token)
+    {
+        return view('auth.employee-reset-password')->with('token',$token);
+    }
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+
+        $status = Password::broker('employees')->reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function ($user, $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->setRememberToken(Str::random(60));
+
+                $user->save();
+
+                event(new PasswordReset($user));
+            }
+        );
+
+    return $status === Password::PASSWORD_RESET
+                ? redirect()->route('portal.login')->with('status', __($status))
+                : back()->withErrors(['email' => [__($status)]]);
     }
 
 }
