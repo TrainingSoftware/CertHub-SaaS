@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\EmployeeCreateRequest;
 use App\Http\Requests\EmployeeUpdateRequest;
+use App\Jobs\SendWelcomeMail;
 use App\Models\Employee;
 use App\Models\Department;
 use App\Models\Qualification;
@@ -65,6 +66,10 @@ class EmployeeController extends Controller
     public function store(EmployeeCreateRequest $request)
     {
         // get current company
+        $welcome = false;
+        if($request->has('welcome_mail')){
+            $welcome = true;
+        }
         $company = Auth::user()->companies()->first();
 
         // get current logged in user
@@ -72,12 +77,17 @@ class EmployeeController extends Controller
 
         // get and validate data
         $storeData = $request->validated();
+        $password = Str::random(8);
 
         // create employee with validated data
         $employee = $company->employees()->create(array_merge($storeData, [
-            'password' => Hash::make(Str::random(40))
+            'password' => Hash::make($password)
         ]));
 
+
+        if($welcome){
+            SendWelcomeMail::dispatch($password,$employee);
+        }
         // log the provider on successful creation
         if ($employee) {
             activity('employee')
@@ -384,7 +394,7 @@ class EmployeeController extends Controller
     }
 
 
-    
+
     /**
      * Archive employee.
      *

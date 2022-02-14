@@ -1,6 +1,6 @@
 @component('mail::message')
 #Introduction
-Welcome {{$employee->name}}
+Welcome {{$employee->name}} , here's your password : {{$password}}
 
 Thanks, <br>
 {{config('app.name')}}

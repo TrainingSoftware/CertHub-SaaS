@@ -138,7 +138,7 @@
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8 fv-row">
-                                    <input class="form-check-input  mt-2" type="checkbox"id="sendWelcomeEmail">
+                                    <input class="form-check-input  mt-2" type="checkbox"id="sendWelcomeEmail" name="welcome_mail">
                                 </div>
                                 <!--end::Col-->
                             </div>

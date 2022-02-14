@@ -23,6 +23,7 @@ class FortifyServiceProvider extends ServiceProvider
     {
         if(request()->is('portal/*')){
             config()->set('fortify.guard', 'portal');
+            config()->set('fortify.home','portal/home');
         }
     }
 
@@ -65,5 +66,6 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::verifyEmailView(function () {
             return view('auth.verify-email');
         });
+
     }
 }

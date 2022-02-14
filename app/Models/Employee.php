@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\SendWelcomeMail;
 use App\Mail\WelcomeMail;
 use Database\Factories\EmployeeFactory;
 use Illuminate\Auth\Notifications\ResetPassword;
@@ -115,9 +116,9 @@ class Employee extends Authenticatable implements CanResetPassword
             'tender_id');
     }
 
-    public function sendWelcomeEmail()
+    public function sendWelcomeEmail($password)
     {
-        Mail::to($this)->send(new WelcomeMail($this));
+        Mail::to($this)->send(new WelcomeMail($password,$this));
     }
 
 }
