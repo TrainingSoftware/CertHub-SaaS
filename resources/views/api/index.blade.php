@@ -31,37 +31,23 @@
                     </div>
                 </div>
                 <div class="card-body py-10">
-                    <div class="row mb-10">
+                    <div class="row">
                         <div class="col-md-6 pb-10 pb-lg-0">
                             <h2>Get started...</h2>
                             <p class="fs-6 fw-bold text-gray-600 py-2">
                                 Are you looking to integrate CertHub with your existing workflow?<br>
-                                Get started with our developer docs...
+                                Get started by generating a token below
                             </p>
-                            <a href="#" class="btn btn-light btn-active-light-primary">Get Started</a>
                         </div>
                         <div class="col-md-6">
-                            <h2>Developer Tools</h2>
+                            <h2>Developer Docs</h2>
                             <p class="fs-6 fw-bold text-gray-600 py-2">
-                                Plan your blog post by choosing a topic, creating an outline conduct
-                                <br>research, and checking facts
+                                For developers, you can view our postman documentation here.
                             </p>
-                            <a href="#" class="btn btn-light btn-active-light-primary">Create Rule</a>
-                        </div>
-                    </div>
-                    <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-6">
-                        <span class="svg-icon svg-icon-2tx svg-icon-primary me-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path opacity="0.3" d="M22 19V17C22 16.4 21.6 16 21 16H8V3C8 2.4 7.6 2 7 2H5C4.4 2 4 2.4 4 3V19C4 19.6 4.4 20 5 20H21C21.6 20 22 19.6 22 19Z" fill="black"></path>
-                                <path d="M20 5V21C20 21.6 19.6 22 19 22H17C16.4 22 16 21.6 16 21V8H8V4H19C19.6 4 20 4.4 20 5ZM3 8H4V4H3C2.4 4 2 4.4 2 5V7C2 7.6 2.4 8 3 8Z" fill="black"></path>
-                            </svg>
-                        </span>
-                        <div class="d-flex flex-stack flex-grow-1">
-                            <div class="fw-bold">
-                                <div class="fs-6 text-gray-700">Two-factor authentication adds an extra layer of security to your account. To log in, in you'll need to provide a 4 digit amazing and create outstanding products to serve your clients
-                                    <a class="fw-bolder" href="#">Learn More</a>.
-                                </div>
-                            </div>
+                            <p class="fs-6 fw-bold text-gray-600 py-2">
+                                For support please email <a href="mailto:api@certhub.co">api@certhub.co</a>
+                            </p>
+                            <a href="#" class="btn btn-light btn-active-light-primary">View docs</a>
                         </div>
                     </div>
                 </div>
@@ -124,12 +110,39 @@
                                     </td>
                                     <td class="pe-9">
                                         <div class="w-100px position-relative">
-                                            <form action="/settings/personal-access-tokens/{{ $item->id }}/destroy" method="POST">
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger btn-block btn-small">Delete</button>
-                                            </form>
+                                        <button class="btn btn-danger align-self-center" data-bs-toggle="modal" data-bs-target="#kt_modal_confirm_delete{{ $item->id }}">Delete</button>
+                                        <div class="modal fade" id="kt_modal_confirm_delete{{ $item->id }}" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered mw-800px">
+                                            <div class="modal-content">
+                                                <div class="modal-header pb-0 border-0 justify-content-end">
+                                                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                                        <span class="svg-icon svg-icon-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                                            </svg>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-body scroll-y pt-0 pb-15">
+                                                    <div class="mw-lg-600px mx-auto">
+                                                        <div class="text-center">
+                                                            <h1 class="mb-3">Delete <span class="text-danger">{{ $item->name }}</span>?</h1>
+                                                            <div class="text-muted fw-bold fs-5">
+                                                                Are you sure you want to delete {{ $item->name }}? This action cannot be undone.
+                                                            </div>
+                                                            <div class="text-center mt-10">
+                                                                <form action="/settings/personal-access-tokens/{{ $item->id }}/destroy" method="POST" class="d-inline"> 
+                                                                    @csrf
+                                                                    <button class="btn btn-danger fw-bolder" type="submit">Confirm delete</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </td>
+                                    </div>
                                 </tr>
                                 @endforeach
                             </tbody>
