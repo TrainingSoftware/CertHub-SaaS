@@ -111,8 +111,8 @@ class Employee extends Authenticatable implements CanResetPassword
         return $this->belongsToMany(
             Tender::class,
             'tenders_employees',
-            'tender_id',
-            'employee_id');
+            'employee_id',
+            'tender_id');
     }
 
     public function sendWelcomeEmail()
