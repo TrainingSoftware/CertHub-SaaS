@@ -9,15 +9,17 @@ use Request;
 
 class Tenders extends Component
 {
-    public $searchTerm; 
-    public $employees;
+    public $searchTerm;
+    public $employee;
 
-    public function render(Request $request, Employee $employee)
+    public function mount(Employee $employee){
+        $this->employee = $employee;
+    }
+    public function render()
     {
-        
         $company = Auth::user()->companies()->first();
 
-        $this->tenders = $employee->tenders()
+        $this->tenders = $this->employee->tenders()
             ->where('name', 'like', '%' . $this->searchTerm . '%')
             ->get();
 

@@ -49,7 +49,7 @@
             <!--begin::Navbar-->
             @include('partials.employee.header')
             <!--end::Navbar-->
-            @livewire('employee.tenders')
+            @livewire('employee.tenders',['employee' => $employee])
         </div>
         <!--end::Container-->
     </div>
