@@ -22,9 +22,9 @@
 							<div class="row mb-10">
 								<div class="form-group col-md-12">
 									<div class="input-group mb-5">
-										<input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ session('token') }}" aria-owns="token">
+										<input type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ session('token') }}" aria-owns="token" id="apiToken">
 										<span class="input-group-text border-0" id="basic-addon2">
-										<button id="" class="btn btn-active-color-primary btn-icon btn-sm btn-outline-light">
+										<button id="copyToken" class="btn btn-active-color-primary btn-icon btn-sm btn-outline-light">
                                             <span class="svg-icon svg-icon-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                     <path opacity="0.5" d="M18 2H9C7.34315 2 6 3.34315 6 5H8C8 4.44772 8.44772 4 9 4H18C18.5523 4 19 4.44772 19 5V16C19 16.5523 18.5523 17 18 17V19C19.6569 19 21 17.6569 21 16V5C21 3.34315 19.6569 2 18 2Z" fill="black" />
