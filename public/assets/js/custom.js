@@ -120,3 +120,11 @@ $(document).ready(function () {
         $('#kt_modal_show_token').modal('show');
     }
 });
+
+// Copy API Token
+$(document).ready(function () {
+    $("#copyToken").click(function () {
+        $("#apiToken").select();
+        document.execCommand("copy");
+    });
+});

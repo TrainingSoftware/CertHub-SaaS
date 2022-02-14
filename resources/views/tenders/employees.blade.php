@@ -41,10 +41,8 @@
                                     <thead class="fs-7 text-gray-400 text-uppercase">
                                         <tr>
                                             <th class="min-w-auto">Name</th>
-                                            <th class="min-w-auto">Department</th>
-                                            <th class="min-w-auto">Qualifications</th>
-                                            <th class="min-w-auto">Status</th>
-                                            <th class="min-w-auto text-end">Details</th>
+                                            <th class="min-w-250px">Department</th>
+                                            <th class="min-w-auto text-end"></th>
                                         </tr>
                                     </thead>
                                     <tbody class="fs-6">
@@ -63,17 +61,6 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>
-                                                @if($employee->department)
-                                                {{ $employee->department->name }}
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if($employee->qualifications)
-                                                {{ $employee->qualifications->count() }}
-                                                @endif
-                                            </td>
-                                            <td>
                                             </td>
                                             <td class="text-end">
                                                 <a href="/employees/{{ $employee->id }}" class="btn btn-light btn-sm">View</a>

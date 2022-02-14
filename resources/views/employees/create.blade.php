@@ -70,8 +70,9 @@
                             <!--begin::Input group-->
                             <div class="row mb-6">
                                 <!--begin::Label-->
-                                <label class="col-lg-4 col-form-label required fw-bold fs-6">Full
-                                    Name</label>
+                                <label class="col-lg-4 col-form-label required fw-bold fs-6">
+                                    Full Name
+                                </label>
                                 <!--end::Label-->
                                 <!--begin::Col-->
                                 <div class="col-lg-8">
@@ -81,14 +82,14 @@
                                         <div class="col-lg-6 fv-row">
                                             <input type="text" name="firstname"
                                                    class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
-                                                   placeholder="John" value="" />
+                                                   placeholder="John"/>
                                         </div>
                                         <!--end::Col-->
                                         <!--begin::Col-->
                                         <div class="col-lg-6 fv-row">
                                             <input type="text" name="lastname"
                                                    class="form-control form-control-lg form-control-solid"
-                                                   placeholder="Smith" value="" />
+                                                   placeholder="Smith"/>
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -107,7 +108,7 @@
                                 <div class="col-lg-8 fv-row">
                                     <input type="text" name="email"
                                            class="form-control form-control-lg form-control-solid"
-                                           placeholder="john.smith@certhub.co.uk" value="" />
+                                           placeholder="john.smith@certhub.co.uk"/>
                                 </div>
                                 <!--end::Col-->
                             </div>
@@ -123,7 +124,21 @@
                                 <div class="col-lg-8 fv-row">
                                     <input type="tel" name="phone"
                                            class="form-control form-control-lg form-control-solid"
-                                           placeholder="01234 567 890" value="" />
+                                           placeholder="01234 567 890"/>
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="row mb-6">
+                                <!--begin::Label-->
+                                <label class="col-lg-4 col-form-label fw-bold fs-6">
+                                    <span class="required">Send welcome email?</span>
+                                </label>
+                                <!--end::Label-->
+                                <!--begin::Col-->
+                                <div class="col-lg-8 fv-row">
+                                    <input class="form-check-input  mt-2" type="checkbox"id="sendWelcomeEmail">
                                 </div>
                                 <!--end::Col-->
                             </div>
