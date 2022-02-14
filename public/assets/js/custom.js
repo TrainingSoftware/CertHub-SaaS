@@ -112,7 +112,11 @@ $(document).ready(function () {
     $("#providerSelect").attr("data-control", "select2");
     $('#providerSelect').attr('data-placeholder', 'Select an option');
 
-    //$(".globalSearch").click(function () {
-    //    $("#globalSearch").modal("show");
-    //});
+    $(".globalSearch").click(function () {
+        $("#globalSearch").modal("show");
+    });
+
+    if (window.location.href.indexOf('#showToken') != -1) {
+        $('#kt_modal_show_token').modal('show');
+    }
 });

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $employee->firstname . 's Contacts')
+@section('title', $employee->firstname . 's Tenders')
 @section('content')
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <!--begin::Toolbar-->
@@ -49,42 +49,7 @@
             <!--begin::Navbar-->
             @include('partials.employee.header')
             <!--end::Navbar-->
-            <!--begin::details View-->
-            <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
-                <!--begin::Card header-->
-                <div class="card-header cursor-pointer">
-                    <!--begin::Card title-->
-                    <div class="card-title m-0">
-                        <h3 class="fw-bolder m-0">{{ $employee->firstname }}'s Files</h3>
-                    </div>
-                    <!--end::Card title-->
-                    <!--begin::Action-->
-                    <!--end::Action-->
-                </div>
-                <!--begin::Card header-->
-                <!--begin::Card body-->
-                <div class="card-body p-9">
-                    <!--begin::Table-->
-                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-                        <!--begin::Table head-->
-                        <thead>
-                        <!--begin::Table row-->
-                        <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                            <th class="min-w-125px">Name</th>
-                            <th class="min-w-125px">Uploaded on</th>
-                            <th class="text-end min-w-100px">Actions</th>
-                        </tr>
-                        <!--end::Table row-->
-                        </thead>
-                        <!--end::Table head-->
-                        <!--begin::Table body-->
-
-                    </table>
-                    <!--end::Table-->
-                </div>
-                <!--end::Card body-->
-            </div>
-            <!--end::details View-->
+            @livewire('employee.tenders')
         </div>
         <!--end::Container-->
     </div>

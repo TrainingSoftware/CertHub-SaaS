@@ -23,6 +23,7 @@ use App\Http\Controllers\EmployeeArchiveController;
 use App\Http\Controllers\TenderController;
 use App\Http\Controllers\TenderExportController;
 use App\Http\Controllers\ProviderLookupController;
+use App\Http\Controllers\QrCodeController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -40,6 +41,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::post('employee/reset-password',[EmployeeController::class, 'resetPassword'])->name('employee.resetPassword');
+
+Route::get('/employee/{employee}', [EmployeeController::class, 'show'])->name('employee.public')->middleware('signed');
 
 Route::group(['middleware' => ['auth','verified']], function () {
 
@@ -63,16 +66,15 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::get('employee/reset-password/{token}',[EmployeeController::class, 'showResetPassword'])->name('employee.show-reset-password');
             Route::get('/employees/{employee}/send-welcome-mail', [EmployeeController::class, 'sendWelcomeEmail'])->name('employee.welcome-mail');
             Route::get('/employees/{employee}/send-reset-link', [EmployeeController::class, 'sendResetLink'])->name('employee.send-reset-link');
-
-            Route::get('/employees/{employee}/files', [EmployeeController::class, 'files'])->name('employee.files');
-            Route::get('/archived', [EmployeeArchiveController::class, 'archived'])->name('employee.archive.index');
-            Route::post('/employees/{employee}', [EmployeeArchiveController::class, 'archive'])->name('employees.archive');
-            Route::post('/employees/{employee}', [EmployeeArchiveController::class, 'unarchive'])->name('employees.unarchive');;
+            Route::get('/employees/{employee}/tenders', [EmployeeController::class, 'tenders'])->name('employee.tenders');
+            Route::post('/employees/{employee}/archive', [EmployeeController::class, 'archive'])->name('employee.archive');
+            Route::post('/employees/{employee}/unarchive', [EmployeeController::class, 'unarchive'])->name('employee.unarchive');
+            Route::get('/archive/employees/', [EmployeeController::class, 'archived'])->name('employee.archived');
+            Route::get('/import/employees', [EmployeeController::class, 'importLanding'])->name('employee.landing');
+            Route::get('/import/employees/export', [EmployeeController::class, 'export'])->name('employee.export');
+            Route::post('/import/employees/import', [EmployeeController::class, 'import'])->name('employee.import');
             Route::get('/employees/{employee}/qualifications/export', [EmployeeQualificationPortfolioController::class, 'generatePortfolio'])->name('employee.portfolio');
-
-            Route::get('/import/employees', [EmployeeController::class, 'importLanding'])->name('employees.landing');
-            Route::get('/import/employees/export', [EmployeeController::class, 'export'])->name('employees.export');
-            Route::post('/import/employees/import', [EmployeeController::class, 'import'])->name('employees.import');
+            Route::get('/employees/{employee}/qr-code', [QrCodeController::class, 'employeeQrCode'])->name('employee.qrcode');
 
             Route::resource('departments', DepartmentController::class);
 
@@ -116,7 +118,6 @@ Route::group(['middleware' => ['auth','verified']], function () {
                 return Auth::user()->companies()->first()->redirectToBillingPortal(route('home'));
             });
 
-            //Route::get('/portal/{qualification}', [PortalController::class, 'show'] )->name('portal')->middleware('signed');
         });
     });
 });

@@ -20,7 +20,7 @@
                             <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bolder me-1">
                             {{ $employee->firstname }} {{ $employee->lastname }}
                             </a>
-                            @if($employee->is_archived === true)
+                            @if($employee->is_archived)
                             <span class="badge badge-light-danger">Archived</span>
                             @else
                             <span class="badge badge-light-success">Active</span>
@@ -74,13 +74,16 @@
                                     <a href="/employees/{{ $employee->id }}/qualifications/export" class="menu-link px-3">Download Portfolio</a>
                                 </div>
                                 <div class="menu-item px-3">
+                                    <a href="/employees/{{ $employee->id }}/qr-code" class="menu-link px-3">Generate QR Code</a>
+                                </div>
+                                <div class="menu-item px-3">
                                     <a href="{{route('employee.welcome-mail',$employee)}}" class="menu-link px-3">Send Welcome Email</a>
                                 </div>
                                 <div class="menu-item px-3">
                                     <a href="{{route('employee.send-reset-link',$employee)}}" class="menu-link px-3">Send Password Reset</a>
                                 </div>
                                 <div class="menu-item px-3">
-                                    <form action="/employees/{{$employee->id}}" method="post">
+                                    <form action="/employees/{{ $employee->id }}/archive" method="post">
                                         @csrf
                                         <button type="submit" class="menu-link px-3 bg-transparent border-0 bg-hover-light w-100">Archive</button>
                                     </form>
@@ -101,11 +104,9 @@
             <li class="nav-item mt-2">
                 <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (request()->is('employees/' . $employee->id . '/contacts')) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/contacts">Contacts</a>
             </li>
-            {{--
-            <li class="nav-item mt-2 d-none">
-                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (request()->is('employees/' . $employee->id . '/files')) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/files">Files</a>
+            <li class="nav-item mt-2">
+                <a class="nav-link text-active-primary ms-0 me-10 py-5 {{ (request()->is('employees/' . $employee->id . '/tenders')) ? 'active' : '' }}" href="/employees/{{ $employee->id }}/tenders">Tenders</a>
             </li>
-            --}}
         </ul>
     </div>
 </div>

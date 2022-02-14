@@ -202,7 +202,9 @@
                                                 @if($provider->website)
                                                 <img src="//logo.clearbit.com/{{ $provider->website }}" class="w-100">
                                                 @else
-                                                <img src="/assets/media/avatars/blank.png" class="w-100" />
+                                                <div class="symbol symbol-25px symbol-circle">
+                                                    <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $provider->name[0] }}</span>
+                                                </div>
                                                 @endif
                                             </div>
                                         </a>

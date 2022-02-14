@@ -59,7 +59,7 @@ class APIController extends Controller
         //        ->log('Token created by ' . $user->name);
         //}
 
-        return redirect('/settings/personal-access-tokens')
+        return redirect('/settings/personal-access-tokens#showToken')
             ->with(['success', 'Token successfully created'])
             ->with(['token' => $token->plainTextToken]);
     }

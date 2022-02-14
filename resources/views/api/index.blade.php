@@ -121,7 +121,7 @@
                                         {{ $item->name }}
                                     </td>
                                     <td data-bs-target="license" class="ps-0">
-                                        {{ $item->token }}
+                                        {{ $item->plainTextToken }}
                                     </td>
                                     <td>
                                         <button data-action="copy" class="btn btn-active-color-primary btn-icon btn-sm btn-outline-light">
@@ -156,4 +156,7 @@
         </div>
     </div>
 </div>
+@if(session('token'))
+    @include('partials.api.token-modal')
+@endif
 @endsection

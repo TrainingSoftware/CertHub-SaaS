@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -115,10 +116,19 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UserUpdateRequest $request, User $user)
     {
+        // get current logged in user
+        $user = Auth::user();
 
-        
+        // get and validate data
+        $updateData = $request->validated();
+
+        // update provider with validated data
+        $user->update($updateData);
+
+        return redirect()->refresh()
+            ->with('success', 'User has been successfully updated');
     }
 
     /**
@@ -134,7 +144,7 @@ class UserController extends Controller
 
             $user->delete();
 
-            return redirect('/users')->with('success', 'User has been deleted');
+            return redirect('/settings/users')->with('success', 'User has been deleted');
 
         } else {
 

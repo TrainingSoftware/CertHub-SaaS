@@ -6,7 +6,7 @@
                     @if($provider->website)
                     <img src="//logo.clearbit.com/{{ $provider->website }}">
                     @else
-                    <img src="/assets/media/avatars/blank.png" class="w-100" />
+                    <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $provider->name[0] }}</span>
                     @endif
                 </div>
             </div>

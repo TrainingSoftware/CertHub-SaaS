@@ -21,6 +21,9 @@ use Illuminate\Support\Str;
 
 class EmployeeController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -39,6 +42,8 @@ class EmployeeController extends Controller
         return view('employees.index', compact('employees'));
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,6 +53,8 @@ class EmployeeController extends Controller
     {
         return view('employees.create');
     }
+
+
 
     /**
      * Store a newly created resource in storage.
@@ -83,6 +90,8 @@ class EmployeeController extends Controller
             ->with('success', 'Employee successfully created');
     }
 
+
+
     /**
      * Display the specified resource.
      *
@@ -98,9 +107,11 @@ class EmployeeController extends Controller
             return view('employees.show')
                 ->with('employee', $employee);
         } else {
-            echo 'This employee does not belong to you.';
+            return abort(403);
         }
     }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -114,7 +125,7 @@ class EmployeeController extends Controller
         $user = Auth::user();
 
         // get departments
-        $departments = Department::pluck('name', 'id');
+        $departments = Department::all();
 
         // define genders
         $genders = array([
@@ -138,6 +149,8 @@ class EmployeeController extends Controller
         }
 
     }
+
+
 
     /**
      * Update the specified resource in storage.
@@ -166,6 +179,8 @@ class EmployeeController extends Controller
         return redirect()->refresh()
             ->with('success', 'Employee has been successfully updated');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -198,6 +213,8 @@ class EmployeeController extends Controller
 
     }
 
+
+
     /**
      * Show qualifications that belong to employee.
      *
@@ -218,10 +235,12 @@ class EmployeeController extends Controller
         }
     }
 
+
+
     /**
      * Show contacts that belong to employee.
      *
-     * @param int $id
+     * @param Employee $employee
      * @return \Illuminate\Http\Response
      */
 
@@ -234,29 +253,33 @@ class EmployeeController extends Controller
             return view('employees.contacts')
                 ->with('employee', $employee);
         } else {
-            echo 'This employee does not belong to you.';
+            return abort(403);
         }
     }
 
+
+
     /**
-     * Show files that belong to employee.
+     * Show tenders that employee belongs to.
      *
-     * @param int $id
+     * @param Employee $employee
      * @return \Illuminate\Http\Response
      */
 
-    public function files(Employee $employee)
+    public function tenders(Employee $employee)
     {
         // get current logged in user
         $user = Auth::user();
 
         if ($user->can('view', $employee)) {
-            return view('employees.files')
+            return view('employees.tenders')
                 ->with('employee', $employee);
         } else {
-            echo 'This employee does not belong to you.';
+            return abort(403);
         }
     }
+
+
 
     /**
      * @return \Illuminate\Support\Collection
@@ -266,6 +289,8 @@ class EmployeeController extends Controller
         return view('employees.import');
     }
 
+
+
     /**
      * @return \Illuminate\Support\Collection
      */
@@ -273,6 +298,8 @@ class EmployeeController extends Controller
     {
         return Excel::download(new EmployeeExport, 'employees.csv');
     }
+
+
 
     /**
      * @return \Illuminate\Support\Collection
@@ -291,6 +318,15 @@ class EmployeeController extends Controller
         return redirect()->back()->with('success', 'Mail sent successfully');
     }
 
+
+
+    /**
+     * Send employee password reset.
+     *
+     * @param Employee $employee
+     * @return \Illuminate\Http\Response
+     */
+
     public function sendResetLink(Employee $employee)
     {
         $credentials = ['email' => $employee->email];
@@ -307,6 +343,15 @@ class EmployeeController extends Controller
                 return redirect()->back()->withErrors(['email' => trans($response)]);
         }
     }
+
+
+
+    /**
+     * Show employee password reset.
+     *
+     * @param Employee $employee
+     * @return \Illuminate\Http\Response
+     */
 
     public function showResetPassword($token)
     {
@@ -336,6 +381,51 @@ class EmployeeController extends Controller
     return $status === Password::PASSWORD_RESET
                 ? redirect()->route('portal.login')->with('status', __($status))
                 : back()->withErrors(['email' => [__($status)]]);
+    }
+
+
+    
+    /**
+     * Archive employee.
+     *
+     * @param Employee $employee
+     * @return \Illuminate\Http\Response
+     */
+
+    public function archive(Request $request, Employee $employee)
+    {
+        $employee->archive();
+
+        return redirect('/employees')
+            ->with('success', 'Employee has been successfully archived');
+    }
+
+
+
+    /**
+     * Show the archived resources.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function archived()
+    {
+        return view('employees.archived');
+    }
+
+
+
+    /**
+     * Unarchive employee.
+     *
+     * @param Employee $employee
+     * @return \Illuminate\Http\Response
+     */
+    public function unarchive(Request $request, Employee $employee)
+    {
+        $employee->unArchive();
+
+        return redirect('/employees/'. $employee->id)
+            ->with('success', 'Employee has been successfully unarchived');
     }
 
 }

@@ -44,10 +44,6 @@ class CreateEmployeesTable extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
 
-        DB::statement(
-            'ALTER TABLE employees ADD FULLTEXT fulltext_index(firstname, lastname, email)'
-        );
-
     }
 
     /**

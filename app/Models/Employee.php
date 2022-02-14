@@ -15,19 +15,9 @@ use Illuminate\Support\Str;
 
 class Employee extends Authenticatable implements CanResetPassword
 {
-    use Notifiable, Archivable;
+    use Notifiable, Archivable, HasFactory;
 
     protected $guard = 'employee';
-
-    use HasFactory;
-
-    use Search;
-
-    protected $searchable = [
-        'firstname',
-        'lastname',
-        'email'
-    ];
 
     protected $dates = [
         'start_date',

@@ -71,13 +71,8 @@
 										<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Quick links</div>
 									</div>
 									<div class="menu-item px-3">
-										<a href="/import-employees/export" class="menu-link px-3">
-										Export
-										</a>
-									</div>
-									<div class="menu-item px-3">
-										<a href="/import-employees" class="menu-link px-3">
-										Import
+										<a href="/import/employees" class="menu-link px-3">
+											Import
 										</a>
 									</div>
 									<div class="menu-item px-3">
@@ -154,7 +149,7 @@
                                     @if($item->start_date){{ $item->start_date->format('d/m/Y') }}@endif
                                     </td>
 									<td class="text-end">
-										<a href="/employees/{{ $item->id }}/edit" class="btn btn-light btn-sm">View</a>
+										<a href="/employees/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
 									</td>
                                 </tr>
                                 @endforeach

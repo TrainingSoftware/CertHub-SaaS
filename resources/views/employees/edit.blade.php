@@ -112,9 +112,13 @@
                                 <!--begin::Input group-->
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <!--begin::Input-->
-                                        {!! Form::select('gender', $genders, null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
-                                    <!--end::Input-->
+                                    <!--begin::Input-->
+                                    <select name="gender" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+                                            <option>Select...</option>
+                                            <option value="Male" @if($employee->employment === 'Male') selected @endif>Male</option>
+                                            <option value="Female" @if($employee->employment === 'Female') selected @endif>Female</option>
+                                        </select>
+                                        <!--end::Input-->
                                     </div>
                                 </div>
                                 <!--end::Input group-->
@@ -566,7 +570,14 @@
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {!! Form::select('employment', $employment, null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
+                                        <select name="employment" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+                                            <option>Select...</option>
+                                            <option value="Full Time" @if($employee->employment === 'Full Time') selected @endif>Full Time</option>
+                                            <option value="Part Time" @if($employee->employment === 'Part Time') selected @endif>Part Time</option>
+                                            <option value="Fixed-term" @if($employee->employment === 'Fixed-term') selected @endif>Fixed-term</option>
+                                            <option value="Freelancer / Contractor" @if($employee->employment === 'Freelancer / Contractor') selected @endif>Freelancer / Contractor</option>
+                                            <option value="Agency" @if($employee->employment === 'Agency') selected @endif>Agency</option>
+                                        </select>
                                         <!--end::Input-->
                                     </div>
                                 </div>
@@ -585,14 +596,18 @@
                                     <div class="form-group col-md-12">
                                         <!--begin::Label-->
                                         <label class="d-flex align-items-center form-label">
-                                            Department
+                                        Department
                                         </label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        {!! Form::select('department_id', $departments, null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
+                                        <select name="department_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+                                            @foreach($departments as $item)
+                                            <option value="{{ $item->id }}" @if($employee->department->id === $item->id) selected @endif>{{ $item->name }}</option>
+                                            @endforeach
+                                        </select>
                                         <!--end::Input-->
                                     </div>
-                                </div>
+                                </div>  
                                 <!--end::Input group-->
                             </div>
                             <!--end::Col-->
