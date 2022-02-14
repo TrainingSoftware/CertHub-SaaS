@@ -89,7 +89,7 @@
                                     </div>
                                 </td>
                                 <td class="text-end">
-									<a href="/tenders/{{ $item->id }}/edit" class="btn btn-light btn-sm">View</a>
+									<a href="/tenders/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
 								</td>
                             </tr>
                             @endforeach

@@ -71,7 +71,7 @@
                                     </div>
                                 </td>
                                 <td class="text-end">
-                                    <a href="/departments/{{ $item->id }}/edit" class="btn btn-light btn-sm">View</a>
+                                    <a href="/departments/{{ $item->id }}/" class="btn btn-light btn-sm">View</a>
                                 </td>
                             </tr>
                             @endforeach

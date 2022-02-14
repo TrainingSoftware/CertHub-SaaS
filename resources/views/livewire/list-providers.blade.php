@@ -216,7 +216,7 @@
                                 <td>{{ $provider->phone }}</td>
                                 <td>{{ $provider->email }}</td>
                                 <td class="text-end">
-									<a href="/providers/{{ $provider->id }}/edit" class="btn btn-light btn-sm">View</a>
+									<a href="/providers/{{ $provider->id }}" class="btn btn-light btn-sm">View</a>
 								</td>
                             </tr>
                             @endforeach

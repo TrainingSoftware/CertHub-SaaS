@@ -150,7 +150,7 @@
                                 @endif
                                 </td>
                                 <td class="text-end">
-									<a href="/qualifications/{{ $item->id }}/edit" class="btn btn-light btn-sm">View</a>
+									<a href="/qualifications/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
 								</td>
                             </tr>
                             @endif
