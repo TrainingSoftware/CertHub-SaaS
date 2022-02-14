@@ -113,16 +113,31 @@ class ReportController extends Controller
     public function thisQuarter()
     {
         // get current company
+        $year = date('Y');
+        $month = date('M');
+        $day = 0;
+        // Leap years are divisible by 400 or by 4 but not 100
+        if($month=="Feb"){
+            if(($year % 400 == 0) || (($year % 100 == 0) && ($year % 4 == 0))){
+                $day = 1;
+            } else{
+                 $day =2;
+            }
+        }else{
+            $day = 0;
+        }
+
         $company = Auth::user()->companies()->first();
 
         // get the dates
         $start = Carbon::now()->startOfMonth();
-        $end = Carbon::now()->endOfMonth()->addMonths(2);
+        $end = Carbon::now()->endOfMonth()->addMonths(2)->addDays($day);
 
         // get qualifications expiring this quarter
         $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->get();
+
 
         // sum qualifications expiring this quarter
         $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
