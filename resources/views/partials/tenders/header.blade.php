@@ -21,8 +21,7 @@
                             @if($tender->line_1)
                                 {{ $tender->line_1 }}, @if($tender->line_2){{ $tender->line_2 }}, @endif{{ $tender->town }}, {{ $tender->county }}, {{ $tender->postcode }}@if($tender->country), {{ $tender->country }}@endif
                             @else
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#kt_modal_postcode">Add location?</a>
-                                @include('partials/global/postcode-search')
+                                <a href="/tenders/{{ $tender->id }}/edit">Add location?</a>
                             @endif
                             </span>
                         </div>
