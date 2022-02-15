@@ -233,7 +233,7 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label required">Country</label>
-                                        <select name="country" disabled value="United Kingdom" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="false">
+                                        <select name="country" value="United Kingdom" class="form-select form-select-lg form-select-solid" disabled>
                                             <option></option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
