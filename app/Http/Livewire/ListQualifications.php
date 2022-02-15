@@ -11,19 +11,25 @@ class ListQualifications extends Component
     public $qualificationType;
     public $provider;
     public $searchTerm;
+    public $expiryStart;
+    public $expiryEnd;
     public $qualifications;
-    public $expiry = [];
     public $qualificationTypes;
     public $providers;
 
     public function mount()
     {
          $company = Auth::user()->companies()->first();
-         $this->qualificationTypes = $company->qualificationTypes;
-         $this->providers = $company->providers;
+         $this->qualificationTypes = $company->qualificationTypes->filter(function($t) use ($company){
+            return in_array($t->id,$company->qualifications()->pluck('qualificationtype_id')->toArray());
+         });
+         $this->providers = $company->providers->filter(function($t) use ($company){
+            return in_array($t->id,$company->qualifications()->pluck('provider_id')->toArray());
+         });
     }
     public function render()
     {
+
         $company = Auth::user()->companies()->first();
         $qualifications = $company->qualifications();
         if($this->qualificationType != ""){
@@ -34,8 +40,9 @@ class ListQualifications extends Component
             $qualifications
             ->where('provider_id',$this->provider);
         }
-        if(count($this->expiry) > 0){
-
+        if($this->expiryStart != "" && $this->expiryEnd != ""){
+            $qualifications
+                ->whereBetween('expiry_date',[$this->expiryStart,$this->expiryEnd]);
         }
         $this->qualifications = $qualifications->get();
 

@@ -10,8 +10,8 @@
 {{--                            <input type="text" wire:model="searchTerm" class="form-control form-control-solid w-250px ps-14" placeholder="Search qualifications" />--}}
                             <div class="d-flex">
                                 <div class="form-group ">
-                                    <label for="">Qualification Type</label>
-                                    <select wire:model="qualificationType" id="" class="form-control form-control-solid w-250px">
+
+                                    <select wire:model="qualificationType" id="" class="form-control form-control-solid w-150px">
                                         <option value="">Select Qualification Type</option>
                                        @foreach($qualificationTypes as $qualificationType)
                                            <option value="{{$qualificationType->id}}">{{$qualificationType->name}}</option>
@@ -19,14 +19,21 @@
                                     </select>
                                 </div>
                                 <div class="form-group mx-3">
-                                    <label for="">Provider</label>
-                                    <select wire:model="provider" id="" class="form-control form-control-solid w-250px ">
+
+                                    <select wire:model="provider" id="" class="form-control form-control-solid w-150px ">
                                         <option value="">Select a provider</option>
                                         @foreach($providers as $provider)
                                            <option value="{{$provider->id}}">{{$provider->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                                 <div class="form-group  mx-3">
+                                     <input type="text" wire:model.lazy="expiryStart" class="form-control form-control-solid w-150px " id="expiryStart" placeholder="Expiry start" autocomplete="off">
+                                </div>
+                                <div class="form-group  mx-3">
+                                     <input type="text" wire:model.lazy="expiryEnd" class="form-control form-control-solid w-150px " id="expiryEnd" placeholder="Expiry end" autocomplete="off">
+                                </div>
+
                             </div>
 
                         </div>
