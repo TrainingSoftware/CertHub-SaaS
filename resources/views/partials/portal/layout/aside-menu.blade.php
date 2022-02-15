@@ -4,7 +4,7 @@
         <div class="w-100 hover-scroll-overlay-y d-flex pe-2" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_footer, #kt_header" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu, #kt_aside_menu_wrapper" data-kt-scroll-offset="102">
             <div class="menu menu-column menu-rounded fw-bold" id="#kt_aside_menu" data-kt-menu="true">
                 <div class="menu-item {{ (request()->is('portal/home')) ? 'hover show' : '' }}">
-                    <a class="menu-link" href="/home">
+                    <a class="menu-link" href="/portal/home">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -33,8 +33,8 @@
                         </span>
                     </a>
                 </div>
-                <div class="menu-item {{ (request()->is('portal/training*')) ? 'hover show' : '' }}">
-                    <a class="menu-link" href="/portal/training">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion {{ (request()->is('portal/training*')) ? 'hover show' : '' }}">
+                    <span class="menu-link">
                         <span class="menu-icon">
                             <span class="svg-icon svg-icon-5">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -43,10 +43,35 @@
                                 </svg>
                             </span>
                         </span>
-                        <span class="menu-title">
-                            Training
-                        </span>
-                    </a>
+                        <span class="menu-title">Training</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion {{ (request()->is('portal/training*')) ? 'show' : '' }}">
+                        <div class="menu-item">
+                            <a class="menu-link" href="https://certhub.co/cpd-courses" target="_blank">
+                            <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">CPD</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="https://certhub.co/courses" target="_blank">
+                            <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Commercial</span>
+                            </a>
+                        </div>
+                        <div class="menu-item d-none">
+                            <a class="menu-link" href="/training/nvqs" target="_blank">
+                            <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">NVQs</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="menu-item {{ (request()->is('portal/files')) ? 'hover show' : '' }}">
                     <a class="menu-link" href="/portal/files">
@@ -70,7 +95,7 @@
         <div class="d-flex flex-stack">
             <div class="d-flex align-items-center">
                 <div class="symbol symbol-circle symbol-40px">
-                    <img src="/assets/media/avatars/blank.png" alt="photo" />
+                    <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ Auth::guard('portal')->user()->firstname[0] }}{{ Auth::guard('portal')->user()->lastname[0] }}</span>
                 </div>
                 <div class="ms-2">
                     <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder lh-1">
@@ -94,7 +119,7 @@
                     <div class="menu-item px-3">
                         <div class="menu-content d-flex align-items-center px-3">
                             <div class="symbol symbol-50px me-5">
-                                <img alt="Logo" src="/assets/media/avatars/blank.png" />
+                            <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ Auth::guard('portal')->user()->firstname[0] }}{{ Auth::guard('portal')->user()->lastname[0] }}</span>
                             </div>
                             <div class="d-flex flex-column">
                                 <div class="fw-bolder d-flex align-items-center fs-5">
