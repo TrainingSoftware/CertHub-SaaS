@@ -83,7 +83,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::post('qualifications/{qualification}/sendSMS',[SendSMSController::class, 'sendQualificationSMS'])->name('send.sms');
 
             Route::resource('qualificationtypes', QualificationTypeController::class);
-
+            Route::post('/qualificationtypes/bulk',[QualificationTypeController::class,'bulk'])->name('qualificationtypes.bulk');
             Route::resource('providers', ProviderController::class);
             Route::get('/providers/{provider}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
             Route::get('/import-provider', [ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');

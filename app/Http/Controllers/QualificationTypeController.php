@@ -86,7 +86,7 @@ class QualificationTypeController extends Controller
             // get qualifications that belong to qualification type
             $qualifications = Qualification::where('qualificationtype_id', '=', $qualificationtype->id)
                 ->get();
-        
+
             return view('qualificationtypes.show')
                 ->with('qualificationtype', $qualificationtype)
                 ->with('qualifications', $qualifications);
@@ -160,5 +160,15 @@ class QualificationTypeController extends Controller
         $quaificationtype->delete();
 
         return redirect('/qualificationtypes')->with('success', 'Qualification Type has been deleted');
+    }
+    public function bulk()
+    {
+        $company = Auth::user()->companies()->first();
+        $string = request('qualificationtypes');
+        $qualificationtypes = preg_split("/\r\n|\n|\r/", $string);
+        foreach($qualificationtypes as $type){
+            $company->qualificationtypes()->create(['name'=> $type]);
+        }
+        return redirect()->back()->with('success','Qualification Types created successfully');
     }
 }

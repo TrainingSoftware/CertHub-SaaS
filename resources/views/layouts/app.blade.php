@@ -124,7 +124,7 @@
                         !(function () {
                             var t = document.getElementById("project_overview_chart");
                             if (t) {
-                                var e = t.getContext("2d"); 
+                                var e = t.getContext("2d");
                                 new Chart(e, {
                                     type: "doughnut",
                                     data: { datasets: [
@@ -387,7 +387,14 @@
 
         toastr.error("{{ $message }}");
     </script>
+
     @endif
+    <script>
+        $('#bulkButton').click(function(){
+            $('#bulkAdd').modal({show:true});
+            $('#addQualificationType').modal({show:false})
+        })
+    </script>
     <!--end::Javascript-->
     @livewireScripts
 </body>

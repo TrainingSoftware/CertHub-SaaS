@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\QualificationCreateRequest;
 use App\Http\Requests\QualificationUpdateRequest;
 use App\Models\Qualification;
+use App\Models\QualificationType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -202,7 +203,8 @@ class QualificationController extends Controller
         } else {
 
             return abort(403);
-            
-        } 
+
+        }
     }
+
 }

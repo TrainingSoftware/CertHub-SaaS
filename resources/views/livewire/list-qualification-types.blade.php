@@ -51,7 +51,7 @@
 														<a href="/qualificationtypes/create" class="btn btn-primary w-100">Add manually</a>
 													</div>
 													<div class="col-6">
-														<a href="#" class="btn btn-primary w-100">Bulk Import</a>
+														<a href="#" class="btn btn-primary w-100" id="bulkButton " data-bs-toggle="modal" data-bs-target="#bulkAdd">Bulk Import</a>
 													</div>
 												</div>
 											</div>
@@ -59,6 +59,7 @@
 									</div>
 								</div>
 							</div>
+                             @include('qualificationtypes.bulk-import-form')
                         </div>
                     </div>
                 </div>

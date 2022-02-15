@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class ListQualificationTypes extends Component
 {
-    public $searchTerm; 
+    public $searchTerm;
     public $qualificationtypes;
 
     public function render()
@@ -21,4 +21,5 @@ class ListQualificationTypes extends Component
 
         return view('livewire.list-qualification-types');
     }
+
 }
