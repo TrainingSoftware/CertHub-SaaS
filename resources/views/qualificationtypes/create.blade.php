@@ -39,13 +39,13 @@
                     <form class="form" method="POST" action="/qualificationtypes">
                         @csrf
                         <div class="card-body border-top p-9">
-                            <div class="row mb-6">
+                            <div class="row">
                                 <label class="col-lg-4 col-form-label required fw-bold fs-6">Name</label>
                                 <div class="col-lg-8">
                                     <div class="row">
                                         <div class="col-lg-12 fv-row">
                                             <input type="text" name="name"
-                                                class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                                class="form-control form-control-lg form-control-solid mb-0"
                                                 placeholder="Working at Height Awareness"/>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="card-footer d-flex justify-content-end py-6 px-9">
-                            <a href="/employees"
+                            <a href="/qualificationtypes"
                                 class="btn btn-light btn-active-light-primary me-2">Cancel</a>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </div>
