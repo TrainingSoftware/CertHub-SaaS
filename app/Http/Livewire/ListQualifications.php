@@ -41,8 +41,10 @@ class ListQualifications extends Component
             ->where('provider_id',$this->provider);
         }
         if($this->expiryStart != "" && $this->expiryEnd != ""){
+            $newStart = date('Y-m-d',strtotime($this->expiryStart));
+            $newEnd = date('Y-m-d',strtotime($this->expiryEnd));
             $qualifications
-                ->whereBetween('expiry_date',[$this->expiryStart,$this->expiryEnd]);
+                ->whereBetween('expiry_date',[$newStart,$newEnd]);
         }
         $this->qualifications = $qualifications->get();
 

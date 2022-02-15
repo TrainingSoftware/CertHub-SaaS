@@ -143,6 +143,7 @@ $(document).ready(function () {
         },
         startPicker = new Pikaday({
             field: document.getElementById('expiryStart'),
+            format: 'D-M-YYYY',
             minDate: new Date(),
             maxDate: new Date(2020, 12, 31),
             onSelect: function() {
@@ -152,6 +153,7 @@ $(document).ready(function () {
         }),
         endPicker = new Pikaday({
             field: document.getElementById('expiryEnd'),
+            format: 'D-M-YYYY',
             minDate: new Date(),
             maxDate: new Date(2020, 12, 31),
             onSelect: function() {
