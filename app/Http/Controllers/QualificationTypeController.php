@@ -169,6 +169,7 @@ class QualificationTypeController extends Controller
         foreach($qualificationtypes as $type){
             $company->qualificationtypes()->create(['name'=> $type]);
         }
-        return redirect()->back()->with('success','Qualification Types created successfully');
+        $totalAdded = count($qualificationtypes);
+        return redirect()->back()->with('success',"$totalAdded Qualification Types created successfully");
     }
 }
