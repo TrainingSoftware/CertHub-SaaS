@@ -3,39 +3,36 @@
         <div id="kt_content_container" class="container-xxl">
             <div class="card">
                 @if(Auth::user()->companies->first()->qualifications->count() != 0 )
-                <div class="card-header border-0 pt-6">
+                <div class="card-header border-0 py-6">
                     <div class="card-title">
                         <div class="d-flex align-items-center position-relative my-1">
-
-{{--                            <input type="text" wire:model="searchTerm" class="form-control form-control-solid w-250px ps-14" placeholder="Search qualifications" />--}}
                             <div class="d-flex">
-                                <div class="form-group ">
-
-                                    <select wire:model="qualificationType" id="" class="form-control form-control-solid w-150px">
-                                        <option value="">Select Qualification Type</option>
-                                       @foreach($qualificationTypes as $qualificationType)
+                                <div class=" w-200px">
+                                    <select wire:model="qualificationType" class="form-control form-control-solid">
+                                        <option value="">Qualification Type</option>
+                                        @foreach($qualificationTypes as $qualificationType)
                                            <option value="{{$qualificationType->id}}">{{$qualificationType->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group mx-3">
-
-                                    <select wire:model="provider" id="" class="form-control form-control-solid w-150px ">
-                                        <option value="">Select a provider</option>
+                                <div class=" w-200px mx-3">
+                                    <select wire:model="provider" class="form-control form-control-solid">
+                                        <option value="">Provider</option>
                                         @foreach($providers as $provider)
                                            <option value="{{$provider->id}}">{{$provider->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                 <div class="form-group  mx-3">
-                                     <input type="text" wire:model.lazy="expiryStart" class="form-control form-control-solid w-150px " id="expiryStart" placeholder="Expiry start" autocomplete="off">
+                                 <div class=" w-200px mx-3">
+                                     <input type="text" wire:model.lazy="expiryStart" class="form-control form-control-solid" id="expiryStart" placeholder="Expiry start" autocomplete="off">
                                 </div>
-                                <div class="form-group  mx-3">
-                                     <input type="text" wire:model.lazy="expiryEnd" class="form-control form-control-solid w-150px " id="expiryEnd" placeholder="Expiry end" autocomplete="off">
+                                <div class="w-200px mx-3">
+                                     <input type="text" wire:model.lazy="expiryEnd" class="form-control form-control-solid" id="expiryEnd" placeholder="Expiry end" autocomplete="off">
                                 </div>
-
+                                <div class="w-auto h-auto mx-3">
+                                     <small><a href="/qualifications" class="align-text-bottom">Reset?</a><small>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="card-toolbar">
@@ -104,29 +101,19 @@
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                         <thead>
                             <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                <th class="w-10px pe-2">
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                        <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
-                                    </div>
-                                </th>
                                 <th class="min-w-100px">Type</th>
                                 <th class="min-w-100px">Employee</th>
                                 <th class="min-w-100px">Provider</th>
                                 <th class="min-w-50px">Status</th>
                                 <th class="min-w-100px">Expires on</th>
                                 <th class="min-w-15px"></th>
-                                <th class="text-end min-w-15px">Actions</th>
+                                <th class="text-end min-w-15px"></th>
                             </tr>
                         </thead>
                         <tbody class="text-gray-600 fw-bold">
                             @foreach ($qualifications as $item)
                             @if($item->employee->is_archived == 0)
                             <tr>
-                                <td>
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="1" />
-                                    </div>
-                                </td>
                                 <td class="d-flex align-items-center border-bottom-0">
                                     <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">
                                     {{ $item->qualificationtype->name }}
