@@ -17,4 +17,5 @@ class PortalController extends Controller
         return view('portal')
             ->with('qualification', $qualification);
     }
+
 }

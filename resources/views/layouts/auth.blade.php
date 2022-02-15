@@ -22,6 +22,7 @@
 		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 
         <script src="https://js.stripe.com/v3/"></script>
+        @livewireStyles
 	</head>
 	<!--end::Head-->
 	<!--begin::Body-->
@@ -212,6 +213,7 @@
 		<!--end::Javascript-->
 		<!--end::Global Stylesheets Bundle-->
 	</body>
+    @livewireScripts
 	<!--end::Body-->
 </html>
 

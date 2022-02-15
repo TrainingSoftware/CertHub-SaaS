@@ -124,6 +124,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
 Route::prefix('portal')->name('portal.')->group(function() {
     Route::view('/login', 'portal/login')->name('login');
+    Route::get('/company',[PortalController::class,'login.show']);
 
     $limiter = config('fortify.limiters.login');
     Route::post('/login', [AuthenticatedSessionController::class, 'store'])
