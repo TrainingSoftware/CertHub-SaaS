@@ -39,7 +39,7 @@ class Login extends Component
 
         if (Auth::guard('portal')->attempt($credentials)) {
             // Authentication passed...
-            return redirect()->intended('portal/home');
+            return redirect('portal/home')->intended('portal/home');
         }else{
             $this->loginError = "Invalid Credentials";
         }
