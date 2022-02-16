@@ -89,7 +89,7 @@
                                                 <div class="text-muted fw-bold fs-5">These are import details, it's best practice to review them periodically</div>
                                             </div>
                                             <div class="mh-475px">
-                                                <form class="form" method="POST" action="/employees">
+                                                <form class="form" method="POST" action="{{route('employee.contacts.store',$employee)}}">
                                                     @csrf
                                                     <div class="card-body p-9 text-left">
                                                         <div class="row mb-6">
@@ -134,7 +134,7 @@
                                                     <div class="card-footer border-0 d-flex justify-content-end py-6 px-9">
                                                         <a href="/employees/{{ $employee->id }}/contacts"
                                                             class="btn btn-light btn-active-light-primary me-2">Cancel</a>
-                                                        <a href="#" class="btn btn-primary" data-bs-dismiss="modal">Create</a>
+                                                        <button type="submit" class="btn btn-primary">Create</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -164,6 +164,9 @@
                         </thead>
                         <!--end::Table head-->
                         <!--begin::Table body-->
+                        <tbody>
+                            t
+                        </tbody>
 
                     </table>
                     <!--end::Table-->

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CompanyController;
@@ -63,6 +64,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::resource('employees', EmployeeController::class);
             Route::get('/employees/{employee}/qualifications', [EmployeeController::class, 'qualifications'])->name('employee.qualifications');
             Route::get('/employees/{employee}/contacts', [EmployeeController::class, 'contacts'])->name('employee.contacts');
+            Route::post('/employees/{employee}/contacts/store',[EmployeeContactController::class,'store'])->name('employee.contacts.store');
             Route::get('employee/reset-password/{token}',[EmployeeController::class, 'showResetPassword'])->name('employee.show-reset-password');
             Route::get('/employees/{employee}/send-welcome-mail', [EmployeeController::class, 'sendWelcomeEmail'])->name('employee.welcome-mail');
             Route::get('/employees/{employee}/send-reset-link', [EmployeeController::class, 'sendResetLink'])->name('employee.send-reset-link');
