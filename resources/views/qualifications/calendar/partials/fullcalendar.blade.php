@@ -42,13 +42,13 @@
                 timeZone: 'GMT',
                 views: {
                     dayGridMonth: {
-                        buttonText: "month"
+                        buttonText: "Month"
                     },
                     timeGridWeek: {
-                        buttonText: "week"
+                        buttonText: "Week"
                     },
                     timeGridDay: {
-                        buttonText: "day"
+                        buttonText: "Day"
                     }
                 },
                 events: @json($events),
