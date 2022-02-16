@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
             Route::resource('departments', DepartmentController::class);
 
+            Route::get('qualifications/fullcalendar',[QualificationController::class,'fullcalendar']);
             Route::resource('qualifications', QualificationController::class);
             Route::post('upload',[UploadController::class, 'uploadQualificationFile'])->name('upload.qualification.file');
             Route::post('qualifications/{qualification}/sendSMS',[SendSMSController::class, 'sendQualificationSMS'])->name('send.sms');

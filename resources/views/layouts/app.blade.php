@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    @yield('extra-css')
+    @stack('extra-css')
     @livewireStyles
     <!--end::Global Stylesheets Bundle-->
 </head>
@@ -173,6 +175,8 @@
     <script src="/assets/js/custom/account/api-keys/api-keys.js"></script>
     <script src="/assets/js/custom/modals/create-api-key.js"></script>
     <!--end::Page Custom Javascript-->
+    @yield('extra-js')
+    @stack('extra-js')
 
     @if(\Route::is('employees.edit') or \Route::is('tenders.edit'))
         <script>

@@ -81,6 +81,7 @@ class QualificationController extends Controller
         // create qualifications with validated data
         $qualification = $company->qualifications()->create($storeData);
 
+
         // log the qualification on successful creation
         if ($qualification){
             activity('qualification')
@@ -205,6 +206,26 @@ class QualificationController extends Controller
             return abort(403);
 
         }
+    }
+
+    public function fullcalendar()
+    {
+        $company = Auth::user()->companies()->first();
+
+        // get current logged in user
+        $user = Auth::user();
+        $events = [];
+        // get qualifications that belong to authenticated user
+        $qualifications = $company->qualifications;
+        for($i = 0; $i < $qualifications->count(); $i++){
+            $events[$i] = [
+                "id" => $qualifications[$i]->id,
+                "title" => $qualifications[$i]->qualificationtype->name,
+                "start" => $qualifications[$i]->expiry_date,
+                "url" => route('qualifications.show',$qualifications[$i])
+            ];
+        }
+        return view('qualifications.calendar.index',compact('qualifications','events'));
     }
 
 }

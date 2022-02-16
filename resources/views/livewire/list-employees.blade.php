@@ -12,7 +12,7 @@
 									<path d="M11 19C6.55556 19 3 15.4444 3 11C3 6.55556 6.55556 3 11 3C15.4444 3 19 6.55556 19 11C19 15.4444 15.4444 19 11 19ZM11 5C7.53333 5 5 7.53333 5 11C5 14.4667 7.53333 17 11 17C14.4667 17 17 14.4667 17 11C17 7.53333 14.4667 5 11 5Z" fill="black" />
 								</svg>
 								<i wire:loading class="fas fa-spinner fa-spin fa-1x"></i>
-							</span>
+                        </span>
 							<form method="GET" class="me-5">
 								<input type="text" wire:model="searchTerm"  class="form-control form-control-solid w-250px ps-14" placeholder="Search employees" autocomplete="off"/>
 							</form>
@@ -99,7 +99,7 @@
 						<img class="mw-100 mh-300px" alt="" src="assets/media/illustrations/sigma-1/2.png" />
 					</div>
 				</div>
-				@else   
+				@else
 				<div class="card-body pt-0">
 					<table class="table align-middle table-row-dashed fs-6 gy-5 mb-0" id="kt_table_users">
 						<thead>
@@ -112,7 +112,7 @@
 							</tr>
 						</thead>
 						<tbody class="text-gray-600 fw-bold">
-							
+
                                 @foreach ($employees as $item)
                                 <tr>
                                     <td class="d-flex align-items-center border-bottom-0">
