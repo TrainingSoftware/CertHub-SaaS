@@ -113,9 +113,13 @@ class EmployeeController extends Controller
         // get current logged in user
         $user = Auth::user();
 
+        // get current logged in user
+        $contacts = $employee->contacts;
+
         if ($user->can('view', $employee)) {
             return view('employees.show')
-                ->with('employee', $employee);
+                ->with('employee', $employee)
+                ->with('contacts', $contacts);
         } else {
             return abort(403);
         }

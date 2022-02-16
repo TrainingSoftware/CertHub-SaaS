@@ -15,19 +15,6 @@
                             <input type="text" wire:model="searchTerm" class="form-control form-control-solid w-250px ps-14" placeholder="Search departments" />
                         </div>
                     </div>
-                    <div class="card-toolbar">
-                        <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                            <a href="/departments/create" class="btn btn-primary">
-                                <span class="svg-icon svg-icon-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                        <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
-                                        <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="black" />
-                                    </svg>
-                                </span>
-                                Add Department
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 @endif
                 @if(Auth::user()->companies->first()->departments->count() == 0 )
