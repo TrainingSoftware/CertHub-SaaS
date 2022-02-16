@@ -36,6 +36,25 @@
                     <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Name</span></label>
                         <div class="col-lg-8">
+                            <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
+                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-1.jpg)"></div>
+                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
+                                    <i class="bi bi-pencil-fill fs-7"></i>
+                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+                                    <input type="hidden" name="avatar_remove">
+                                </label>
+                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="Cancel avatar">
+                                    <i class="bi bi-x fs-2"></i>
+                                </span>
+                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="Remove avatar">
+                                    <i class="bi bi-x fs-2"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-7 d-flex h-100">
+                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Name</span></label>
+                        <div class="col-lg-8">
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     {{ Form::text('name', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
@@ -67,7 +86,7 @@
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
                         <span class="required">Phone</span></label>
                         <div class="col-lg-8 d-flex align-items-center">
-                            {{ Form::text('phone', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+                            <input typ="text" name="phone" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $company->phone }}" data-inputmask="'mask': '99999999999'">
                         </div>
                     </div>
                     <div class="row mb-7 d-flex h-100">

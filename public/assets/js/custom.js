@@ -115,7 +115,17 @@ $(document).ready(function () {
     $(".globalSearch").click(function () {
         $("#globalSearch").modal("show");
     });
+});
 
+// Global Search Modal
+$(document).ready(function () {
+    $(".globalSearch").click(function () {
+        $("#globalSearch").modal("show");
+    });
+});
+
+// API Modal
+$(document).ready(function () {
     if (window.location.href.indexOf('#showToken') != -1) {
         $('#kt_modal_show_token').modal('show');
     }
@@ -128,50 +138,50 @@ $(document).ready(function () {
         document.execCommand("copy");
     });
 });
-    var startDate,
-        endDate,
-        updateStartDate = function() {
-            startPicker.setStartRange(startDate);
-            endPicker.setStartRange(startDate);
-            endPicker.setMinDate(startDate);
-            document.getElementById('expiryStart')
-        },
-        updateEndDate = function() {
-            startPicker.setEndRange(endDate);
-            startPicker.setMaxDate(endDate);
-            endPicker.setEndRange(endDate);
-        },
-        startPicker = new Pikaday({
-            field: document.getElementById('expiryStart'),
-            format: 'D-M-YYYY',
-            minDate: new Date(),
-            maxDate: new Date(2020, 12, 31),
-            onSelect: function() {
-                startDate = this.getDate();
-                updateStartDate();
-            }
-        }),
-        endPicker = new Pikaday({
-            field: document.getElementById('expiryEnd'),
-            format: 'D-M-YYYY',
-            minDate: new Date(),
-            maxDate: new Date(2020, 12, 31),
-            onSelect: function() {
-                endDate = this.getDate();
-                updateEndDate();
-            }
-        }),
-        _startDate = startPicker.getDate(),
-        _endDate = endPicker.getDate();
-
-        if (_startDate) {
-            startDate = _startDate;
-
+var startDate,
+    endDate,
+    updateStartDate = function () {
+        startPicker.setStartRange(startDate);
+        endPicker.setStartRange(startDate);
+        endPicker.setMinDate(startDate);
+        document.getElementById('expiryStart')
+    },
+    updateEndDate = function () {
+        startPicker.setEndRange(endDate);
+        startPicker.setMaxDate(endDate);
+        endPicker.setEndRange(endDate);
+    },
+    startPicker = new Pikaday({
+        field: document.getElementById('expiryStart'),
+        format: 'D-M-YYYY',
+        minDate: new Date(),
+        maxDate: new Date(2020, 12, 31),
+        onSelect: function () {
+            startDate = this.getDate();
             updateStartDate();
         }
-
-        if (_endDate) {
-            endDate = _endDate;
+    }),
+    endPicker = new Pikaday({
+        field: document.getElementById('expiryEnd'),
+        format: 'D-M-YYYY',
+        minDate: new Date(),
+        maxDate: new Date(2020, 12, 31),
+        onSelect: function () {
+            endDate = this.getDate();
             updateEndDate();
         }
+    }),
+    _startDate = startPicker.getDate(),
+    _endDate = endPicker.getDate();
+
+if (_startDate) {
+    startDate = _startDate;
+
+    updateStartDate();
+}
+
+if (_endDate) {
+    endDate = _endDate;
+    updateEndDate();
+}
 

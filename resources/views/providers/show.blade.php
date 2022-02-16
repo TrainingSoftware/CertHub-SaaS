@@ -44,6 +44,26 @@
                         </div>
                     </div>
                     <div class="row mb-7">
+                        <label class="col-lg-4 fw-bold text-muted">Phone</label>
+                        <div class="col-lg-8">
+                            @if($provider->phone)
+                            <span class="fw-bolder fs-6 text-gray-800">{{ $provider->phone }}</span>
+                            @else
+                            <span class="fw-bolder fs-6 text-gray-500">No phone number available</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row mb-7">
+                        <label class="col-lg-4 fw-bold text-muted">Email</label>
+                        <div class="col-lg-8">
+                            @if($provider->email)
+                            <span class="fw-bolder fs-6 text-gray-800">{{ $provider->email }}</span>
+                            @else
+                            <span class="fw-bolder fs-6 text-gray-500">No email address available</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row mb-7">
                         <label class="col-lg-4 fw-bold text-muted">Address</label>
                         <div class="col-lg-8">
                             @if($provider->line_1)
