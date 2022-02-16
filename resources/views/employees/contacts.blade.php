@@ -98,7 +98,8 @@
 															<div class="col-lg-9 fv-row">
 																<input type="tel" name="phone"
 																	class="form-control form-control-lg form-control-solid"
-																	placeholder="01234 567 890"/>
+																	placeholder="01234 567 890"
+																	data-inputmask="'mask': '99999999999'"/>
 															</div>
 														</div>
 													</div>

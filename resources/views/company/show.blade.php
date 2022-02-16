@@ -74,7 +74,7 @@
                         <label class="col-lg-4 fw-bold text-muted">Address</label>
                         <div class="col-lg-8">
                             @if($company->line_1 && $company->town && $company->county && $company->postcode && $company->country)
-                            <span class="fw-bolder fs-6 text-gray-800">{{ $company->line_1 }}, {{ $company->line_2 }}, {{ $company->town }}, {{ $company->county }}, {{ $company->postcode }} {{ $company->country }}</span>
+                            <span class="fw-bolder fs-6 text-gray-800">{{ $company->line_1 }},@if($company->line_2) {{ $company->line_2 }},@endif {{ $company->town }}, {{ $company->county }}, {{ $company->postcode }} {{ $company->country }}</span>
                             @else
                             <span class="fw-bolder fs-6 text-gray-500">No address information available</span>
                             @endif

@@ -178,7 +178,7 @@
     @yield('extra-js')
     @stack('extra-js')
 
-    @if(\Route::is('employees.edit') or \Route::is('tenders.edit'))
+    @if(\Route::is('employees.edit') or \Route::is('tenders.edit') or \Route::is('provider.edit'))
         <script>
 			$(function() {
                 var api_key = "{{ env('ALLIES_API')}}";
