@@ -5,7 +5,6 @@
                 @if(Auth::user()->companies->first()->qualifications->count() != 0 )
                 <div class="card-header border-0 py-6">
                     <div class="card-title w-100">
-                        
                             <div class="row w-100">
                                 <div class="col-3">
                                     <select wire:model="qualificationType" class="form-control form-control-solid">
