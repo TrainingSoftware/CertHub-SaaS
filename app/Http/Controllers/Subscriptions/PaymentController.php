@@ -18,14 +18,17 @@ class PaymentController extends Controller
 
     public function store(Request $request) {
         $this->validate($request, [
-            'token' => 'required'
+            'token' => 'required',
+            'quantity' => 'required'
         ]);
+
+        // Request for employee amount
 
         $plan = Plan::where('identifier', $request->plan)
             ->orWhere('identifier', 'basic')
             ->first();
 
-        $request->user()->companies()->first()->newSubscription('default', $plan->stripe_id)->create($request->token);
+        $request->user()->companies()->first()->newSubscription('default',$plan->stripe_id)->quantity($request->quantity)->create($request->token);
 
         return redirect('/home');
     }

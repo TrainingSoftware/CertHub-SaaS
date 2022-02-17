@@ -13,5 +13,9 @@ class Plan extends Model
     {
         return $this->belongsToMany(Company::class);
     }
+    public function price()
+    {
+
+    }
 
 }

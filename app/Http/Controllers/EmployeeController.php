@@ -30,6 +30,10 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('CheckEmployeeSubscription',['only' => 'store']);
+    }
 
     public function index(Request $request)
     {
