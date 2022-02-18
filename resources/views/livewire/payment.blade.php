@@ -7,7 +7,7 @@
                         <div class="current" data-kt-stepper-element="content">
                             @csrf
                             <div class="">
-                                    
+
                                     <div class="pb-10 pb-lg-15">
                                         <h2 class="fw-bolder d-flex align-items-center text-dark">
                                             How many employees do you have?
@@ -16,22 +16,24 @@
                                     <div class="fv-row">
                                         <div class="row">
                                             <div class="col">
-                                                <div class="input-group"
-                                                data-kt-dialer="true"
-                                                data-kt-dialer-min="1"
-                                                data-kt-dialer-max="500"
-                                                data-kt-dialer-step="1">
+                                                <div class="input-group" id="employee-dialer">
 
                                                 <button class="btn btn-icon btn-outline btn-outline-secondary" type="button" data-kt-dialer-control="decrease">
                                                     <i class="bi bi-dash fs-1"></i>
                                                 </button>
-                                                
-                                                <input type="text" class="form-control" readonly placeholder="Amount" value="1" data-kt-dialer-control="input" name="quantity"/>
-                                                
+
+                                                <input type="text" class="form-control"  readonly placeholder="Amount" value="1" data-kt-dialer-control="input" name="quantity"/>
+                                                <input type="hidden" name="plan" value="{{$plan->identifier}}">
                                                 <button class="btn btn-icon btn-outline btn-outline-secondary" type="button" data-kt-dialer-control="increase">
                                                     <i class="bi bi-plus fs-1"></i>
                                                 </button>
                                             </div>
+                                            <div>
+                                                <h2 id="employee-amount" class="mt-4 fs-10">
+                                                    £{{$plan->price}}
+                                                </h2>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -101,3 +103,25 @@
         </div>
     </div>
 </div>
+@push('extra-js')
+    <script>
+        var amount  = document.getElementById('employee-amount')
+        var dialerElement = document.querySelector("#employee-dialer")
+        var dialerObject = new KTDialer(dialerElement, {
+            min: 1,
+            max: 500,
+            step: 1,
+        });
+       dialerObject.on('kt.dialer.increase',function(t){
+           if(t.value >=1) {
+               amount.textContent = "£" + (t.value + 1) * {{$plan->price}};
+           }
+
+       })
+        dialerObject.on('kt.dialer.decrease',function(t){
+            if(t.value >=2){
+                amount.textContent = "£" + (t.value - 1) *  {{$plan->price}};
+            }
+       })
+    </script>
+@endpush

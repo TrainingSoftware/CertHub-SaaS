@@ -22,7 +22,6 @@ class PaymentController extends Controller
             'quantity' => 'required'
         ]);
 
-        // Request for employee amount
 
         $plan = Plan::where('identifier', $request->plan)
             ->orWhere('identifier', 'basic')
