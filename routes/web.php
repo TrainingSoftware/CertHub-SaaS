@@ -111,6 +111,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
                 Route::get('3', [ReportController::class, 'thisQuarter']);
                 Route::get('4', [ReportController::class, 'nextQuarter']);
                 Route::get('5', [ReportController::class, 'thisYear']);
+                Route::get('6', [ReportController::class, 'thisYearProvider']);
             });
 
             Route::group(['prefix'=>'training'], function() {

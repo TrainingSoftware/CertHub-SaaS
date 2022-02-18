@@ -226,4 +226,37 @@ class ReportController extends Controller
         ]);
     }
 
+    public function thisYearProvider()
+    {
+        // get current company
+        $company = Auth::user()->companies()->first();
+
+        // get the dates
+        $start = Carbon::now()->startOfYear();
+        $end = Carbon::now()->endOfYear();
+
+        // get qualifications expiring next quarter
+        $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
+            ->whereBetween('expiry_date', array($start, $end))
+            ->get();
+
+        // sum qualifications expiring next quarter
+        $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
+            ->whereBetween('expiry_date', array($start, $end))
+            ->sum('price');
+
+        // count qualifications expiring next quarter
+        $qualificationsCount = \App\Models\Qualification::where('company_id', '=', $company->id)
+            ->whereBetween('expiry_date', array($start, $end))
+            ->count();
+
+        return view('reports.providers.this-year', [
+            'start' => $start,
+            'end' => $end,
+            'qualifications' => $qualifications,
+            'qualificationsPrice' => $qualificationsPrice,
+            'qualificationsCount' => $qualificationsCount
+        ]);
+    }
+
 }
