@@ -35,7 +35,7 @@ class CompanyUpdateRequest extends FormRequest
             'county' => ['required', 'string'],
             'postcode' => ['required', 'string'],
             'country' => ['required', 'string'],
-            'avatar' => ['required','file'],
+            'avatar' => ['nullable','file'],
             'company_reg' => ['nullable'],
             'company_vat' => ['nullable'],
             'citb_levy' => ['nullable', 'boolean']

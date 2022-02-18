@@ -13,10 +13,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Mail;
 use \LaravelArchivable\Archivable;
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Employee extends Authenticatable implements CanResetPassword
+class Employee extends Authenticatable implements CanResetPassword,HasMedia
 {
-    use Notifiable, Archivable, HasFactory;
+    use Notifiable, Archivable, HasFactory,InteractsWithMedia;
 
     protected $guard = 'employee';
 
@@ -120,5 +122,6 @@ class Employee extends Authenticatable implements CanResetPassword
     {
         Mail::to($this)->send(new WelcomeMail($password,$this));
     }
+
 
 }

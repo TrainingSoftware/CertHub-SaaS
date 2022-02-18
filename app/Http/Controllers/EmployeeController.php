@@ -141,9 +141,10 @@ class EmployeeController extends Controller
     {
         // get current logged in user
         $user = Auth::user();
+        $company = Auth::user()->companies()->first();
 
         // get departments
-        $departments = Department::all();
+        $departments = $company->departments;
 
         // define genders
         $genders = array([
@@ -187,7 +188,14 @@ class EmployeeController extends Controller
 
         // update department with validated data
         $employee->update($updateData);
-
+        if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
+            $employee->clearMediaCollection('avatar');
+            $employee->addMediaFromRequest('avatar')
+                ->addCustomHeaders([
+                    'ACL' => 'public-read'
+                ])
+                ->toMediaCollection('avatar');
+        }
         // log the provider on successful update
         activity('employee')
             ->performedOn($employee)

@@ -131,7 +131,7 @@
                                     <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
                                     <td>
                                         @if($item->upload)
-                                            <a href="{{ Storage::disk('vultr')->url($item->upload->url) }}" target="_blank">
+                                            <a href="{{ Storage::disk(env('MEDIA_DISK'))->url($item->upload->url) }}" target="_blank">
                                                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
                                                     <span class="svg-icon svg-icon-success svg-icon-2hx">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

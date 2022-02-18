@@ -15,7 +15,17 @@
                         	</span>
 							<form method="GET" class="me-5">
 								<input type="text" wire:model="searchTerm"  class="form-control form-control-solid w-250px ps-14" placeholder="Search employees" autocomplete="off"/>
-							</form>
+
+                            </form>
+                            <div class="col-4">
+                                    <select wire:model="department" class="form-control form-control-solid">
+                                        <option value="">Select Department</option>
+                                        @foreach($departments as $d)
+                                            <option value="{{$d->id}}">{{$d->name}}</option>
+                                        @endforeach
+
+                                    </select>
+                                </div>
 						</div>
 					</div>
 				</div>

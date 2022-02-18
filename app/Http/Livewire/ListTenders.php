@@ -20,16 +20,13 @@ class ListTenders extends Component
         if($this->searchTerm !=''){
             $this->tenders = $tenders->where('name', 'like', '%' . $this->searchTerm . '%');
         }
-        if($this->start != ""){
+        if($this->start != "" && $this->end != ""){
 
             $newStart = date('Y-m-d',strtotime($this->start));
-
-             $tenders->whereDate('start_date','<=',$newStart);
-        }
-        if($this->end != ""){
             $newEnd = date('Y-m-d',strtotime($this->end));
-             $tenders->whereDate('end_date','>=',$newEnd);
+            $tenders->whereDate('end_date','>=',$newEnd)->whereDate('start_date','<=',$newStart);
         }
+
         $this->tenders = $tenders->get();
         return view('livewire.list-tenders');
     }

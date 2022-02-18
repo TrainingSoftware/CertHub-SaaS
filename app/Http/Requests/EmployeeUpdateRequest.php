@@ -40,6 +40,7 @@ class EmployeeUpdateRequest extends FormRequest
             'county' => ['string','nullable'],
             'postcode' => ['string','nullable'],
             'start_date' => ['date','nullable'],
+            'avatar' => ['nullable','file'],
             'end_date' => ['date','nullable'],
             'salary' => ['numeric','nullable'],
             'employment' => ['string','nullable'],
