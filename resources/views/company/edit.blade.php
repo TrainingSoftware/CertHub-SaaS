@@ -32,12 +32,15 @@
                     </div>
                 </div>
                 <div class="card-body p-9">
-                    {{ Form::model($company, array('route' => array('company.update', $company->id), 'method' => 'PUT')) }}
+                    {{ Form::model($company, array('route' => array('company.update', $company->id), 'method' => 'PUT','enctype'=>'multipart/form-data')) }}
                     <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Name</span></label>
                         <div class="col-lg-8">
-                            <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('assets/media/svg/avatars/blank.svg')">
-                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-1.jpg)"></div>
+                            @php
+
+                            @endphp
+                            <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{$company->getMedia('avatar')->first() != null ? $company->getMedia('avatar')->first()->getUrl() : "assets/media/svg/avatars/blank.svg" }}')">
+                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url('{{$company->getMedia('avatar')->first() != null ? $company->getMedia('avatar')->first()->getUrl() : "assets/media/svg/avatars/blank.svg" }}')"></div>
                                 <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
                                     <i class="bi bi-pencil-fill fs-7"></i>
                                     <input type="file" name="avatar" accept=".png, .jpg, .jpeg">

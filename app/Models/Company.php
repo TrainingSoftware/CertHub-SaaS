@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Company extends Model
+class Company extends Model implements HasMedia
 {
-    use HasFactory, Notifiable, Billable;
+    use HasFactory, Notifiable, Billable,InteractsWithMedia;
     protected $fillable = [
         'user_id',
         'name',

@@ -159,8 +159,17 @@ class CompanyController extends Controller
         $updateData = $request->validated();
 
         // find employee and update with validated data
-        $company = Company::findOrFail($id)->update($updateData);
+        $company = Company::findOrFail($id);
 
+        $company->update($updateData);
+        if($request->hasFile('avatar') && $request->file('avatar')->isValid()){
+            $company->clearMediaCollection('avatar');
+            $company->addMediaFromRequest('avatar')
+                ->addCustomHeaders([
+                    'ACL' => 'public-read'
+                ])
+                ->toMediaCollection('avatar');
+        }
         // log the company on successful update
         //activity('company')
         //    ->performedOn($company)
