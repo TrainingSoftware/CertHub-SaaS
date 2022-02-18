@@ -27,8 +27,8 @@ class EmployeeCreateRequest extends FormRequest
             //
             'firstname' => ['required'],
             'lastname' => ['required'],
-            'email' => ['required','email','unique:employees,email'],
-            'phone' => ['required','numeric', 'digits:11'],
+            'email' => ['nullable','email','unique:employees,email'],
+            'phone' => ['nullable','numeric', 'digits:11'],
             'position' => ['string','nullable'],
             'dob' => ['date','nullable'],
             'gender' => ['string','nullable'],

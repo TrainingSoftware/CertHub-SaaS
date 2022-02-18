@@ -27,8 +27,8 @@ class EmployeeUpdateRequest extends FormRequest
             //
             'firstname' => ['required'],
             'lastname'  => ['required'],
-            'email' => ['required','email','unique:employees,email,'.$this->route('employee')->id],
-            'phone' => ['required','numeric','digits:11'],
+            'email' => ['nullable','email','unique:employees,email,'.$this->route('employee')->id],
+            'phone' => ['nullable','numeric','digits:11'],
             'position' => ['string','nullable'],
             'dob' => ['date','nullable'],
             'gender' => ['string','nullable'],

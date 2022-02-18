@@ -58,7 +58,7 @@
 							</div>
 							<div class="row mb-6">
 								<label
-									class="col-lg-4 col-form-label required fw-bold fs-6">Email</label>
+									class="col-lg-4 col-form-label fw-bold fs-6">Email</label>
 								<div class="col-lg-8 fv-row">
 									<input type="text" name="email"
 										class="form-control form-control-lg form-control-solid"
@@ -67,7 +67,7 @@
 							</div>
 							<div class="row mb-6">
 								<label class="col-lg-4 col-form-label fw-bold fs-6">
-								<span class="required">Phone</span>
+								<span>Phone</span>
 								</label>
 								<div class="col-lg-8 fv-row">
 									<input type="tel" name="phone"

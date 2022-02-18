@@ -8,19 +8,20 @@ use Livewire\Component;
 
 class GlobalSearch extends Component
 {
-    public $searchTerm; 
+    public $searchTerm;
     public $employees;
 
     public function render()
     {
-        
+
         $company = Auth::user()->companies()->first();
 
         $this->employees = $company->employees()
-            ->where('firstname', 'like', '%' . $this->searchTerm . '%')
-            ->orWhere('lastname', 'like', '%' . $this->searchTerm . '%')
-            ->orWhere('email', 'like', '%' . $this->searchTerm . '%')
-            ->get();
+            ->where(function($q){
+                $q->where('firstname', 'like', '%' . $this->searchTerm . '%')
+                ->orWhere('lastname', 'like', '%' . $this->searchTerm . '%')
+                ->orWhere('email', 'like', '%' . $this->searchTerm . '%');
+            })->get();
 
         return view('livewire.global-search');
     }

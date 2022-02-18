@@ -88,6 +88,17 @@
 							</div>
 						</div>
 					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Date of Birth</label>
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="form-group col-md-12">
+                                    {{Form::date('dob',null,array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0'))}}
+{{--                                    <input type="date" class="form-control form-control-solid mb-3 mb-lg-0" name="dob">--}}
+								</div>
+							</div>
+						</div>
+					</div>
 					@if(Auth::user()->company)
 					<div class="row mb-7 d-flex h-100">
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Company</label>
