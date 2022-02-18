@@ -58,6 +58,7 @@
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary align-self-center">Update</button>
                 {{ Form::close() }}
+                    @if(!Auth::user()->id === $user->id)
                     <button class="btn btn-danger align-self-center" data-bs-toggle="modal" data-bs-target="#kt_modal_confirm_delete">Delete</button>
                     <div class="modal fade" id="kt_modal_confirm_delete" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered mw-800px">
@@ -90,6 +91,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

@@ -32,6 +32,14 @@
                     <a href="/company/{{ $company->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit Company</a>
                 </div>
                 <div class="card-body p-9">
+                <div class="row mb-7">
+                        <label class="col-lg-4 fw-bold text-muted">Logo</label>
+                        <div class="col-lg-8">
+                            <span class="fw-bolder fs-6 text-gray-800">
+                                <img src="{{$company->getMedia('avatar')->first() != null ? $company->getMedia('avatar')->first()->getUrl() : "assets/media/svg/avatars/blank.svg" }}" class="img-fluid w-25"/>
+                            </span>
+                        </div>
+                    </div>
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-bold text-muted">Name</label>
                         <div class="col-lg-8">

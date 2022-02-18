@@ -76,16 +76,6 @@
                         </div>
                     </div>
                     <div class="row mb-7 d-flex h-100">
-                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Employees</label>
-                        <div class="col-lg-8">
-                            <div class="row">
-                                <div class="form-group col-md-12">
-                                    {!! Form::select('size', $size, null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
                         <span class="required">Phone</span></label>
                         <div class="col-lg-8 d-flex align-items-center">
