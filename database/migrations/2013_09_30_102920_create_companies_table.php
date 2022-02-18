@@ -17,7 +17,6 @@ class CreateCompaniesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
-            $table->string('size');
             $table->string('line_1');
             $table->string('line_2')->nullable();
             $table->string('town');
