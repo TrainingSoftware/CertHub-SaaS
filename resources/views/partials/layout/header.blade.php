@@ -119,6 +119,24 @@
                         </div>
                     </div>
                     <div class="separator my-2"></div>
+                    <div class="menu-item py-5 px-8">
+                        <div class="d-flex text-muted fs-8 mb-3">
+                            <span class="flex-grow-1 text-gray-800">Employees</span>
+                            <span class="text-gray-800">{{ Auth::user()->companies()->first()->employees->count()  }} of {{ Auth::user()->companies()->first()->subscriptions()->first()->quantity }} Used</span>
+                        </div>
+                        <div class="progress h-8px bg-light-primary mb-2">
+                            <div class="progress-bar bg-primary" 
+                                role="progressbar" 
+                                style="width: {{ Auth::user()->companies()->first()->subscriptions()->first()->quantity - Auth::user()->companies()->first()->employees->count()  }}%" 
+                                aria-valuenow="{{ Auth::user()->companies()->first()->subscriptions()->first()->quantity - Auth::user()->companies()->first()->employees->count()  }}" 
+                                aria-valuemin="{{ Auth::user()->companies()->first()->employees->count()  }}" 
+                                aria-valuemax="{{ Auth::user()->companies()->first()->subscriptions()->first()->quantity }}">
+                            </div>
+                        </div>
+                        <div class="fs-8 text-gray-600 fw-bold mb-2">{{ Auth::user()->companies()->first()->subscriptions()->first()->quantity - Auth::user()->companies()->first()->employees->count()  }} Employees remaining until your plan requires updating. <a href="/billing-portal">Upgrade now?</a></div>
+                    </div>
+                    <div class="separator my-2"></div>
+
                     <div class="menu-item px-5">
                         <a href="/company" class="menu-link px-5">Company details</a>
                     </div>
