@@ -125,11 +125,11 @@
                             <span class="text-gray-800">{{ Auth::user()->companies()->first()->employees->count()  }} of {{ Auth::user()->companies()->first()->subscriptions()->first()->quantity }} Used</span>
                         </div>
                         <div class="progress h-8px bg-light-primary mb-2">
-                            <div class="progress-bar bg-primary" 
-                                role="progressbar" 
-                                style="width: {{ Auth::user()->companies()->first()->subscriptions()->first()->quantity - Auth::user()->companies()->first()->employees->count()  }}%" 
-                                aria-valuenow="{{ Auth::user()->companies()->first()->subscriptions()->first()->quantity - Auth::user()->companies()->first()->employees->count()  }}" 
-                                aria-valuemin="{{ Auth::user()->companies()->first()->employees->count()  }}" 
+                            <div class="progress-bar bg-primary"
+                                role="progressbar"
+                                style="width: {{ ( Auth::user()->companies()->first()->employees->count() / Auth::user()->companies()->first()->subscriptions()->first()->quantity) * 100 }}%"
+                                aria-valuenow="{{ Auth::user()->companies()->first()->subscriptions()->first()->quantity - Auth::user()->companies()->first()->employees->count()  }}"
+                                aria-valuemin="{{ Auth::user()->companies()->first()->employees->count()  }}"
                                 aria-valuemax="{{ Auth::user()->companies()->first()->subscriptions()->first()->quantity }}">
                             </div>
                         </div>
