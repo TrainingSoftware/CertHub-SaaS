@@ -26,7 +26,6 @@ class CompanyCreateRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'type' => ['required', 'string'],
-            'size' => ['required', 'string'],
             'line_1' => ['required', 'string'],
             'town' => ['required', 'string'],
             'county' => ['required', 'string'],

@@ -26,7 +26,6 @@ class EmployeeExport implements FromCollection, headings
     {
         return [
             'id',
-            'user_id',
             'title',
             'firstname',
             'lastname',
@@ -46,7 +45,6 @@ class EmployeeExport implements FromCollection, headings
             'end_date',
             'salary',
             'employment',
-            'department_id'
         ];
     }
 }

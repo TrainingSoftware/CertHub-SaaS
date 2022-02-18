@@ -27,7 +27,6 @@ class CompanyUpdateRequest extends FormRequest
             //
             'name' => ['required', 'string'],
             'type' => ['required', 'string'],
-            'size' => ['required', 'string'],
             'phone' => ['digits:11', 'nullable'],
             'email' => ['nullable', 'email'],
             'line_1' => ['required', 'string'],

@@ -6,17 +6,32 @@
                     <form class="my-auto pb-5" id="payment-form" action="{{ route('payments.store') }}" method="POST">
                         <div class="current" data-kt-stepper-element="content">
                             @csrf
-                            <input type="hidden" name="plan" id="plan" value="{{ request('plan') }}">
-                            <div class="w-100">
-                                <div class="pb-10 pb-lg-15">
-                                    <h2 class="fw-bolder d-flex align-items-center text-dark">
-                                    Enter Number of Employee
-                                    </h2>
-                                </div>
-                                <div class="fv-row">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <input name="quantity" type="number" class="form-control">
+                            <div class="">
+                                    
+                                    <div class="pb-10 pb-lg-15">
+                                        <h2 class="fw-bolder d-flex align-items-center text-dark">
+                                            How many employees do you have?
+                                        </h2>
+                                    </div>
+                                    <div class="fv-row">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="input-group"
+                                                data-kt-dialer="true"
+                                                data-kt-dialer-min="1"
+                                                data-kt-dialer-max="500"
+                                                data-kt-dialer-step="1">
+
+                                                <button class="btn btn-icon btn-outline btn-outline-secondary" type="button" data-kt-dialer-control="decrease">
+                                                    <i class="bi bi-dash fs-1"></i>
+                                                </button>
+                                                
+                                                <input type="text" class="form-control" readonly placeholder="Amount" value="1" data-kt-dialer-control="input" name="quantity"/>
+                                                
+                                                <button class="btn btn-icon btn-outline btn-outline-secondary" type="button" data-kt-dialer-control="increase">
+                                                    <i class="bi bi-plus fs-1"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -145,36 +145,6 @@
                                         <option value="Royal charter (RC)">Royal charter (RC)</option>
                                     </select>
                                 </div>
-                                <div class="mb-10 fv-row">
-                                    <label class="d-flex align-items-center form-label mb-3 required">Specify Team Size
-                                    <i class="fas fa-exclamation-circle ms-2 fs-7 d-none" data-bs-toggle="tooltip" title="Provide your team size to help us setup your billing"></i></label>
-                                    <div class="row mb-2" data-kt-buttons="true">
-                                        <div class="col-md col-12 mb-5 mb-sm-0">
-                                            <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
-                                            <input type="radio" class="btn-check" name="size" value="1-1" />
-                                            <span class="fw-bolder fs-3">1 - 10</span>
-                                            </label>
-                                        </div>
-                                        <div class="col-md col-12 mb-5 mb-sm-0">
-                                            <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4 active">
-                                            <input type="radio" class="btn-check" name="size" checked="checked" value="11 - 50" />
-                                            <span class="fw-bolder fs-3">11 - 50</span>
-                                            </label>
-                                        </div>
-                                        <div class="col-md col-12 mb-5 mb-sm-0">
-                                            <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
-                                            <input type="radio" class="btn-check" name="size" value="11-50" />
-                                            <span class="fw-bolder fs-3">51 - 100</span>
-                                            </label>
-                                        </div>
-                                        <div class="col-md col-12 mb-5 mb-sm-0">
-                                            <label class="btn btn-outline btn-outline-dashed btn-outline-default w-100 p-4">
-                                            <input type="radio" class="btn-check" name="size" value="50+" />
-                                            <span class="fw-bolder fs-3">100+</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="" data-kt-stepper-element="content">

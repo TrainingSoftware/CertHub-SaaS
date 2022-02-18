@@ -34,7 +34,6 @@ class EmployeeImport implements ToModel
             'county' => $row[12],
             'postcode' => $row[13],
             'employment' => $row[14],
-            'user_id' => $user
         ]);
     }
 }
