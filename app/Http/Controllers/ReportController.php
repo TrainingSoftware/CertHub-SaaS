@@ -206,7 +206,6 @@ class ReportController extends Controller
         $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->get();
-
         // sum qualifications expiring next quarter
         $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
@@ -236,14 +235,27 @@ class ReportController extends Controller
         $end = Carbon::now()->endOfYear();
 
         // get qualifications expiring next quarter
-        $qualifications = \App\Models\Qualification::where('company_id', '=', $company->id)
+        $qualifications = \App\Models\Qualification::with('provider')
+            ->where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->get();
+
+        $qualificationsByProviders =  \App\Models\Qualification::with('provider')
+            ->where('company_id', '=', $company->id)
+            ->whereBetween('expiry_date', array($start, $end))
+            ->get()
+            ->groupBy('provider.name');
+
+        $byPrice = $qualificationsByProviders->map(function ($q){
+            return $q->sum('price');
+        });
+   
 
         // sum qualifications expiring next quarter
         $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array($start, $end))
             ->sum('price');
+
 
         // count qualifications expiring next quarter
         $qualificationsCount = \App\Models\Qualification::where('company_id', '=', $company->id)
@@ -255,7 +267,8 @@ class ReportController extends Controller
             'end' => $end,
             'qualifications' => $qualifications,
             'qualificationsPrice' => $qualificationsPrice,
-            'qualificationsCount' => $qualificationsCount
+            'qualificationsCount' => $qualificationsCount,
+            'priceByProvider' => $byPrice
         ]);
     }
 
