@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EmployeeContactCreateRequest;
+use App\Http\Requests\EmployeeContactUpdateRequest;
+use App\Models\Contact;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,5 +23,24 @@ class EmployeeContactController extends Controller
                 ->causedBy(Auth::user())
                 ->log('Contact Added By ' . Auth::user()->name);
          return redirect()->back()->with('success','Employee Contact created successfully');
+    }
+    public function edit(Employee $employee ,Contact $contact)
+    {
+        return view('employees.contact.edit',compact('contact','employee'));
+    }
+    public function update(EmployeeContactUpdateRequest $request,Employee $employee,Contact $contact)
+    {
+        $data = $request->validated();
+        $contact->update($data);
+        activity('contacts')
+                ->performedOn($contact)
+                ->causedBy(Auth::user())
+                ->log('Contact Updated By ' . Auth::user()->name);
+        return redirect()->back()->with('success','Contact updated successfully');
+    }
+    public function destroy(Employee $employee,Contact $contact)
+    {
+        $contact->delete();
+        return redirect(route('employee.contacts',$employee))->with('success','contact deleted successfully');
     }
 }

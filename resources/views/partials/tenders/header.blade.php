@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="symbol-group symbol-hover mb-3">
-                        @foreach($tender->employees->slice(0,5) as $employee)    
+                        @foreach($tender->employees->slice(0,5) as $employee)
                         <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" title="{{ $employee->firstname }}{{ $employee->lastname }}">
                             <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
                         </div>
@@ -91,6 +91,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-active-primary py-5 me-6 @if(\Route::is('tenders.renewals')) active @endif" href="/tenders/{{ $tender->id }}/renewals">Renewals</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link text-active-primary py-5 me-6 @if(\Route::is('tenders.contact')) active @endif" href="/tenders/{{ $tender->id }}/contacts">Contacts</a>
             </li>
         </ul>
     </div>

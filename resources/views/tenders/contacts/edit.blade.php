@@ -1,25 +1,31 @@
 @extends('layouts.app')
-@section('title', 'Update Employee')
+@section('title', 'Update Employee Contact')
 @section('content')
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
 	<div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
 		<div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
 			<div class="page-title d-flex flex-column me-5 py-2">
-				<h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Edit Employee: {{ $employee->firstname }} {{ $employee->lastname }}</h1>
+				<h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Edit Employee Contact: {{ $contact->firstname }} {{ $contact->lastname }}</h1>
 				<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
-					<li class="breadcrumb-item text-muted">
+                    <li class="breadcrumb-item text-muted">
 						<a href="/home" class="text-muted text-hover-primary">Home</a>
 					</li>
 					<li class="breadcrumb-item">
 						<span class="bullet bg-gray-200 w-5px h-2px"></span>
 					</li>
 					<li class="breadcrumb-item text-muted">
-						<a href="/employees" class="text-muted text-hover-primary">Employees</a>
+						<a href="{{route('tenders.index')}}" class="text-muted text-hover-primary">Tender</a>
+					</li>
+                    <li class="breadcrumb-item">
+						<span class="bullet bg-gray-200 w-5px h-2px"></span>
+					</li>
+                    <li class="breadcrumb-item text-muted">
+						<a href="/tenders/{{$tender->id}}/contacts" class="text-muted text-hover-primary">Contact</a>
 					</li>
 					<li class="breadcrumb-item">
 						<span class="bullet bg-gray-200 w-5px h-2px"></span>
 					</li>
-					<li class="breadcrumb-item text-dark">{{ $employee->firstname }} {{ $employee->lastname }}</li>
+					<li class="breadcrumb-item text-dark">{{ $contact->firstname }} {{ $contact->lastname }}</li>
 				</ul>
 			</div>
 		</div>
@@ -27,34 +33,15 @@
 	@include('partials.layout.alert')
 	<div class="post d-flex flex-column-fluid" id="kt_post">
 		<div id="kt_content_container" class="container-xxl">
-			@include('partials.employee.header')
 			<div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
 				<div class="card-header cursor-pointer">
 					<div class="card-title m-0">
-						<h3 class="fw-bolder m-0">Edit: {{ $employee->firstname }}'s Details</h3>
+						<h3 class="fw-bolder m-0">Edit: {{ $contact->firstname }}'s Details</h3>
 					</div>
 				</div>
 				<div class="card-body p-9">
-					{{ Form::model($employee, array('route' => array('employees.update', $employee->id), 'method' => 'PUT','enctype'=>'multipart/form-data')) }}
-					<div class="row mb-7 d-flex h-100">
-                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Photo</span></label>
-                        <div class="col-lg-8">
-                            <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{$employee->getMedia('avatar')->first() != null ? $employee->getMedia('avatar')->first()->getUrl() : "assets/media/svg/avatars/blank.svg" }}')">
-                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url('{{$employee->getMedia('avatar')->first() != null ? $employee->getMedia('avatar')->first()->getUrl() : "assets/media/svg/avatars/blank.svg" }}')"></div>
-                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
-                                    <i class="bi bi-pencil-fill fs-7"></i>
-                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
-                                    <input type="hidden" name="avatar_remove">
-                                </label>
-                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="Cancel avatar">
-                                    <i class="bi bi-x fs-2"></i>
-                                </span>
-                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="Remove avatar">
-                                    <i class="bi bi-x fs-2"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+					{{ Form::model($contact, array('route' => array('tenders.contact.update',$tender, $contact->id), 'method' => 'PATCH','enctype'=>'multipart/form-data')) }}
+
 					<div class="row mb-7 d-flex h-100">
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
 						<div class="col-lg-8">
@@ -81,39 +68,15 @@
 								<div class="form-group col-md-12">
 									<select name="gender" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
 										<option disabled>Select...</option>
-										<option value="Male" @if($employee->employment === 'Male') selected @endif>Male</option>
-										<option value="Female" @if($employee->employment === 'Female') selected @endif>Female</option>
+										<option value="Male" @if($contact->gender === 'Male') selected @endif>Male</option>
+										<option value="Female" @if($contact->gender === 'Female') selected @endif>Female</option>
 									</select>
 								</div>
 							</div>
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Date of Birth</label>
-						<div class="col-lg-8">
-							<div class="row">
-								<div class="form-group col-md-12">
-                                    {{Form::date('dob',null,array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0'))}}
-{{--                                    <input type="date" class="form-control form-control-solid mb-3 mb-lg-0" name="dob">--}}
-								</div>
-							</div>
-						</div>
-					</div>
-					@if(Auth::user()->company)
-					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Company</label>
-						<div class="col-lg-8 fv-row">
-							<span class="fw-bolder text-gray-800 fs-6">{{ Auth::user()->company->name }}</span>
-						</div>
-					</div>
-					@endif
-					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
-						<span class="required">Contact Phone</span></label>
-						<div class="col-lg-8 d-flex align-items-center">
-							<input type="text" name="phone" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $employee->phone }}" data-inputmask="'mask': '99999999999'">
-						</div>
-					</div>
+
+
 					<div class="row mb-7 d-flex h-100">
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
 						<span class="required">Email</span>
@@ -430,74 +393,19 @@
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Position</label>
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Relationship</label>
 						<div class="col-lg-8">
-							{{ Form::text('position', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Training Manager')) }}
+							{{ Form::text('relation', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Relationship ')) }}
 						</div>
 					</div>
-					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Employment Details</label>
-						<div class="col-lg-8">
-							<div class="row mb-7">
-								<div class="form-group col-md-6">
-									<label class="d-flex align-items-center form-label">
-									Start Date
-									</label>
-									<input name="start_date" id="employeeStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($employee->start_date){{ $employee->start_date->format('j-n-Y') }}@endif">
-								</div>
-								<div class="form-group col-md-6">
-									<label class="d-flex align-items-center form-label">
-									End Date
-									</label>
-									<input name="end_date" id="tenderStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($employee->end_date){{ $employee->end_date->format('j-n-Y') }}@endif">
-								</div>
-							</div>
-							<div class="row mb-7">
-								<div class="form-group col-md-6">
-									<label class="d-flex align-items-center form-label">
-									Salary
-									</label>
-									{{ Form::text('salary', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '26,500' )) }}
-								</div>
-								<div class="form-group col-md-6">
-									<label class="d-flex align-items-center form-label">
-									Employment Status
-									</label>
-									<select name="employment" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
-										<option>Select...</option>
-										<option value="Full Time" @if($employee->employment === 'Full Time') selected @endif>Full Time</option>
-										<option value="Part Time" @if($employee->employment === 'Part Time') selected @endif>Part Time</option>
-										<option value="Fixed-term" @if($employee->employment === 'Fixed-term') selected @endif>Fixed-term</option>
-										<option value="Freelancer / Contractor" @if($employee->employment === 'Freelancer / Contractor') selected @endif>Freelancer / Contractor</option>
-										<option value="Agency" @if($employee->employment === 'Agency') selected @endif>Agency</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Department</label>
-						<div class="col-lg-8">
-							<div class="row">
-								<div class="form-group col-md-12">
-									<label class="d-flex align-items-center form-label">
-									Department
-									</label>
-									<select name="department_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
-									@foreach($departments as $item)
-									    <option value="{{ $item->id }}" @if(optional($employee->department)->id === $item->id) selected @endif>{{ $item->name }}</option>
-									@endforeach
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
+
+
 				</div>
 				<div class="card-footer">
 					<button type="submit" class="btn btn-primary align-self-center">Update</button>
 					{{ Form::close() }}
 					@include('partials.global.postcode-search')
-					{{ Form::model($employee, array('route' => array('employees.destroy', $employee->id), 'method' => 'DELETE', 'class' => 'd-inline')) }}
+					{{ Form::model($contact, array('route' => array('tenders.contact.destroy',$tender, $contact), 'method' => 'DELETE', 'class' => 'd-inline')) }}
 					<button type="submit" class="btn btn-danger align-self-center">Delete</button>
 					{{ Form::close() }}
 				</div>

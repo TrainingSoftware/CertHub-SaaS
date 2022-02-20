@@ -249,7 +249,7 @@ class ReportController extends Controller
         $byPrice = $qualificationsByProviders->map(function ($q){
             return $q->sum('price');
         });
-   
+
 
         // sum qualifications expiring next quarter
         $qualificationsPrice = \App\Models\Qualification::where('company_id', '=', $company->id)

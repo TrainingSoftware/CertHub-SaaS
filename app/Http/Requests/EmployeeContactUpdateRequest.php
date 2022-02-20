@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmployeeContactCreateRequest extends FormRequest
+class EmployeeContactUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -30,6 +30,15 @@ class EmployeeContactCreateRequest extends FormRequest
             'lastname' => ['required'],
             'email' => ['email','nullable'],
             'phone' => ['nullable'],
+            'gender' => ['string','nullable'],
+            'line_1' => ['string','nullable'],
+            'line_2' => ['string','nullable'],
+            'line_3' => ['string','nullable'],
+            'town' => ['string','nullable'],
+            'city' => ['string','nullable'],
+            'county' => ['string','nullable'],
+            'postcode' => ['string','nullable'],
+            'relation' => ['string','nullable']
         ];
     }
 }

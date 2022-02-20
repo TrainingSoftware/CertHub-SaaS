@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeContactController;
+use App\Http\Controllers\TenderContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CompanyController;
@@ -65,6 +66,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::get('/employees/{employee}/qualifications', [EmployeeController::class, 'qualifications'])->name('employee.qualifications');
             Route::get('/employees/{employee}/contacts', [EmployeeController::class, 'contacts'])->name('employee.contacts');
             Route::post('/employees/{employee}/contacts/store',[EmployeeContactController::class,'store'])->name('employee.contacts.store');
+            Route::get('/employees/{employee}/contacts/{contact}',[EmployeeContactController::class,'edit'])->name('employee.contact.edit');
+            Route::patch('/employees/{employee}/contacts/{contact}',[EmployeeContactController::class,'update'])->name('employee.contact.update');
+            Route::delete('/employees/{employee}/contacts/{contact}',[EmployeeContactController::class,'destroy'])->name('employee.contact.destroy');
+
+
+
             Route::get('employee/reset-password/{token}',[EmployeeController::class, 'showResetPassword'])->name('employee.show-reset-password');
             Route::get('/employees/{employee}/send-welcome-mail', [EmployeeController::class, 'sendWelcomeEmail'])->name('employee.welcome-mail');
             Route::get('/employees/{employee}/send-reset-link', [EmployeeController::class, 'sendResetLink'])->name('employee.send-reset-link');
@@ -95,7 +102,11 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::get('/tenders/{tender}/employees',[TenderController::class, 'employees'])->name('tenders.employees');
             Route::get('/tenders/{tender}/renewals',[TenderController::class, 'renewals'])->name('tenders.renewals');
             Route::get('/tenders/{tender}/export', [TenderExportController::class, 'generateExport'])->name('tender.export');
-
+            Route::get('/tenders/{tender}/contacts',[TenderContactController::class,'index'])->name('tenders.contact');
+            Route::post('/tenders/{tender}/contacts',[TenderContactController::class,'store'])->name('tenders.contact.store');
+            Route::get('/tenders/{tender}/contacts/{contact}',[TenderContactController::class,'edit'])->name('tenders.contact.edit');
+            Route::patch('/tenders/{tender}/contacts/{contact}',[TenderContactController::class,'update'])->name('tenders.contact.update');
+            Route::delete('/tenders/{tender}/contacts/{contact}',[TenderContactController::class,'destroy'])->name('tenders.contact.destroy');
             Route::group(['prefix'=>'settings'], function() {
                 Route::resource('users', UserController::class);
                 Route::get('/personal-access-tokens', [APIController::class, 'index'])->name('api');

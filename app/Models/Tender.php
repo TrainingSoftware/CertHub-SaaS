@@ -40,5 +40,9 @@ class Tender extends Model
             'tender_id',
             'employee_id');
     }
+    public function contacts()
+    {
+        return $this->hasMany(TenderContact::class);
+    }
 
 }
