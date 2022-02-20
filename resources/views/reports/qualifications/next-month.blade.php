@@ -89,9 +89,9 @@
                 </div>
             </div>
             <div class="card mt-10">
-                <div class="card-body pt-0">
-                    <div class="card-body pt-0">
-                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+                <div class="card-body p-0">
+                    <div class="card-body">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0" id="kt_table_users">
                             <thead>
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-125px">Name</th>

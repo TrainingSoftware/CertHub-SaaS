@@ -93,8 +93,7 @@
 						<div class="col-lg-8">
 							<div class="row">
 								<div class="form-group col-md-12">
-                                    {{Form::date('dob',null,array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0'))}}
-{{--                                    <input type="date" class="form-control form-control-solid mb-3 mb-lg-0" name="dob">--}}
+                                    {{Form::text('dob',null,array('id' => 'employeeDob', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0'))}}
 								</div>
 							</div>
 						</div>
@@ -443,7 +442,7 @@
 									<label class="d-flex align-items-center form-label">
 									Start Date
 									</label>
-									<input name="start_date" id="employeeStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($employee->start_date){{ $employee->start_date->format('j-n-Y') }}@endif">
+									<input name="start_date" id="employeeStart" type="text" class="form-control flatpickr-input form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($employee->start_date){{ $employee->start_date->format('j-n-Y') }}@endif">
 								</div>
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">

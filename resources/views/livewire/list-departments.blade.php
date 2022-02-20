@@ -41,6 +41,7 @@
                                     </div>
                                 </th>
                                 <th class="min-w-125px">Department</th>
+                                <th class="">Employees</th>
                                 <th class="text-end min-w-100px">Actions</th>
                             </tr>
                         </thead>
@@ -52,10 +53,13 @@
                                         <input class="form-check-input" type="checkbox" value="1" />
                                     </div>
                                 </td>
-                                <td class="d-flex align-items-center border-bottom-0">
+                                <td class="d-flex align-items-center">
                                     <div class="d-flex flex-column">
                                         <a href="/departments/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">{{ $item->name }}</a>
                                     </div>
+                                </td>
+                                <td class="">
+                                    <a href="/departments/{{ $item->id }}" class="text-gray-800 text-hover-primary p-2">{{ $item->employees->count() }}</a>
                                 </td>
                                 <td class="text-end">
                                     <a href="/departments/{{ $item->id }}/" class="btn btn-light btn-sm">View</a>

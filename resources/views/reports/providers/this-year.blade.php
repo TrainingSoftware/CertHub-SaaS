@@ -5,7 +5,7 @@
     <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
         <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
             <div class="page-title d-flex flex-column me-5 py-2">
-                <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Report: Qualifications Expiring This Calendar Year</h1>
+                <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Report: Spend by Provider This Calendar Year</h1>
                 <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
                     <li class="breadcrumb-item text-muted">
                         <a href="/home" class="text-muted text-hover-primary">Dashboard</a>
@@ -19,7 +19,7 @@
                     <li class="breadcrumb-item">
                         <span class="bullet bg-gray-200 w-5px h-2px"></span>
                     </li>
-                    <li class="breadcrumb-item text-dark">Qualifications Expiring This year</li>
+                    <li class="breadcrumb-item text-dark">Spend by Provider This Calendar Year</li>
                 </ul>
             </div>
         </div>
@@ -35,7 +35,7 @@
                 </span>
                 <div class="d-flex flex-column pe-0 pe-sm-10">
                     <h5 class="mb-1">About this report...</h5>
-                    <span>This report shows all qualifications expiring in the current year, {{ date('Y') }}.</span>
+                    <span>This report shows training spend split by provider in the current year, {{ date('Y') }}.</span>
                 </div>
             </div>
             <div class="row align-items-end">
@@ -89,49 +89,22 @@
                 </div>
             </div>
             <div class="card mt-10">
-                <div class="card-body pt-0">
-                    <div class="card-body pt-0">
-                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+                <div class="card-body p-0">
+                    <div class="card-body">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0" id="kt_table_users">
                             <thead>
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px">Name</th>
-                                    <th class="min-w-125px">Type</th>
-                                    <th class="min-w-125px">Expiry Date</th>
-                                    <th class="min-w-125px">Status</th>
-                                    <th class="min-w-125px">Cost</th>
+                                    <th class="min-w-125px">Provider</th>
+                                    <th class="min-w-125px">Spend</th>
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-bold">
-                                @forelse($qualifications as $item)
+                                @foreach($priceByProvider as $key => $value)
                                 <tr>
-                                    <td><a href="/employees/{{ $item->employee->id }}">{{ $item->employee->firstname }} {{ $item->employee->lastname }}</a></td>
-                                    <td><a href="/qualifications/{{ $item->id }}">{{ $item->qualificationtype->name }}</a></td>
-                                    <td>{{ $item->expiry_date->format('d/m/Y') }} </td>
-                                    <td>
-                                        @if($item->expiry_date < Carbon\Carbon::today())
-                                        <span class="badge badge-danger">Expired</span>
-                                        @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
-                                        <span class="badge badge-warning">Expiring</span>
-                                        @else
-                                        <span class="badge badge-success">Valid</span>
-                                        @endif
-                                    </td>
-                                    <td>£{{ $item->price }} </td>
+                                    <td>{{ $key }}</td>
+                                    <td>£{{ $value }}</td>
                                 </tr>
-                                @empty
-                                <tr>
-                                    <td colspan="5" class="text-center text-muted">No qualifications...</td>
-                                </tr>
-                                @endforelse
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>
-                                        <strong>£{{ $qualificationsPrice }}</strong>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
