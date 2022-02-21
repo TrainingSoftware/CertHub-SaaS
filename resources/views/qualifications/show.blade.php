@@ -30,7 +30,7 @@
                 <div class="card-header cursor-pointer">
                     <div class="card-title m-0">
                         <h3 class="fw-bolder m-0">
-                            {{ $qualification->employee->firstname }}'s {{ $qualification->qualificationtype->name }} Details
+                            {{ optional($qualification->employee)->firstname }}'s {{ optional($qualification->qualificationtype)->name }} Details
                         </h3>
                         @if($qualification->expiry_date < Carbon\Carbon::today())
                         <span class="badge badge-danger ms-5">Expired</span>
@@ -59,7 +59,7 @@
                         <label class="col-lg-4 fw-bold text-muted">Employee</label>
                         <div class="col-lg-8">
                             <span class="fw-bolder fs-6 text-gray-800">
-                            <a href="/employees/{{ $qualification->employee->id }}">{{ $qualification->employee->firstname }} {{ $qualification->employee->lastname }}</a>
+                            <a href="/employees/{{ optional($qualification->employee)->id }}">{{ optional($qualification->employee)->firstname }} {{ optional($qualification->employee)->lastname }}</a>
                             </span>
                         </div>
                     </div>

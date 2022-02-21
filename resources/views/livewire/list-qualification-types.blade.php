@@ -64,6 +64,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{$qualificationtypes->links()}}
                 </div>
                 @endif
             </div>

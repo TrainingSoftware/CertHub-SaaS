@@ -5,17 +5,20 @@ namespace App\Http\Livewire;
 use App\Models\Qualification;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ListQualifications extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $qualificationType;
     public $provider;
     public $searchTerm;
     public $expiryStart;
     public $expiryEnd;
-    public $qualifications;
     public $qualificationTypes;
     public $providers;
+
 
     public function mount()
     {
@@ -46,8 +49,10 @@ class ListQualifications extends Component
             $qualifications
                 ->whereBetween('expiry_date',[$newStart,$newEnd]);
         }
-        $this->qualifications = $qualifications->get();
 
-        return view('livewire.list-qualifications');
+
+        return view('livewire.list-qualifications',[
+            'qualifications' => $qualifications->paginate(10)
+        ]);
     }
 }

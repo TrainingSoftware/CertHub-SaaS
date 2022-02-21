@@ -18,33 +18,21 @@ class UploadController extends Controller
         $user = Auth::user();
 
         // find the qualification
-        $qualification = Qualification::find($qualification);
 
         // validate the file
         $request->validate([
             'file' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+        $qualification = Qualification::find($request->input('qualification_id'));
 
-        $file = $request->file('file');
-
-        $hashName = $file->hashName();
-
-        $storagePath = Storage::disk(env('MEDIA_DISK'))->putFile('uploads/' . $company->id . '/' . $request->qualification_id, $file, 'public');
-
-        if ($storagePath) {
-
-            $request->merge([
-                'filename' => $hashName
-            ]);
-
-            $upload = new Upload();
-            $upload->company_id = $company->id;
-            $upload->qualification_id = $request->qualification_id;
-            $upload->url = $storagePath;
-            $upload->save();
-
-            return back()->with('success', $storagePath . ' successfully upload image.');
-
+        if($request->hasFile('file') && $request->file('file')->isValid()){
+            $qualification->clearMediaCollection('qualification');
+            $qualification->addMediaFromRequest('file')
+                ->addCustomHeaders([
+                    'ACL' => 'public-read'
+                ])
+                ->toMediaCollection('qualification');
         }
+        return back()->with('success', $qualification->getMedia('qualification')->first()->getUrl() . ' successfully upload image.');
     }
 }

@@ -104,7 +104,7 @@
                         </thead>
                         <tbody class="text-gray-600 fw-bold">
                             @foreach ($qualifications as $item)
-                                @if($item->employee->is_archived == 0)
+                                @if(optional($item->employee)->is_archived == 0)
                                 <tr>
                                     <td>
                                         <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary">
@@ -112,10 +112,10 @@
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="/employees/{{ $item->employee->id }}" class="text-gray-800 text-hover-primary">{{ $item->employee->firstname }} {{ $item->employee->lastname }}</a>
+                                        <a href="/employees/{{ optional($item->employee)->id }}" class="text-gray-800 text-hover-primary">{{ optional($item->employee)->firstname }} {{ optional($item->employee)->lastname }}</a>
                                     </td>
                                     <td>
-                                        <a href="/providers/{{ $item->provider->id }}" class="text-gray-800 text-hover-primary">
+                                        <a href="/providers/{{ optional($item->provider)->id }}" class="text-gray-800 text-hover-primary">
                                             {{ $item->provider->name }}
                                         </a>
                                     </td>
@@ -130,8 +130,8 @@
                                     </td>
                                     <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
                                     <td>
-                                        @if($item->upload)
-                                            <a href="{{ Storage::disk(env('MEDIA_DISK'))->url($item->upload->url) }}" target="_blank">
+                                        @if($item->getMedia('qualification')->first())
+                                            <a href="{{ $item->getMedia('qualification')->first()->getUrl() }}" target="_blank">
                                                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
                                                     <span class="svg-icon svg-icon-success svg-icon-2hx">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -168,6 +168,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{$qualifications->links()}}
                 </div>
                 @endif
             </div>

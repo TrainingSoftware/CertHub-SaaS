@@ -5,7 +5,7 @@
     <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
         <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
             <div class="page-title d-flex flex-column me-5 py-2">
-                <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Edit Qualification: {{ $qualification->employee->firstname }}'s {{ $qualification->qualificationtype->name }}</h1>
+                <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Edit Qualification: {{ optional($qualification->employee)->firstname }}'s {{ $qualification->qualificationtype->name }}</h1>
                 <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
                     <li class="breadcrumb-item text-muted">
                         <a href="/home" class="text-muted text-hover-primary">Home</a>
@@ -19,7 +19,7 @@
                     <li class="breadcrumb-item">
                         <span class="bullet bg-gray-200 w-5px h-2px"></span>
                     </li>
-                    <li class="breadcrumb-item text-dark">{{ $qualification->employee->firstname }}'s {{ $qualification->qualificationtype->name }}</li>
+                    <li class="breadcrumb-item text-dark">{{ optional($qualification->employee)->firstname }}'s {{ $qualification->qualificationtype->name }}</li>
                 </ul>
             </div>
         </div>
@@ -33,9 +33,9 @@
                         <h3 class="fw-bolder m-0">Qualification Details</h3>
                     </div>
                     <div class="flex-end align-self-center">
-                        @if($qualification->upload)
+                        @if($qualification->getMedia('avatar')->first())
                         <a href="#" class="btn btn-sm btn-link align-self-center me-5" data-bs-toggle="modal" data-bs-target="#fileUpload">Replace File?</a>
-                        <a href="{{ Storage::disk('vultr')->url($qualification->upload->url) }}" class="btn btn-sm btn-primary align-self-center" target="_blank">View File</a>
+                        <a href="{{ $qualification->getMedia('qualification')->first()->getUrl() }}" class="btn btn-sm btn-primary align-self-center" target="_blank">View File</a>
                         @else
                         <a href="#" class="btn btn-sm btn-primary align-self-center" data-bs-toggle="modal" data-bs-target="#fileUpload">Attach File</a>
                         @endif

@@ -87,8 +87,10 @@
 									</td>
                                 </tr>
                                 @endforeach
+
 						</tbody>
 					</table>
+                         {{$employees->links()}}
 				</div>
 				@endif
 			</div>

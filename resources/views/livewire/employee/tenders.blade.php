@@ -51,6 +51,7 @@
 					@endforeach
 				</tbody>
 			</table>
+            {{$tenders->links()}}
 		</div>
 	</div>
 </div>

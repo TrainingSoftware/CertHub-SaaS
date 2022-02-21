@@ -5,13 +5,15 @@ namespace App\Http\Livewire;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ListEmployees extends Component
 {
+    use WithPagination;
     public $searchTerm;
-    public $employees;
     public $department;
     public $departments;
+    protected $paginationTheme = 'bootstrap';
 
     public function mount()
     {
@@ -39,8 +41,10 @@ class ListEmployees extends Component
         if($this->department != ""){
             $employees->where('department_id',$this->department);
         }
-        $this->employees = $employees->get();
 
-        return view('livewire.list-employees');
+
+        return view('livewire.list-employees',[
+            'employees' =>$employees->paginate(10)
+        ]);
     }
 }

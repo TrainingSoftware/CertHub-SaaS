@@ -64,6 +64,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{$departments->links()}}
                 </div>
                 @endif
             </div>

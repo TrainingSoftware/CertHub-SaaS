@@ -41,10 +41,9 @@ class EmployeeController extends Controller
         $company = Auth::user()->companies()->first();
 
         // get employees that belong to authenticated user
-        $employees = $company->employees()
-            ->paginate(10);
 
-        return view('employees.index', compact('employees'));
+
+        return view('employees.index');
     }
 
 
