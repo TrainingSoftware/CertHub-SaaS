@@ -72,7 +72,7 @@
 
             // Generate popover content
             const startDate = data.allDay ? moment(data.startDate).format('DD-MM-YYYY') : moment(data.startDate).format('DD-MM-YYYY');
-            const popoverHtml = '<div class="fw-bolder mb-2">' + data.eventName + '</div><div class="fs-7"><span class="fw-bold">Expiry Date:</span> ' + startDate + '</div><div id="kt_calendar_event_view_button" type="button" class="btn btn-sm btn-light-primary">View More</div>';
+            const popoverHtml = '<div class="fw-bolder mb-2">' + data.eventName + '</div><div class="fs-7"><span class="fw-bold">Expiry Date:</span> ' + startDate + '</div><div id="kt_calendar_event_view_button" type="button" class="btn btn-sm btn-light-primary mt-3">View Qualification</div>';
 
             // Popover options
             var options = {

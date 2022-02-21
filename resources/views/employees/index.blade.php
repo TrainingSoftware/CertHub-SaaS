@@ -39,6 +39,16 @@
 						Add Employee
 					</a>
 					@endif
+					<div class="me-0">
+                            <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                            <i class="bi bi-three-dots fs-3"></i>
+                            </button>
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
+                                <div class="menu-item px-3">
+                                    <a href="/archive/employees/" class="menu-link px-3">Archived Employees</a>
+                                </div>
+                            </div>
+                        </div>
 				</div>
 			</div>
 		</div>

@@ -104,7 +104,6 @@
                         </thead>
                         <tbody class="text-gray-600 fw-bold">
                             @foreach ($qualifications as $item)
-                                @if($item->employee->is_archived == 0)
                                 <tr>
                                     <td>
                                         <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary">
@@ -164,7 +163,6 @@
                                         <a href="/qualifications/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
                                     </td>
                                 </tr>
-                                @endif
                             @endforeach
                         </tbody>
                     </table>
