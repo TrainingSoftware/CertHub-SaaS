@@ -30,4 +30,9 @@ class QualificationType extends Model
     {
         return $this->hasMany(Qualification::class);
     }
+
+    public function awardingbodies()
+    {
+        return $this->hasMany(AwardingBody::class);
+    }
 }

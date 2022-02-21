@@ -9,6 +9,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\QualificationController;
 use App\Http\Controllers\QualificationTypeController;
+use App\Http\Controllers\AwardingBodyController;
 use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Subscriptions\SubscriptionController;
@@ -97,6 +98,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::resource('providers', ProviderController::class);
             Route::get('/providers/{provider}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
             Route::get('/import-provider', [ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
+
+            Route::resource('awarding-bodies', AwardingBodyController::class);
 
             Route::resource('tenders', TenderController::class);
             Route::get('/tenders/{tender}/employees',[TenderController::class, 'employees'])->name('tenders.employees');
