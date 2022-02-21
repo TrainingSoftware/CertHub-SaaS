@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="d-flex my-4">
-                        <a href="#" class="btn btn-sm btn-success me-5">Add Qualification</a>
+                        <a href="/qualifications/create?employee={{ $employee->id }}" class="btn btn-sm btn-success me-5">Add Qualification</a>
                         <div class="me-0">
                             <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                             <i class="bi bi-three-dots fs-3"></i>

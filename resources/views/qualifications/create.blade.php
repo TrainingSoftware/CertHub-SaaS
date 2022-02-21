@@ -50,7 +50,7 @@
                                     <select name="employee_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select employee" data-allow-clear="true" data-hide-search="false">
                                         <option></option>
                                         @foreach($employees as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" @if(request()->query("employee") == $item->id) selected @endif>{{ $item->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -75,21 +75,12 @@
                                     <small><a href="/providers/create" target="_blank">Create new?</a></small>
                                 </div>
                                 <div class="col-lg-8">
-                                    @if(request()->query("provider"))
-                                    <div class="input-group">
-                                        <input class="form-control form-control-lg form-control-solid mb-3 mb-lg-0 disbled" type="text" value="{{ $providers[0]['name'] }}" disabled>
-                                        <span class="input-group-text border-0" id="basic-addon1">
-                                        <a href="/qualifications/create">Clear</a>
-                                        </span>
-                                    </div>
-                                    @else
                                     <select name="provider_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select provider" data-allow-clear="true" data-hide-search="false">
                                         <option></option>
                                         @foreach($providers as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <option value="{{ $item->id }}" @if(request()->query("provider") == $item->id) selected @endif>{{ $item->name }}</option>
                                         @endforeach
                                     </select>
-                                    @endif
                                 </div>
                             </div>
                             <div class="row mb-6">

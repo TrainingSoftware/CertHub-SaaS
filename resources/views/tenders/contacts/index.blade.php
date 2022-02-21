@@ -58,8 +58,7 @@
 										</div>
 										<div class="modal-body scroll-y mx-5 mx-xl-10 pt-0 pb-15">
 											<div class="text-center mb-13">
-												<h1 class="d-flex justify-content-center align-items-center mb-3">Add an emergency contact for {{ $tender->firstname }}</h1>
-												<div class="text-muted fw-bold fs-5">These are important details, it's best practice to review them periodically</div>
+												<h1 class="d-flex justify-content-center align-items-center mb-3">Add a site contact for {{ $tender->name }}</h1>
 											</div>
 											<div class="mh-475px">
 												<form class="form" method="POST" action="{{route('tenders.contact.store',$tender)}}">
@@ -106,7 +105,7 @@
 														</div>
 													</div>
 													<div class="card-footer border-0 d-flex justify-content-end py-6 px-9">
-														<a href="/employees/{{ $tender->id }}/contacts"
+														<a href="/tenders/{{ $tender->id }}/contacts"
 															class="btn btn-light btn-active-light-primary me-2">Cancel</a>
 														<button type="submit" class="btn btn-primary">Create</button>
 													</div>

@@ -17,12 +17,12 @@
                     <div class="text-muted fw-bold fs-5">Add each qualification type name on a new line, press enter to enter new line
                     </div>
                 </div>
-                <div class="d-flex justify-content-center my-3">
-                    <form class="form d-flex justify-center" method="POST" action="{{route('qualificationtypes.bulk')}}">
+                <div class="row my-3">
+                    <form class="form col-12" method="POST" action="{{route('qualificationtypes.bulk')}}">
                         @csrf
                         <div class="form-group">
-                            <textarea id="" cols="30" rows="10" class="form-control w-100" name="qualificationtypes"></textarea>
-                            <button class="form-control my-3" type="submit">Submit</button>
+                            <textarea name="qualificationtypes" class="form-control form-control form-control-solid" data-kt-autosize="true"></textarea>
+                            <button class="btn btn-primary w-100 mt-5" type="submit">Import</button>
                         </div>
                     </form>
                 </div>

@@ -58,7 +58,7 @@
                                     <label class="d-flex align-items-center form-label">
                                     End Date
                                     </label>
-                                    <input name="end_date" id="tenderStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $tender->end_date->format('j-n-Y') }}">
+                                    <input name="end_date" id="tenderExpiry" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $tender->end_date->format('j-n-Y') }}">
                                 </div>
                             </div>
                         </div>

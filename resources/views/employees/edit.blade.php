@@ -483,6 +483,7 @@
 									Department
 									</label>
 									<select name="department_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+									<option selected disabled>Select department</option>
 									@foreach($departments as $item)
 									    <option value="{{ $item->id }}" @if(optional($employee->department)->id === $item->id) selected @endif>{{ $item->name }}</option>
 									@endforeach
