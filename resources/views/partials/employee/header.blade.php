@@ -90,7 +90,7 @@
                                 <div class="menu-item px-3">
                                     <form action="/employees/{{ $employee->id }}/archive" method="post">
                                         @csrf
-                                        <button type="submit" class="menu-link px-3 bg-transparent border-0 bg-hover-light w-100">Archive</button>
+                                        <button type="submit" class="menu-link px-3 bg-transparent border-0 bg-hover-light w-100 text-danger fw-bold">Archive</button>
                                     </form>
                                 </div>
                             </div>
