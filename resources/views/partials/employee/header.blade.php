@@ -2,16 +2,21 @@
     <div class="card-body pt-9 pb-0">
         <div class="d-flex flex-wrap flex-sm-nowrap mb-3">
             <div class="me-7 mb-4">
+                @if($employee->getMedia('avatar')->first())
                 <div class="symbol symbol-50px symbol-lg-60px symbol-fixed position-relative">
-                    <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
-                    @if ($employee->end_date || $employee->start_date)
-                        @if ($employee->end_date)
-                            <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-danger rounded-circle border border-4 border-white h-20px w-20px"></div>
-                        @else
-                            <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"></div>
-                        @endif
-                    @endif
+                    <img src="{{ $employee->getMedia('avatar')->first()->getUrl() }}" alt="">
+                    <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"></div>
                 </div>
+                @else
+                <div class="symbol symbol-50px symbol-lg-60px symbol-fixed position-relative">
+                    <div class="symbol-label">
+                        <div class="symbol symbol-35px symbol-circle">
+                            <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $employee->firstname[0] }}{{ $employee->lastname[0] }}</span>
+                            <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-white h-20px w-20px"></div>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
             <div class="flex-grow-1">
                 <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
