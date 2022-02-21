@@ -1,5 +1,5 @@
 <div>
-    <div class="post d-flex flex-column-fluid" id="kt_post"> 
+    <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="container-xxl">
             <div class="card">
                 @if(Auth::user()->companies->first()->qualifications->count() != 0 )
@@ -104,7 +104,7 @@
                         </thead>
                         <tbody class="text-gray-600 fw-bold">
                             @foreach ($qualifications as $item)
-                                @if(optional($item->employee)->is_archived == 0)
+                                @if(isset($item->employee))
                                 <tr>
                                     <td>
                                         <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary">
@@ -164,6 +164,7 @@
                                         <a href="/qualifications/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
                                     </td>
                                 </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

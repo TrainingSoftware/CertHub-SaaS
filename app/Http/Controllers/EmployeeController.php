@@ -445,8 +445,9 @@ class EmployeeController extends Controller
      * @param Employee $employee
      * @return \Illuminate\Http\Response
      */
-    public function unarchive(Request $request, Employee $employee)
+    public function unarchive(Request $request)
     {
+        $employee = Employee::withArchived()->find($request->employee_id);
         $employee->unArchive();
 
         return redirect('/employees/'. $employee->id)

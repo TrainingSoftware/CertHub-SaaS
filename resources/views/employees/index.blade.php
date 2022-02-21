@@ -28,7 +28,7 @@
 						</span>
 						Upgrade plan
 					</a>
-					@else 
+					@else
 					<a href="#" class="btn btn-sm btn-primary me-5" data-bs-toggle="modal" data-bs-target="#addEmployee">
 						<span class="svg-icon svg-icon-2">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -45,7 +45,7 @@
                             </button>
                             <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-bold w-200px py-3" data-kt-menu="true">
                                 <div class="menu-item px-3">
-                                    <a href="/archive/employees/" class="menu-link px-3">Archived Employees</a>
+                                    <a href="employees/archived" class="menu-link px-3">Archived Employees</a>
                                 </div>
                             </div>
                         </div>

@@ -60,6 +60,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
         Route::group(['middleware' => 'CheckUserSubscription'], function(){
 
+            Route::post('/employees/unarchive', [EmployeeController::class, 'unarchive'])->name('employee.unarchive');
+            Route::get('/employees/archived', [EmployeeController::class, 'archived'])->name('employee.archived');
             Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
             Route::resource('employees', EmployeeController::class);
@@ -77,8 +79,6 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::get('/employees/{employee}/send-reset-link', [EmployeeController::class, 'sendResetLink'])->name('employee.send-reset-link');
             Route::get('/employees/{employee}/tenders', [EmployeeController::class, 'tenders'])->name('employee.tenders');
             Route::post('/employees/{employee}/archive', [EmployeeController::class, 'archive'])->name('employee.archive');
-            Route::post('/employees/{employee}/unarchive', [EmployeeController::class, 'unarchive'])->name('employee.unarchive');
-            Route::get('/archive/employees/', [EmployeeController::class, 'archived'])->name('employee.archived');
             Route::get('/import/employees', [EmployeeController::class, 'importLanding'])->name('employee.landing');
             Route::get('/import/employees/export', [EmployeeController::class, 'export'])->name('employee.export');
             Route::post('/import/employees/import', [EmployeeController::class, 'import'])->name('employee.import');
