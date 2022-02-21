@@ -34,11 +34,14 @@ $("#employeeStart").flatpickr({
 $("#employeeEnd").flatpickr({
     dateFormat: "d-m-Y",
 });
+$("#employeeDob").flatpickr({
+    dateFormat: "d-m-Y"
+});
 $("#expiryStart").flatpickr({
-     dateFormat: "d-m-Y"
+    dateFormat: "d-m-Y"
 });
 $("#expiryEnd").flatpickr({
-     dateFormat: "d-m-Y"
+    dateFormat: "d-m-Y"
 });
 
 

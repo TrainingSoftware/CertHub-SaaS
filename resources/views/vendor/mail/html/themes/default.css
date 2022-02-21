@@ -11,7 +11,7 @@ body *:not(html):not(style):not(br):not(tr):not(code) {
 body {
     -webkit-text-size-adjust: none;
     background-color: #ffffff;
-    color: #718096;
+    color: #edf2f7;
     height: 100%;
     line-height: 1.4;
     margin: 0;
@@ -129,6 +129,7 @@ img {
     margin: 0;
     padding: 0;
     width: 100%;
+    color:#2F3044;
 }
 
 .inner-body {
@@ -232,11 +233,11 @@ img {
 
 .button-blue,
 .button-primary {
-    background-color: #2d3748;
-    border-bottom: 8px solid #2d3748;
-    border-left: 18px solid #2d3748;
-    border-right: 18px solid #2d3748;
-    border-top: 8px solid #2d3748;
+    background-color: #009EF7;
+    border-bottom: 8px solid #009EF7;
+    border-left: 18px solid #009EF7;
+    border-right: 18px solid #009EF7;
+    border-top: 8px solid #009EF7;
 }
 
 .button-green,

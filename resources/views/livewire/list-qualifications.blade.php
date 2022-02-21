@@ -1,5 +1,5 @@
 <div>
-    <div class="post d-flex flex-column-fluid" id="kt_post">
+    <div class="post d-flex flex-column-fluid" id="kt_post"> 
         <div id="kt_content_container" class="container-xxl">
             <div class="card">
                 @if(Auth::user()->companies->first()->qualifications->count() != 0 )
@@ -164,7 +164,6 @@
                                         <a href="/qualifications/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
                                     </td>
                                 </tr>
-                                @endif
                             @endforeach
                         </tbody>
                     </table>

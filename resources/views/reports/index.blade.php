@@ -59,7 +59,7 @@
                             </tr>
                             <tr>
                                 <td rowspan="1">Providers</td>
-                                <td class="p-0"><a href="/reports/#">Annual Training Spend by Provider</a></td>
+                                <td class="p-0"><a href="/reports/6">Spend by Provider This Calendar Year</a></td>
                                 <td>Shows training spend split by Provider</td>
                             </tr>
                         </tbody>

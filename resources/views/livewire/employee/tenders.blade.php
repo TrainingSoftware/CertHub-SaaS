@@ -1,7 +1,10 @@
 <div>
 	<div class="card">
-		<div class="card-header border-0 pt-6">
+		<div class="card-header">
 			<div class="card-title">
+				<h3 class="fw-bolder m-0">{{ $employee->firstname }}'s Tenders</h3>
+			</div>
+			<div class="card-toolbar">
 				<div class="d-flex align-items-center position-relative my-1">
 					<span class="svg-icon svg-icon-1 position-absolute ms-6">
 						<svg wire:loading.remove xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -10,21 +13,16 @@
 						</svg>
 						<i wire:loading class="fas fa-spinner fa-spin fa-1x"></i>
 					</span>
-					<form method="GET" class="me-5">
+					<form method="GET" class="">
 						<input type="text" wire:model="searchTerm"  class="form-control form-control-solid w-250px ps-14" placeholder="Search tenders" autocomplete="off"/>
 					</form>
-				</div>
+				</div>	
 			</div>
 		</div>
-		<div class="card-body pt-0">
+		<div class="card-body p-9">
 			<table class="table align-middle table-row-dashed fs-6 gy-5 mb-0" id="kt_table_users">
 				<thead>
 					<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-						<th class="w-10px pe-2">
-							<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-								<input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
-							</div>
-						</th>
 						<th class="min-w-125px">Name</th>
 						<th class="min-w-125px">Start Date</th>
 						<th class="min-w-125px">End Date</th>
@@ -35,11 +33,6 @@
 				<tbody class="text-gray-600 fw-bold">
 					@foreach($tenders as $item)
 					<tr>
-						<td>
-							<div class="form-check form-check-sm form-check-custom form-check-solid">
-								<input class="form-check-input" type="checkbox" value="1" />
-							</div>
-						</td>
 						<td>{{ $item->name }}</td>
 						<td>{{ $item->start_date->format('d/M/Y') }}</td>
 						<td>{{ $item->end_date->format('d/M/Y') }}</td>

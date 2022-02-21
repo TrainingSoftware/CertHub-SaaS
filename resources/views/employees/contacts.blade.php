@@ -122,9 +122,10 @@
 						<thead>
 							<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
 								<th class="min-w-125px">Name</th>
-								<th class="min-w-125px">Phone</th>
-								<th class="min-w-125px">Email</th>
-								<th class="text-end min-w-100px"></th>
+								<th class="">Phone</th>
+								<th class="">Email</th>
+								<th class="">Relationship</th>
+								<th class="text-end"></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -133,7 +134,8 @@
                                 <th>{{ $contact->firstname }} {{ $contact->lastname }}</th>
 								<th>{{ $contact->phone }}</th>
 								<th>{{ $contact->email }}</th>
-								<th><a href="/employees/{{ $employee->id }}/contacts/{{ $contact->id }}" class="btn btn-light btn-sm">View</a></th>
+								<th>{{ $contact->relation }}</th>
+								<th class="text-end"><a href="/employees/{{ $employee->id }}/contacts/{{ $contact->id }}" class="btn btn-light btn-sm">View</a></th>
                             </tr>
                             @endforeach
 						</tbody>

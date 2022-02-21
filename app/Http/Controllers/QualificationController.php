@@ -50,14 +50,8 @@ class QualificationController extends Controller
         // get qualification types with name, id
         $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)->get();
 
-        // get providers with name, id
-        if ($request->provider){
-            $providers = \App\Models\Provider::where('company_id', '=', $company->id)
-                ->where('id', '=', $request->provider)
-            ->get();
-        } else {
-            $providers = \App\Models\Provider::where('company_id', '=', $company->id)->get();
-        }
+        // get providers
+        $providers = \App\Models\Provider::where('company_id', '=', $company->id)->get();
 
         return view('qualifications.create', compact('employees', 'qualificationtypes', 'providers'));
     }

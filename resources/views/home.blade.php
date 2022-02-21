@@ -185,31 +185,6 @@
                                 <span class="badge badge-success fs-8 fw-bolder">Completed</span>
                             </div>
                             @endif
-                            @if($qualifications == 0)
-                            <div class="d-flex align-items-center mb-8">
-                                <span class="bullet bullet-vertical h-40px bg-danger"></span>
-                                <div class="form-check form-check-custom form-check-solid mx-5">
-                                    <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <a href="/qualifications" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Qualification</a>
-                                    <span class="text-muted fw-bold d-block">Add your first qualification</span>
-                                </div>
-                                <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
-                            </div>
-                            @else
-                            <div class="d-flex align-items-center mb-8">
-                                <span class="bullet bullet-vertical h-40px bg-success"></span>
-                                <div class="form-check form-check-custom form-check-solid mx-5">
-                                    <input class="form-check-input bg-success" type="checkbox" value="" checked disabled>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <a href="/qualifications" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Qualification</strike></a>
-                                    <span class="text-muted fw-bold d-block">Add your first qualification</span>
-                                </div>
-                                <span class="badge badge-success fs-8 fw-bolder">Completed</span>
-                            </div>
-                            @endif
                             @if($providers == 0)
                             <div class="d-flex align-items-center mb-8">
                                 <span class="bullet bullet-vertical h-40px bg-danger"></span>
@@ -281,6 +256,31 @@
                                 <div class="flex-grow-1">
                                     <a href="#" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Qualification Type</strike></a>
                                     <span class="text-muted fw-bold d-block">Add your first qualification type</span>
+                                </div>
+                                <span class="badge badge-success fs-8 fw-bolder">Completed</span>
+                            </div>
+                            @endif
+                            @if($qualifications == 0)
+                            <div class="d-flex align-items-center mb-8">
+                                <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                                <div class="form-check form-check-custom form-check-solid mx-5">
+                                    <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <a href="/qualifications" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Qualification</a>
+                                    <span class="text-muted fw-bold d-block">Add your first qualification</span>
+                                </div>
+                                <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
+                            </div>
+                            @else
+                            <div class="d-flex align-items-center mb-8">
+                                <span class="bullet bullet-vertical h-40px bg-success"></span>
+                                <div class="form-check form-check-custom form-check-solid mx-5">
+                                    <input class="form-check-input bg-success" type="checkbox" value="" checked disabled>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <a href="/qualifications" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Qualification</strike></a>
+                                    <span class="text-muted fw-bold d-block">Add your first qualification</span>
                                 </div>
                                 <span class="badge badge-success fs-8 fw-bolder">Completed</span>
                             </div>

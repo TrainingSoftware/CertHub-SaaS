@@ -201,9 +201,9 @@
                                         </label>
                                         <input name="postcode" id="postcode" class="form-control form-control-lg form-control-solid" value="{{ old('postcode') }}"/>
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-6 d-none">
                                         <label class="form-label required">Country</label>
-                                        <select name="country" value="United Kingdom" class="form-select form-select-lg form-select-solid" disabled>
+                                        <input name="country" value="United Kingdom" class="form-select form-select-lg form-select-solid" disabled hidden>
                                             <option></option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
