@@ -69,15 +69,21 @@
                                 @foreach ($employees as $item)
                                 <tr>
                                     <td class="d-flex align-items-center border-bottom-0">
-                                        <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                            <a href="/employees/{{ $item->id }}">
-                                                <div class="symbol-label">
-                                                    <div class="symbol symbol-35px symbol-circle">
-                                                        <span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $item->firstname[0] }}{{ $item->lastname[0] }}</span>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
+										@if($item->getMedia('avatar')->first())
+										<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+											<img src="{{ $item->getMedia('avatar')->first()->getUrl() }}">
+										</div>
+										@else
+										<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+											<a href="/employees/{{ $item->id }}">
+												<div class="symbol-label">
+													<div class="symbol symbol-35px symbol-circle">
+														<span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $item->firstname[0] }}{{ $item->lastname[0] }}</span>
+													</div>
+												</div>
+											</a>
+										</div>
+										@endif
                                         <div class="d-flex flex-column">
                                             <a href="/employees/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1">{{ $item->firstname }} {{ $item->lastname }}</a>
                                             <span>{{ $item->email }}</span>
