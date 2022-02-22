@@ -26,6 +26,7 @@ class QualificationTypeCreateRequest extends FormRequest
         return [
             //
             'name' => ['required'],
+            'awarding_body_id' => ['nullable']
         ];
     }
 }

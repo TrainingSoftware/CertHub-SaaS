@@ -17,19 +17,21 @@ class ProviderLookupController extends Controller
     {
         $company = Auth::user()->companies()->first();
 
-        $apiKey = env("COMPANIES_HOUSE");
+        $apiKey = env('COMPANIES_HOUSE');
 
         $query = $request->validate([
             'query' => 'required',
         ]);
 
-        $response = Http::withHeaders([
-            'Authorization' => 'Basic ' . $apiKey,
+        $response = Http::withBasicAuth(
+            username: $apiKey,
+            password: ''
+            )->withHeaders([
             'Connection' => 'keep-alive',
             'Accept-Encoding' => 'gzip, deflate, br',
             'Accept' => '*/*'
 
-        ])->get('https://api.companieshouse.gov.uk/company/' . $query['query']);
+        ])->get('https://api.companieshouse.gov.uk/search/companies?q='.$query['query']);
 
         $data = json_decode($response, true);
 

@@ -78,4 +78,8 @@ class Company extends Model implements HasMedia
     {
         return $this->hasMany(Upload::class);
     }
+    public function awardingBodies()
+    {
+        return $this->hasMany(AwardingBody::class);
+    }
 }

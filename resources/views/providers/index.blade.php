@@ -68,29 +68,19 @@
 								Import from Companies House
 								</button>
 							</div>
+
 						</div>
-						<div id="searchCompany" class="accordion-collapse collapse">
-							<div class="row mt-10">
-								<div class="col-12">
-									<div class="accordion-body">
-										<form action="/import-provider" method="get">
-											@csrf
-											<div class="input-group mb-5">
-												{!! Form::text('query', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Enter company registration number...']) !!}
-												<span class="input-group-text border-0" id="basic-addon2">
-												<button class="btn btn-primary bg-success" type="submit">Find Company</button>
-												</span>
-											</div>
-										</form>
-									</div>
-									<p>Not sure on the Provider's company number? <a href="https://find-and-update.company-information.service.gov.uk" target="_blank">Find it here</a></p>
-								</div>
+                        <div class="row mt-5 align-center">
+                            <div class="col-6">
+								<a href="#" class="btn btn-primary w-100" id="bulkButton " data-bs-toggle="modal" data-bs-target="#bulkAdd">Bulk Import</a>
 							</div>
-						</div>
+                        </div>
+						@livewire('provider-lookup')
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+    @include('providers.bulk-import-form')
 </div>
 @endsection

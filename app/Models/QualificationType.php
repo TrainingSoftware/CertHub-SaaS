@@ -13,7 +13,8 @@ class QualificationType extends Model
     protected $fillable = [
         'name',
         'has_citb',
-        'citb_value'
+        'citb_value',
+        'awarding_body_id'
     ];
 
     protected static function newFactory()

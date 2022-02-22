@@ -10,7 +10,8 @@ class AwardingBody extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'qualificationtype_id'
     ];
 
     public function company()

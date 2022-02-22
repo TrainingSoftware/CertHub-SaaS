@@ -157,7 +157,7 @@ class ProviderController extends Controller
         } else {
 
             return abort(403);
-        } 
+        }
     }
 
     /**
@@ -181,7 +181,7 @@ class ProviderController extends Controller
                 ->where('provider_id', '=', $provider->id)
                 ->get();
 
-        
+
             return view('providers.qualifications')
                 ->with('qualifications', $qualifications)
                 ->with('provider', $provider);
@@ -189,7 +189,18 @@ class ProviderController extends Controller
         } else {
 
             return abort(403);
-            
+
         }
+    }
+    public function bulk()
+    {
+        $company = Auth::user()->companies()->first();
+        $string = request('providers');
+        $providers = preg_split("/\r\n|\n|\r/", $string);
+        foreach($providers as $provider){
+            $company->providers()->create(['name'=> $provider]);
+        }
+        $totalAdded = count($providers);
+        return redirect()->back()->with('success',"$totalAdded Providers created successfully");
     }
 }

@@ -17,10 +17,8 @@ class CreateAwardingBodiesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('company_id')->unsigned()->index();
-            $table->bigInteger('qualificationtype_id')->unsigned()->index();
             $table->string('name');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
-            $table->foreign('qualificationtype_id')->references('id')->on('qualificationtypes')->onDelete('cascade');
         });
     }
 

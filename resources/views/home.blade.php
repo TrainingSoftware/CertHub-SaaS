@@ -16,7 +16,7 @@
                     <div class="card card-xl-stretch mb-xl-8">
                         <div class="card-body p-0">
                             <div class="px-9 pt-7 card-rounded h-275px w-100 bg-primary">
-                                <div class="d-flex flex-stack"> 
+                                <div class="d-flex flex-stack">
                                     <h3 class="m-0 text-white fw-bolder fs-3">Quarterly Training Summary</h3>
                                 </div>
                                 <div class="d-flex text-center flex-column text-white pt-8">
@@ -137,7 +137,7 @@
                                     </div>
                                     <div class="fw-mormal timeline-content text-muted ps-3">
                                         <a href="/qualifications/{{ $item->id }}">
-                                        <strong class="text-gray-800">{{ $item->employee->firstname }} {{ $item->employee->lastname }}</strong>
+                                        <strong class="text-gray-800">{{ optional($item->employee)->firstname }} {{ optional($item->employee)->lastname }}</strong>
                                         <br>{{ $item->qualificationtype->name }}
                                         </a>
                                     </div>
@@ -397,8 +397,8 @@
                                                     <div class="d-flex justify-content-start flex-column">
                                                         <a href="/qualifications/{{ $item->id }}" class="text-dark fw-bolder text-hover-primary fs-6">{{ $item->qualificationtype->name }}</a>
                                                         <span class="text-muted fw-bold text-muted d-block fs-7">
-                                                        <a href="/employees/{{ $item->employee->id }}">
-                                                        {{ $item->employee->firstname }} {{ $item->employee->lastname }}
+                                                        <a href="/employees/{{ optional($item->employee)->id }}">
+                                                        {{ optional($item->employee)->firstname }} {{ optional($item->employee)->lastname }}
                                                         </a>
                                                         </span>
                                                     </div>

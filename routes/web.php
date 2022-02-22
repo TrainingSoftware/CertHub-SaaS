@@ -96,11 +96,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::resource('qualificationtypes', QualificationTypeController::class);
             Route::post('/qualificationtypes/bulk',[QualificationTypeController::class,'bulk'])->name('qualificationtypes.bulk');
             Route::resource('providers', ProviderController::class);
+             Route::post('/providers/bulk',[ProviderController::class,'bulk'])->name('providers.bulk');
             Route::get('/providers/{provider}/qualifications',[ProviderController::class, 'qualifications'])->name('providerQualifications');
             Route::get('/import-provider', [ProviderLookupController::class, 'getCompanyDetails'])->name('importProvider');
 
             Route::resource('awarding-bodies', AwardingBodyController::class);
-
+             Route::post('/awarding-bodies/bulk',[AwardingBodyController::class,'bulk'])->name('awarding-bodies.bulk');
             Route::resource('tenders', TenderController::class);
             Route::get('/tenders/{tender}/employees',[TenderController::class, 'employees'])->name('tenders.employees');
             Route::get('/tenders/{tender}/renewals',[TenderController::class, 'renewals'])->name('tenders.renewals');

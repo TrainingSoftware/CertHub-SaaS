@@ -28,14 +28,12 @@ class QualificationTypeController extends Controller
         return view('qualificationtypes.index', compact('qualificationtypes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view('qualificationtypes.create');
+        $company = Auth::user()->companies()->first();
+        $awardingBodies = $company->awardingBodies()->pluck('name','id');
+        return view('qualificationtypes.create',compact('awardingBodies'));
     }
 
     /**
@@ -106,10 +104,12 @@ class QualificationTypeController extends Controller
     {
         // get current logged in user
         $user = Auth::user();
+         $company = Auth::user()->companies()->first();
+        $awardingBodies = $company->awardingBodies()->pluck('name','id');
 
         if ($user->can('update', $qualificationtype)) {
 
-            return view('qualificationtypes.edit', compact('qualificationtype'));
+            return view('qualificationtypes.edit', compact('qualificationtype','awardingBodies'));
 
         } else {
 

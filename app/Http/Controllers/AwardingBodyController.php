@@ -10,11 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AwardingBodyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         // get current logged in user
@@ -24,25 +20,19 @@ class AwardingBodyController extends Controller
         $awardingBodies = AwardingBody::where('company_id', '=', $company->id)
             ->paginate(10);
 
-        return view('awardingbodies.index', compact('awardingBodies'));
+        return view('awarding-bodies.index', compact('awardingBodies'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        return view('awardingbodies.create');
+        $company = Auth::user()->companies()->first();
+        $qualificationTypes = $company->qualificationTypes;
+        return view('awarding-bodies.create',compact('qualificationTypes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function store(AwardingBodyCreateRequest $request)
     {
         // get current company
@@ -54,71 +44,68 @@ class AwardingBodyController extends Controller
         // get and validate data
         $storeData = $request->validated();
 
+
         // create qualification type with validated data
-        $awardingBody = $company->awardingbody()->create($storeData);
+        $awardingBody = $company->awardingbodies()->create($storeData);
 
         // log the qualification type on successful update
         if ($awardingBody){
-            activity('qualificationtype')
+            activity('awarding body')
                 ->performedOn($awardingBody)
                 ->causedBy($user)
                 ->log('Awarding Body created by ' . $user->name);
         }
 
-        return redirect('/awarding-bodies/' . $awardingBody->id)
+        return redirect(route('awarding-bodies.index'))
             ->with('success', 'Awarding Body successfully created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(AwardingBody $awardingBody)
     {
         // get current logged in user
         $user = Auth::user();
 
         if ($user->can('view', $awardingBody)) {
-            return view('awardingbodies.show')
-                ->with('awardingbody', $awardingbody);
+            return view('awarding-bodies.show')
+                ->with('awardingbody', $awardingBody);
         } else {
             return abort(403);
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function edit(AwardingBody $awardingBody)
     {
         //
+        $company = Auth::user()->companies()->first();
+        $qualificationTypes = $company->qualificationTypes()->pluck('name','id');
+        return view('awarding-bodies.edit',compact('awardingBody','qualificationTypes'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+
+    public function update(AwardingBodyUpdateRequest $request, AwardingBody $awardingBody)
     {
         //
+        $data = $request->validated();
+        $awardingBody->update($data);
+        return redirect()->back()->with('success','Update successful');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(AwardingBody $awardingBody)
     {
-        //
+        $awardingBody->delete();
+        return redirect(route('awarding-bodies.index'))->with('success','Deleted successfully');
+    }
+     public function bulk()
+    {
+        $company = Auth::user()->companies()->first();
+        $string = request('awarding_bodies');
+        $awards = preg_split("/\r\n|\n|\r/", $string);
+        foreach($awards as $award){
+            $company->awardingBodies()->create(['name'=> $award]);
+        }
+        $totalAdded = count($awards);
+        return redirect()->back()->with('success',"$totalAdded Award Bodies created successfully");
     }
 }
