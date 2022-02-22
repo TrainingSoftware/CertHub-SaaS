@@ -25,7 +25,7 @@
                                 @endphp
                                 <label class="radio">
                                     <input type="radio"
-                                           wire:click="showPost('{{$title}}','{{$line1}}','{{$line2}}','{{$town}}','{{$postcode}}','{{$country}}','{{$number}}')">
+                                           wire:click="createCompany('{{$title}}','{{$line1}}','{{$line2}}','{{$town}}','{{$postcode}}','{{$country}}','{{$number}}')">
                                     <span></span>
                                     {{$company["title"]}}
                                 </label>

@@ -35,7 +35,7 @@ class ProviderLookupController extends Controller
 
         $data = json_decode($response, true);
 
-        dd($data);
+
 
         $provider = $company->providers()->create([
             'name' => $data['items'][0]['title'] ?? null,

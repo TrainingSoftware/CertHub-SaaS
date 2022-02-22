@@ -47,7 +47,7 @@ class ProviderLookup extends Component
         return $this->companies;
     }
 
-    public function showPost($name, $line1, $line2, $town, $postcode, $country, $number)
+    public function createCompany($name, $line1, $line2, $town, $postcode, $country, $number)
     {
         $company = Auth::user()->companies()->first();
         $provider = $company->providers()->create([
