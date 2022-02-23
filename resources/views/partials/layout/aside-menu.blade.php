@@ -233,6 +233,14 @@
                             <span class="menu-title">API</span>
                             </a>
                         </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="/settings/billing">
+                            <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Billing</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

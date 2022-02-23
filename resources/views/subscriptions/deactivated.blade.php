@@ -4,7 +4,7 @@
 <div class="d-flex flex-column flex-root">
     <div class="d-flex flex-column flex-column-fluid">
         <div class="d-flex flex-column flex-column-fluid text-center p-10 py-lg-15">
-        <a href="/" class="mb-10 pt-lg-10">
+            <a href="/" class="mb-10 pt-lg-10">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="text/ecmascript" width="150" zoomAndPan="magnify" contentStyleType="text/css" viewBox="0 0 375 149.999998" preserveAspectRatio="xMidYMid meet" version="1.0">
                     <defs>
                         <g>
@@ -62,22 +62,11 @@
                 </svg>
             </a>
             <div class="pt-lg-10 mb-10">
-                <h1 class="fw-bolder fs-2qx text-gray-800 mb-7">Verify Your Email</h1>
-                <div class="fs-3 fw-bold text-muted mb-10">We have sent an email to
-                    <a href="#" class="link-primary fw-bolder">{{ Auth::user()->email}}</a>
-                    <br />please follow a link to verify your email.
+                <h1 class="fw-bolder fs-2qx text-gray-800 mb-7">Account deactivated</h1>
+                <div class="fs-3 fw-bold text-muted mb-10">Your account is currently deactivated.<br>To access your account, please subscribe to a plan.<br>
+                    <a href="#" class="link-primary fw-bolder">Subscribe now</a>.
                 </div>
-                {{-- 
-                <div class="text-center mb-10">
-                    <a href="/dashboard" class="btn btn-lg btn-primary fw-bolder">Skip for now</a>
-                </div>
-                --}}
                 <div class="fs-5">
-                    <form method="POST" action="/email/verification-notification">
-                        @csrf
-                        <span class="fw-bold text-gray-700">Did’t receive an email?</span>
-                        <button type="submit" class="btn btn-link fw-bolder">Resend</button>
-                    </form>
                     <form action="/logout" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-link bg-transparent menu-link px-5">Sign Out</button>

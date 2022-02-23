@@ -10,4 +10,9 @@ class SettingController extends Controller
     {
         return view('settings.billing');
     }
+
+    public function deactivated()
+    {
+        return view('subscriptions.deactivated');
+    }
 }
