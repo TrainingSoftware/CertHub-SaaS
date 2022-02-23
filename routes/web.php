@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::get('/plans',[SubscriptionController::class, 'index'])->name('plans');
             Route::get('/payments',[PaymentController::class, 'index'])->name('payments');
             Route::post('/payments',[PaymentController::class, 'store'])->name('payments.store');
+            Route::post('/upgrade',[PaymentController::class,'upgrade'])->name('payments.upgrade');
         });
 
         Route::group(['middleware' => 'CheckUserSubscription'], function(){

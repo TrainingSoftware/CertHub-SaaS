@@ -31,4 +31,12 @@ class PaymentController extends Controller
 
         return redirect('/home');
     }
+    public function upgrade(Request $request)
+    {
+        $this->validate($request,[
+            'quantity' => 'required'
+        ]);
+        $request->user()->companies()->first()->subscription('default')->incrementQuantity($request->quantity);
+        return redirect()->back()->with('success','Upgrade Successful');
+    }
 }
