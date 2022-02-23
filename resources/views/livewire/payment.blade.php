@@ -29,7 +29,7 @@
 													<span class="text-dark fw-bolder d-block fs-4 mb-2">
                                                         £
 													<span id="employee-amount">{{$plan->price}}</span>
-													    per employee per month
+													     per month
 													</span>
 												</span>
 											</label>
