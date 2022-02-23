@@ -463,7 +463,7 @@
 									Employment Status
 									</label>
 									<select name="employment" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
-										<option>Select...</option>
+										<option selected disabled>Select...</option>
 										<option value="Full Time" @if($employee->employment === 'Full Time') selected @endif>Full Time</option>
 										<option value="Part Time" @if($employee->employment === 'Part Time') selected @endif>Part Time</option>
 										<option value="Fixed-term" @if($employee->employment === 'Fixed-term') selected @endif>Fixed-term</option>
@@ -483,7 +483,7 @@
 									Department
 									</label>
 									<select name="department_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
-									<option selected disabled>Select department</option>
+									<option selected disabled>Select...</option>
 									@foreach($departments as $item)
 									    <option value="{{ $item->id }}" @if(optional($employee->department)->id === $item->id) selected @endif>{{ $item->name }}</option>
 									@endforeach

@@ -274,7 +274,7 @@
                         <a href="/company" class="menu-link px-5">Company Details</a>
                     </div>
                     <div class="menu-item px-5 my-1">
-                        <a href="/billing-portal" class="menu-link px-5">Billing</a>
+                        <a href="/settings/billing" class="menu-link px-5">Billing</a>
                     </div>
                     <div class="separator my-2"></div>
                     <div class="menu-item px-10">

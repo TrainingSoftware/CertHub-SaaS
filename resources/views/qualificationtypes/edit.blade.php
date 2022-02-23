@@ -37,7 +37,7 @@
                 </div>
                 <div class="card-body p-9">
                     {{ Form::model($qualificationtype, array('route' => array('qualificationtypes.update', $qualificationtype->id), 'method' => 'PUT')) }}
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">

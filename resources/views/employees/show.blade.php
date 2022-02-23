@@ -63,14 +63,22 @@
 					@endif
 					<div class="row mb-7">
 						<label class="col-lg-4 fw-bold text-muted">Phone</label>
-						<div class="col-lg-8 d-flex align-items-center">
-							<a href="tel:{{ $employee->phone }}" class="text-hover-primary fw-bolder fs-6 text-gray-800">{{ $employee->phone }}</a>
+						<div class="col-lg-8">
+							@if($employee->phone)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->phone }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No phone number available</span>
+							@endif
 						</div>
 					</div>
 					<div class="row mb-7">
 						<label class="col-lg-4 fw-bold text-muted">Email</label>
 						<div class="col-lg-8">
-							<a href="mailto:{{ $employee->email }}" class="text-hover-primary fw-bolder fs-6 text-gray-800  ">{{ $employee->email }}</a>
+							@if($employee->email)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->email }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No email address available</span>
+							@endif
 						</div>
 					</div>
 					<div class="row mb-7">

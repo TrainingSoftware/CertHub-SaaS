@@ -27,6 +27,7 @@ use App\Http\Controllers\TenderController;
 use App\Http\Controllers\TenderExportController;
 use App\Http\Controllers\ProviderLookupController;
 use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\SettingController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -113,6 +114,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::delete('/tenders/{tender}/contacts/{contact}',[TenderContactController::class,'destroy'])->name('tenders.contact.destroy');
             Route::group(['prefix'=>'settings'], function() {
                 Route::resource('users', UserController::class);
+                Route::get('/billing', [SettingController::class, 'billing'])->name('settings.billing');
                 Route::get('/personal-access-tokens', [APIController::class, 'index'])->name('api');
                 Route::get('/personal-access-tokens/create', [APIController::class, 'create'])->name('apiCreate');
                 Route::post('/personal-access-tokens/create', [APIController::class, 'store'])->name('apiStore');
