@@ -37,7 +37,7 @@
                 </div>
                 <div class="card-body p-9">
                     {{ Form::model($provider, array('route' => array('providers.update', $provider->id), 'method' => 'PUT')) }}
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Address</label>
                         <div class="col-lg-8">
                         <div class="row mb-10">
@@ -109,7 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Contact Details</label>
                         <div class="col-lg-8">
                             <div class="row">
@@ -122,7 +122,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Website</label>
                         <div class="col-lg-8">
                             <div class="form-group">

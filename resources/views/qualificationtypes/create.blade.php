@@ -39,7 +39,7 @@
                     <form class="form" method="POST" action="/qualificationtypes">
                         @csrf
                         <div class="card-body border-top p-9">
-                            <div class="row mb-10">
+                            <div class="row">
                                 <label class="col-lg-4 col-form-label required fw-bold fs-6">Name</label>
                                 <div class="col-lg-8">
                                     <div class="row">
