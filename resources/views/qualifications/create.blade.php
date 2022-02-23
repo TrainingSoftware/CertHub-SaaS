@@ -107,6 +107,18 @@
                                     </div>
                                 </div>
                             </div>
+                             <div class="row mb-6">
+                                <div class="col-lg-4 col-form-label">
+                                    <label class="required fw-bold fs-6">Grade</label>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-lg-12 fv-row">
+                                            {!! Form::number('grade', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Enter Grade','step'=>".1"]) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-footer d-flex justify-content-end py-6 px-9">
                             <a href="/employees"

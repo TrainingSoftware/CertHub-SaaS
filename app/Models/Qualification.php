@@ -20,6 +20,7 @@ class Qualification extends Model implements HasMedia
         'qualificationtype_id',
         'employee_id',
         'provider_id',
+        'grade',
         'regno',
         'price',
         'slug',

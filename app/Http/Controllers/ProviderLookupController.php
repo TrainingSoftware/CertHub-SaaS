@@ -8,11 +8,7 @@ use Auth;
 
 class ProviderLookupController extends Controller
 {
-    /**
-     * Get company details.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function getCompanyDetails(Request $request)
     {
         $company = Auth::user()->companies()->first();

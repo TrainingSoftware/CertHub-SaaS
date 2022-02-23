@@ -91,13 +91,23 @@
                             @endif
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-7">
                         <label class="col-lg-4 fw-bold text-muted">Cost</label>
                         <div class="col-lg-8">
                             @if($qualification->price)
                             <span class="fw-bolder fs-6 text-gray-800">£{{ $qualification->price }}</span>
                             @else
                             <span class="fw-bold text-gray-500 fs-6">No price available</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-lg-4 fw-bold text-muted">Grade</label>
+                        <div class="col-lg-8">
+                            @if($qualification->grade)
+                            <span class="fw-bolder fs-6 text-gray-800">{{ $qualification->grade }}</span>
+                            @else
+                            <span class="fw-bold text-gray-500 fs-6">No Grade Available</span>
                             @endif
                         </div>
                     </div>

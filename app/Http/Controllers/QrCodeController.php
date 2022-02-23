@@ -23,20 +23,27 @@ class QrCodeController extends Controller
     {
         $url = URL::temporarySignedRoute(
             'employee.public', now()->addMinutes(100), [
-                'employee' => $employee 
+                'employee' => $employee
              ]
         );
+        $qrCode = QrCode::format('svg')->generate($url);
+        $employee->clearMediaCollection('qrcode');
+        $employee->addMediaFromString($qrCode)->addCustomHeaders([
+                    'ACL' => 'public-read'
+                ])
+            ->withCustomProperties(['mime-type' => 'image/svg'])
+                ->toMediaCollection('qrcode');
 
-        $qrCode = QrCode::format('svg')->generate($url, '../public/qrcodes/employee-' . $employee->id . '.svg');
-
-        $qrCodeLink = '../public/qrcodes/employee-' . $employee->id . '.svg';
+        $qrCodeLink = $employee->fresh()->getMedia('qrcode')->first()->getUrl();
 
         $headers = array(
             'Content-Type: image/svg',
           );
+        $tempImage = tempnam(sys_get_temp_dir(),  $employee->getMedia('qrcode')->first()->name);
+        copy($employee->getMedia('qrcode')->first()->getUrl(), $tempImage);
 
-        return Response::download($qrCodeLink, $employee->firstname . '_' . $employee->lastname . '.svg', $headers);
+        return Response::download($tempImage, $employee->firstname . '_' . $employee->lastname . '.svg', $headers);
     }
 
-    
+
 }

@@ -82,7 +82,7 @@ class QualificationTypeController extends Controller
         if ($user->can('view', $qualificationtype)) {
 
             // get qualifications that belong to qualification type
-            $qualifications = Qualification::where('qualificationtype_id', '=', $qualificationtype->id)
+            $qualifications = Qualification::wherehas('employee')->where('qualificationtype_id', '=', $qualificationtype->id)
                 ->get();
 
             return view('qualificationtypes.show')

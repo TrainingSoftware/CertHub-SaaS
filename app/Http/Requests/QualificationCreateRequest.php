@@ -29,6 +29,7 @@ class QualificationCreateRequest extends FormRequest
             'qualificationtype_id' => ['required','exists:qualification_types,id'],
             'provider_id' => ['required','exists:providers,id'],
             'regno' => ['nullable','string'],
+            'grade' => ['nullable'],
             'expiry_date' => ['required','date']
 
         ];

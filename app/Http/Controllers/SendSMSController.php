@@ -17,7 +17,7 @@ class SendSMSController extends Controller
         $user = Auth::user();
 
         // get the image url
-        $url = Storage::disk('vultr')->url($qualification->upload->url);
+        $url = $qualification->getMedia('qualification')->first()->getUrl();
 
         // get the employees phone number
         $phone = $qualification->employee->phone;

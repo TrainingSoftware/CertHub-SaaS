@@ -17,6 +17,7 @@ class Qualification extends JsonResource
             'qualificationtype_id' => $this->qualificationtype_id,
             'provider_id' => $this->provider_id,
             'regno' => $this->regno,
+            'grade' => $this->grade,
             'price' => $this->price,
             'slug' => $this->slug,
             'expiry_date' => $this->expiry_date->format('d/m/Y'),

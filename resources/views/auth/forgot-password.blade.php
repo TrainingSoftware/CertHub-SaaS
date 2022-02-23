@@ -15,6 +15,9 @@
                         <div class="text-gray-400 fw-bold fs-4">Enter your email to reset your password.</div>
                     </div>
                     @include('partials.layout.alert')
+                    @if (session('status'))
+                       <p class="alert alert-success">{{ session('status') }}</p>
+                    @endif
                     <div class="fv-row mb-10">
                         <label class="form-label fw-bolder text-gray-900 fs-6">Email</label>
                         <input class="form-control form-control-solid" type="email" placeholder="" name="email" autocomplete="off" />

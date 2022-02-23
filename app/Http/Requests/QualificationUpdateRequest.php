@@ -29,6 +29,7 @@ class QualificationUpdateRequest extends FormRequest
             'qualificationtype_id' => ['required'],
             'provider_id' => ['required'],
             'expiry_date' => ['required'],
+            'grade' => ['nullable'],
             'slug' => ['string'],
             'price' => ['numeric'],
         ];
