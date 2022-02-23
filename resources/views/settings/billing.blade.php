@@ -54,11 +54,10 @@
                                     </div>
                                 </div>
                                 <p class="fs-6 fw-bold text-gray-600 py-2">
-                                    Do you need to add more employees to your account? Click the button below to add
-                                    more.
+                                    Do you need to add more employees to your account? 
                                 </p>
                                 <button class="btn btn-primary btn-active-light-primary align-self-center"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_account_upgrade">Upgrade
+                                        data-bs-toggle="modal" data-bs-target="#kt_modal_account_upgrade">Add employees
                                 </button>
                                 <div class="modal fade" id="kt_modal_account_upgrade" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered mw-800px">
@@ -80,57 +79,43 @@
                                             <div class="modal-body scroll-y pt-0 pb-15">
                                                 <div class="mw-lg-600px mx-auto">
                                                     <div class="text-center">
-                                                        <h1 class="mb-3">Upgrade your employees</h1>
-                                                        <label
-                                                            class="btn btn-outline btn-outline-dashed btn-outline-default p-7 d-flex align-items-center mb-10">
-                                                        <span class="svg-icon svg-icon-3x me-5">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                                                 height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path
-                                                                    d="M6.28548 15.0861C7.34369 13.1814 9.35142 12 11.5304 12H12.4696C14.6486 12 16.6563 13.1814 17.7145 15.0861L19.3493 18.0287C20.0899 19.3618 19.1259 21 17.601 21H6.39903C4.87406 21 3.91012 19.3618 4.65071 18.0287L6.28548 15.0861Z"
-                                                                    fill="black"/>
-                                                                <rect opacity="0.3" x="8" y="3" width="8" height="8"
-                                                                      rx="4" fill="black"/>
-                                                            </svg>
-                                                        </span>
-                                                            <span class="d-block fw-bold text-start">
-                                                            <span class="text-dark fw-bolder d-block fs-4 mb-2">
-                                                                £
-                                                            <span id="employee-amount">{{$plan->price}}</span>
-                                                                per month
-                                                            </span>
-                                                        </span>
-                                                        </label>
-                                                        <form action="{{route('payments.upgrade')}}" method="POST">
-                                                            @csrf
-                                                            <div class="input-group" id="employee-dialer">
+                                                        <h1 class="mb-3">Upgrade your employee quota</h1>
+                                                        <h5 class="text-muted my-5">You current plan is {{ Auth::user()->companies()->first()->subscriptions()->first()->quantity }} employees</h5>
+                                                        <div class="row">
+                                                            <div class="col-6 offset-3">
+                                                                <form action="{{route('payments.upgrade')}}" method="POST">
+                                                                    @csrf
+                                                                    <div class="input-group" id="employee-dialer">
 
-                                                                <button
-                                                                    class="btn btn-icon btn-outline btn-outline-secondary"
-                                                                    type="button" data-kt-dialer-control="decrease">
-                                                                    <i class="bi bi-dash fs-1"></i>
-                                                                </button>
-                                                                <input type="text" class="form-control" readonly
-                                                                       placeholder="Amount" value="1"
-                                                                       data-kt-dialer-control="input" name="quantity"/>
-                                                                <input type="hidden" name="plan" value="standard">
-                                                                <button
-                                                                    class="btn btn-icon btn-outline btn-outline-secondary"
-                                                                    type="button" data-kt-dialer-control="increase">
-                                                                    <i class="bi bi-plus fs-1"></i>
-                                                                </button>
+                                                                        <button
+                                                                            class="btn btn-icon btn-outline btn-outline-secondary"
+                                                                            type="button" data-kt-dialer-control="decrease">
+                                                                            <i class="bi bi-dash fs-1"></i>
+                                                                        </button>
+                                                                        <input type="text" class="form-control" readonly
+                                                                            placeholder="Amount" value="1"
+                                                                            data-kt-dialer-control="input" name="quantity"/>
+                                                                        <input type="hidden" name="plan" value="standard">
+                                                                        <button
+                                                                            class="btn btn-icon btn-outline btn-outline-secondary"
+                                                                            type="button" data-kt-dialer-control="increase">
+                                                                            <i class="bi bi-plus fs-1"></i>
+                                                                        </button>
 
 
+                                                                    </div>
+                                                                    <div class="text-center py-5">
+                                                                        <button
+                                                                            class="btn btn-primary btn-active-light-primary fw-bolder"
+                                                                            type="submit">Add <span id="employee-amount">{{ $plan->price }}</span> Employees
+                                                                        </button>
+                                                                    </div>
+                                                                    <p class="text-muted">
+                                                                        By submitting this form, you hereby agree to CertHub charging your credit card on file with Stripe.
+                                                                    </p>
+                                                                </form>
                                                             </div>
-                                                            <div class="text-center mt-10">
-                                                                <!-- Form Open here -->
-                                                                <button
-                                                                    class="btn btn-primary btn-active-light-primary fw-bolder"
-                                                                    type="submit">Confirm upgrade
-                                                                </button>
-                                                                <!-- Form Close here -->
-                                                            </div>
-                                                        </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

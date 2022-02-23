@@ -93,6 +93,7 @@
                                     <td>
                                         <a href="/employees/{{ $item->id }}/qualifications">
                                             {{ $item->qualifications->count() }}
+										</a>
                                     </td>
                                     <td>
                                     @if($item->start_date){{ $item->start_date->format('d/m/Y') }}@endif
