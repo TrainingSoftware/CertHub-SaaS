@@ -13,4 +13,9 @@ class SettingController extends Controller
         $plan  = Plan::first();
         return view('settings.billing',compact('plan'));
     }
+
+    public function deactivated()
+    {
+        return view('subscriptions.deactivated');
+    }
 }
