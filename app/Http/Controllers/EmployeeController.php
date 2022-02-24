@@ -410,13 +410,6 @@ class EmployeeController extends Controller
 
 
 
-    /**
-     * Archive employee.
-     *
-     * @param Employee $employee
-     * @return \Illuminate\Http\Response
-     */
-
     public function archive(Request $request, Employee $employee)
     {
         $employee->archive();
@@ -426,28 +419,20 @@ class EmployeeController extends Controller
     }
 
 
-
-    /**
-     * Show the archived resources.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function archived()
     {
         return view('employees.archived');
     }
 
 
-
-    /**
-     * Unarchive employee.
-     *
-     * @param Employee $employee
-     * @return \Illuminate\Http\Response
-     */
     public function unarchive(Request $request)
     {
         $employee = Employee::withArchived()->find($request->employee_id);
+        $quantity = Auth::user()->companies()->first()->subscriptions()->first()->quantity;
+        $employeeCount = Auth::user()->companies()->first()->employees()->count();
+        if( $employeeCount >= $quantity){
+            return redirect()->back()->with('error','You need to upgrade to get this employee');
+        }
         $employee->unArchive();
 
         return redirect('/employees/'. $employee->id)

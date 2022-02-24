@@ -58,6 +58,9 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::get('/plans',[SubscriptionController::class, 'index'])->name('plans');
             Route::get('/payments',[PaymentController::class, 'index'])->name('payments');
             Route::post('/payments',[PaymentController::class, 'store'])->name('payments.store');
+            Route::post('/payments/add-card',[PaymentController::class,'newCard'])->name('payments.add_card');
+            Route::post('/payments/default',[PaymentController::class,'setAsDefault'])->name('payments.default');
+            Route::post('/payments/delete',[PaymentController::class,'deleteCard'])->name('payments.delete');
             Route::post('/upgrade',[PaymentController::class,'upgrade'])->name('payments.upgrade');
         });
 

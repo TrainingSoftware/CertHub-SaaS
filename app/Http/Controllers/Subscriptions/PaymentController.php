@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Subscriptions;
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -36,7 +37,39 @@ class PaymentController extends Controller
         $this->validate($request,[
             'quantity' => 'required'
         ]);
-        $request->user()->companies()->first()->subscription('default')->incrementQuantity($request->quantity);
+
+
+        $request->user()->companies()->first()->subscription('default')->updateQuantity($request->quantity);
+
+
         return redirect()->back()->with('success','Upgrade Successful');
+    }
+    public function newCard(Request $request)
+    {
+        $this->validate($request, [
+            'token' => 'required',
+        ]);
+        $company = Auth::user()->companies()->first();
+        $company->addPaymentMethod($request->token);
+        return redirect()->back()->with('success','New Payment method added successfully');
+    }
+    public function deleteCard()
+    {
+        $cardId = request('card');
+        $company = Auth::user()->companies()->first();
+        $company->deletePaymentMethod($cardId);
+
+        if($company->paymentMethods()->count() == 1){
+            $getLast = $company->paymentMethods()->first();
+            $company->updateDefaultPaymentMethod($getLast->id);
+        }
+        return redirect()->back()->with('success','Payment method deleted successfully');
+    }
+    public function setAsDefault()
+    {
+        $cardId = request('card');
+        $company = Auth::user()->companies()->first();
+        $company->updateDefaultPaymentMethod($cardId);
+        return redirect()->back()->with('success','Payment set as default successfully');
     }
 }

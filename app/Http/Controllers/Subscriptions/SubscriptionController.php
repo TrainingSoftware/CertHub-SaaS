@@ -12,4 +12,5 @@ class SubscriptionController extends Controller
         $plans = Plan::get();
         return view('subscriptions.plans', compact('plans'));
     }
+
 }

@@ -97,7 +97,7 @@
 																		<i class="bi bi-dash fs-1"></i>
 																		</button>
 																		<input type="text" class="form-control" readonly
-																			placeholder="Amount" value="1"
+																			placeholder="Amount" value="{{Auth::user()->companies()->first()->subscriptions()->first()->quantity}}"
 																			data-kt-dialer-control="input" name="quantity"/>
 																		<input type="hidden" name="plan" value="standard">
 																		<button
@@ -139,63 +139,42 @@
 					<div id="kt_billing_creditcard" class="tab-pane fade show active" role="tabpanel">
 						<h3 class="mb-5">My Cards</h3>
 						<div class="row gx-9 gy-6">
+                            @foreach($cards as $card)
 							<div class="col-xl-6">
 								<div class="card card-dashed h-xl-100 flex-row flex-stack flex-wrap p-6">
 									<div class="d-flex flex-column py-2">
-										<div class="d-flex align-items-center fs-4 fw-bolder mb-5">Marcus Morris
-											<span class="badge badge-light-success fs-7 ms-2">Primary</span>
+										<div class="d-flex align-items-center fs-4 fw-bolder mb-5">{{$card->billing_details->name}}
+											<span class="badge badge-light-success fs-7 ms-2">{{$card->id == $default->id ? "Primary" : ""}}</span>
 										</div>
 										<div class="d-flex align-items-center">
 											<img src="/assets/media/svg/card-logos/visa.svg" alt="" class="me-4" />
 											<div>
-												<div class="fs-4 fw-bolder">Visa **** 1679</div>
-												<div class="fs-6 fw-bold text-gray-400">Card expires at 09/24</div>
+												<div class="fs-4 fw-bolder">{{$card->card->brand}} **** {{$card->card->last4}}</div>
+												<div class="fs-6 fw-bold text-gray-400">Card expires at {{$card->card->exp_month}}/{{$card->card->exp_year}}</div>
 											</div>
 										</div>
 									</div>
+                                    @if(count($cards) > 1)
 									<div class="d-flex align-items-center py-2">
-										<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-3">Delete</button>
-										<button class="btn btn-sm btn-light btn-active-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">Edit</button>
+                                        <form action="{{route('payments.delete')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{$card->id}}" name="card">
+										    <button type="submit" class="btn btn-sm btn-light btn-active-light-primary me-3">Delete</button>
+                                        </form>
+                                        <form action="{{route('payments.default')}}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{$card->id}}" name="card">
+										    <button class="btn btn-sm btn-light btn-active-light-primary" type="submit">Set as Default</button>
+                                        </form>
 									</div>
+                                    @endif
 								</div>
 							</div>
+                            @endforeach
 							<div class="col-xl-6">
-								<div class="card card-dashed h-xl-100 flex-row flex-stack flex-wrap p-6">
-									<div class="d-flex flex-column py-2">
-										<div class="d-flex align-items-center fs-4 fw-bolder mb-5">Jacob Holder</div>
-										<div class="d-flex align-items-center">
-											<img src="/assets/media/svg/card-logos/american-express.svg" alt="" class="me-4" />
-											<div>
-												<div class="fs-4 fw-bolder">Mastercard **** 2040</div>
-												<div class="fs-6 fw-bold text-gray-400">Card expires at 10/22</div>
-											</div>
-										</div>
-									</div>
-									<div class="d-flex align-items-center py-2">
-										<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-3">Delete</button>
-										<button class="btn btn-sm btn-light btn-active-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">Edit</button>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-6">
-								<div class="card card-dashed h-xl-100 flex-row flex-stack flex-wrap p-6">
-									<div class="d-flex flex-column py-2">
-										<div class="d-flex align-items-center fs-4 fw-bolder mb-5">Jhon Larson</div>
-										<div class="d-flex align-items-center">
-											<img src="/assets/media/svg/card-logos/mastercard.svg" alt="" class="me-4" />
-											<div>
-												<div class="fs-4 fw-bolder">Mastercard **** 1290</div>
-												<div class="fs-6 fw-bold text-gray-400">Card expires at 03/23</div>
-											</div>
-										</div>
-									</div>
-									<div class="d-flex align-items-center py-2">
-										<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-3">Delete</button>
-										<button class="btn btn-sm btn-light btn-active-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">Edit</button>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-6">
+
+                                <!-- Stripe Elements Placeholder -->
+
 								<div class="notice d-flex bg-light-primary rounded border-primary border border-dashed h-lg-100 p-6">
 									<div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
 										<div class="mb-3 mb-md-0 fw-bold">
@@ -204,15 +183,17 @@
 												<a href="#" class="fw-bolder me-1">Product Terms</a>adding your new payment card
 											</div>
 										</div>
-										<a href="#" class="btn btn-primary px-6 align-self-center text-nowrap">Add Card</a>
+                                        <button data-bs-toggle="modal" data-bs-target="#kt_modal_update_card" class="btn btn-primary px-6 align-self-center text-nowrap">
+                                            Add Card
+                                        </button>
 									</div>
 								</div>
 							</div>
-							<div class="modal fade" id="kt_modal_new_card" tabindex="-1" aria-hidden="true">
+                            <div class="modal fade" id="kt_modal_update_card" tabindex="-1" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered mw-650px">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h2>Add New Card</h2>
+											<h2>Add New Payment Method</h2>
 											<div class="btn btn-sm btn-icon btn-active-color-primary"
 												data-bs-dismiss="modal">
 												<span class="svg-icon svg-icon-1">
@@ -226,138 +207,28 @@
 												</span>
 											</div>
 										</div>
-										<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-											<form id="kt_modal_new_card_form" class="form" action="#">
+										<div class="modal-body scroll-y mx-5 mx-xl-15 my-7" >
+                                            <form id="payment-form" action="{{ route('payments.add_card') }}" method="POST">
+                                                @csrf
 												<div class="d-flex flex-column mb-7 fv-row">
-													<label
-														class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-													<span class="required">Name On Card</span>
-													<i class="fas fa-exclamation-circle ms-2 fs-7"
-														data-bs-toggle="tooltip"
-														title="Specify a card holder's name"></i>
-													</label>
-													<input type="text" class="form-control form-control-solid"
-														placeholder="" name="card_name" value="Max Doe" />
+
+													<input type="text" id="card-holder-name" class="form-control form-control-solid"
+														placeholder="Name on Card" />
 												</div>
-												<div class="d-flex flex-column mb-7 fv-row">
-													<label class="required fs-6 fw-bold form-label mb-2">Card
-													Number</label>
-													<div class="position-relative">
-														<input type="text" class="form-control form-control-solid"
-															placeholder="Enter card number" name="card_number"
-															value="4111 1111 1111 1111" />
-														<div
-															class="position-absolute translate-middle-y top-50 end-0 me-5">
-															<img src="assets/media/svg/card-logos/visa.svg" alt=""
-																class="h-25px" />
-															<img src="assets/media/svg/card-logos/mastercard.svg" alt=""
-																class="h-25px" />
-															<img src="assets/media/svg/card-logos/american-express.svg"
-																alt="" class="h-25px" />
-														</div>
-													</div>
-												</div>
-												<div class="row mb-10">
-													<div class="col-md-8 fv-row">
-														<label class="required fs-6 fw-bold form-label mb-2">Expiration
-														Date</label>
-														<div class="row fv-row">
-															<div class="col-6">
-																<select name="card_expiry_month"
-																	class="form-select form-select-solid"
-																	data-control="select2" data-hide-search="true"
-																	data-placeholder="Month">
-																	<option></option>
-																	<option value="1">1</option>
-																	<option value="2">2</option>
-																	<option value="3">3</option>
-																	<option value="4">4</option>
-																	<option value="5">5</option>
-																	<option value="6">6</option>
-																	<option value="7">7</option>
-																	<option value="8">8</option>
-																	<option value="9">9</option>
-																	<option value="10">10</option>
-																	<option value="11">11</option>
-																	<option value="12">12</option>
-																</select>
-															</div>
-															<div class="col-6">
-																<select name="card_expiry_year"
-																	class="form-select form-select-solid"
-																	data-control="select2" data-hide-search="true"
-																	data-placeholder="Year">
-																	<option></option>
-																	<option value="2022">2022</option>
-																	<option value="2023">2023</option>
-																	<option value="2024">2024</option>
-																	<option value="2025">2025</option>
-																	<option value="2026">2026</option>
-																	<option value="2027">2027</option>
-																	<option value="2028">2028</option>
-																	<option value="2029">2029</option>
-																	<option value="2030">2030</option>
-																	<option value="2031">2031</option>
-																	<option value="2032">2032</option>
-																</select>
-															</div>
-														</div>
-													</div>
-													<div class="col-md-4 fv-row">
-														<label
-															class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-														<span class="required">CVV</span>
-														<i class="fas fa-exclamation-circle ms-2 fs-7"
-															data-bs-toggle="tooltip"
-															title="Enter a card CVV code"></i>
-														</label>
-														<div class="position-relative">
-															<input type="text" class="form-control form-control-solid"
-																minlength="3" maxlength="4" placeholder="CVV"
-																name="card_cvv" />
-															<div
-																class="position-absolute translate-middle-y top-50 end-0 me-3">
-																<span class="svg-icon svg-icon-2hx">
-																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
-																		height="24" viewBox="0 0 24 24" fill="none">
-																		<path d="M22 7H2V11H22V7Z" fill="black" />
-																		<path opacity="0.3"
-																			d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19ZM14 14C14 13.4 13.6 13 13 13H5C4.4 13 4 13.4 4 14C4 14.6 4.4 15 5 15H13C13.6 15 14 14.6 14 14ZM16 15.5C16 16.3 16.7 17 17.5 17H18.5C19.3 17 20 16.3 20 15.5C20 14.7 19.3 14 18.5 14H17.5C16.7 14 16 14.7 16 15.5Z"
-																			fill="black" />
-																	</svg>
-																</span>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="d-flex flex-stack">
-													<div class="me-5">
-														<label class="fs-6 fw-bold form-label">Save Card for further
-														billing?</label>
-														<div class="fs-7 fw-bold text-muted">If you need more info,
-															please check budget planning
-														</div>
-													</div>
-													<label
-														class="form-check form-switch form-check-custom form-check-solid">
-													<input class="form-check-input" type="checkbox" value="1"
-														checked="checked" />
-													<span class="form-check-label fw-bold text-muted">Save
-													Card</span>
-													</label>
-												</div>
-												<div class="text-center pt-15">
-													<button type="reset" id="kt_modal_new_card_cancel"
-														class="btn btn-light me-3">Discard</button>
-													<button type="submit" id="kt_modal_new_card_submit"
-														class="btn btn-primary">
+                                                <div class="d-flex flex-column mb-7 fv-row">
+												    <div id="card-element" class="form-control form-control-solid"></div>
+                                                </div>
+                                                <div class="text-center pt-15">
+
+													<button id="card-button"
+														class="btn btn-primary" type="submit" data-secret="{{ $intent->client_secret }}">
 													<span class="indicator-label">Submit</span>
 													<span class="indicator-progress">Please wait...
 													<span
 														class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 													</button>
 												</div>
-											</form>
+                                            </form>
 										</div>
 									</div>
 								</div>
@@ -379,100 +250,25 @@
 								<thead class="border-bottom border-gray-200 fs-6 text-gray-600 fw-bolder bg-light bg-opacity-75">
 									<tr>
 										<td class="min-w-150px">Date</td>
-										<td class="min-w-250px">Description</td>
+                                        <td class="min-w-150px">Status</td>
 										<td class="min-w-150px">Amount</td>
-										<td class="min-w-150px">Invoice</td>
 										<td></td>
 									</tr>
 								</thead>
 								<tbody class="fw-bold text-gray-600">
+                                @foreach($invoices as $invoice)
 									<tr>
-										<td>Nov 01, 2020</td>
-										<td>
-											<a href="#">Invoice for Ocrober 2022</a>
-										</td>
-										<td>$123.79</td>
-										<td>
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a>
-										</td>
+										<td>{{$invoice->date()->toFormattedDateString()}}</td>
+
+                                        <td>
+                                            {{$invoice->status}}
+                                        </td>
+										<td>{{$invoice->total()}}</td>
 										<td class="text-right">
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a>
+											<a href="{{$invoice->hosted_invoice_url}}" target="_blank" class="btn btn-sm btn-light btn-active-light-primary">View</a>
 										</td>
 									</tr>
-									<tr>
-										<td>Oct 08, 2020</td>
-										<td>
-											<a href="#">Invoice for September 2022</a>
-										</td>
-										<td>$98.03</td>
-										<td>
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a>
-										</td>
-										<td class="text-right">
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a>
-										</td>
-									</tr>
-									<tr>
-										<td>Aug 24, 2020</td>
-										<td>Paypal</td>
-										<td>$35.07</td>
-										<td>
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a>
-										</td>
-										<td class="text-right">
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a>
-										</td>
-									</tr>
-									<tr>
-										<td>Aug 01, 2020</td>
-										<td>
-											<a href="#">Invoice for July 2022</a>
-										</td>
-										<td>$142.80</td>
-										<td>
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a>
-										</td>
-										<td class="text-right">
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a>
-										</td>
-									</tr>
-									<tr>
-										<td>Jul 01, 2020</td>
-										<td>
-											<a href="#">Invoice for June 2022</a>
-										</td>
-										<td>$123.79</td>
-										<td>
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a>
-										</td>
-										<td class="text-right">
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a>
-										</td>
-									</tr>
-									<tr>
-										<td>Jun 17, 2020</td>
-										<td>Paypal</td>
-										<td>$523.09</td>
-										<td>
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a>
-										</td>
-										<td class="text-right">
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a>
-										</td>
-									</tr>
-									<tr>
-										<td>Jun 01, 2020</td>
-										<td>
-											<a href="#">Invoice for May 2022</a>
-										</td>
-										<td>$123.79</td>
-										<td>
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">PDF</a>
-										</td>
-										<td class="text-right">
-											<a href="#" class="btn btn-sm btn-light btn-active-light-primary">View</a>
-										</td>
-									</tr>
+                                @endforeach
 								</tbody>
 							</table>
 						</div>
@@ -549,7 +345,7 @@
 	var amount  = document.getElementById('employee-amount')
 	var dialerElement = document.querySelector("#employee-dialer")
 	var dialerObject = new KTDialer(dialerElement, {
-	    min: 1,
+	    min: {{ Auth::user()->companies()->first()->employees->count()  }},
 	    max: 500,
 	    step: 1,
 	});
@@ -557,12 +353,54 @@
 	   if(t.value >=1) {
 	       amount.textContent = (t.value + 1) * {{$plan->price}};
 	   }
-	
+
 	})
 	dialerObject.on('kt.dialer.decrease',function(t){
 	    if(t.value >=2){
 	        amount.textContent = (t.value - 1) *  {{$plan->price}};
 	    }
 	})
+</script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    const stripe = Stripe('{{config('cashier.key') }}');
+
+    const elements = stripe.elements();
+    const cardElement = elements.create('card');
+
+    cardElement.mount('#card-element');
+    const cardHolderName = document.getElementById('card-holder-name');
+    const form = document.getElementById('payment-form')
+    const cardButton = document.getElementById('card-button');
+    const clientSecret = cardButton.dataset.secret;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault()
+        const { setupIntent, error } = await stripe.confirmCardSetup(
+            clientSecret, {
+                payment_method: {
+                    card: cardElement,
+                    billing_details: { name: cardHolderName.value }
+                }
+            }
+        );
+
+        if (error) {
+            cardButton.disable = false
+            // Display "error.message" to the user...
+        } else {
+            // The card has been verified successfully...
+            let token = document.createElement('input')
+
+            token.setAttribute('type', 'hidden')
+            token.setAttribute('name', 'token')
+            token.setAttribute('value', setupIntent.payment_method)
+
+            form.appendChild(token)
+
+            form.submit();
+        }
+    })
+
 </script>
 @endpush
