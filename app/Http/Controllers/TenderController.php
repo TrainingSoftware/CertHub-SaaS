@@ -337,4 +337,18 @@ class TenderController extends Controller
 
        }
     }
+
+
+    /**
+     * View qualifications attached specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     */
+    public function map()
+    {
+
+        return view('tenders.map');
+        
+    }
 }
