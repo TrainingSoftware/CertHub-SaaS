@@ -57,7 +57,7 @@
                                     Do you need to add more employees to your account? 
                                 </p>
                                 <button class="btn btn-primary btn-active-light-primary align-self-center"
-                                        data-bs-toggle="modal" data-bs-target="#kt_modal_account_upgrade">Add employees
+                                        data-bs-toggle="modal" data-bs-target="#kt_modal_account_upgrade">Manage employee quota
                                 </button>
                                 <div class="modal fade" id="kt_modal_account_upgrade" tabindex="-1" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered mw-800px">
