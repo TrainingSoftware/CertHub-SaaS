@@ -59,17 +59,23 @@
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
 						<div class="col-lg-8">
 							<div class="row">
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-4">
 									<label class="d-flex align-items-center form-label">
 									<span class="required">Firstname</span>
 									</label>
 									{{ Form::text('firstname', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
 								</div>
-								<div class="form-group col-md-6">
+								<div class="form-group col-md-4">
 									<label class="d-flex align-items-center form-label">
 									<span class="required">Lastname</span>
 									</label>
 									{{ Form::text('lastname', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+								</div>
+                                <div class="form-group col-md-4">
+									<label class="d-flex align-items-center form-label">
+									<span class="required">Middlenames</span>
+									</label>
+									{{ Form::text('middlenames', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
 								</div>
 							</div>
 						</div>
@@ -83,6 +89,21 @@
 										<option disabled>Select...</option>
 										<option value="Male" @if($employee->employment === 'Male') selected @endif>Male</option>
 										<option value="Female" @if($employee->employment === 'Female') selected @endif>Female</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Marital Status</label>
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="form-group col-md-12">
+									<select name="gender" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+										<option disabled>Select...</option>
+                                        @foreach(config('marital_statuses') as $status)
+                                            <option value="{{$status}}">{{$status}}</option>
+                                        @endforeach
 									</select>
 								</div>
 							</div>
@@ -426,6 +447,13 @@
 									</select>
 								</div>
 							</div>
+                            <div class="row">
+                                <div class="form-group col-md-6">
+									<label class="form-label required">Nationality</label>
+									{!! Form::select('nationality', config('nationalities'), null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
+								</div>
+                            </div>
+
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">
@@ -434,6 +462,7 @@
 							{{ Form::text('position', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Training Manager')) }}
 						</div>
 					</div>
+
 					<div class="row mb-7 d-flex h-100">
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Employment Details</label>
 						<div class="col-lg-8">
@@ -474,14 +503,47 @@
 							</div>
 						</div>
 					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">National Insurance</label>
+						<div class="col-lg-8">
+							{{ Form::text('national_insurance', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'IN-S57P')) }}
+						</div>
+					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Driving License Number</label>
+						<div class="col-lg-8">
+							{{ Form::text('driving_license_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'INS57P')) }}
+						</div>
+					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Citb Number</label>
+						<div class="col-lg-8">
+							{{ Form::text('citb_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Citb Number')) }}
+						</div>
+					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">NONC Number</label>
+						<div class="col-lg-8">
+							{{ Form::text('nocn_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Nonc Number')) }}
+						</div>
+					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">NPORS Number</label>
+						<div class="col-lg-8">
+							{{ Form::text('npors_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'NPORS Number')) }}
+						</div>
+					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">EUSR Number</label>
+						<div class="col-lg-8">
+							{{ Form::text('eusr_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'EUSR Number')) }}
+						</div>
+					</div>
 					<div class="row mb-7 d-flex h-100">
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Department</label>
 						<div class="col-lg-8">
 							<div class="row">
 								<div class="form-group col-md-12">
-									<label class="d-flex align-items-center form-label">
-									Department
-									</label>
 									<select name="department_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
 									<option selected disabled>Select...</option>
 									@foreach($departments as $item)

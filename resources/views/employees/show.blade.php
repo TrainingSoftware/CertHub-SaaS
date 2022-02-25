@@ -81,6 +81,16 @@
 							@endif
 						</div>
 					</div>
+                    <div class="row mb-7">
+						<label class="col-lg-4 fw-bold text-muted">Marital Status</label>
+						<div class="col-lg-6">
+							@if($employee->marital_status)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->marital_status }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No Marital Status</span>
+							@endif
+						</div>
+					</div>
 					<div class="row mb-7">
 						<label class="col-lg-4 fw-bold text-muted">Address</label>
 						<div class="col-lg-8">
@@ -148,6 +158,66 @@
 							<span class="fw-bold text-gray-800 fs-6">{{ $employee->department->name }}</span>
 							@else
 							<span class="fw-bold text-gray-500 fs-6">No department assigned</span>
+							@endif
+						</div>
+					</div>
+                    <div class="row mb-7">
+						<label class="col-lg-4 fw-bold text-muted">Nationality</label>
+						<div class="col-lg-6">
+							@if($employee->nationality)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->nationality }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No Nationality information</span>
+							@endif
+						</div>
+					</div>
+                    <div class="row mb-7">
+						<label class="col-lg-4 fw-bold text-muted">Cityb number</label>
+						<div class="col-lg-6">
+							@if($employee->citb_number)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->citb_number }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No Citb number</span>
+							@endif
+						</div>
+					</div>
+                    <div class="row mb-7">
+						<label class="col-lg-4 fw-bold text-muted">Driving License Number</label>
+						<div class="col-lg-6">
+							@if($employee->driving_license_number)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->driving_license_number }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No Driving License Number</span>
+							@endif
+						</div>
+					</div>
+                    <div class="row mb-7">
+						<label class="col-lg-4 fw-bold text-muted">NOCN Number</label>
+						<div class="col-lg-6">
+							@if($employee->nocn_number)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->nocn_number }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No NOCN Number</span>
+							@endif
+						</div>
+					</div>
+                    <div class="row mb-7">
+						<label class="col-lg-4 fw-bold text-muted">NPORS Number</label>
+						<div class="col-lg-6">
+							@if($employee->npors_number)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->npors_number }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No NPORS Number</span>
+							@endif
+						</div>
+					</div>
+                    <div class="row mb-7">
+						<label class="col-lg-4 fw-bold text-muted">EUSR Number</label>
+						<div class="col-lg-6">
+							@if($employee->eusr_number)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->eusr_number }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No EUSR Number</span>
 							@endif
 						</div>
 					</div>
