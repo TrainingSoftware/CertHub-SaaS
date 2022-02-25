@@ -107,8 +107,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
             Route::resource('awarding-bodies', AwardingBodyController::class);
              Route::post('/awarding-bodies/bulk',[AwardingBodyController::class,'bulk'])->name('awarding-bodies.bulk');
-            Route::resource('tenders', TenderController::class);
             Route::get('/tenders/map',[TenderController::class, 'map'])->name('tenders.map');
+            Route::resource('tenders', TenderController::class);
             Route::get('/tenders/{tender}/employees',[TenderController::class, 'employees'])->name('tenders.employees');
             Route::get('/tenders/{tender}/renewals',[TenderController::class, 'renewals'])->name('tenders.renewals');
             Route::get('/tenders/{tender}/export', [TenderExportController::class, 'generateExport'])->name('tender.export');

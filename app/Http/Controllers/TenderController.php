@@ -151,7 +151,7 @@ class TenderController extends Controller
 
 
 
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -171,7 +171,7 @@ class TenderController extends Controller
         }
     }
 
-    
+
 
     /**
      * Update the specified resource in storage.
@@ -228,8 +228,8 @@ class TenderController extends Controller
         } else {
 
             return abort(403);
-            
-        } 
+
+        }
     }
 
 
@@ -347,8 +347,15 @@ class TenderController extends Controller
      */
     public function map()
     {
+        $company = Auth::user()->companies()->first();
 
-        return view('tenders.map');
-        
+
+        // get employees that belong to authenticated user
+        $tenders = $company->tenders()->active()->get()->map(function($t){
+            return [$t->name,$t->latitude,$t->longitude];
+        });
+
+        return view('tenders.map',compact('tenders'));
+
     }
 }

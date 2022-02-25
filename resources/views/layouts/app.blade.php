@@ -42,8 +42,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 		<script src="/assets/js/custom.js"></script>
 		@include('partials.global.global-search')
-		@if(request()->is('tenders/*'))
-		    @if(!Route::is('tenders.create'))
+		@if(request()->is('tenders/*') && request()->routeIs())
+		    @if(!Route::is('tenders.create') && !Route::is('tenders.map'))
 		        @include('partials.tenders.search-modal')
 		    @endif
 		@endif
@@ -117,21 +117,21 @@
 		<script>
 			$(function() {
 			             var api_key = "{{ env('ALLIES_API')}}";
-			
+
 			             $(document).ready(function() {
 			             $("#example_form").on("submit", function(e) {
 			                 e.preventDefault();
 			                 address_search("#address", "#address_results", "#address_status");
 			             });
 			             });
-			
+
 			             function address_search(input_element, address_results, status_element, page) {
 			             var page = page || 0;
-			
+
 			             var address = $(input_element)
 			                 .val()
 			                 .trim();
-			
+
 			             if (address != "") {
 			                 // Remove any previous validation results
 			                 if (page == 0) $(address_results).empty();
@@ -141,9 +141,9 @@
 			                 text: ""
 			                 });
 			                 $(input_element).after(loading_html);
-			
+
 			                 $(status_element).text("");
-			
+
 			                 // Country hard coded to GB for this example
 			                 var country_code = "GB";
 			                 // Create the URL to API including API key and encoded search term
@@ -162,7 +162,7 @@
 			                 })
 			                 .done(function(data) {
 			                     $("#address_loading").remove();
-			
+
 			                     // For only one result, simply populate the fields, rather than asking the user to select from list
 			                     if (data.length == 1) {
 			                     select_address(data[0], address_results, status_element);
@@ -202,7 +202,7 @@
 			                             })
 			                         )
 			                         );
-			
+
 			                         $(address_results).append(address_option);
 			                     });
 			                     // Check if we have more than one page of results (Slight edge case)
@@ -221,7 +221,7 @@
 			                         id: "show_more_button",
 			                         click: function(e) {
 			                             e.preventDefault();
-			
+
 			                             address_search(
 			                             input_element,
 			                             address_results,
@@ -258,14 +258,14 @@
 			                 // Could show an "Address search term is required" message here
 			             }
 			             }
-			
+
 			             function select_address(address, address_results, status_element) {
 			             $(address_results).empty();
-			
+
 			             $(status_element).text(
 			                 '"' + address.summaryline + '" selected, address fields below populated'
 			             );
-			
+
 			             // Populate fields
 			             $("#address_line_1").val(address.addressline1 || "");
 			             $("#address_line_2").val(address.addressline2 || "");
@@ -273,11 +273,11 @@
 			             $("#county").val(address.county || "");
 			             $("#postcode").val(address.postcode || "");
 			             $("#country").val(address.country || "");
-			
+
 			             // Full list of response elements
 			             // https://developers.alliescomputing.com/postcoder-web-api/address-lookup
 			             }
-			
+
 			         });
 		</script>
 		@endif
@@ -300,7 +300,7 @@
 			    "showMethod": "fadeIn",
 			    "hideMethod": "fadeOut"
 			};
-			
+
 			toastr.success("{{ $message }}");
 		</script>
 		@endif
@@ -323,7 +323,7 @@
 			    "showMethod": "fadeIn",
 			    "hideMethod": "fadeOut"
 			};
-			
+
 			toastr.error("{{ $message }}");
 		</script>
 		@endif

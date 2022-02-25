@@ -42,9 +42,49 @@
                 </div>
             </div>
         </div>
-        
+        <div class="post d-flex flex-column-fluid">
+            <div id="kt_content_container" class="container-xxl">
+                @if(count($tenders))
+                <div id="map" style="width: 100%; height: 100%;"></div>
+
+                </div>
+                @else
+                 <h2>No tenders to display</h2>
+                @endif
+            </div>
     </div>
 @endsection
 @push('extra-js')
+     <script src="http://maps.google.com/maps/api/js?key={{env('GOOGLE_MAPS')}}"
+          type="text/javascript"></script>
+<script type="text/javascript">
+    var bounds = new google.maps.LatLngBounds();
+    var locations = @json($tenders);
+    var map = new google.maps.Map(document.getElementById('map'), {
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
 
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+      bounds.extend(marker.position);
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    map.fitBounds(bounds);
+    var listener = google.maps.event.addListener(map, "idle", function () {
+        map.setZoom(10);
+        google.maps.event.removeListener(listener);
+    });
+  </script>
 @endpush

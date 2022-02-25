@@ -32,6 +32,8 @@ class TenderUpdateRequest extends FormRequest
             'line_2' => ['string','nullable'],
             'town' => ['string','nullable'],
             'county' => ['string','nullable'],
+            'latitude' => ['string'],
+            'longitude' => ['string'],
             'postcode' => ['string','nullable'],
             'country' => ['string','nullable'],
         ];

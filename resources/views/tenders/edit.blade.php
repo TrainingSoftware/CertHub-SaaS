@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Update ' . $tender->name)
 @section('content')
+    @push('extra-css')
+        <link rel="stylesheet" href="{{asset('assets/css/postcoder-autocomplete.css')}}">
+    @endpush
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
         <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
@@ -68,7 +71,7 @@
                         <div class="col-lg-8">
                             <div class="row mb-10">
                                 <div class="form-group col-md-12">
-                                    <a href="#" class="btn btn-light-primary fw-bolder w-100" data-bs-toggle="modal" data-bs-target="#kt_modal_postcode">Search address</a>
+                                    @include('partials.global.address-search')
                                 </div>
                             </div>
                             <div class="row">
@@ -85,13 +88,15 @@
                                     <label class="d-flex align-items-center form-label">
                                     Building Name / Number
                                     </label>
-                                    {{ Form::text('line_1', null, array('id' => 'address_line_1', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '6')) }}
+                                    {{ Form::text('line_1', null, array('id' => 'address_line_1_auto', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '6')) }}
                                 </div>
+                                <input type="hidden" name="latitude" id="latitude">
+                                 <input type="hidden" name="longitude" id="longitude">
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
                                     Line 2
                                     </label>
-                                    {{ Form::text('line_2', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Dale Road')) }}
+                                    {{ Form::text('line_2', null, array('id' => 'address_line_2_auto','class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Dale Road')) }}
                                 </div>
                             </div>
                             <div class="row mb-7">
@@ -99,13 +104,13 @@
                                     <label class="d-flex align-items-center form-label">
                                     Town
                                     </label>
-                                    {{ Form::text('town', null, array('id' => 'posttown', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Chesterfield')) }}
+                                    {{ Form::text('town', null, array('id' => 'city_auto', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Chesterfield')) }}
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
                                     County
                                     </label>
-                                    {{ Form::text('county', null, array('id' => 'county', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Derbyshire')) }}
+                                    {{ Form::text('county', null, array('id' => 'county_auto', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Derbyshire')) }}
                                 </div>
                             </div>
                             <div class="row">
@@ -113,7 +118,7 @@
                                     <label class="d-flex align-items-center form-label">
                                     Postcode
                                     </label>
-                                    {{ Form::text('postcode', null, array('id' => 'postcode', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'S18 1XJ')) }}
+                                    {{ Form::text('postcode', null, array('id' => 'postcode_auto', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'S18 1XJ')) }}
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-label required">Country</label>
@@ -411,5 +416,48 @@
         </div>
     </div>
 </div>
-@include('partials.global.postcode-search')
+
 @endsection
+@push('extra-js')
+     <script src="{{asset('assets/js/postcoder-autocomplete.js')}}"></script>
+     <script>
+            // Choose the element we will use as the search box
+            var autocomplete_input = document.getElementById("postcoder_autocomplete");
+            var autocomplete_label = document.getElementById("postcoder_autocomplete_label");
+            var autocomplete_wrapper = document.getElementById("address_finder");
+
+            // Attach autocomplete to search box, with our settings
+            // To get your free trial API key visit https://www.alliescomputing.com/postcoder/sign-up
+            var postcoder_complete = new AlliesComplete(autocomplete_input, {
+                apiKey: "{{ env('ALLIES_API')}}", // Change this to your own API key
+                autocompleteLabel: autocomplete_label,
+                autocompleteWrapper: autocomplete_wrapper,
+                addtags:['latitude','longitude']
+            });
+
+            // This event is fired by library when user selects an item in the list
+            autocomplete_input.addEventListener("postcoder-complete-selectcomplete", function(e) {
+
+                auto_address_select(e.address);
+
+            });
+
+            // Demo function to populate form fields with address fields from chosen address
+            function auto_address_select(the_address) {
+
+                document.getElementById("address_line_1_auto").value = the_address.addressline1 || "";
+                document.getElementById("address_line_2_auto").value = the_address.addressline2 || "";
+                document.getElementById("city_auto").value = the_address.posttown;
+                document.getElementById("county_auto").value = the_address.county;
+                document.getElementById("postcode_auto").value = the_address.postcode;
+                document.getElementById("longitude").value = the_address.longitude;
+                document.getElementById("latitude").value = the_address.latitude;
+                console.log(the_address)
+                autocomplete_input.value = "";
+                autocomplete_input.blur();
+
+                return true;
+
+            }
+    </script>
+@endpush

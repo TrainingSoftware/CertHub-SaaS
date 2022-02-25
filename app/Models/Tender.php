@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +24,8 @@ class Tender extends Model
         'line_2',
         'town',
         'county',
+        'longitude',
+        'latitude',
         'postcode',
         'country'
     ];
@@ -43,6 +46,11 @@ class Tender extends Model
     public function contacts()
     {
         return $this->hasMany(TenderContact::class);
+    }
+    public function scopeActive($q)
+    {
+
+        return $q->where('end_date','>=',date('Y-m-d'));
     }
 
 }
