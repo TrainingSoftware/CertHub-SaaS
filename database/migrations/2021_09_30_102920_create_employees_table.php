@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('firstname');
+            $table->string("middlenames")->nullable();
             $table->string('lastname');
             $table->string('email')->unique()->nullable();
             $table->string('phone')->nullable();
@@ -35,6 +36,14 @@ class CreateEmployeesTable extends Migration
             $table->date('end_date')->nullable();
             $table->integer('salary')->nullable();
             $table->string('employment')->nullable();
+            $table->string("national_insurance")->nullable();
+            $table->string("driving_license_number")->nullable();
+            $table->string("nationality")->nullable();
+            $table->string("citb_number")->nullable();
+            $table->string("nocn_number")->nullable();
+            $table->string("npors_number")->nullable();
+            $table->string("eusr_number")->nullable();
+            $table->string("marital_status")->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

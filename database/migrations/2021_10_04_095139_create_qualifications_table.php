@@ -24,10 +24,11 @@ class CreateQualificationsTable extends Migration
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->bigInteger('provider_id')->unsigned()->index();
             $table->foreign('provider_id')->references('id')->on('providers');
+            $table->string('grade')->nullable();
             $table->integer('regno')->nullable();
             $table->integer('price')->nullable()->default(0);
             $table->string('slug')->nullable();
-            $table->date('expiry_date');
+            $table->date('expiry_date')->nullable();
             $table->boolean('status')->default(0);
             $table->boolean('has_refresher')->default(0);
             $table->date('refresher_date')->nullable();
