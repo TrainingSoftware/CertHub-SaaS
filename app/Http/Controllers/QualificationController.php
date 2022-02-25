@@ -181,6 +181,8 @@ class QualificationController extends Controller
      */
     public function destroy(Qualification $qualification)
     {
+        // get current logged in user
+        $user = Auth::user();
 
         if ($user->can('delete', $qualification)) {
 

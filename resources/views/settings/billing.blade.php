@@ -89,6 +89,7 @@
 														<div class="row">
 															<div class="col-6 offset-3">
 																<form action="{{route('payments.upgrade')}}" method="POST">
+																	<span id="employee-amount" class="d-none">{{ $plan->price }}</span> 
 																	@csrf
 																	<div class="input-group" id="employee-dialer">
 																		<button
@@ -109,7 +110,7 @@
 																	<div class="text-center py-5">
 																		<button
 																			class="btn btn-primary btn-active-light-primary fw-bolder"
-																			type="submit">Add <span id="employee-amount">{{ $plan->price }}</span> Employees
+																			type="submit">Update Employee Quota
 																		</button>
 																	</div>
 																	<p class="text-muted">

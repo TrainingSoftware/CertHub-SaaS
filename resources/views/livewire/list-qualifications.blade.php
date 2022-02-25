@@ -1,18 +1,20 @@
 <div>
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="container-xxl">
-            <div class="card">
+            <div class="@if(Auth::user()->companies->first()->qualifications->count() == 0 ) card @endif">
                 @if(Auth::user()->companies->first()->qualifications->count() != 0 )
-                <div class="card-header border-0 py-6">
+                <div class="card-header border-0 py-6 px-0">
                     <div class="card-title w-100">
                             <div class="row w-100">
                                 <div class="col-3">
-                                    <select wire:model="qualificationType" class="form-control form-control-solid">
-                                        <option value="">Qualification Type</option>
-                                        @foreach($qualificationTypes as $qualificationType)
-                                           <option value="{{$qualificationType->id}}">{{$qualificationType->name}}</option>
-                                        @endforeach
-                                    </select>
+                                    <div class="d-flex align-items-center position-relative">
+                                        <select wire:model="qualificationType" class="form-control form-control-solid">
+                                            <option value="">Qualification Type</option>
+                                            @foreach($qualificationTypes as $qualificationType)
+                                            <option value="{{$qualificationType->id}}">{{$qualificationType->name}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-3">
                                     <select wire:model="provider" class="form-control form-control-solid">
@@ -89,51 +91,66 @@
                     </div>
                 </div>
                 @else
-                <div class="card-body pt-0">
-                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
-                        <thead>
-                            <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                <th class="min-w-100px">Type</th>
-                                <th class="min-w-100px">Employee</th>
-                                <th class="min-w-100px">Provider</th>
-                                <th class="min-w-50px">Status</th>
-                                <th class="min-w-100px">Expires on</th>
-                                <th class=""></th>
-                                <th class=""></th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-600 fw-bold">
-                            @foreach ($qualifications as $item)
-                                @if(isset($item->employee))
-                                <tr>
-                                    <td>
-                                        <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary">
-                                            {{ $item->qualificationtype->name }}
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="/employees/{{ optional($item->employee)->id }}" class="text-gray-800 text-hover-primary">{{ optional($item->employee)->firstname }} {{ optional($item->employee)->lastname }}</a>
-                                    </td>
-                                    <td>
-                                        <a href="/providers/{{ optional($item->provider)->id }}" class="text-gray-800 text-hover-primary">
-                                            {{ $item->provider->name }}
-                                        </a>
-                                    </td>
-                                    <td>
-                                        @if($item->expiry_date < Carbon\Carbon::today())
-                                            <span class="badge badge-danger">Expired</span>
-                                        @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
-                                            <span class="badge badge-warning">Expiring</span>
-                                        @else
-                                            <span class="badge badge-success">Valid</span>
-                                        @endif
-                                    </td>
-                                    <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
-                                    <td>
-                                        @if($item->getMedia('qualification')->first())
-                                            <a href="{{ $item->getMedia('qualification')->first()->getUrl() }}" target="_blank">
-                                                <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
-                                                    <span class="svg-icon svg-icon-success svg-icon-2hx">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-rounded table-striped border gy-7 gs-7">
+                            <thead>
+                                <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
+                                    <th class="min-w-100px">Type</th>
+                                    <th class="min-w-100px">Employee</th>
+                                    <th class="min-w-100px">Provider</th>
+                                    <th class="min-w-50px">Status</th>
+                                    <th class="min-w-100px">Expires on</th>
+                                    <th class=""></th>
+                                    <th class=""></th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600 fw-bold">
+                                @foreach ($qualifications as $item)
+                                    @if(isset($item->employee))
+                                    <tr>
+                                        <td>
+                                            <a href="/qualifications/{{ $item->id }}" class="text-gray-800 text-hover-primary">
+                                                {{ $item->qualificationtype->name }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="/employees/{{ optional($item->employee)->id }}" class="text-gray-800 text-hover-primary">{{ optional($item->employee)->firstname }} {{ optional($item->employee)->lastname }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="/providers/{{ optional($item->provider)->id }}" class="text-gray-800 text-hover-primary">
+                                                {{ $item->provider->name }}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            @if($item->expiry_date < Carbon\Carbon::today())
+                                                <span class="badge badge-danger">Expired</span>
+                                            @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
+                                                <span class="badge badge-warning">Expiring</span>
+                                            @else
+                                                <span class="badge badge-success">Valid</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
+                                        <td>
+                                            @if($item->getMedia('qualification')->first())
+                                                <a href="{{ $item->getMedia('qualification')->first()->getUrl() }}" target="_blank">
+                                                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="Qualification file uploaded">
+                                                        <span class="svg-icon svg-icon-success svg-icon-2hx">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                <path
+                                                                    opacity="0.3"
+                                                                    d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM11.7 17.7L16.7 12.7C17.1 12.3 17.1 11.7 16.7 11.3C16.3 10.9 15.7 10.9 15.3 11.3L11 15.6L8.70001 13.3C8.30001 12.9 7.69999 12.9 7.29999 13.3C6.89999 13.7 6.89999 14.3 7.29999 14.7L10.3 17.7C10.5 17.9 10.8 18 11 18C11.2 18 11.5 17.9 11.7 17.7Z"
+                                                                    fill="black"
+                                                                    />
+                                                                <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
+                                                            </svg>
+                                                        </span>
+                                                    </span>
+                                                </a>
+                                            @else
+                                                <span data-bs-toggle="tooltip" data-bs-placement="top" title="No Qualification file uploaded">
+                                                    <span class="svg-icon svg-icon-muted svg-icon-2hx">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                                             <path
                                                                 opacity="0.3"
@@ -144,31 +161,18 @@
                                                         </svg>
                                                     </span>
                                                 </span>
-                                            </a>
-                                        @else
-                                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="No Qualification file uploaded">
-                                                <span class="svg-icon svg-icon-muted svg-icon-2hx">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                        <path
-                                                            opacity="0.3"
-                                                            d="M19 22H5C4.4 22 4 21.6 4 21V3C4 2.4 4.4 2 5 2H14L20 8V21C20 21.6 19.6 22 19 22ZM11.7 17.7L16.7 12.7C17.1 12.3 17.1 11.7 16.7 11.3C16.3 10.9 15.7 10.9 15.3 11.3L11 15.6L8.70001 13.3C8.30001 12.9 7.69999 12.9 7.29999 13.3C6.89999 13.7 6.89999 14.3 7.29999 14.7L10.3 17.7C10.5 17.9 10.8 18 11 18C11.2 18 11.5 17.9 11.7 17.7Z"
-                                                            fill="black"
-                                                            />
-                                                        <path d="M15 8H20L14 2V7C14 7.6 14.4 8 15 8Z" fill="black" />
-                                                    </svg>
-                                                </span>
-                                            </span>
-                                        @endif
-                                    </td>
-                                    <td class="text-end">
-                                        <a href="/qualifications/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
-                                    </td>
-                                </tr>
-                                @endif
-                            @endforeach
-                        </tbody>
-                    </table>
-                    {{$qualifications->links()}}
+                                            @endif
+                                        </td>
+                                        <td class="text-end">
+                                            <a href="/qualifications/{{ $item->id }}" class="btn btn-secondary btn-sm">View</a>
+                                        </td>
+                                    </tr>
+                                    @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                        {{$qualifications->links()}}
+                    </div>
                 </div>
                 @endif
             </div>

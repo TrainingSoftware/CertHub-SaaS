@@ -1,9 +1,9 @@
 <div>
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="container-xxl">
-            <div class="card">
+            <div class="@if(Auth::user()->companies->first()->tenders->count() == 0 ) card @endif">
                 @if(Auth::user()->companies->first()->tenders->count() != 0 )
-                    <div class="card-header border-0 py-6">
+                    <div class="card-header border-0 py-6 px-0">
                         <div class="card-title w-100">
                             <div class="row w-100">
                                 <div class="col-3">
@@ -62,8 +62,9 @@
                         </div>
                     </div>
                 @else
-                    <div class="card-body pt-0">
-                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover table-rounded table-striped border gy-7 gs-7">
                             <thead>
                             <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                 <th class="min-w-125px">Name</th>
@@ -98,7 +99,7 @@
                                         </div>
                                     </td>
                                     <td class="text-end">
-                                        <a href="/tenders/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
+                                        <a href="/tenders/{{ $item->id }}" class="btn btn-secondary btn-sm">View</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -106,6 +107,7 @@
                         </table>
                         {{$tenders->links()}}
                     </div>
+                </div>
                 @endif
             </div>
         </div>

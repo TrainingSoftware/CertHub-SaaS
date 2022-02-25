@@ -57,22 +57,30 @@
 								<a href="/providers/create" class="btn btn-primary w-100">Add manually</a>
 							</div>
 							<div class="col-6">
+								<a href="#" class="btn btn-primary w-100" id="bulkButton " data-bs-toggle="modal" data-bs-target="#bulkAdd">Bulk Import</a>
+							</div>
+						</div>
+						<div class="row mt-5">
+							<div class="col-12">
+								<div class="d-flex align-items-center mb-5">
+									<div class="border-bottom border-gray-300 mw-50 w-100"></div>
+									<span class="fw-bold text-gray-400 fs-7 mx-2">OR</span>
+									<div class="border-bottom border-gray-300 mw-50 w-100"></div>
+								</div>
+							</div>
+						</div>
+                        <div class="row align-center">
+                            <div class="col-6 offset-3">
 								<button
-									class="btn btn-primary w-100 collapsed"
+									class="btn btn-secondary w-100 collapsed"
 									type="button"
 									data-bs-toggle="collapse"
 									data-bs-target="#searchCompany"
 									aria-expanded="false"
 									aria-controls="kt_accordion_1_body_1"
 									>
-								Import from Companies House
+									Import from Companies House
 								</button>
-							</div>
-
-						</div>
-                        <div class="row mt-5 align-center">
-                            <div class="col-6">
-								<a href="#" class="btn btn-primary w-100" id="bulkButton " data-bs-toggle="modal" data-bs-target="#bulkAdd">Bulk Import</a>
 							</div>
                         </div>
 						@livewire('provider-lookup')

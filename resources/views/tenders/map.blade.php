@@ -55,7 +55,7 @@
     </div>
 @endsection
 @push('extra-js')
-     <script src="http://maps.google.com/maps/api/js?key={{env('GOOGLE_MAPS')}}"
+     <script src="https://maps.google.com/maps/api/js?key={{env('GOOGLE_MAPS')}}"
           type="text/javascript"></script>
 <script type="text/javascript">
     var bounds = new google.maps.LatLngBounds();

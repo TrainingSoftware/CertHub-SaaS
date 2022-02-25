@@ -1,9 +1,9 @@
 <div>
 	<div class="post d-flex flex-column-fluid" id="kt_post">
 		<div id="kt_content_container" class="container-xxl">
-			<div class="card">
+			<div class="@if(Auth::user()->companies()->first()->employees->count() == 0 ) card @endif">
 				@if(Auth::user()->companies()->first()->employees->count() != 0 )
-				<div class="card-header border-0 py-6">
+				<div class="card-header border-0 py-6 px-0">
 					<div class="card-title w-100">
                         <div class="row w-100">
                             <div class="col-3">
@@ -53,60 +53,62 @@
 					</div>
 				</div>
 				@else
-				<div class="card-body pt-0">
-					<table class="table align-middle table-row-dashed fs-6 gy-5 mb-0" id="kt_table_users">
-						<thead>
-							<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-								<th class="min-w-125px">Employee</th>
-								<th class="min-w-125px">Department</th>
-								<th class="min-w-125px">Qualifications</th>
-								<th class="min-w-125px">Employment Date</th>
-								<th class="text-end min-w-100px"></th>
-							</tr>
-						</thead>
-						<tbody class="text-gray-600 fw-bold">
+				<div class="card-body p-0">
+					<div class="table-responsive">
+						<table class="table align-middle table-hover table-rounded table-striped border gy-7 gs-7">
+							<thead>
+								<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
+									<th class="min-w-125px">Employee</th>
+									<th class="min-w-125px">Department</th>
+									<th class="min-w-125px">Qualifications</th>
+									<th class="min-w-125px">Employment Date</th>
+									<th class="text-end min-w-100px"></th>
+								</tr>
+							</thead>
+							<tbody class="text-gray-600 fw-bold">
 
-                                @foreach ($employees as $item)
-                                <tr>
-                                    <td class="d-flex align-items-center border-bottom-0">
-										@if($item->getMedia('avatar')->first())
-										<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-											<img src="{{ $item->getMedia('avatar')->first()->getUrl() }}">
-										</div>
-										@else
-										<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-											<a href="/employees/{{ $item->id }}">
-												<div class="symbol-label">
-													<div class="symbol symbol-35px symbol-circle">
-														<span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $item->firstname[0] }}{{ $item->lastname[0] }}</span>
+									@foreach ($employees as $item)
+									<tr>
+										<td class="d-flex align-items-center border-bottom-0">
+											@if($item->getMedia('avatar')->first())
+											<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+												<img src="{{ $item->getMedia('avatar')->first()->getUrl() }}">
+											</div>
+											@else
+											<div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+												<a href="/employees/{{ $item->id }}">
+													<div class="symbol-label">
+														<div class="symbol symbol-35px symbol-circle">
+															<span class="symbol-label bg-info text-inverse-warning fw-bolder">{{ $item->firstname[0] }}{{ $item->lastname[0] }}</span>
+														</div>
 													</div>
-												</div>
+												</a>
+											</div>
+											@endif
+											<div class="d-flex flex-column">
+												<a href="/employees/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1">{{ $item->firstname }} {{ $item->lastname }}</a>
+												<span>{{ $item->email }}</span>
+											</div>
+										</td>
+										<td>@if($item->department){{ $item->department->name }}@endif</td>
+										<td>
+											<a href="/employees/{{ $item->id }}/qualifications">
+												{{ $item->qualifications->count() }}
 											</a>
-										</div>
-										@endif
-                                        <div class="d-flex flex-column">
-                                            <a href="/employees/{{ $item->id }}" class="text-gray-800 text-hover-primary mb-1">{{ $item->firstname }} {{ $item->lastname }}</a>
-                                            <span>{{ $item->email }}</span>
-                                        </div>
-                                    </td>
-                                    <td>@if($item->department){{ $item->department->name }}@endif</td>
-                                    <td>
-                                        <a href="/employees/{{ $item->id }}/qualifications">
-                                            {{ $item->qualifications->count() }}
-										</a>
-                                    </td>
-                                    <td>
-                                    @if($item->start_date){{ $item->start_date->format('d/m/Y') }}@endif
-                                    </td>
-									<td class="text-end">
-										<a href="/employees/{{ $item->id }}" class="btn btn-light btn-sm">View</a>
-									</td>
-                                </tr>
-                                @endforeach
+										</td>
+										<td>
+										@if($item->start_date){{ $item->start_date->format('d/m/Y') }}@endif
+										</td>
+										<td class="text-end">
+											<a href="/employees/{{ $item->id }}" class="btn btn-secondary btn-sm">View</a>
+										</td>
+									</tr>
+									@endforeach
 
-						</tbody>
-					</table>
+							</tbody>
+						</table>
                          {{$employees->links()}}
+					</div>
 				</div>
 				@endif
 			</div>
