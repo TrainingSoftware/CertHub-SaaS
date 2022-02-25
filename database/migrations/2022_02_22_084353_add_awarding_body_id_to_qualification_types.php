@@ -15,7 +15,8 @@ class AddAwardingBodyIdToQualificationTypes extends Migration
     {
         Schema::table('qualification_types', function (Blueprint $table) {
             //
-            $table->bigInteger('awarding_body_id');
+            $table->bigInteger('awarding_body_id')->unsigned()->index()->nullable();
+            $table->foreign('awarding_body_id')->references('id')->on('awarding_bodies')->nullOnDelete();
 
         });
     }

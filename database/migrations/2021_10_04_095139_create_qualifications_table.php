@@ -19,7 +19,7 @@ class CreateQualificationsTable extends Migration
             $table->bigInteger('company_id')->unsigned()->index();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->bigInteger('qualificationtype_id')->unsigned()->index();
-            $table->foreign('qualificationtype_id')->references('id')->on('qualification_types');
+            $table->foreign('qualificationtype_id')->references('id')->on('qualification_types')->onDelete('cascade');
             $table->bigInteger('employee_id')->unsigned()->index();
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
             $table->bigInteger('provider_id')->unsigned()->index();
