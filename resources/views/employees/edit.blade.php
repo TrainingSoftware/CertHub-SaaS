@@ -61,21 +61,21 @@
 							<div class="row">
 								<div class="form-group col-md-4">
 									<label class="d-flex align-items-center form-label">
-									<span class="required">Firstname</span>
+									<span class="required">Forename</span>
 									</label>
 									{{ Form::text('firstname', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
 								</div>
 								<div class="form-group col-md-4">
 									<label class="d-flex align-items-center form-label">
-									<span class="required">Lastname</span>
-									</label>
-									{{ Form::text('lastname', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
-								</div>
-                                <div class="form-group col-md-4">
-									<label class="d-flex align-items-center form-label">
-									<span class="required">Middlenames</span>
+									<span>Middle name(s)</span>
 									</label>
 									{{ Form::text('middlenames', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+								</div>
+								<div class="form-group col-md-4">
+									<label class="d-flex align-items-center form-label">
+									<span class="required">Surname</span>
+									</label>
+									{{ Form::text('lastname', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
 								</div>
 							</div>
 						</div>
@@ -86,12 +86,22 @@
 							<div class="row">
 								<div class="form-group col-md-12">
 									<select name="gender" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
-										<option disabled>Select...</option>
+										<option selected disabled>Select...</option>
 										<option value="Male" @if($employee->employment === 'Male') selected @endif>Male</option>
 										<option value="Female" @if($employee->employment === 'Female') selected @endif>Female</option>
 									</select>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Nationality</label>
+						<div class="col-lg-8">
+							<div class="row">
+                                <div class="form-group col-md-12">
+									{!! Form::select('nationality', config('nationalities'), null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
+								</div>
+                            </div>	
 						</div>
 					</div>
                     <div class="row mb-7 d-flex h-100">
