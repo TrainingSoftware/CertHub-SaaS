@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckDeactviated;
 use App\Http\Middleware\CheckEmployeeSubscription;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -67,6 +68,7 @@ class Kernel extends HttpKernel
         'CheckUserCompany' => \App\Http\Middleware\CheckUserHasCompany::class,
         'CheckUserSubscription' => \App\Http\Middleware\CheckUserSubscription::class,
         'CheckEmployeeSubscription' => CheckEmployeeSubscription::class,
+        'CheckDeactivated' => CheckDeactviated::class
 
     ];
 }

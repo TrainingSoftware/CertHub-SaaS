@@ -17,6 +17,9 @@
                         </div>
                     </div>
                     @include('partials.layout.alert')
+                    @if (session('error'))
+                       <p class="alert alert-warning">{{ session('error') }}</p>
+                    @endif
                     <div class="fv-row mb-10">
                         <label class="form-label fs-6 fw-bolder text-dark">Email</label>
                         <input class="form-control form-control-lg form-control-solid" type="text" name="email" autocomplete="off" />
@@ -34,7 +37,7 @@
                         <span class="indicator-progress">Please wait...
                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span> --}}
                         </button>
-                        {{-- 
+                        {{--
                         <div class="text-center text-muted text-uppercase fw-bolder mb-5">or</div>
                         <a href="#" class="btn btn-flex flex-center btn-light btn-lg w-100 mb-5">
                         <img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Continue with Google</a>

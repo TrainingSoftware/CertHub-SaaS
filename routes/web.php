@@ -119,7 +119,8 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::delete('/tenders/{tender}/contacts/{contact}',[TenderContactController::class,'destroy'])->name('tenders.contact.destroy');
             Route::group(['prefix'=>'settings'], function() {
                 Route::resource('users', UserController::class);
-                Route::get('/deactivated', [SettingController::class, 'deactivated'])->name('settings.deactivated');
+                Route::post('/deactivated', [SettingController::class, 'deactivated'])->name('settings.deactivated');
+                Route::post('/deactivate', [SettingController::class, 'deactivate'])->name('settings.deactivate');
                 Route::get('/billing', [SettingController::class, 'billing'])->name('settings.billing');
                 Route::get('/personal-access-tokens', [APIController::class, 'index'])->name('api');
                 Route::get('/personal-access-tokens/create', [APIController::class, 'create'])->name('apiCreate');

@@ -19,9 +19,16 @@ class SettingController extends Controller
         $intent = auth()->user()->companies()->first()->createSetupIntent();
         return view('settings.billing',compact('plan','intent','cards','default','invoices','employeesCount'));
     }
+    public function deactivate()
+    {
+        $user  = Auth::user();
+        $user->update(['status' => false]);
+        Auth::logout();
+        return redirect()->route('login')->with('error', 'Your Account has been deactivated.');
 
+    }
     public function deactivated()
     {
-        return view('subscriptions.deactivated');
+        return view('settings.deactivated');
     }
 }

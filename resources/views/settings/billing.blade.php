@@ -89,7 +89,7 @@
 														<div class="row">
 															<div class="col-6 offset-3">
 																<form action="{{route('payments.upgrade')}}" method="POST">
-																	<span id="employee-amount" class="d-none">{{ $plan->price }}</span> 
+																	<span id="employee-amount" class="d-none">{{ $plan->price }}</span>
 																	@csrf
 																	<div class="input-group" id="employee-dialer">
 																		<button
@@ -323,9 +323,13 @@
 														You can restore your account at anytime.
 													</div>
 													<div class="text-center mt-10">
-														<button class="btn btn-danger fw-bolder" type="submit">
-														Confirm deactivation
-														</button>
+                                                        <form action="{{route('settings.deactivate')}}" method="POST">
+                                                            @csrf
+                                                            <button class="btn btn-danger fw-bolder" type="submit">
+                                                            Confirm deactivation
+                                                            </button>
+                                                        </form>
+
 													</div>
 												</div>
 											</div>
