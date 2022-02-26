@@ -99,10 +99,10 @@
 						<div class="col-lg-8">
 							<div class="row">
 								<div class="form-group col-md-12">
-									<select name="gender" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+									<select name="marital_status" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
 										<option disabled>Select...</option>
                                         @foreach(config('marital_statuses') as $status)
-                                            <option value="{{$status}}">{{$status}}</option>
+                                            <option value="{{$status}}" @if($employee->marital_status === $status) selected @endif>{{$status}}</option>
                                         @endforeach
 									</select>
 								</div>
@@ -450,7 +450,12 @@
                             <div class="row">
                                 <div class="form-group col-md-6">
 									<label class="form-label required">Nationality</label>
-									{!! Form::select('nationality', config('nationalities'), null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
+                                    <select name="nationality" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+										<option disabled>Select...</option>
+                                        @foreach(config('nationalities') as $nation)
+                                            <option value="{{$nation}}" @if($employee->nationality === $nation) selected @endif >{{$nation}}</option>
+                                        @endforeach
+									</select>
 								</div>
                             </div>
 
