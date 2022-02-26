@@ -121,6 +121,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
                 Route::resource('users', UserController::class);
                 Route::post('/deactivated', [SettingController::class, 'deactivated'])->name('settings.deactivated');
                 Route::post('/deactivate', [SettingController::class, 'deactivate'])->name('settings.deactivate');
+                Route::post('/subscription/cancel', [SettingController::class, 'cancel'])->name('settings.subscription.cancel');
                 Route::get('/billing', [SettingController::class, 'billing'])->name('settings.billing');
                 Route::get('/personal-access-tokens', [APIController::class, 'index'])->name('api');
                 Route::get('/personal-access-tokens/create', [APIController::class, 'create'])->name('apiCreate');

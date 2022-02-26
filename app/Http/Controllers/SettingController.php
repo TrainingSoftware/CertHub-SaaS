@@ -31,4 +31,10 @@ class SettingController extends Controller
     {
         return view('settings.deactivated');
     }
+    public function cancel()
+    {
+       $company=  Auth::user()->companies()->first();
+       $company->subscription('default')->cancel();
+       return redirect()->back()->with('success','Subscription cancelled');
+    }
 }
