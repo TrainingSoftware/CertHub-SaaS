@@ -3,13 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\Department;
+use App\Traits\Sortable;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class ListDepartments extends Component
 {
-    use WithPagination;
+    use WithPagination,Sortable;
     public $searchTerm;
     protected $paginationTheme = 'bootstrap';
 
@@ -23,7 +24,7 @@ class ListDepartments extends Component
             ->where('name', 'like', '%' . $this->searchTerm . '%');
 
         return view('livewire.list-departments',[
-            'departments' => $departments->paginate(10)
+            'departments' => $this->sortField !=null ? $departments->orderBy($this->sortField,$this->sortDirection)->paginate(10) :$departments->paginate(10)
         ]);
     }
 }

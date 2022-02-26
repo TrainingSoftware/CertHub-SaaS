@@ -3,13 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\Tender;
+use App\Traits\Sortable;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class ListTenders extends Component
 {
-    use WithPagination;
+    use WithPagination,Sortable;
     protected $paginationTheme = 'bootstrap';
     public $searchTerm;
     public $start;
@@ -31,7 +32,7 @@ class ListTenders extends Component
 
 
         return view('livewire.list-tenders',[
-            'tenders' => $tenders->paginate(10)
+            'tenders' => $this->sortField != null ? $tenders->orderBy($this->sortField,$this->sortDirection)->paginate(10) : $tenders->paginate(10)
         ]);
     }
 }

@@ -97,10 +97,10 @@
                             <thead>
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
                                     <th class="min-w-100px">Type</th>
-                                    <th class="min-w-100px">Employee</th>
+                                    <th class="min-w-100px">Employee </th>
                                     <th class="min-w-100px">Provider</th>
                                     <th class="min-w-50px">Status</th>
-                                    <th class="min-w-100px">Expires on</th>
+                                    <th class="min-w-100px" wire:click="sortBy('expiry_date')">Expires on <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
                                     <th class=""></th>
                                     <th class=""></th>
                                 </tr>

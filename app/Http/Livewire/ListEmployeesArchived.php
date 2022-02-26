@@ -3,13 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\Employee;
+use App\Traits\Sortable;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class ListEmployeesArchived extends Component
 {
-    use WithPagination;
+    use WithPagination,Sortable;
     public $searchTerm;
     public $department;
     public $departments;
@@ -49,7 +50,7 @@ class ListEmployeesArchived extends Component
 
 
         return view('livewire.list-employees-archived',[
-            "employees" => $employees->paginate(10)
+            "employees" => $this->sortField != null ? $employees->orderBy($this->sortField,$this->sortDirection)->paginate(10) : $employees->paginate(10)
         ]);
     }
 }

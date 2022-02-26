@@ -3,13 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\Qualification;
+use App\Traits\Sortable;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class ListQualifications extends Component
 {
-    use WithPagination;
+    use WithPagination,Sortable;
     protected $paginationTheme = 'bootstrap';
     public $qualificationType;
     public $provider;
@@ -52,7 +53,7 @@ class ListQualifications extends Component
 
 
         return view('livewire.list-qualifications',[
-            'qualifications' => $qualifications->paginate(10)
+            'qualifications' => $this->sortField != null ? $qualifications->orderBy($this->sortField,$this->sortDirection)->paginate(10) : $qualifications->paginate(10)
         ]);
     }
 }

@@ -3,13 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\Employee;
+use App\Traits\Sortable;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class ListEmployees extends Component
 {
-    use WithPagination;
+    use WithPagination,Sortable;
     public $searchTerm;
     public $department;
     public $departments;
@@ -26,6 +27,7 @@ class ListEmployees extends Component
          });
 
     }
+
     public function render()
     {
 
@@ -42,9 +44,9 @@ class ListEmployees extends Component
             $employees->where('department_id',$this->department);
         }
 
-
         return view('livewire.list-employees',[
-            'employees' =>$employees->paginate(10)
+            'employees' =>$this->sortField != null ?
+                        $employees->orderBy($this->sortField,$this->sortDirection)->paginate(10) : $employees->paginate(10)
         ]);
     }
 }

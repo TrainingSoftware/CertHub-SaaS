@@ -119,9 +119,9 @@
                         <table class="table align-middle table-hover table-rounded table-striped border gy-7 gs-7">
                             <thead>
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px">Name</th>
-                                    <th class="min-w-125px">Phone</th>
-                                    <th class="min-w-125px">Email</th>
+                                    <th class="min-w-125px" wire:click="sortBy('name')" >Name<i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
+                                    <th class="min-w-125px" wire:click="sortBy('phone')">Phone<i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
+                                    <th class="min-w-125px" wire:click="sortBy('email')">Email<i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
                                     <th class="text-end min-w-100px"></th>
                                 </tr>
                             </thead>
