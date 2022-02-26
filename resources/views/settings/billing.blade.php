@@ -45,7 +45,7 @@
 						</div>
 						<div class="col-lg-5">
 							<div class="d-flex text-muted fw-bolder fs-5 mb-3">
-								<span class="flex-grow-1 text-gray-800">Users</span>
+								<span class="flex-grow-1 text-gray-800">Employees</span>
 								<span class="text-gray-800">{{ Auth::user()->companies()->first()->employees->count()  }} of {{ Auth::user()->companies()->first()->subscriptions()->first()->quantity }} Used</span>
 							</div>
 							<div class="progress h-8px bg-light-primary mb-2">
@@ -84,7 +84,7 @@
 											<div class="modal-body scroll-y pt-0 pb-15">
 												<div class="mw-lg-600px mx-auto">
 													<div class="text-center">
-														<h1 class="mb-3">Upgrade your employee quota</h1>
+														<h1 class="mb-3">Update your employee quota</h1>
 														<h5 class="text-muted my-5">You current plan is {{ Auth::user()->companies()->first()->subscriptions()->first()->quantity }} employees</h5>
 														<div class="row">
 															<div class="col-6 offset-3">
@@ -292,10 +292,13 @@
 								For guidance please email <a href="mailto:help@certhub.co">help@certhub.co</a>
 							</p>
 							<button class="btn btn-danger btn-active-light-danger align-self-center"
-								data-bs-toggle="modal" data-bs-target="#kt_modal_confirm_delete">Deactivate
+								data-bs-toggle="modal" data-bs-target="#kt_modal_confirm_deactivate">Deactivate
 							account
 							</button>
-							<div class="modal fade" id="kt_modal_confirm_delete" tabindex="-1" aria-hidden="true">
+							<button class="btn btn-link ms-5 align-self-center text-danger"
+								data-bs-toggle="modal" data-bs-target="#kt_modal_confirm_delete">Delete Account
+							</button>
+							<div class="modal fade" id="kt_modal_confirm_deactivate" tabindex="-1" aria-hidden="true">
 								<div class="modal-dialog modal-dialog-centered mw-800px">
 									<div class="modal-content">
 										<div class="modal-header pb-0 border-0 justify-content-end">
@@ -320,11 +323,49 @@
 													</h1>
 													<div class="text-muted fw-bold fs-5">
 														Are you sure you want to deactivate your account?<br>
-														You can restore your account at anytime.
+														You can restore your subscription at anytime.
 													</div>
 													<div class="text-center mt-10">
 														<button class="btn btn-danger fw-bolder" type="submit">
 														Confirm deactivation
+														</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal fade" id="kt_modal_confirm_delete" tabindex="-1" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered mw-800px">
+									<div class="modal-content">
+										<div class="modal-header pb-0 border-0 justify-content-end">
+											<div class="btn btn-sm btn-icon btn-active-color-primary"
+												data-bs-dismiss="modal">
+												<span class="svg-icon svg-icon-1">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+														viewBox="0 0 24 24" fill="none">
+														<rect opacity="0.5" x="6" y="17.3137" width="16" height="2"
+															rx="1" transform="rotate(-45 6 17.3137)" fill="black"/>
+														<rect x="7.41422" y="6" width="16" height="2" rx="1"
+															transform="rotate(45 7.41422 6)" fill="black"/>
+													</svg>
+												</span>
+											</div>
+										</div>
+										<div class="modal-body scroll-y pt-0 pb-15">
+											<div class="mw-lg-600px mx-auto">
+												<div class="text-center">
+													<h1 class="mb-3">Delete <span
+														class="text-danger">{{ Auth::user()->companies()->first()->name }}</span>?
+													</h1>
+													<div class="text-muted fw-bold fs-5">
+														Are you sure you want to delete your account?<br>
+														This action cannot be undone and will result in all data being removed from our servers.
+													</div>
+													<div class="text-center mt-10">
+														<button class="btn btn-danger fw-bolder" type="submit">
+														Confirm deletion
 														</button>
 													</div>
 												</div>
