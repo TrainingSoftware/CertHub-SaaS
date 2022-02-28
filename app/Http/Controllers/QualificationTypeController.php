@@ -11,11 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class QualificationTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         // get current logged in user
@@ -36,12 +32,7 @@ class QualificationTypeController extends Controller
         return view('qualificationtypes.create',compact('awardingBodies'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(QualificationTypeCreateRequest $request)
     {
         // get current company
@@ -68,12 +59,7 @@ class QualificationTypeController extends Controller
             ->with('success', 'Qualification Type successfully created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(QualificationType $qualificationtype)
     {
         // get current logged in user
@@ -94,12 +80,7 @@ class QualificationTypeController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(QualificationType $qualificationtype)
     {
         // get current logged in user
@@ -118,13 +99,7 @@ class QualificationTypeController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
 
-     */
     public function update(QualificationTypeUpdateRequest $request, QualificationType $qualificationtype)
     {
         // get current logged in user
@@ -147,17 +122,11 @@ class QualificationTypeController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(QualificationType $qualificationtype)
     {
 
         // delete qualification type
-        $quaificationtype->delete();
+        $qualificationtype->delete();
 
         return redirect('/qualificationtypes')->with('success', 'Qualification Type has been deleted');
     }

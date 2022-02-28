@@ -11,11 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ProviderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         // get current company
@@ -28,21 +24,11 @@ class ProviderController extends Controller
         return view('providers.index', compact('providers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('providers.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     */
     public function store(ProviderCreateRequest $request)
     {
         // get current company
@@ -106,12 +92,6 @@ class ProviderController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     */
     public function update(ProviderUpdateRequest $request, Provider $provider)
     {
         // get current logged in user
@@ -133,14 +113,10 @@ class ProviderController extends Controller
             ->with('success', 'Provider has been successfully updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Provider $provider)
     {
+        $user = Auth::user();
         if ($user->can('delete', $provider)) {
 
             // delete department
@@ -160,12 +136,7 @@ class ProviderController extends Controller
         }
     }
 
-    /**
-     * Show qualifications that belong to employee.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
 
     public function qualifications(Provider $provider)
     {
@@ -177,7 +148,7 @@ class ProviderController extends Controller
 
         if ($user->can('view', $provider)) {
 
-            $qualifications = Qualification::where('company_id', '=', $company->id)
+            $qualifications = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
                 ->where('provider_id', '=', $provider->id)
                 ->get();
 

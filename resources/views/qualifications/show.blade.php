@@ -41,7 +41,7 @@
                         @endif
                     </div>
                     <div class="flex-end align-self-center">
-                        @if($qualification->upload)
+                        @if($qualification->getMedia('qualification')->first())
                         <form method="POST" action="/qualifications/{{$qualification->id}}/sendSMS" class="d-inline">
                             @csrf
                             <button type="submit" class="btn btn-sm btn-secondary me-5">Send</button>

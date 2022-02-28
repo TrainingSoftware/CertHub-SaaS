@@ -148,7 +148,7 @@
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="">Grade</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">
-                                {!! Form::number('grade', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Enter Grade','step'=>".1"]) !!}
+                                {!! Form::text('grade', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Enter Grade','step'=>".1"]) !!}
                             </div>
                         </div>
                     </div>

@@ -27,7 +27,7 @@ class DashboardController extends Controller
         $company = Auth::user()->companies()->first();
 
         // Count qualifications
-        $qualifications = Qualification::where('company_id', '=', $company->id)
+        $qualifications = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->count();
 
         // Count employees
@@ -47,7 +47,7 @@ class DashboardController extends Controller
             ->count();
 
         // get qualifications expiring this quarter
-        $upcomingRenewals = Qualification::where('company_id', '=', $company->id)
+        $upcomingRenewals = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array(
                 $thisMonth->startOfMonth(),
                 $thisQuarter->endOfMonth()
@@ -55,7 +55,7 @@ class DashboardController extends Controller
             )->get();
 
         // get qualifications expiring this quarter
-        $thisQuarterTrainingSpend = Qualification::where('company_id', '=', $company->id)
+        $thisQuarterTrainingSpend = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->whereBetween('expiry_date', array(
                     $thisMonth->startOfMonth(),
                     $thisQuarter->endOfMonth()
@@ -63,25 +63,25 @@ class DashboardController extends Controller
             )->sum('price');
 
         // count qualifications expiring in current month
-        $upcomingRenewalsCount = Qualification::where('company_id', '=', $company->id)
+        $upcomingRenewalsCount = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', now()->month)
             ->whereYear('expiry_date', now()->year)
             ->count();
 
         // sum current month training spend
-        $monthlyTrainingSpend = Qualification::where('company_id', '=', $company->id)
+        $monthlyTrainingSpend = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', now()->month)
             ->whereYear('expiry_date', now()->year)
             ->sum('price');
 
         // sum next month training spend
-        $nextMonthTrainingSpend = Qualification::where('company_id', '=', $company->id)
+        $nextMonthTrainingSpend = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', $nextMonth->month)
             ->whereYear('expiry_date', $nextMonth->year)
             ->sum('price');
 
         // sum third month training spend
-        $thirdMonthTrainingSpend = Qualification::where('company_id', '=', $company->id)
+        $thirdMonthTrainingSpend = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->whereMonth('expiry_date', $thisQuarter->month)
             ->whereYear('expiry_date', $thisQuarter->year)
             ->sum('price');
@@ -93,12 +93,12 @@ class DashboardController extends Controller
             ->sortByDesc('updated_at');
 
         // get latest updated qualifications
-        $latestQualifications = Qualification::where('company_id', '=', $company->id)
+        $latestQualifications = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->take(5)
             ->get()
             ->sortByDesc('updated_at');
 
-        $qualificationSpendByMonth = Qualification::where('company_id', '=', $company->id)
+        $qualificationSpendByMonth = Qualification::whereHas('employee')->where('company_id', '=', $company->id)
             ->groupBy('created_at');
 
         return view('home', [
