@@ -37,7 +37,7 @@
                 </div>
                 <div class="card-body p-9">
                     {{ Form::model($awardingBody, array('route' => array('awarding-bodies.update', $awardingBody), 'method' => 'PATCH')) }}
-                    <div class="row mb-20 d-flex h-100">
+                    <div class="row d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Name</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">

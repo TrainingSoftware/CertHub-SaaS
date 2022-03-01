@@ -23,7 +23,7 @@
 							<div class="fw-bold text-muted">{{ $employee->email }}</div>
 						</div>
 					</div>
-					<div class="ms-2 w-100px">
+					<div class="ms-2">
 						<a href="/employees/{{ $employee->id }}" class="btn btn-light">View</a>
 					</div>
 				</div>

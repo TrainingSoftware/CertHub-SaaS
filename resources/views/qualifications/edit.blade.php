@@ -129,7 +129,7 @@
                         </div>
                     </div>
                     <div class="row mb-7 d-flex h-100">
-                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Reg No.</span></label>
+                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="">Reg No.</span></label>
                         <div class="col-lg-8">
                             <div class="form-group">
                                 {!! Form::text('regno', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '123-456-789']) !!}

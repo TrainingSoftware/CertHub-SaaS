@@ -192,7 +192,7 @@
                                     <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Provider</a>
+                                    <a href="/providers" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Provider</a>
                                     <span class="text-muted fw-bold d-block">Add your first provider</span>
                                 </div>
                                 <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
@@ -217,7 +217,7 @@
                                     <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Department</a>
+                                    <a href="/departments" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Department</a>
                                     <span class="text-muted fw-bold d-block">Add your first department</span>
                                 </div>
                                 <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
@@ -235,6 +235,31 @@
                                 <span class="badge badge-success fs-8 fw-bolder">Completed</span>
                             </div>
                             @endif
+                            @if($awardingBodies == 0)
+                            <div class="d-flex align-items-center mb-8">
+                                <span class="bullet bullet-vertical h-40px bg-danger"></span>
+                                <div class="form-check form-check-custom form-check-solid mx-5">
+                                    <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <a href="/awarding-bodies" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Awarding Body</a>
+                                    <span class="text-muted fw-bold d-block">Add your first awarding body</span>
+                                </div>
+                                <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
+                            </div>
+                            @else
+                            <div class="d-flex align-items-center mb-8">
+                                <span class="bullet bullet-vertical h-40px bg-success"></span>
+                                <div class="form-check form-check-custom form-check-solid mx-5">
+                                    <input class="form-check-input bg-success" type="checkbox" value="" checked disabled>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <a href="#" class="text-success text-hover-primary fw-bolder fs-6"><strike>Add Awarding Body</strike></a>
+                                    <span class="text-muted fw-bold d-block">Add your first awarding body</span>
+                                </div>
+                                <span class="badge badge-success fs-8 fw-bolder">Completed</span>
+                            </div>
+                            @endif
                             @if($qualificationtypes == 0)
                             <div class="d-flex align-items-center mb-8">
                                 <span class="bullet bullet-vertical h-40px bg-danger"></span>
@@ -242,7 +267,7 @@
                                     <input class="form-check-input bg-danger" type="checkbox" value="" disabled>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Qualification Type</a>
+                                    <a href="/qualificationtypes" class="text-gray-800 text-hover-primary fw-bolder fs-6">Add Qualification Type</a>
                                     <span class="text-muted fw-bold d-block">Add your first qualification type</span>
                                 </div>
                                 <span class="badge badge-light-danger fs-8 fw-bolder">Incomplete</span>
