@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\EmployeeContactController;
+use App\Http\Controllers\ImpersonateUserController;
 use App\Http\Controllers\TenderContactController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
@@ -44,6 +46,7 @@ use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 Route::get('/', function () {
     return view('auth.login');
 });
+
 Route::post('employee/reset-password',[EmployeeController::class, 'resetPassword'])->name('employee.resetPassword');
 
 Route::get('/employee/{employee}', [EmployeeController::class, 'show'])->name('employee.public')->middleware('signed');
@@ -78,7 +81,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::patch('/employees/{employee}/contacts/{contact}',[EmployeeContactController::class,'update'])->name('employee.contact.update');
             Route::delete('/employees/{employee}/contacts/{contact}',[EmployeeContactController::class,'destroy'])->name('employee.contact.destroy');
 
-
+            Route::get('/activity/logs',[ActivityLogController::class,'index'])->name('activity.logs');
 
             Route::get('employee/reset-password/{token}',[EmployeeController::class, 'showResetPassword'])->name('employee.show-reset-password');
             Route::get('/employees/{employee}/send-welcome-mail', [EmployeeController::class, 'sendWelcomeEmail'])->name('employee.welcome-mail');
@@ -118,6 +121,10 @@ Route::group(['middleware' => ['auth','verified']], function () {
             Route::patch('/tenders/{tender}/contacts/{contact}',[TenderContactController::class,'update'])->name('tenders.contact.update');
             Route::delete('/tenders/{tender}/contacts/{contact}',[TenderContactController::class,'destroy'])->name('tenders.contact.destroy');
             Route::group(['prefix'=>'settings'], function() {
+                Route::get('user/{user}/request-access',[ImpersonateUserController::class,'requestAccess'])->name('user.request-access');
+                Route::get('generate/code/{user}',[ImpersonateUserController::class,'show'])->name('generate.show');
+                Route::post('generate/code/{admin}',[ImpersonateUserController::class,'generateCode'])->name('generate.code');
+                Route::post('impersonate/login/{user}',[ImpersonateUserController::class,'loginUser'])->name('impersonate.login');
                 Route::resource('users', UserController::class);
                 Route::post('/deactivated', [SettingController::class, 'deactivated'])->name('settings.deactivated');
                 Route::post('/deactivate', [SettingController::class, 'deactivate'])->name('settings.deactivate');

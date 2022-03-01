@@ -1,7 +1,7 @@
 <div>
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <div id="kt_content_container" class="container-xxl">
-         <div class="@if(Auth::user()->companies->first()->users->count() == 0 ) card @endif">
+         <div class="@if(!Auth::user()->isAdmin()) @if(Auth::user()->companies->first()->users->count() == 0 ) card @endif @endif">
                 <div class="card-header border-0 py-6 px-0">
                     <div class="card-title w-100">
                         <div class="row w-100">

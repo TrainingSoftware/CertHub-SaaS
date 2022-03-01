@@ -119,9 +119,11 @@
                         </div>
                     </div>
                     <div class="separator my-2"></div>
+                    @if(!Auth::user()->isAdmin())
                     <div class="menu-item py-5 px-8">
                         <div class="d-flex text-muted fs-8 mb-3">
                             <span class="flex-grow-1 text-gray-800">Employees</span>
+
                             <span class="text-gray-800">{{ Auth::user()->companies()->first()->employees->count()  }} of {{ Auth::user()->companies()->first()->subscriptions()->first()->quantity }} Used</span>
                         </div>
                         <div class="progress h-8px bg-light-primary mb-2">
@@ -143,6 +145,7 @@
                     <div class="menu-item px-5">
                         <a href="/settings/billing" class="menu-link px-5">Billing</a>
                     </div>
+                    @endif
                     <div class="separator my-2"></div>
                     <div class="menu-item px-5">
                         <div class="menu-content px-5">

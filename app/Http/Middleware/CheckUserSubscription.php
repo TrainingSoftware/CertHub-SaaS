@@ -17,6 +17,9 @@ class CheckUserSubscription
      */
     public function handle(Request $request, Closure $next)
     {
+        if(Auth::user()->isAdmin()){
+            return $next($request);
+        }
         if (Auth::user() && ! Auth::user()->companies()->first()->subscribed('default')) {
             return redirect('/payments?plan=standard');
         }

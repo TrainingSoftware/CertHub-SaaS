@@ -2,6 +2,7 @@
     <div class="aside-menu flex-column-fluid ps-5 pe-3 mb-7" id="kt_aside_menu">
         <div class="w-100 hover-scroll-overlay-y d-flex pe-2" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_footer, #kt_header" data-kt-scroll-wrappers="#kt_aside, #kt_aside_menu, #kt_aside_menu_wrapper" data-kt-scroll-offset="102">
             <div class="menu menu-column menu-rounded fw-bold" id="#kt_aside_menu" data-kt-menu="true">
+                @if(!Auth::user()->isAdmin())
                 <div class="menu-item {{ (request()->is('home')) ? 'hover show' : '' }}">
                     <a class="menu-link" href="/home">
                         <span class="menu-icon">
@@ -190,6 +191,7 @@
                         <span class="menu-title">Providers</span>
                     </a>
                 </div>
+
                 <div class="menu-item {{ (request()->is('reports')) ? 'hover show' : '' }}">
                     <a class="menu-link" href="/reports">
                         <span class="menu-icon">
@@ -243,6 +245,36 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <div class="menu-item {{ (request()->is('activity')) ? 'hover show' : '' }}">
+                    <a class="menu-link" href="{{route('activity.logs')}}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="black" />
+                                    <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="black" />
+                                </svg>
+                            </span>
+                        </span>
+                        <span class="menu-title">Activity Logs</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link" href="/settings/users">
+                    <span class="menu-icon">
+                        <span class="svg-icon svg-icon-5">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M14.4 11H3C2.4 11 2 11.4 2 12C2 12.6 2.4 13 3 13H14.4V11Z" fill="black" />
+                                <path opacity="0.3" d="M14.4 20V4L21.7 11.3C22.1 11.7 22.1 12.3 21.7 12.7L14.4 20Z" fill="black" />
+                            </svg>
+                        </span>
+                    </span>
+                    <span class="menu-title">Users</span>
+                    </a>
+                </div>
+                @endif
+
+
             </div>
         </div>
     </div>
@@ -254,7 +286,9 @@
                 </div>
                 <div class="ms-2">
                     <a href="#" class="text-gray-800 text-hover-primary fs-6 fw-bolder lh-1">{{ Auth::user()->name }}</a>
+                    @if(!Auth::user()->isAdmin())
                     <span class="text-muted fw-bold d-block fs-7 lh-1">{{ Auth::user()->companies()->first()->name }}</span>
+                        @endif
                 </div>
             </div>
             <div class="ms-1">

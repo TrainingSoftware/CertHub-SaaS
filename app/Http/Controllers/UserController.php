@@ -12,16 +12,17 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
+
+        if(Auth::user()->isAdmin()){
+            $users = User::all();
+            return view('users.index', compact('users'));
+        }
         $company = Auth::user()->companies()->first();
         $users = $company->users;
-        
+
         return view('users.index', compact('users'));
     }
 
@@ -68,14 +69,13 @@ class UserController extends Controller
             ->with('success', 'User successfully created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(User $user)
     {
+        if(Auth::user()->isAdmin()){
+             return view('users.show')
+                ->with('user', $user);
+        }
         if ($user->can('view', $user)) {
 
             return view('users.show')
@@ -86,7 +86,7 @@ class UserController extends Controller
             return abort(403);
 
         }
-        
+
     }
 
     /**
@@ -96,7 +96,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
-    {        
+    {
         if ($user->can('view', $user)) {
 
             return view('users.edit')
@@ -151,6 +151,6 @@ class UserController extends Controller
             return abort(403);
 
         }
-        
+
     }
 }

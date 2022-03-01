@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-body scroll-y pt-0 pb-15">
-                                    <div class="mw-lg-600px mx-auto">
+                                    <div class="mw-lg-600px mx-auto">F
                                         <div class="text-center">
                                             <h1 class="mb-3">Delete <span class="text-danger">{{ $qualificationtype->name }}</span>?</h1>
                                             <div class="text-muted fw-bold fs-5">

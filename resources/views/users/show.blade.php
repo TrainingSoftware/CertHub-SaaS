@@ -33,8 +33,50 @@
 							{{ $user->name }}'s Details
 						</h3>
 					</div>
-					<a href="/settings/users/{{ $user->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit User</a>
-				</div>
+                    <div style="display: flex">
+                        <a href="/settings/users/{{ $user->id }}/edit" class="btn btn-sm btn-primary align-self-center">Edit User</a>
+                        @if(Auth::user()->isAdmin())
+                        <div class="align-self-center">
+                            <form action="{{route('user.request-access',$user)}}" method="Get" >
+                                @csrf
+                                <button class="btn btn-sm btn-primary ">Request Access</button>
+                            </form>
+                        </div>
+                        <button data-bs-toggle="modal" data-bs-target="#access-code"  class="btn btn-sm btn-primary align-self-center">Login with Access Code</button>
+                        @endif
+                    </div>
+
+				    <div class="modal fade" id="access-code">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Access Code</h5>
+                                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                                    <span class="svg-icon svg-icon-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
+                                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{{route('impersonate.login',$user)}}" method="POST">
+                                    @csrf
+                                    <input type="text" class="form-control" name="code" placeholder="Input Access Code" required>
+                                    <div class="text-center">
+                                        <button class="btn btn-primary mt-10">Login with Code</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-brand" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
 				<div class="card-body p-9">
 					<div class="row mb-7">
 						<label class="col-lg-4 fw-bold text-muted">Full Name</label>

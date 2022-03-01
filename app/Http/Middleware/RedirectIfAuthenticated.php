@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
@@ -20,14 +21,20 @@ class RedirectIfAuthenticated
     public function handle(Request $request, Closure $next, ...$guards)
     {
         $guards = empty($guards) ? [null] : $guards;
+        //Temporary Fix till admin dashboard
+
+
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 if ($guard === 'portal') {
                     return redirect()->route('portal.home');
                 }
+                if($guard === 'web'){
                     return redirect(RouteServiceProvider::HOME);
+                }
             }
+
         }
 
         return $next($request);

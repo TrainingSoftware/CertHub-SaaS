@@ -15,6 +15,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        if(Auth::user()->isAdmin()){
+            return redirect('activity/logs');
+        }
         $thisMonth = Carbon::now();
         $nextMonth = Carbon::now()->addMonth();
         $thisQuarter = Carbon::now()->addMonth(2);
