@@ -62,15 +62,15 @@
 						</div>
 						<div class="row mt-5">
 							<div class="col-12">
-								<div class="d-flex align-items-center mb-5">
+								<div class="d-flex align-items-center mb-">
 									<div class="border-bottom border-gray-300 mw-50 w-100"></div>
 									<span class="fw-bold text-gray-400 fs-7 mx-2">OR</span>
 									<div class="border-bottom border-gray-300 mw-50 w-100"></div>
 								</div>
 							</div>
 						</div>
-                        <div class="row align-center">
-                            <div class="col-6 offset-3">
+						<div class="row align-center mt-5">
+							<div class="col-6 offset-3">
 								<button
 									class="btn btn-secondary w-100 collapsed"
 									type="button"
@@ -79,16 +79,16 @@
 									aria-expanded="false"
 									aria-controls="kt_accordion_1_body_1"
 									>
-									Import from Companies House
+								Import from Companies House
 								</button>
 							</div>
-                        </div>
+						</div>
 						@livewire('provider-lookup')
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-    @include('providers.bulk-import-form')
+	@include('providers.bulk-import-form')
 </div>
 @endsection

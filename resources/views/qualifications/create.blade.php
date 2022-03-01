@@ -85,7 +85,7 @@
                             </div>
                             <div class="row mb-6">
                                 <div class="col-lg-4 col-form-label">
-                                    <label class="required fw-bold fs-6">Registration Number</label>
+                                    <label class=" fw-bold fs-6">Registration Number</label>
                                 </div>
                                 <div class="col-lg-8">
                                     <div class="row">

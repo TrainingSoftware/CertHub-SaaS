@@ -10,6 +10,7 @@ use App\Models\QualificationType;
 use App\Models\Employee;
 use App\Models\Provider;
 use App\Models\Department;
+use App\Models\AwardingBody;
 
 class DashboardController extends Controller
 {
@@ -36,6 +37,10 @@ class DashboardController extends Controller
         // Count employees
         $employees = Employee::where('company_id', '=', $company->id)
             ->count();
+
+         // Count awarding bodies
+         $awardingBodies = AwardingBody::where('company_id', '=', $company->id)
+         ->count();
 
         // Count qualification types
         $qualificationtypes = QualificationType::where('company_id', '=', $company->id)
@@ -123,6 +128,7 @@ class DashboardController extends Controller
             'qualifications' => $qualifications,
             'employees' => $employees,
             'qualificationtypes' => $qualificationtypes,
+            'awardingBodies' => $awardingBodies,
             'providers' => $providers,
             'departments' => $departments,
             'thisQuarterTrainingSpend' => $thisQuarterTrainingSpend

@@ -101,7 +101,7 @@
                                 <div class="form-group col-md-12">
 									{!! Form::select('nationality', config('nationalities'), null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
 								</div>
-                            </div>	
+							</div> 
 						</div>
 					</div>
                     <div class="row mb-7 d-flex h-100">
