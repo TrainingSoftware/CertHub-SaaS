@@ -43,13 +43,8 @@ class ProviderController extends Controller
         // create provider with validated data
         $provider = $company->providers()->create($storeData);
 
-        // log the provider on successful creation
-        if ($provider){
-            activity('provider')
-                ->performedOn($provider)
-                ->causedBy($user)
-                ->log('Provider created by ' . $user->name);
-        }
+
+
 
         return redirect('/providers/' . $provider->id)
             ->with('success', 'Provider successfully created');

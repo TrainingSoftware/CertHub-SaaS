@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class TenderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         // get current company
@@ -28,11 +24,7 @@ class TenderController extends Controller
         return view('tenders.index', compact('tenders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         // get current company
@@ -41,18 +33,12 @@ class TenderController extends Controller
         return view('tenders.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     */
+
     public function store(TenderCreateRequest $request)
     {
         // get current company
         $company = Auth::user()->companies()->first();
 
-        // get current logged in user
-        $user = Auth::user();
 
         // get and validate data
         $storeData = $request->validated();
@@ -60,24 +46,13 @@ class TenderController extends Controller
         // create department with validated data
         $tender = $company->tenders()->create($storeData);
 
-        // log the department on successful creation
-        if ($tender){
-            activity('tender')
-                ->performedOn($tender)
-                ->causedBy($user)
-                ->log('Tender created by ' . $user->name);
-        }
+
 
         return redirect('/tenders/' . $tender->id)
             ->with('success', 'Tender successfully created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Tender $tender)
     {
         // get current logged in user

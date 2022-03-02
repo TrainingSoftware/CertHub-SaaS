@@ -13,11 +13,7 @@ class QrCodeController extends Controller
 {
 
 
-    /**
-     * Generate Employee QR Code.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
 
     public function employeeQrCode(Employee $employee)
     {

@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Input;
 
 class CompanyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         // get current logged in user
@@ -32,11 +28,6 @@ class CompanyController extends Controller
         }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
 
@@ -50,12 +41,6 @@ class CompanyController extends Controller
         }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(CompanyCreateRequest $request)
     {
         // get current logged in user
@@ -67,22 +52,13 @@ class CompanyController extends Controller
         // create department with validated data
         $company = $user->companies()->create($data);
 
-        // log the company on successful creation
-        activity('company')
-            ->performedOn($company)
-            ->causedBy($user)
-            ->log('Company updated by ' . $user->name);
+
 
         return redirect('/home')
             ->with('success', 'Company successfully created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Company  $company
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         // get current logged in user
@@ -99,12 +75,7 @@ class CompanyController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Company  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         // get current logged in user
@@ -144,12 +115,7 @@ class CompanyController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Company  $id
-     */
+
     public function update(CompanyUpdateRequest $request, $id)
     {
         // get current logged in user
@@ -170,22 +136,12 @@ class CompanyController extends Controller
                 ])
                 ->toMediaCollection('avatar');
         }
-        // log the company on successful update
-        //activity('company')
-        //    ->performedOn($company)
-        //    ->causedBy($user)
-        //    ->log('Company updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Company has been successfully updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Company  $company
 
-     */
     public function destroy(Company $company)
     {
         //

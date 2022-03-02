@@ -36,7 +36,7 @@ class ListActivityLogs extends Component
             $activites->where('causer_id',$this->user);
         }
         if($this->action !=""){
-            $activites->where('description', 'LIKE', "%$this->action%");
+            $activites->where('event', $this->action);
         }
 
         return view('livewire.list-activity-logs',[

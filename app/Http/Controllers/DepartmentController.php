@@ -11,11 +11,7 @@ use Pagination;
 
 class DepartmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         // get current company
@@ -27,22 +23,13 @@ class DepartmentController extends Controller
         return view('departments.index', compact('departments'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('departments.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(DepartmentCreateRequest $request)
     {
         // get current company
@@ -58,23 +45,13 @@ class DepartmentController extends Controller
         $department = $company->departments()->create($storeData);
 
         // log the department on successful creation
-        if ($department){
-            activity('department')
-                ->performedOn($department)
-                ->causedBy($user)
-                ->log('Department created by ' . $user->name);
-        }
+
 
         return redirect('/departments/' . $department->id)
             ->with('success', 'Department successfully created');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Department $department)
     {
         // get current logged in user
@@ -89,12 +66,7 @@ class DepartmentController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(Department $department)
     {
         // get current logged in user
@@ -107,12 +79,7 @@ class DepartmentController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     */
+
     public function update(DepartmentUpdateRequest $request, Department $department)
     {
         // get current logged in user
@@ -124,21 +91,13 @@ class DepartmentController extends Controller
         // update department with validated data
         $department->update($updateData);
 
-        // log the department on successful update
-        activity('department')
-            ->performedOn($department)
-            ->causedBy($user)
-            ->log('Department updated by ' . $user->name);
+
 
         return redirect()->refresh()
             ->with('success', 'Department has been successfully updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     */
+
     public function destroy(Department $department)
     {
         // get current logged in user
@@ -148,12 +107,6 @@ class DepartmentController extends Controller
 
             // delete department
             $department->delete();
-
-            // log the department on successful deletion
-            activity('department')
-                ->performedOn($department)
-                ->causedBy($user)
-                ->log('Department deleted by ' . $user->name);
 
             return redirect('/departments')->with('success', 'Department has been deleted');
 

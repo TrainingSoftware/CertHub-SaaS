@@ -18,11 +18,8 @@ class EmployeeContactController extends Controller
         $data = $request->validated();
         $data['company_id'] = $company->id;
         $contact = $employee->contacts()->create($data);
-         activity('contacts')
-                ->performedOn($employee)
-                ->causedBy(Auth::user())
-                ->log('Contact Added By ' . Auth::user()->name);
-         return redirect()->back()->with('success','Employee Contact created successfully');
+
+        return redirect()->back()->with('success','Employee Contact created successfully');
     }
     public function edit(Employee $employee ,Contact $contact)
     {
@@ -32,10 +29,7 @@ class EmployeeContactController extends Controller
     {
         $data = $request->validated();
         $contact->update($data);
-        activity('contacts')
-                ->performedOn($contact)
-                ->causedBy(Auth::user())
-                ->log('Contact Updated By ' . Auth::user()->name);
+
         return redirect()->back()->with('success','Contact updated successfully');
     }
     public function destroy(Employee $employee,Contact $contact)

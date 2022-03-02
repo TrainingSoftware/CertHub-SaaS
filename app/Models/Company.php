@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Cashier\Billable;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Company extends Model implements HasMedia
 {
-    use HasFactory, Notifiable, Billable,InteractsWithMedia;
+    use HasFactory, Notifiable, Billable,InteractsWithMedia,LogsActivity;
+    protected  $logName = 'company';
     protected $fillable = [
         'user_id',
         'name',
@@ -29,7 +32,13 @@ class Company extends Model implements HasMedia
         'company_vat',
         'citb_levy'
     ];
-
+    public function getActivitylogOptions() : LogOptions
+    {
+        return LogOptions::defaults()
+             ->setDescriptionForEvent(fn(string $eventName) => "{$this->logName} has been {$eventName}")
+             ->useLogName($this->logName)
+             ->logAll();
+    }
     public function plan()
     {
         return $this->hasMany(Plan::class);

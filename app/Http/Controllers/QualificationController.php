@@ -65,13 +65,6 @@ class QualificationController extends Controller
         $qualification = $company->qualifications()->create($storeData);
 
 
-        // log the qualification on successful creation
-        if ($qualification){
-            activity('qualification')
-                ->performedOn($qualification)
-                ->causedBy($user)
-                ->log('Qualification created by ' . $user->name);
-        }
 
         return redirect('/qualifications/' . $qualification->id)
             ->with('success', 'Qualification successfully created');
@@ -136,11 +129,6 @@ class QualificationController extends Controller
             $qualification->update($updateData);
         }
 
-        // log the qualification on successful update
-        activity('qualification')
-            ->performedOn($qualification)
-            ->causedBy($user)
-            ->log('Qualification updated by ' . $user->name);
 
         return redirect()->refresh()
             ->with('success', 'Qualification has been successfully updated');
@@ -153,22 +141,11 @@ class QualificationController extends Controller
         $user = Auth::user();
 
         if ($user->can('delete', $qualification)) {
-
-            // delete department
             $qualification->delete();
-
-            // log the department on successful deletion
-            activity('provider')
-                ->performedOn($qualification)
-                ->causedBy($user)
-                ->log('Qualification deleted by ' . $user->name);
-
-                return redirect('/qualifications')->with('success', 'Qualification has been deleted');
+            return redirect('/qualifications')->with('success', 'Qualification has been deleted');
 
         } else {
-
             return abort(403);
-
         }
     }
 

@@ -13,15 +13,17 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Mail;
 use \LaravelArchivable\Archivable;
 use Illuminate\Support\Str;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Employee extends Authenticatable implements CanResetPassword,HasMedia
 {
-    use Notifiable, Archivable, HasFactory,InteractsWithMedia;
+    use Notifiable, Archivable, HasFactory,InteractsWithMedia,LogsActivity;
 
     protected $guard = 'employee';
-
+    protected  $logName = 'awarding body';
     protected $dates = [
         'start_date',
         'end_date'
@@ -70,6 +72,13 @@ class Employee extends Authenticatable implements CanResetPassword,HasMedia
         'password', 'remember_token',
     ];
 
+    public function getActivitylogOptions() : LogOptions
+    {
+        return LogOptions::defaults()
+             ->setDescriptionForEvent(fn(string $eventName) => "{$this->logName} has been {$eventName}")
+             ->useLogName($this->logName)
+             ->logAll();
+    }
     protected static function newFactory()
     {
         return EmployeeFactory::new();

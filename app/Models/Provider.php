@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Database\Factories\ProviderFactory;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Provider extends Model
 {
     use HasFactory;
+    use LogsActivity;
 
     use Search;
-
+    protected  $logName = 'provider';
     protected $searchable = [
         'name',
     ];
@@ -31,7 +34,13 @@ class Provider extends Model
         'phone',
         'website',
     ];
-
+    public function getActivitylogOptions() : LogOptions
+    {
+        return LogOptions::defaults()
+             ->setDescriptionForEvent(fn(string $eventName) => "{$this->logName} has been {$eventName}")
+             ->useLogName($this->logName)
+             ->logAll();
+    }
     protected static function newFactory()
     {
         return ProviderFactory::new();

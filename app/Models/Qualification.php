@@ -5,13 +5,15 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 class Qualification extends Model implements HasMedia
 {
-    use HasFactory,InteractsWithMedia;
-
+    use HasFactory,InteractsWithMedia,LogsActivity;
+    protected  $logName = 'qualification';
     protected $dates = [
         'expiry_date',
     ];
@@ -28,6 +30,13 @@ class Qualification extends Model implements HasMedia
         'expiry_date',
         'status'
     ];
+    public function getActivitylogOptions() : LogOptions
+    {
+        return LogOptions::defaults()
+             ->setDescriptionForEvent(fn(string $eventName) => "{$this->logName} has been {$eventName}")
+             ->useLogName($this->logName)
+             ->logAll();
+    }
 
     public function upload()
     {

@@ -20,6 +20,7 @@ class AwardingBodyController extends Controller
         $awardingBodies = AwardingBody::where('company_id', '=', $company->id)
             ->paginate(10);
 
+
         return view('awarding-bodies.index', compact('awardingBodies'));
     }
 
@@ -48,13 +49,7 @@ class AwardingBodyController extends Controller
         // create qualification type with validated data
         $awardingBody = $company->awardingbodies()->create($storeData);
 
-        // log the qualification type on successful update
-        if ($awardingBody){
-            activity('awarding body')
-                ->performedOn($awardingBody)
-                ->causedBy($user)
-                ->log('Awarding Body created by ' . $user->name);
-        }
+
 
         return redirect(route('awarding-bodies.index'))
             ->with('success', 'Awarding Body successfully created');

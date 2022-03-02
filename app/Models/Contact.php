@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Contact extends Model
 {
     use HasFactory;
+    use LogsActivity;
+    protected  $logName = 'contact';
     protected $fillable = [
         'title',
         'firstname',
@@ -28,7 +32,13 @@ class Contact extends Model
         'company_id',
         'employee_id'
     ];
-
+    public function getActivitylogOptions() : LogOptions
+    {
+        return LogOptions::defaults()
+             ->setDescriptionForEvent(fn(string $eventName) => "{$this->logName} has been {$eventName}")
+             ->useLogName($this->logName)
+             ->logAll();
+    }
     public function employee()
     {
         return $this->belongsTo(Employee::class);

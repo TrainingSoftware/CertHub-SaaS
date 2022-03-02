@@ -23,13 +23,6 @@ use Illuminate\Support\Str;
 class EmployeeController extends Controller
 {
 
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function __construct()
     {
         $this->middleware('CheckEmployeeSubscription',['only' => 'store']);
@@ -46,25 +39,10 @@ class EmployeeController extends Controller
         return view('employees.index');
     }
 
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('employees.create');
     }
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     */
 
     public function store(EmployeeCreateRequest $request)
     {
@@ -91,26 +69,12 @@ class EmployeeController extends Controller
         if($welcome){
             SendWelcomeMail::dispatch($password,$employee);
         }
-        // log the provider on successful creation
-        if ($employee) {
-            activity('employee')
-                ->performedOn($employee)
-                ->causedBy($user)
-                ->log('Employee created by ' . $user->name);
-        }
 
         return redirect('/employees/' . $employee->id)
             ->with('success', 'Employee successfully created');
     }
 
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param \App\Models\Employee $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Employee $employee)
     {
         // get current logged in user
