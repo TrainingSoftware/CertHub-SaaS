@@ -7,7 +7,7 @@
                         <div class="row w-100">
                             <div class="col-3">
                                 <div class="d-flex align-items-center position-relative">
-                                    <select  class="form-control form-control-solid" wire:model.lazy="subject">
+                                    <select  class="form-control form-control-solid" wire:model.lazy="subject"  data-control="select2">
                                         <option value="">Filter By Subject</option>
                                         @foreach($subjects as $subject)
                                         <option value="{{$subject}}">{{$subject}}</option>
@@ -16,7 +16,7 @@
                                 </div>
                         </div>
                             <div class="col-3">
-                                <select  class="form-control form-control-solid" wire:model.lazy="action">
+                                <select  class="form-control form-control-solid" wire:model.lazy="action"  data-control="select2">
                                     <option value="">Filter By Action</option>
                                     <option value="updated">Update</option>
                                     <option value="deleted">Delete</option>
@@ -25,7 +25,7 @@
                                 </select>
                             </div>
                             <div class="col-3">
-                                <select  class="form-control form-control-solid" wire:model.lazy="user">
+                                <select  class="form-control form-control-solid" wire:model.lazy="user" data-control="select2">
                                     <option value="">Filter By User </option>
                                     @foreach($users as $key => $value)
                                         <option value="{{$key}}">{{$value}}</option>
@@ -50,11 +50,11 @@
                         <table class="table align-middle table-hover table-rounded table-striped border gy-7 gs-7">
                             <thead>
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px" >Subject</th>
-                                    <th class="min-w-100px">Action
-                                    <th class="min-w-100px">Triggered By</th>
-                                    <th class="min-w-100px">Created at</th>
-                                    <th class="min-w-100px">Actions</th>
+                                    <th class="min-w-125px" wire:click="sortBy('log_name')" >Subject <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
+                                    <th class="min-w-100px" wire:click="sortBy('description')">Action <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
+                                    <th class="min-w-100px" >Triggered By </th>
+                                    <th class="min-w-100px" wire:click="sortBy('created_at')">Created at <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
+                                    <th class="min-w-100px">Actions <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
                                 </tr>
                             </thead>
                             <tbody class="text-gray-600 fw-bold">
@@ -62,7 +62,7 @@
                                     <tr>
                                         <td>{{$activity->log_name}}</td>
                                         <td>{{$activity->description}}</td>
-                                        <th>{{$activity->causer->name}}</th>
+                                        <th>{{optional($activity->causer)->name}}</th>
                                         <td>{{$activity->created_at}}
                                         <td>
                                            @include('activity.partials.properties-modal',['activity' => $activity])

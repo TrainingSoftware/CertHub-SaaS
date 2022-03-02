@@ -52,6 +52,7 @@ class EmployeeUpdateRequest extends FormRequest
             'nocn_number' => ['string','nullable'],
             'npors_number' => ['string','nullable'],
             'eusr_number' => ['string','nullable'],
+            'uln' => ['string','nullable'],
             'marital_status' => ['string','nullable'],
             'department_id' => ['exists:departments,id','int'],
             'company_id' => ['exists:companies,id','int'],

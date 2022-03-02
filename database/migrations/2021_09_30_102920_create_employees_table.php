@@ -43,6 +43,7 @@ class CreateEmployeesTable extends Migration
             $table->string("nocn_number")->nullable();
             $table->string("npors_number")->nullable();
             $table->string("eusr_number")->nullable();
+            $table->string("uln")->nullable();
             $table->string("marital_status")->nullable();
             $table->string('password');
             $table->rememberToken();

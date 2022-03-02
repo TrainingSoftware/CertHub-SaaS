@@ -57,7 +57,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 fv-row">
                                             <div class="form-group">
-                                                {{ Form::select('awarding_body_id', $awardingBodies,null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+                                                {{ Form::select('awarding_body_id', $awardingBodies,null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0','data-control' => 'select2')) }}
                                             </div>
                                         </div>
                                     </div>

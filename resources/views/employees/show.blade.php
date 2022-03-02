@@ -221,6 +221,16 @@
 							@endif
 						</div>
 					</div>
+                     <div class="row mb-7">
+						<label class="col-lg-4 fw-bold text-muted">ULN</label>
+						<div class="col-lg-6">
+							@if($employee->uln)
+							<span class="fw-bold text-gray-800 fs-6">{{ $employee->uln }}</span>
+							@else
+							<span class="fw-bold text-gray-500 fs-6">No ULN</span>
+							@endif
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

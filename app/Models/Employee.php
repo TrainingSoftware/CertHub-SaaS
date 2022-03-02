@@ -52,6 +52,7 @@ class Employee extends Authenticatable implements CanResetPassword,HasMedia
         'nocn_number',
         'npors_number',
         'eusr_number',
+        'uln',
         'marital_status',
         'line_2',
         'line_3',

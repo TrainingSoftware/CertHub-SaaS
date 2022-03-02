@@ -101,7 +101,7 @@
                                 <div class="form-group col-md-12">
 									{!! Form::select('nationality', config('nationalities'), null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
 								</div>
-							</div> 
+							</div>
 						</div>
 					</div>
                     <div class="row mb-7 d-flex h-100">
@@ -552,6 +552,12 @@
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">EUSR Number</label>
 						<div class="col-lg-8">
 							{{ Form::text('eusr_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'EUSR Number')) }}
+						</div>
+					</div>
+                    <div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">ULN</label>
+						<div class="col-lg-8">
+							{{ Form::text('uln', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'ULN')) }}
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">

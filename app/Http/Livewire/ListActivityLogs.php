@@ -3,13 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Traits\Sortable;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Activitylog\Models\Activity;
 
 class ListActivityLogs extends Component
 {
-    use WithPagination;
+    use WithPagination,Sortable;
     public $searchTerm;
     public $subjects;
     public $subject;
@@ -40,7 +41,7 @@ class ListActivityLogs extends Component
         }
 
         return view('livewire.list-activity-logs',[
-            'activities' => $activites->paginate(10)
+            'activities' => $this->sortField != null ? $activites->orderBy($this->sortField,$this->sortDirection)->latest()->paginate(10) : $activites->latest()->paginate(10)
         ]);
     }
 }
