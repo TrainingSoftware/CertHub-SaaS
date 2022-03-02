@@ -125,14 +125,6 @@ class TenderController extends Controller
     }
 
 
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Tender $tender)
     {
         // get current logged in user
@@ -148,13 +140,6 @@ class TenderController extends Controller
 
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param TenderUpdateRequest $request
-     * @param Tender $tender
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function update(TenderUpdateRequest $request, Tender $tender)
     {
         // get current logged in user
@@ -177,13 +162,6 @@ class TenderController extends Controller
     }
 
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Tender $tender)
     {
 
@@ -192,13 +170,7 @@ class TenderController extends Controller
             // delete department
             $tender->delete();
 
-            // log the department on successful deletion
-            activity('tender')
-                ->performedOn($tender)
-                ->causedBy($user)
-                ->log('Tender deleted by ' . $user->name);
-
-                return redirect('/tenders')->with('success', 'Tender has been deleted');
+            return redirect('/tenders')->with('success', 'Tender has been deleted');
 
         } else {
 
@@ -207,15 +179,6 @@ class TenderController extends Controller
         }
     }
 
-
-
-    /**
-     * View Employees to attached specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function employees(Tender $tender)
     {
        // get current logged in user
@@ -262,13 +225,6 @@ class TenderController extends Controller
     }
 
 
-
-    /**
-     * View qualifications attached specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     */
     public function renewals(Tender $tender)
     {
 
@@ -314,18 +270,10 @@ class TenderController extends Controller
     }
 
 
-    /**
-     * View qualifications attached specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     */
     public function map()
     {
         $company = Auth::user()->companies()->first();
 
-
-        // get employees that belong to authenticated user
         $tenders = $company->tenders()->active()->get()->map(function($t){
             return [$t->name,$t->latitude,$t->longitude];
         });

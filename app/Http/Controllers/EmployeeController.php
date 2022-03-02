@@ -134,13 +134,6 @@ class EmployeeController extends Controller
 
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Employee $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(EmployeeUpdateRequest $request, Employee $employee)
     {
         // get current logged in user
@@ -159,24 +152,13 @@ class EmployeeController extends Controller
                 ])
                 ->toMediaCollection('avatar');
         }
-        // log the provider on successful update
-        activity('employee')
-            ->performedOn($employee)
-            ->causedBy($user)
-            ->log('Employee updated by ' . $user->name);
+
 
         return redirect()->refresh()
             ->with('success', 'Employee has been successfully updated');
     }
 
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Employee $employee)
     {
         // get current logged in user
@@ -203,14 +185,6 @@ class EmployeeController extends Controller
     }
 
 
-
-    /**
-     * Show qualifications that belong to employee.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-
     public function qualifications(Employee $employee)
     {
         // get current logged in user
@@ -224,14 +198,6 @@ class EmployeeController extends Controller
         }
     }
 
-
-
-    /**
-     * Show contacts that belong to employee.
-     *
-     * @param Employee $employee
-     * @return \Illuminate\Http\Response
-     */
 
     public function contacts(Employee $employee)
     {
@@ -248,13 +214,6 @@ class EmployeeController extends Controller
 
 
 
-    /**
-     * Show tenders that employee belongs to.
-     *
-     * @param Employee $employee
-     * @return \Illuminate\Http\Response
-     */
-
     public function tenders(Employee $employee)
     {
         // get current logged in user
@@ -268,31 +227,18 @@ class EmployeeController extends Controller
         }
     }
 
-
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
     public function importLanding()
     {
         return view('employees.import');
     }
 
 
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
     public function export()
     {
         return Excel::download(new EmployeeExport, 'employees.csv');
     }
 
 
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
     public function import()
     {
         Excel::import(new EmployeeImport, request()->file('file'));
@@ -308,13 +254,6 @@ class EmployeeController extends Controller
     }
 
 
-
-    /**
-     * Send employee password reset.
-     *
-     * @param Employee $employee
-     * @return \Illuminate\Http\Response
-     */
 
     public function sendResetLink(Employee $employee)
     {
@@ -334,13 +273,6 @@ class EmployeeController extends Controller
     }
 
 
-
-    /**
-     * Show employee password reset.
-     *
-     * @param Employee $employee
-     * @return \Illuminate\Http\Response
-     */
 
     public function showResetPassword($token)
     {

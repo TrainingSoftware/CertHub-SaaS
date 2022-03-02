@@ -23,7 +23,7 @@ class Employee extends Authenticatable implements CanResetPassword,HasMedia
     use Notifiable, Archivable, HasFactory,InteractsWithMedia,LogsActivity;
 
     protected $guard = 'employee';
-    protected  $logName = 'awarding body';
+    protected  $logName = 'employee';
     protected $dates = [
         'start_date',
         'end_date'
