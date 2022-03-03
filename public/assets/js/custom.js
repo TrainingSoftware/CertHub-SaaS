@@ -21,6 +21,8 @@
 // });
 $("#qualExpiry").flatpickr({
     dateFormat: "d-m-Y",
+    disableMobile: "true",
+    defaultDate : 'null'
 });
 $("#tenderStart").flatpickr({
     dateFormat: "d-m-Y",

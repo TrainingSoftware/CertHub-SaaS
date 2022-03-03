@@ -102,7 +102,7 @@
                                 <div class="col-lg-8">
                                     <div class="row">
                                         <div class="col-lg-12 fv-row">
-                                            {{ Form::text('expiry_date', date('d-m-Y'), ['id' => 'qualExpiry', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) }}
+                                            {{ Form::text('expiry_date', null, ['id' => 'qualExpiry', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) }}
                                         </div>
                                     </div>
                                 </div>

@@ -125,7 +125,7 @@ class QualificationController extends Controller
         $updateData = $request->validated();
 
         // update qualification with validated data
-        if(!$qualification->expiry_date->isPast()){
+        if(!optional($qualification->expiry_date)->isPast()){
             $qualification->update($updateData);
         }
 

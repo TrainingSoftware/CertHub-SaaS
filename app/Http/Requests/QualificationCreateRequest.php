@@ -30,7 +30,7 @@ class QualificationCreateRequest extends FormRequest
             'provider_id' => ['required','exists:providers,id'],
             'regno' => ['nullable','string'],
             'grade' => ['nullable'],
-            'expiry_date' => ['required','date']
+            'expiry_date' => ['nullable','date']
 
         ];
     }

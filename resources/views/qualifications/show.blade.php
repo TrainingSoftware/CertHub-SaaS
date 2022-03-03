@@ -32,10 +32,12 @@
                         <h3 class="fw-bolder m-0">
                             {{ optional($qualification->employee)->firstname }}'s {{ optional($qualification->qualificationtype)->name }} Details
                         </h3>
-                        @if($qualification->expiry_date < Carbon\Carbon::today())
-                        <span class="badge badge-danger ms-5">Expired</span>
+                        @if($qualification->expiry_date === null)
+                        <span class="badge badge-success ms-5">Valid</span>
                         @elseif($qualification->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $qualification->expiry_date > Carbon\Carbon::today())
                         <span class="badge badge-warning ms-5">Expiring</span>
+                        @elseif($qualification->expiry_date < Carbon\Carbon::today())
+                         <span class="badge badge-danger ms-5">Expired</span>
                         @else
                         <span class="badge badge-success ms-5">Valid</span>
                         @endif
@@ -47,7 +49,9 @@
                             <button type="submit" class="btn btn-sm btn-secondary me-5">Send</button>
                         </form>
                         @endif
-                        @if($qualification->expiry_date < Carbon\Carbon::today())
+                        @if($qualification->expiry_date == null)
+                        <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-primary">Edit Qualification</a>
+                        @elseif($qualification->expiry_date < Carbon\Carbon::today())
                         <a href="/renewals/create?qualification={{ $qualification->id }}" class="btn btn-sm btn-warning">Add Renewal</a>
                         @else
                         <a href="/qualifications/{{ $qualification->id }}/edit" class="btn btn-sm btn-primary">Edit Qualification</a>
@@ -78,7 +82,7 @@
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-bold text-muted">Expiry Date</label>
                         <div class="col-lg-8">
-                            <span class="fw-bolder fs-6 text-gray-800">{{ $qualification->expiry_date->format('d/m/Y') }}</span>
+                            <span class="fw-bolder fs-6 text-gray-800">{{ optional($qualification->expiry_date)->format('d/m/Y') }}</span>
                         </div>
                     </div>
                     <div class="row mb-7">

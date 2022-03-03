@@ -28,7 +28,7 @@ class QualificationUpdateRequest extends FormRequest
             'employee_id' => ['required'],
             'qualificationtype_id' => ['required'],
             'provider_id' => ['required'],
-            'expiry_date' => ['required'],
+            'expiry_date' => ['nullable'],
             'regno' => ['nullable'],
             'grade' => ['nullable'],
             'slug' => ['string'],

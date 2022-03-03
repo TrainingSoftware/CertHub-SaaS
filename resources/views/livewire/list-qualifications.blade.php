@@ -123,7 +123,9 @@
                                             </a>
                                         </td>
                                         <td>
-                                            @if($item->expiry_date < Carbon\Carbon::today())
+                                            @if($item->expiry_date == null)
+                                                <span class="badge badge-success">Valid</span>
+                                            @elseif($item->expiry_date < Carbon\Carbon::today())
                                                 <span class="badge badge-danger">Expired</span>
                                             @elseif($item->expiry_date->format('m') == Carbon\Carbon::today()->format('m') && $item->expiry_date > Carbon\Carbon::today())
                                                 <span class="badge badge-warning">Expiring</span>
@@ -131,7 +133,7 @@
                                                 <span class="badge badge-success">Valid</span>
                                             @endif
                                         </td>
-                                        <td>{{ $item->expiry_date->format('d/m/Y') }}</td>
+                                        <td>{{ optional($item->expiry_date)->format('d/m/Y') }}</td>
                                         <td>
                                             @if($item->getMedia('qualification')->first())
                                                 <a href="{{ $item->getMedia('qualification')->first()->getUrl() }}" target="_blank">
