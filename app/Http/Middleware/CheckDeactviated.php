@@ -21,9 +21,10 @@ class CheckDeactviated
         if($request->has('email')){
             $user = User::where('email',$request->input('email'))->first();
 
-            if($user->status == 0){
+            if($user && $user->status == 0 ){
                     return redirect()->route('login')->with('error', 'Your Account was deactivated, please contact support.');
             }
+            return redirect()->back()->with('error', 'Email does not exists.');
         }
 
 
