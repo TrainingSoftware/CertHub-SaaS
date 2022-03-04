@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<base href="">
-		<title>{{ Auth::guard('portal')->user()->firstname }} {{ Auth::guard('portal')->user()->lastname }} | CertHub | Simple Construction Training Management</title>
+		<title>{{ Auth::guard('portal')->user()->firstname }} {{ Auth::guard('portal')->user()->lastname }} | CertHub</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />

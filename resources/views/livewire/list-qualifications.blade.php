@@ -100,7 +100,7 @@
                                     <th class="min-w-100px">Employee </th>
                                     <th class="min-w-100px">Provider</th>
                                     <th class="min-w-50px">Status</th>
-                                    <th class="min-w-100px" wire:click="sortBy('expiry_date')">Expires on <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
+                                    <th class="min-w-100px pointer" wire:click="sortBy('expiry_date')">Expires on <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
                                     <th class=""></th>
                                     <th class=""></th>
                                 </tr>

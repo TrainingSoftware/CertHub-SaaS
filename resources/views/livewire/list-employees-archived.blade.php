@@ -58,7 +58,7 @@
                         <table class="table align-middle table-hover table-rounded table-striped border gy-7 gs-7">
 							<thead>
 								<tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-									<th class="min-w-125px" wire:click="sortBy('firstname')">Employee <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
+									<th class="min-w-125px pointer" wire:click="sortBy('firstname')">Employee <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
 									<th class="min-w-125px" wire:click="sortBy('department_id')">Department</th>
 									<th class="min-w-125px" wire:click="sortBy('qualification')">Qualifications</th>
 									<th class="min-w-125px" wire:click="sortBy('start_date')">Employment Date</th>
