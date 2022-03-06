@@ -44,7 +44,7 @@
         @if(!Auth::user()->isAdmin())
 		@include('partials.global.global-search')
         @endif
-		@if(request()->is('tenders/*') && request()->routeIs())
+		@if(request()->is('tenders/*'))
 		    @if(!Route::is('tenders.create') && !Route::is('tenders.map'))
 		        @include('partials.tenders.search-modal')
 		    @endif
