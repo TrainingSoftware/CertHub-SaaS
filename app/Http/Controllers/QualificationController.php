@@ -9,6 +9,7 @@ use App\Models\QualificationType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\URL;
 
 class QualificationController extends Controller
@@ -41,12 +42,11 @@ class QualificationController extends Controller
             ->get();
 
         // get qualification types with name, id
-        $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)->get();
 
         // get providers
         $providers = \App\Models\Provider::where('company_id', '=', $company->id)->get();
 
-        return view('qualifications.create', compact('employees', 'qualificationtypes', 'providers'));
+        return view('qualifications.create');
     }
 
 
@@ -60,6 +60,10 @@ class QualificationController extends Controller
 
         // get and validate data
         $storeData = $request->validated();
+        if($storeData['list'] == 'library'){
+            $storeData['external_qualificationtype_id'] = $storeData['qualificationtype_id'];
+            $storeData['qualificationtype_id'] = null;
+        }
 
         // create qualifications with validated data
         $qualification = $company->qualifications()->create($storeData);
@@ -168,5 +172,7 @@ class QualificationController extends Controller
         }
         return view('qualifications.calendar.index',compact('qualifications','events'));
     }
+
+
 
 }

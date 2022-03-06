@@ -22,6 +22,7 @@ class Qualification extends Model implements HasMedia
         'user_id',
         'qualificationtype_id',
         'employee_id',
+        'external_qualificationtype_id',
         'provider_id',
         'grade',
         'regno',
@@ -60,6 +61,9 @@ class Qualification extends Model implements HasMedia
 
     public function qualificationtype()
     {
+        if($this->external_qualificationtype_id != null){
+            return $this->belongsTo(ExternalQualificationType::class,'external_qualificationtype_id');
+        }
         return $this->belongsTo(QualificationType::class);
     }
 

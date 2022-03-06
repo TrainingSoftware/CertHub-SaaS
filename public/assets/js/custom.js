@@ -19,6 +19,11 @@
 //         return new Date(year, month, day);
 //     }
 // });
+ $('#select2-dropdown').select2();
+        $('#select2-dropdown').on('change', function (e) {
+            var data = $('#select2-dropdown').select2("val");
+
+        });
 $("#qualExpiry").flatpickr({
     dateFormat: "d-m-Y",
     disableMobile: "true",

@@ -7,6 +7,7 @@
             {{-- <a href="../../demo10/dist/index.html" class="mb-12">
             <img alt="Logo" src="assets/media/logos/logo-1.svg" class="h-40px" />
             </a> --}}
+        
             <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
                 <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" action="/login" method="POST">
                     @csrf

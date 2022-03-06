@@ -38,97 +38,24 @@
                     </div>
                 </div>
                 <div id="kt_account_profile_details">
-                    <form class="form" method="POST" action="/qualifications">
-                        @csrf
-                        <div class="card-body border-top p-9">
-                            <div class="row mb-6">
-                                <div class="col-lg-4 col-form-label py-0">
-                                    <label class="required fw-bold fs-6">Employee</label><br>
-                                    <small><a href="/employees/create" target="_blank">Create new?</a></small>
-                                </div>
-                                <div class="col-lg-8">
-                                    <select name="employee_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select employee" data-allow-clear="true" data-hide-search="false">
-                                        <option></option>
-                                        @foreach($employees as $item)
-                                        <option value="{{ $item->id }}" @if(request()->query("employee") == $item->id) selected @endif>{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mb-6">
-                                <div class="col-lg-4 col-form-label py-0">
-                                    <label class="required fw-bold fs-6">Qualification Type</label><br>
-                                    <small><a href="/qualificationtypes/create" target="_blank">Create new?</a></small>
-                                </div>
-                                <div class="col-lg-8">
-                                    <select name="qualificationtype_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select qualification" data-allow-clear="true" data-hide-search="false">
-                                        <option></option>
-                                        @foreach($qualificationtypes as $item)
-                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mb-6">
-                                <div class="col-lg-4 col-form-label py-0">
-                                    <label class="required fw-bold fs-6">Provider</label><br>
-                                    <small><a href="/providers/create" target="_blank">Create new?</a></small>
-                                </div>
-                                <div class="col-lg-8">
-                                    <select name="provider_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select provider" data-allow-clear="true" data-hide-search="false">
-                                        <option></option>
-                                        @foreach($providers as $item)
-                                        <option value="{{ $item->id }}" @if(request()->query("provider") == $item->id) selected @endif>{{ $item->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mb-6">
-                                <div class="col-lg-4 col-form-label">
-                                    <label class=" fw-bold fs-6">Registration Number</label>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="row">
-                                        <div class="col-lg-12 fv-row">
-                                            {{ Form::text('regno', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '01234567']) }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-6">
-                                <div class="col-lg-4 col-form-label">
-                                    <label class="required fw-bold fs-6">Expiry Date</label>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="row">
-                                        <div class="col-lg-12 fv-row">
-                                            {{ Form::text('expiry_date', null, ['id' => 'qualExpiry', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="row mb-6">
-                                <div class="col-lg-4 col-form-label">
-                                    <label class="required fw-bold fs-6">Grade</label>
-                                </div>
-                                <div class="col-lg-8">
-                                    <div class="row">
-                                        <div class="col-lg-12 fv-row">
-                                            {!! Form::text('grade', null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Enter Grade','step'=>".1"]) !!}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-end py-6 px-9">
-                            <a href="/employees"
-                                class="btn btn-light btn-active-light-primary me-2">Cancel</a>
-                            <button type="submit" class="btn btn-primary">Create</button>
-                        </div>
-                    </form>
+                    @livewire('qualification-create')
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+@push('extra-js')
+<script>
+    $(document).ready(function() {
+            window.initSelectStationDrop=()=>{
+                $('#qtype').select2();
+            }
+            initSelectStationDrop();
+            window.livewire.on('select2',()=>{
+                initSelectStationDrop();
+            });
+
+        });
+</script>
+@endpush

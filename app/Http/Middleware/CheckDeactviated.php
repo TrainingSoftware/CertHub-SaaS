@@ -22,7 +22,7 @@ class CheckDeactviated
             $user = User::where('email',$request->input('email'))->first();
 
             if($user && $user->status == 0 ){
-                    return redirect()->route('login')->with('error', 'Your Account was deactivated, please contact support.');
+                return redirect()->route('login')->with('error', 'Your Account was deactivated, please contact support.');
             }
            
         }
