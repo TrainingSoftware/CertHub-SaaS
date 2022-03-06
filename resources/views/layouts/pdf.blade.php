@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <base href="">
-        <title>@yield('title') | CertHub | Simple Construction Training Management</title>
+        <title>@yield('title') | CertHub</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="canonical" href="" />

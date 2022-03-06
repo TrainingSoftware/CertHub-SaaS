@@ -2,10 +2,10 @@
 <html lang="en">
 	<head>
 		<base href="">
-		<title>@yield('title') | CertHub | Simple Construction Training Management</title>
+		<title>@yield('title') | CertHub</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="shortcut icon" href="/assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href="/assets/favicon.ico" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 		<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -44,7 +44,7 @@
         @if(!Auth::user()->isAdmin())
 		@include('partials.global.global-search')
         @endif
-		@if(request()->is('tenders/*') && request()->routeIs())
+		@if(request()->is('tenders/*'))
 		    @if(!Route::is('tenders.create') && !Route::is('tenders.map'))
 		        @include('partials.tenders.search-modal')
 		    @endif

@@ -34,9 +34,9 @@
                         <table class="table align-middle table-hover table-rounded table-striped border gy-7 gs-7">
                             <thead>
                                 <tr class="text-start text-muted fw-bolder fs-7 text-uppercase gs-0">
-                                    <th class="min-w-125px">User</th>
-                                    <th class="min-w-125px">Email</th>
-                                    <th class="min-w-125px">Added on</th>
+                                    <th class="min-w-125px pointer">User</th>
+                                    <th class="min-w-125px pointer">Email</th>
+                                    <th class="min-w-125px pointer">Added on</th>
                                     <th class="text-end min-w-100px"></th>
                                 </tr>
                             </thead>
