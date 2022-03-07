@@ -26,7 +26,7 @@ class QualificationCreateRequest extends FormRequest
         return [
             //
             'employee_id' => ['required','exists:employees,id'],
-            'qualificationtype_id' => ['nullable'],
+            'qualificationtype_id' => ['required'],
             'list' => ['nullable'],
             'provider_id' => ['required','exists:providers,id'],
             'regno' => ['nullable','string'],

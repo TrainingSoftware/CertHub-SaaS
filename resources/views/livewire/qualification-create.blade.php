@@ -6,68 +6,41 @@
                 <label class="required fw-bold fs-6">Employee</label><br>
                 <small><a href="/employees/create" target="_blank">Create new?</a></small>
             </div>
-            <div class="col-lg-8">
-                <select wire:model="employee_id" name="employee_id"  class="form-select form-select-lg form-select-solid" data-placeholder="Select employee" >
+            <div wire:ignore class="col-lg-8">
+                <select wire:model="employee_id" name="employee_id"  class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select employee" >
                     @foreach($employees as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
             </div>
         </div>
-         <div class="row mb-6">
+        <div class="row mb-6">
             <div class="col-lg-4 col-form-label py-0">
                 <label class="required fw-bold fs-6">Choose Qualification Type to use</label><br>
                 <small><a href="/qualificationtypes/create" target="_blank">Create new?</a></small>
             </div>
             <div class="col-lg-8">
-                <label class="radio radio-success">
-                    <input type="radio" wire:model="list" name="list" value="custom"/>
-                    <span></span>
-                    Custom<span class="text-muted">(This is one created by you )</span>
-                </label>
-                <label class="radio radio-success">
-                    <input type="radio"  wire:model="list" name="list" value="library"/>
-                    <span></span>
-                    Library <span class="text-muted">(This is list of qualification types we have existing)</span>
-                </label>
+                <a href="#" class="btn btn-primary er fs-6 px-8 mb-4 py-4" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search">Choose Qualification Type</a>
             </div>
         </div>
-        @if($list == "custom")
-        <div class="row mb-6" >
+        <div class="row mb-6">
             <div class="col-lg-4 col-form-label py-0">
-                <label class="required fw-bold fs-6">Qualification Type</label><br>
+                <label class="required fw-bold fs-6">Choose Qualification Type to use</label><br>
                 <small><a href="/qualificationtypes/create" target="_blank">Create new?</a></small>
             </div>
             <div class="col-lg-8">
-                <select wire:model="qualificationtype_id" name="qualificationtype_id"   class="form-select form-select-lg form-select-solid"  >
-                    @foreach($qualificationTypes as $key => $item)
-                    <option value="{{ $key }}">{{ $item }}</option>
-                    @endforeach
-                </select>
+                <input type="text" class="form-control" disabled wire:model="qualificationtype">
+                <input type="hidden" name="qualificationtype_id" wire:model="qualificationtype_id">
+                <input type="hidden" name="list" wire:model="list">
             </div>
         </div>
-        @elseif($list == "library")
-        <div class="row mb-6" >
-            <div class="col-lg-4 col-form-label py-0">
-                <label class="required fw-bold fs-6">Qualification Type</label><br>
-                <small><a href="/qualificationtypes/create" target="_blank">Create new?</a></small>
-            </div>
-            <div class="col-lg-8">
-                <select wire:model="qualificationtype_id" name="qualificationtype_id"  class="form-select form-select-lg form-select-solid"  >
-                    @foreach($qualificationTypes as $key => $item)
-                    <option value="{{ $key }}">{{ $item }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
-        @endif
         <div class="row mb-6">
             <div class="col-lg-4 col-form-label py-0">
                 <label class="required fw-bold fs-6">Provider</label><br>
                 <small><a href="/providers/create" target="_blank">Create new?</a></small>
             </div>
-            <div class="col-lg-8" >
-                <select wire:model="provider_id"  name="provider_id" class="form-select form-select-lg form-select-solid"  data-placeholder="Select provider" data-allow-clear="true" data-hide-search="false">
+            <div class="col-lg-8" wire:ignore >
+                <select wire:model="provider_id"  name="provider_id" class="form-select form-select-lg form-select-solid" data-control="select2"  data-placeholder="Select provider" data-allow-clear="true" data-hide-search="false">
                     @foreach($providers as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
@@ -118,3 +91,4 @@
         <button type="submit" class="btn btn-primary">Create</button>
     </div>
 </form>
+@include('partials.qualification.types',['courses' => $courses,'qualificationTypes' => $qualificationTypes])

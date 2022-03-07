@@ -94,19 +94,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-7 d-flex h-100">
-                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Qualification Type</span></label>
+                     <div class="row mb-7 d-flex h-100">
+                        <div class="col-lg-4 col-form-label py-0">
+                            <label class="required fw-bold fs-6">Choose Qualification Type to use</label><br>
+                            <small><a href="/qualificationtypes/create" target="_blank">Create new?</a></small>
+                        </div>
                         <div class="col-lg-8">
-                            <div class="form-group">
-                                <select name="qualificationtype_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select qualification type" data-allow-clear="true" data-hide-search="false">
-                                    <option></option>
-                                    @foreach($qualificationtypes as $item)
-                                    <option value="{{ $item->id }}" @if($qualification->qualificationtype->id === $item->id) selected @endif>{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            <a href="#" class="btn btn-primary er fs-6 px-8 mb-4 py-4" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search">Choose Qualification Type</a>
                         </div>
                     </div>
+                    @livewire('qualification-update',['qualification' => $qualification])
                     <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Provider</span></label>
                         <div class="col-lg-8">
@@ -120,6 +117,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="row mb-7 d-flex h-100">
                         <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Expiry Date</span></label>
                         <div class="col-lg-8">
@@ -182,6 +180,7 @@
                                                 <button class="btn btn-danger fw-bolder" type="submit">Confirm delete</button>
                                                 {{ Form::close() }}
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -189,6 +188,7 @@
                         </div>
                     </div>
                 </div>
+                @include('partials.qualification.types',['courses' => $courses,'qualificationTypes' => $qualificationtypes])
             </div>
         </div>
     </div>

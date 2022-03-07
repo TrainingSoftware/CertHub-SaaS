@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\QualificationCreateRequest;
 use App\Http\Requests\QualificationUpdateRequest;
+use App\Models\ExternalQualificationType;
 use App\Models\Qualification;
 use App\Models\QualificationType;
 use Illuminate\Http\Request;
@@ -111,9 +112,10 @@ class QualificationController extends Controller
 
             // get qualification types with name, id
             $qualificationtypes = \App\Models\QualificationType::where('company_id', '=', $company->id)
-                ->get();
+                ->pluck('name','id')->toArray();
+            $courses = ExternalQualificationType::all()->pluck('name','id')->toArray();
 
-            return view('qualifications.edit', compact('qualification','employees', 'qualificationtypes', 'providers'));
+            return view('qualifications.edit', compact('qualification','employees', 'qualificationtypes', 'courses', 'providers'));
         } else {
             return abort(403);
         }
@@ -128,6 +130,10 @@ class QualificationController extends Controller
         // get and validate data
         $updateData = $request->validated();
 
+        if($updateData['list'] == 'library'){
+            $updateData['external_qualificationtype_id'] = $updateData['qualificationtype_id'];
+            $updateData['qualificationtype_id'] = null;
+        }
         // update qualification with validated data
         if(!optional($qualification->expiry_date)->isPast()){
             $qualification->update($updateData);

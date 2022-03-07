@@ -336,5 +336,10 @@
 			})
 		</script>
 		@livewireScripts
+        <script>
+            window.livewire.on('qualificationSelected', () => {
+                 $('#kt_modal_users_search').modal('hide');
+            });
+        </script>
 	</body>
 </html>
