@@ -108,4 +108,9 @@ class Qualification extends Model implements HasMedia
         $end = Carbon::now()->endOfMonth()->addMonths(2)->addDays($day);
         return $q->whereBetween('expiry_date', array($start, $end));
     }
+    public function expiresInAMonth()
+    {
+        $dayToCheck = Carbon::now()->addDays(30);
+        return $this->expiry_date->lte($dayToCheck);
+    }
 }
