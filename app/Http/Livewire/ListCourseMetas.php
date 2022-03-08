@@ -3,12 +3,13 @@
 namespace App\Http\Livewire;
 
 use App\Models\Location;
+use App\Traits\Sortable;
 use Livewire\Component;
 use Livewire\WithPagination;
 
 class ListCourseMetas extends Component
 {
-    use WithPagination;
+    use WithPagination,Sortable;
     public $qualification;
     public $location;
     public $dateStart;
@@ -22,26 +23,25 @@ class ListCourseMetas extends Component
          $locations = $this->qualification->courseMetas()->pluck('location_id');
 
          $this->locations= Location::all()->filter(function($t) use ($locations){
-             return in_array($t->lid,$locations->toArray());
+             return in_array($t->id,$locations->toArray());
          });
 
     }
     public function render()
     {
 
-
         $items = $this->qualification->courseMetas();
 
         if($this->location != ""){
-            $items = $this->qualification->courseMetas()->where('location_id',$this->location);
+            $items->where('location_id',$this->location);
         }
         if($this->dateEnd != null && $this->dateStart != null){
             $start =date("Y-m-d",strtotime($this->dateStart));
             $end = date("Y-m-d",strtotime($this->dateEnd));
-            $items = $this->qualification->courseMetas()->whereBetween('date',[$start,$end]);
+            $items->whereBetween('date',[$start,$end]);
         }
         return view('livewire.list-course-metas',[
-            'courseMetas' => $items->paginate(10)
+            'courseMetas' => $this->sortField != null ? $items->orderBy($this->sortField,$this->sortDirection)->paginate(10) : $items->paginate(10)
         ]);
     }
 }

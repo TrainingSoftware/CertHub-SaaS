@@ -4,11 +4,11 @@
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
                         <span class="card-label fw-bolder fs-3 mb-1">Renewal offers</span>
-                        <span class="text-muted mt-1 fw-bold fs-7">X available</span>
+                        <span class="text-muted mt-1 fw-bold fs-7">{{$courseMetas->total()}} available</span>
                     </h3>
                     <div class="row w-100">
-                        <div class="col-3">
-                            <select wire:model="location"  class="form-control form-control-solid">
+                        <div class="col-3" wire:ignore>
+                            <select wire:model="location" id="select2" class="form-control form-control-solid">
                                 <option value="">Location</option>
                                 @foreach($locations as $location)
                                    <option value="{{$location->id}}">{{$location->name}}</option>
@@ -33,7 +33,7 @@
                             <!--begin::Table head-->
                             <thead>
                                 <tr class="fw-bolder text-muted">
-                                    <th class="">Date</th>
+                                    <th class="" wire:click="sortBy('date')">Date<i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
                                     <th class="">Location</th>
                                     <th class="">Duration</th>
                                     <th class="">Price</th>
@@ -77,3 +77,15 @@
                 </div>
                 <!--begin::Body-->
             </div>
+
+@push('extra-js')
+<script>
+    $(document).ready(function() {
+        $('#select2').select2();
+        $('#select2').on('change', function (e) {
+            var data = $('#select2').select2("val");
+            @this.set('location', data);
+        });
+    });
+</script>
+@endpush

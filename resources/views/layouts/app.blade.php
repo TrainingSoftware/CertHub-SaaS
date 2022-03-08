@@ -113,8 +113,7 @@
 		<script src="/assets/js/custom/modals/upgrade-plan.js"></script>
 		<script src="/assets/js/custom/account/api-keys/api-keys.js"></script>
 		<script src="/assets/js/custom/modals/create-api-key.js"></script>
-		@yield('extra-js')
-		@stack('extra-js')
+
 		@if(\Route::is('employees.edit') or \Route::is('tenders.edit') or \Route::is('providers.edit') or \Route::is('employee.contact.edit') or \Route::is('tenders.contact.edit'))
 		<script>
 			$(function() {
@@ -336,10 +335,13 @@
 			})
 		</script>
 		@livewireScripts
+        @yield('extra-js')
+		@stack('extra-js')
         <script>
             window.livewire.on('qualificationSelected', () => {
                  $('#kt_modal_users_search').modal('hide');
             });
         </script>
+
 	</body>
 </html>
