@@ -34,9 +34,9 @@
                             <thead>
                                 <tr class="fw-bolder text-muted">
                                     <th class="" wire:click="sortBy('date')">Date<i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
-                                    <th class="">Location</th>
+                                    <th class="" >Location</th>
                                     <th class="">Duration</th>
-                                    <th class="">Price</th>
+                                    <th class="" wire:click="sortBy('price')">Price <i class="{{$sortDirection == "asc" ? 'fa fa-angle-down' : 'fa fa-angle-up'}}"></i></th>
                                 </tr>
                             </thead>
                             <!--end::Table head-->
