@@ -6,7 +6,7 @@
         <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
             <div class="page-title d-flex flex-column me-5 py-2">
                 <h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Qualification: {{
-                    $qualification->qualificationtype->name }} </h1>
+                    optional($qualification->qualificationtype)->name }} </h1>
                 <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
                     <li class="breadcrumb-item text-muted">
                         <a href="/home" class="text-muted text-hover-primary">Home</a>
@@ -20,7 +20,7 @@
                     <li class="breadcrumb-item">
                         <span class="bullet bg-gray-200 w-5px h-2px"></span>
                     </li>
-                    <li class="breadcrumb-item text-dark">{{ $qualification->qualificationtype->name }}</li>
+                    <li class="breadcrumb-item text-dark">{{ optional($qualification->qualificationtype)->name }}</li>
                 </ul>
             </div>
         </div>
@@ -78,7 +78,7 @@
                     <div class="row mb-7">
                         <label class="col-lg-4 fw-bold text-muted">Qualification Type</label>
                         <div class="col-lg-8">
-                            <span class="fw-bolder fs-6 text-gray-800">{{ $qualification->qualificationtype->name
+                            <span class="fw-bolder fs-6 text-gray-800">{{ optional($qualification->qualificationtype)->name
                                 }}</span>
                         </div>
                     </div>

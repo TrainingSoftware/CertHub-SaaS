@@ -80,7 +80,7 @@
                             <tr class="">
                                 <td class="">
                                     <a class="d-flex align-items-center p-0 rounded bg-state-light bg-state-opacity-50 mb-0"
-                                        wire:click="updateQualificationType('{{$key}}','{{$value}}','custom')">
+                                        wire:click="updateQualificationType('{{$key}}','{{$value}}','library')">
                                         <div class="fw-bold">
                                             <span class="fs-6 text-gray-800 me-2">{{$value}}</span>
                                         </div>
