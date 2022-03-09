@@ -49,9 +49,10 @@ class ProviderLookup extends Component
 
     public function createCompany($name, $line1, $line2, $town, $postcode, $country, $number)
     {
+
         $company = Auth::user()->companies()->first();
         $provider = $company->providers()->create([
-            'name' => $name,
+            'name' => ucwords(strtolower($name)),
             'line_1' => $line1,
             'line_2' => $line2,
             'town' => $town,
