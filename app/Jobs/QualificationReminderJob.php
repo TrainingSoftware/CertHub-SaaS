@@ -42,13 +42,13 @@ class QualificationReminderJob implements ShouldQueue
             $dayToCheck = Carbon::now()->addDays($day);
            Qualification::whereDate('expiry_date',$dayToCheck)->with('company.users')->get()->map(function($q) use ($day){
                 $usersToMail = $q->company->users->flatten()->unique();
-                Notification::send($usersToMail,new QualificationExpiryReminder($day,$q->employee));
+                Notification::send($usersToMail,new QualificationExpiryReminder($day,$q->employee,$q));
             });
            Qualification::whereDate('expiry_date',$dayToCheck)->with('employee',function($q){
                     $q->where('email',"!=",null);
                 })->get()->map(function($q) use ($day){
                     $usersToMail = $q->employee;
-                    Notification::send($usersToMail,new QualificationExpiryReminderEmployee($day));
+                    Notification::send($usersToMail,new QualificationExpiryReminderEmployee($day,$q));
                 return $q->employee;
             });
         }

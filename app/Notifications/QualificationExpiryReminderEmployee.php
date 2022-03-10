@@ -11,15 +11,17 @@ class QualificationExpiryReminderEmployee extends Notification implements Should
 {
     use Queueable;
     public $days;
+    public $qualification;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($days)
+    public function __construct($days,$qualification)
     {
         //
         $this->days = $days;
+        $this->qualification = $qualification;
     }
 
     /**
@@ -43,7 +45,7 @@ class QualificationExpiryReminderEmployee extends Notification implements Should
     {
         return (new MailMessage)
                     ->line("Qualification Expires in the next $this->days days")
-                    ->action('Notification Action', url('/'))
+                    ->action('View Qualification', route('qualifications.show',$this->qualification))
                     ->line('Thank you for using our application!');
     }
 
