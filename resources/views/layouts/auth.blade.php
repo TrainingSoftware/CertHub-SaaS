@@ -189,6 +189,7 @@
 			    $("#county").val(address.county || "");
 			    $("#postcode").val(address.postcode || "");
 			    $("#country").val(address.country || "");
+			    $('#kt_modal_postcode').modal('hide');
 
 			    // Full list of response elements
 			    // https://developers.alliescomputing.com/postcoder-web-api/address-lookup
@@ -215,7 +216,7 @@
 			    "showMethod": "fadeIn",
 			    "hideMethod": "fadeOut"
 			};
-			
+
 			toastr.success("{{ $message }}");
 		</script>
 		@endif
