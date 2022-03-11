@@ -23,6 +23,7 @@
         $('#select2-dropdown').on('change', function (e) {
             var data = $('#select2-dropdown').select2("val");
 
+
         });
 $("#qualExpiry").flatpickr({
     dateFormat: "d-m-Y",

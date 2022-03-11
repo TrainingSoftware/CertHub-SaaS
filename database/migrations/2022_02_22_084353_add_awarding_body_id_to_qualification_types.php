@@ -30,7 +30,7 @@ class AddAwardingBodyIdToQualificationTypes extends Migration
     {
         Schema::table('qualification_types', function (Blueprint $table) {
             //
-            $table->dropColumn('awarding_body_id');
+            $table->dropConstrainedForeignId('awarding_body_id');
         });
     }
 }

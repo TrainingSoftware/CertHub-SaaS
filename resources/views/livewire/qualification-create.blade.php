@@ -7,8 +7,8 @@
                 <small><a href="/employees/create" target="_blank">Create new?</a></small>
             </div>
             <div wire:ignore class="col-lg-8">
-                <select wire:model="employee_id" name="employee_id" class="form-select form-select-lg form-select-solid"
-                    data-control="select2" data-placeholder="Select employee">
+                <select wire:model="employee_id" name="employee_id" id="select2-employee" class="form-select form-select-lg form-select-solid"
+                     data-placeholder="Select employee">
                     @foreach($employees as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
@@ -40,8 +40,8 @@
             </div>
             <div class="col-lg-8" wire:ignore>
                 <select wire:model="provider_id" name="provider_id" class="form-select form-select-lg form-select-solid"
-                    data-control="select2" data-hide-search="false">
-                    <option selected disabled>Select...</option>
+                    id="select2-provider" data-hide-search="false">
+                    <option selected >Select...</option>
                     @foreach($providers as $item)
                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
@@ -97,3 +97,19 @@
     </div>
 </form>
 @include('partials.qualification.types',['courses' => $courses,'qualificationTypes' => $qualificationTypes])
+@push('extra-js')
+<script>
+    $(document).ready(function() {
+        $('#select2-provider').select2();
+        $('#select2-provider').on('change', function (e) {
+            var data = $('#select2-provider').select2("val");
+            @this.set('provider_id', data);
+        });
+        $('#select2-employee').select2();
+        $('#select2-employee').on('change', function (e) {
+            var data = $('#select2-employee').select2("val");
+            @this.set('employee_id', data);
+        });
+    });
+</script>
+@endpush
