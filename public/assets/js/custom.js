@@ -51,6 +51,12 @@ $("#expiryStart").flatpickr({
 $("#expiryEnd").flatpickr({
     dateFormat: "d-m-Y"
 });
+$("#trainingStartDate").flatpickr({
+    dateFormat: "d-m-Y"
+});
+$("#trainingEndDate").flatpickr({
+    dateFormat: "d-m-Y"
+});
 
 
 // Select2
