@@ -55,4 +55,19 @@ class TrainingController extends Controller
     {
         dd(session()->get('course'));
     }
+
+    public function cpd(CPD $cpd)
+    {
+        $course = $cpd;
+        return view('train.show',compact('course'));
+    }
+    public function commercial(Course $course)
+    {
+         return view('train.show',compact('course'));
+    }
+    public function nvq(NVQ $nvq)
+    {
+        $course = $nvq;
+        return view('training.show',compact('course'));
+    }
 }

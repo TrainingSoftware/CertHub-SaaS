@@ -150,6 +150,10 @@ Route::group(['middleware' => ['auth','verified']], function () {
                 Route::get('', [TrainingController::class, 'index']);
                 Route::post('/filter',[TrainingController::class,'filter'])->name('training.filter');
                 Route::get('/search',[TrainingController::class,'search'])->name('training.search');
+                Route::get('/cpd/{cpd}',[TrainingController::class,'cpd'])->name('training.cpd');
+                Route::get('/nvq/{nvq}',[TrainingController::class,'nvq'])->name('training.nvq');
+                Route::get('/commercial/{course}',[TrainingController::class,'commercial'])->name('training.commercial');
+
             });
 
             Route::get('/billing-portal', function (Request $request) {

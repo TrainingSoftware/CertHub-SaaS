@@ -15,5 +15,9 @@ class CPD extends Model
     {
         return $this->belongsTo(Duration::class,'duration_id');
     }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
 

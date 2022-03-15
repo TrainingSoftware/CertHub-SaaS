@@ -19,5 +19,9 @@ class Course extends Model
     {
         return $this->hasMany(CourseMetas::class,'course_id');
     }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
 }
