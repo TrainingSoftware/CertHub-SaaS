@@ -43,12 +43,16 @@ class TrainingController extends Controller
            $course =  CPD::find(request('course_id'));
         }
         if($course){
-            dd($course->course);
+           return redirect()->to(route('training.search'))->with(['course' => $course]);
         }
         else{
             return redirect()->back()->with('error','No result found');
         }
 
-        return view('training.show',compact('course'));
+
+    }
+    public function search()
+    {
+        dd(session()->get('course'));
     }
 }

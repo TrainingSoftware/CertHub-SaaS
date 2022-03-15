@@ -30,7 +30,8 @@
         <!--end::Col-->
     </div>
     <!--end::Row-->
-    <div class="row g-8 mb-10">
+
+    <div class="row g-8 mb-10 {{$courseType == null ? "d-none" : ""}}">
         <div class="col-lg-6">
             <label class="fs-6 form-label fw-bolder text-dark">Category
                 Type</label>
@@ -64,14 +65,14 @@
         <!--end::Col-->
 
     </div>
+
     <!--end::Row-->
     <!--begin::Row-->
     @if($courseType == "commercial")
         <div class="row g-8 mb-0">
             <div class="col-lg-3">
                 <label class="fs-6 form-label fw-bolder text-dark">Start Date</label>
-                <input class="form-control" id="trai
-                ningStartDate" type="text" name="start_date"/>
+                <input class="form-control" id="trainingStartDate" type="text" name="start_date"/>
             </div>
             <div class="col-lg-3">
                 <label class="fs-6 form-label fw-bolder text-dark">End Date</label>
@@ -139,6 +140,7 @@
         $('#select2-category').select2();
         $('#select2-category').on('change', function (e) {
             var data = $('#select2-category').select2("val");
+            console.log(data)
             @this.set('category', data);
         });
         $('#select2-location').select2();

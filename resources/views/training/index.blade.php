@@ -156,8 +156,8 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script>
     var id = {{$category->id}}
-    
-    $('.multiple-items').slick({   
+
+    $('.multiple-items').slick({
         infinite: true,
         arrows: true,
         speed: 300,

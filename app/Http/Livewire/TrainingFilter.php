@@ -37,7 +37,9 @@ class TrainingFilter extends Component
         }
         if($this->courseType == "commercial" && $this->category != ""){
             $this->dispatchBrowserEvent('reApplySelect2');
+
             $this->actualCourses = Course::where('category_id',$this->category)->get();
+
         }
         if($this->courseType == "nvq" && $this->category != ""){
             $this->dispatchBrowserEvent('reApplySelect2');
@@ -46,6 +48,7 @@ class TrainingFilter extends Component
         if($this->courseType == "cpd" && $this->category != ""){
             $this->dispatchBrowserEvent('reApplySelect2');
             $this->actualCourses = CPD::where('cpd_category_id',$this->category)->get();
+
         }
         if($this->courseType == "commercial" && $this->category != "" && $this->selectedCourse != ""){
             $this->dispatchBrowserEvent('reApplySelect2');
