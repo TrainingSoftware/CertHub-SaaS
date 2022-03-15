@@ -70,7 +70,8 @@
         <div class="row g-8 mb-0">
             <div class="col-lg-3">
                 <label class="fs-6 form-label fw-bolder text-dark">Start Date</label>
-                <input class="form-control" id="trainingStartDate" type="text" name="start_date"/>
+                <input class="form-control" id="trai
+                ningStartDate" type="text" name="start_date"/>
             </div>
             <div class="col-lg-3">
                 <label class="fs-6 form-label fw-bolder text-dark">End Date</label>
@@ -89,7 +90,7 @@
                         <option value="{{$location->id}}"> {{$location->name}}</option>
                     @endforeach
                 </select>
-                <!--end::Select-->
+                <!--end::Select-->x
             </div>
             <!--end::Col-->
             <!--begin::Col-->
