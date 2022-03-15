@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class CourseCategory extends Model
 {
     use HasFactory;
     public $connection = "mysql2";
-    public $table = "learnconstruction_learnconstruction_locations";
+    protected $table = "learnconstruction_learnconstruction_categories";
 
-    public function courseMetas()
+    public function courses()
     {
-        return $this->hasMany(CourseMetas::class,'location_id');
+        return $this->hasMany(Course::class,"category_id");
     }
 }

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Find training')
+@push('extra-css')
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+@endpush
 @section('content')
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
@@ -84,437 +88,69 @@
                         <div class="modal-body">
                             <div class="position-relative w-100">
                                 <div class="card mb-7 p-5 border-0">
-                                    <div class="row g-8 mb-10">
-                                        <!--begin::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-lg-12">
-                                            <label class="fs-6 form-label fw-bolder text-dark">Select
-                                                Type</label>
-                                            <!--begin::Radio group-->
-                                            <div class="nav-group nav-group-fluid">
-                                                <!--begin::Option-->
-                                                <label>
-                                                    <input type="radio" class="btn-check" name="type" value="has"
-                                                        checked="checked">
-                                                    <span
-                                                        class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">Commercial</span>
-                                                </label>
-                                                <!--end::Option-->
-                                                <!--begin::Option-->
-                                                <label>
-                                                    <input type="radio" class="btn-check" name="type" value="users">
-                                                    <span
-                                                        class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">NVQ</span>
-                                                </label>
-                                                <!--end::Option-->
-                                                <!--begin::Option-->
-                                                <label>
-                                                    <input type="radio" class="btn-check" name="type" value="orders">
-                                                    <span
-                                                        class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">CPD</span>
-                                                </label>
-                                                <!--end::Option-->
-                                            </div>
-                                            <!--end::Radio group-->
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                    <!--end::Row-->
-                                    <div class="row g-8 mb-10">
-                                        <div class="col-lg-6">
-                                            <label class="fs-6 form-label fw-bolder text-dark">Category
-                                                Type</label>
-                                            <!--begin::Select-->
-                                            <select class="form-select form-select-solid select2-hidden-accessible"
-                                                data-control="select2" data-placeholder="select category..."
-                                                data-hide-search="false" tabindex="-1" aria-hidden="true">
-                                                <option value=""></option>
-                                            </select>
-                                            <!--end::Select-->
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-lg-6">
-                                            <label class="fs-6 form-label fw-bolder text-dark">Course
-                                                Type</label>
-                                            <!--begin::Select-->
-                                            <select class="form-select form-select-solid select2-hidden-accessible"
-                                                data-control="select2" data-placeholder="select course..."
-                                                data-hide-search="false" tabindex="-1" aria-hidden="true">
-                                                <option value=""></option>
-                                            </select>
-                                            <!--end::Select-->
-                                        </div>
-                                        <!--end::Col-->
-
-                                    </div>
-                                    <!--end::Row-->
-                                    <!--begin::Row-->
-                                    <div class="row g-8 mb-0">
-                                        <div class="col-lg-3">
-                                            <label class="fs-6 form-label fw-bolder text-dark">Start Date</label>
-                                            <input class="form-control" id="trainingStartDate" type="text" />
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <label class="fs-6 form-label fw-bolder text-dark">End Date</label>
-                                            <input class="form-control" id="trainingEndDate" type="text" />
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <label class="fs-6 form-label fw-bolder text-dark">Location</label>
-                                            <!--begin::Select-->
-                                            <select class="form-select form-select-solid select2-hidden-accessible"
-                                                data-control="select2" data-placeholder="In Progress"
-                                                data-hide-search="true" data-select2-id="select2-data-13-euze"
-                                                tabindex="-1" aria-hidden="true">
-                                                <option value=""></option>
-                                                <option value="1">Not started</option>
-                                                <option value="2" selected="selected"
-                                                    data-select2-id="select2-data-15-msm2">Select
-                                                </option>
-                                                <option value="3">Done</option>
-                                            </select>
-                                            <!--end::Select-->
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-lg-3">
-                                            <label class="fs-6 form-label fw-bolder text-dark">Remote
-                                                delivery?</label>
-                                            <div class="form-check form-switch form-check-custom form-check-solid mt-1">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="flexSwitchChecked" checked="checked">
-                                                <label class="form-check-label" for="flexSwitchChecked">Active</label>
-                                            </div>
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                    <!--end::Row-->
+                                    @livewire('training-filter')
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer border-0">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Search</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            @foreach($courseCategory as $category)
             <div class="row g-6 g-xl-9 mt-5">
                 <div class="col-md-12">
-                    <h3>Category title</h3>
+                    <h3>{{$category->name}}</h3>
                 </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
+                 <div class="multiple-items row">
+                    @foreach($category->courses as $course)
+                    <div class="col-md-6 col-xl-4">
+                        <a href="" class="card border-hover-primary">
+                            <div class="card-header border-0 p-9">
+                                <div class="card-title">
+                                    <div class="symbol symbol-50px w-50px bg-light">
+                                        <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
+                                            alt="image" class="p-3">
+                                    </div>
+                                </div>
+                                <div class="d-inline w-75">
+                                    <div class="fs-3 fw-bolder text-dark mt-2">{{$course->name}}</div>
+                                    <p class="text-gray-400 fw-bold fs-5">{{$category->name}}</p>
                                 </div>
                             </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
-                                    <div class="fw-bold text-gray-400">Duration</div>
-                                </div>
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
-                                    <div class="fw-bold text-gray-400">Price</div>
-                                </div>
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                    <div class="fw-bold text-gray-400">Provider</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
-                                </div>
-                            </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
+                            <div class="card-body pt-0">
                                 <div class="row">
                                     <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
+                                        <div class="fs-6 text-gray-800 fw-bolder">{{optional($course->duration)->day}} mins</div>
                                         <div class="fw-bold text-gray-400">Duration</div>
                                     </div>
                                     <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
+                                        <div class="fs-6 text-gray-800 fw-bolder">£{{$course->price}}</div>
                                         <div class="fw-bold text-gray-400">Price</div>
                                     </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                        <div class="fw-bold text-gray-400">Provider</div>
-                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
-                                </div>
-                            </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="row">
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
-                                        <div class="fw-bold text-gray-400">Duration</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
-                                        <div class="fw-bold text-gray-400">Price</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                        <div class="fw-bold text-gray-400">Provider</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                    @endforeach
+                 </div>
+
             </div>
-            <div class="row g-6 g-xl-9 mt-5">
-                <div class="col-md-12">
-                    <h3>Category title</h3>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
-                                </div>
-                            </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
-                                    <div class="fw-bold text-gray-400">Duration</div>
-                                </div>
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
-                                    <div class="fw-bold text-gray-400">Price</div>
-                                </div>
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                    <div class="fw-bold text-gray-400">Provider</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
-                                </div>
-                            </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="row">
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
-                                        <div class="fw-bold text-gray-400">Duration</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
-                                        <div class="fw-bold text-gray-400">Price</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                        <div class="fw-bold text-gray-400">Provider</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
-                                </div>
-                            </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="row">
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
-                                        <div class="fw-bold text-gray-400">Duration</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
-                                        <div class="fw-bold text-gray-400">Price</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                        <div class="fw-bold text-gray-400">Provider</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="row g-6 g-xl-9 mt-5">
-                <div class="col-md-12">
-                    <h3>Category title</h3>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
-                                </div>
-                            </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
-                                    <div class="fw-bold text-gray-400">Duration</div>
-                                </div>
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
-                                    <div class="fw-bold text-gray-400">Price</div>
-                                </div>
-                                <div class="col ">
-                                    <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                    <div class="fw-bold text-gray-400">Provider</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
-                                </div>
-                            </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="row">
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
-                                        <div class="fw-bold text-gray-400">Duration</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
-                                        <div class="fw-bold text-gray-400">Price</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                        <div class="fw-bold text-gray-400">Provider</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <a href="" class="card border-hover-primary">
-                        <div class="card-header border-0 p-9">
-                            <div class="card-title">
-                                <div class="symbol symbol-50px w-50px bg-light">
-                                    <img src="https://pbs.twimg.com/profile_images/1051754923463983105/MJIleIQo_400x400.jpg"
-                                        alt="image" class="p-3">
-                                </div>
-                            </div>
-                            <div class="d-inline w-75">
-                                <div class="fs-3 fw-bolder text-dark mt-2">Course Name</div>
-                                <p class="text-gray-400 fw-bold fs-5">Health & Safety</p>
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="row">
-                                <div class="row">
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">45 mins</div>
-                                        <div class="fw-bold text-gray-400">Duration</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">£20.00</div>
-                                        <div class="fw-bold text-gray-400">Price</div>
-                                    </div>
-                                    <div class="col ">
-                                        <div class="fs-6 text-gray-800 fw-bolder">iHasco</div>
-                                        <div class="fw-bold text-gray-400">Provider</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
 @endsection
+@push('extra-js')
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $('.multiple-items').slick({
+          infinite: true,
+          slidesToShow: 3,
+          slidesToScroll: 3
+        });
+    </script>
+@endpush

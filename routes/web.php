@@ -148,6 +148,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
             Route::group(['prefix'=>'training'], function() {
                 Route::get('', [TrainingController::class, 'index']);
+                Route::post('/filter',[TrainingController::class,'filter'])->name('training.filter');
             });
 
             Route::get('/billing-portal', function (Request $request) {

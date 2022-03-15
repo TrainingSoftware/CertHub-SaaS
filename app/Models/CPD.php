@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Location extends Model
+class CPD extends Model
 {
     use HasFactory;
     public $connection = "mysql2";
-    public $table = "learnconstruction_learnconstruction_locations";
+    protected $table = "learnconstruction_learnconstruction_cpd";
 
-    public function courseMetas()
+    public function duration()
     {
-        return $this->hasMany(CourseMetas::class,'location_id');
+        return $this->belongsTo(Duration::class,'duration_id');
     }
 }
+
