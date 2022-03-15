@@ -9,18 +9,20 @@
                 <!--begin::Option-->
                 <label>
                     <input type="radio" class="btn-check" wire:model.lazy="courseType" name="type" value="commercial"
-                        checked="checked">
+                           checked="checked">
                     <span
                         class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">Commercial</span>
                 </label>
                 <label>
                     <input type="radio" class="btn-check" wire:model.lazy="courseType" name="type" value="nvq">
-                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">NVQ</span>
+                    <span
+                        class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">NVQ</span>
                 </label>
 
                 <label>
                     <input type="radio" class="btn-check" wire:model.lazy="courseType" name="type" value="cpd">
-                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">CPD</span>
+                    <span
+                        class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bolder px-4">CPD</span>
                 </label>
             </div>
             <!--end::Radio group-->
@@ -28,21 +30,18 @@
         <!--end::Col-->
     </div>
     <!--end::Row-->
-<<<<<<< Updated upstream
 
     <div class="row g-8 mb-10 {{$courseType == null ? "d-none" : ""}}">
-=======
-    <div class="row g-8 mb-10 ">
->>>>>>> Stashed changes
         <div class="col-lg-6">
             <label class="fs-6 form-label fw-bolder text-dark">Category
                 Type</label>
             <!--begin::Select-->
-            <select class="form-select form-select-solid " id="select2-category" data-placeholder="select category..."
-                {{$categoryType==null ? "disabled" : "" }} data-hide-search="false" wire:model="category"
-                name="category" tabindex="-1" aria-hidden="true">
+            <select class="form-select form-select-solid "
+                    id="select2-category" data-placeholder="select category..."
+                    {{$categoryType == null ? "disabled" : ""}}
+                    data-hide-search="false" wire:model="category" name="category" tabindex="-1" aria-hidden="true">
                 @foreach($categoryType as $type)
-                <option value="{{$type->id}}">{{$type->name}}</option>
+                    <option value="{{$type->id}}">{{$type->name}}</option>
                 @endforeach
             </select>
             <!--end::Select-->
@@ -52,10 +51,13 @@
         <div class="col-lg-6">
             <label class="fs-6 form-label fw-bolder text-dark">Course
                 Type</label>
-            <select class="form-select form-select-solid" {{$category=="" ? "disabled" : "" }} id="select2-course"
-                data-hide-search="false" tabindex="-1" wire:model="selectedCourse" name="course_id" aria-hidden="true">
+            <select  class="form-select form-select-solid"
+                    {{$category == "" ? "disabled" : ""}}
+                        id="select2-course"
+                    data-hide-search="false" tabindex="-1" wire:model="selectedCourse" name="course_id"
+                    aria-hidden="true">
                 @foreach($actualCourses as $course)
-                <option value="{{$course->id}}">{{$course->name}}</option>
+                    <option value="{{$course->id}}">{{$course->name}}</option>
                 @endforeach
             </select>
             <!--end::Select-->
@@ -67,7 +69,6 @@
     <!--end::Row-->
     <!--begin::Row-->
     @if($courseType == "commercial")
-<<<<<<< Updated upstream
         <div class="row g-8 mb-0">
             <div class="col-lg-3">
                 <label class="fs-6 form-label fw-bolder text-dark">Start Date</label>
@@ -102,47 +103,15 @@
                            id="flexSwitchChecked" checked="checked" name="is_home_based">
                     <label class="form-check-label" for="flexSwitchChecked">Active</label>
                 </div>
-=======
-    <div class="row g-8 mb-0">
-        <div class="col-lg-3">
-            <label class="fs-6 form-label fw-bolder text-dark">Start Date</label>
-            <input class="form-control" id="trainingStartDate" type="text" name="start_date" />
-        </div>
-        <div class="col-lg-3">
-            <label class="fs-6 form-label fw-bolder text-dark">End Date</label>
-            <input class="form-control" id="trainingEndDate" type="text" name="end_date" />
-        </div>
-        <div class="col-lg-3">
-            <label class="fs-6 form-label fw-bolder text-dark">Location</label>
-            <!--begin::Select-->
-            <select class="form-select form-select-solid " name="location_id" data-placeholder="Select..."
-                id="select2-location" {{$selectedCourse==null ? "disabled" : "" }} tabindex="-1" aria-hidden="true">
-                @foreach($locations as $location)
-                <option value="{{$location->id}}"> {{$location->name}}</option>
-                @endforeach
-            </select>
-            <!--end::Select-->
-        </div>
-        <!--end::Col-->
-        <!--begin::Col-->
-        <div class="col-lg-3">
-            <label class="fs-6 form-label fw-bolder text-dark">Remote
-                delivery?</label>
-            <div class="form-check form-switch form-check-custom form-check-solid mt-1">
-                <input class="form-check-input" type="checkbox" id="flexSwitchChecked" checked="checked"
-                    name="is_home_based">
-                <label class="form-check-label" for="flexSwitchChecked">Active</label>
->>>>>>> Stashed changes
             </div>
-        </div>
-        <!--end::Col-->
+            <!--end::Col-->
 
-    </div>
+        </div>
     @endif
     <button type="submit">Submit</button>
 </form>
 @push('extra-js')
-<script>
+    <script>
     $(document).ready(function () {
         window.addEventListener('reApplySelect2', event => {
             $('.form-select').select2();
@@ -160,6 +129,7 @@
     });
 </script>
 <script>
+
     $(document).ready(function() {
         $('#select2-course').select2();
         $('#select2-course').on('change', function (e) {
