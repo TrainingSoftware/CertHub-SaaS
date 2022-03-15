@@ -11,16 +11,29 @@
     <input type="text" class="form-control fs-4 py-4 ps-14 text-gray-700 placeholder-gray-400 mw-500px" name="search"
         value="" placeholder="Search our training courses..." wire:model="query" wire:keydown.escape="resetFilters"
         wire:keydown.tab="resetFilters" wire:keydown.arrow-up="decrementHighlight"
-        wire:keydown.arrow-down="incrementHighlight" wire:keydown.enter="selectContact">
+        wire:keydown.arrow-down="incrementHighlight" wire:keydown.enter="selectCourse">
 
     @if(!empty($query))
     <div class="top-0 bottom-0 left-0 right-0" wire:click="resetFilters"></div>
 
     <ul class="position-absolute z-10 w-full bg-white rounded-t-none shadow-sm list-group min-w-500px">
         @if(!empty($courses))
+
         @foreach($courses as $i => $course)
+            @php
+            $route = null;
+             if(isset($course['cpd_category_id'])){
+                 $route = route('training.cpd',$course['slug']);
+             }
+            if(isset($course['category_id'])){
+                 $route = route('training.commercial',$course['slug']);
+             }
+            if(isset($course['card_type_id'])){
+                 $route = route('training.nvq',$course['slug']);
+             }
+            @endphp
         <li class="list-group-item border-0">
-            <a href="" class="list-item p-3">{{ $course['name'] }}</a>
+            <a href="{{$route}}" class="list-item p-3">{{ $course['name'] }}</a>
         </li>
         @endforeach
         @else

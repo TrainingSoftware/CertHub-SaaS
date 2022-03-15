@@ -50,7 +50,9 @@ class CourseSearchBar extends Component
         $courses = $this->courses[$this->highlightIndex] ?? null;
         if ($courses) {
             // Redirect to page when selected
+
         }
+
     }
 
     public function updatedQuery()
@@ -59,6 +61,7 @@ class CourseSearchBar extends Component
             ->add(NVQ::class, 'name')
             ->add(CPD::class, 'name')
             ->search($this->query);
+
         $this->courses = $fish->toArray();
     }
     public function render()

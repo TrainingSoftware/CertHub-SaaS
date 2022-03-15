@@ -59,11 +59,11 @@ class TrainingController extends Controller
     public function cpd(CPD $cpd)
     {
         $course = $cpd;
-        return view('train.show',compact('course'));
+        return view('training.show',compact('course'));
     }
     public function commercial(Course $course)
     {
-         return view('train.show',compact('course'));
+         return view('training.show',compact('course'));
     }
     public function nvq(NVQ $nvq)
     {
