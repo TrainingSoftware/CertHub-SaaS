@@ -5,7 +5,8 @@
 	<div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
 		<div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
 			<div class="page-title d-flex flex-column me-5 py-2">
-				<h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Edit Employee: {{ $employee->firstname }} {{ $employee->lastname }}</h1>
+				<h1 class="d-flex flex-column text-dark fw-bolder fs-3 mb-0">Edit Employee: {{ $employee->firstname }}
+					{{ $employee->lastname }}</h1>
 				<ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 pt-1">
 					<li class="breadcrumb-item text-muted">
 						<a href="/home" class="text-muted text-hover-primary">Home</a>
@@ -35,103 +36,140 @@
 					</div>
 				</div>
 				<div class="card-body p-9">
-					{{ Form::model($employee, array('route' => array('employees.update', $employee->id), 'method' => 'PUT','enctype'=>'multipart/form-data')) }}
+					{{ Form::model($employee, array('route' => array('employees.update', $employee->id), 'method' =>
+					'PUT','enctype'=>'multipart/form-data')) }}
 					<div class="row mb-7 d-flex h-100">
-                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Photo</span></label>
-                        <div class="col-lg-8">
-                            <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url('{{$employee->getMedia('avatar')->first() != null ? $employee->getMedia('avatar')->first()->getUrl() : "assets/media/svg/avatars/blank.svg" }}')">
-                                <div class="image-input-wrapper w-125px h-125px" style="background-image: url('{{$employee->getMedia('avatar')->first() != null ? $employee->getMedia('avatar')->first()->getUrl() : "assets/media/svg/avatars/blank.svg" }}')"></div>
-                                <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
-                                    <i class="bi bi-pencil-fill fs-7"></i>
-                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
-                                    <input type="hidden" name="avatar_remove">
-                                </label>
-                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="Cancel avatar">
-                                    <i class="bi bi-x fs-2"></i>
-                                </span>
-                                <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="Remove avatar">
-                                    <i class="bi bi-x fs-2"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span
+								class="required">Photo</span></label>
+						<div class="col-lg-8">
+							<div class="image-input image-input-outline" data-kt-image-input="true"
+								style="background-image: url('{{$employee->getMedia('avatar')->first() != null ? $employee->getMedia('avatar')->first()->getUrl() : "
+								assets/media/svg/avatars/blank.svg" }}')">
+								<div class="image-input-wrapper w-125px h-125px"
+									style="background-image: url('{{$employee->getMedia('avatar')->first() != null ? $employee->getMedia('avatar')->first()->getUrl() : "
+									assets/media/svg/avatars/blank.svg" }}')"></div>
+								<label
+									class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+									data-kt-image-input-action="change" data-bs-toggle="tooltip" title=""
+									data-bs-original-title="Change avatar">
+									<i class="bi bi-pencil-fill fs-7"></i>
+									<input type="file" name="avatar" accept=".png, .jpg, .jpeg">
+									<input type="hidden" name="avatar_remove">
+								</label>
+								<span
+									class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+									data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title=""
+									data-bs-original-title="Cancel avatar">
+									<i class="bi bi-x fs-2"></i>
+								</span>
+								<span
+									class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+									data-kt-image-input-action="remove" data-bs-toggle="tooltip" title=""
+									data-bs-original-title="Remove avatar">
+									<i class="bi bi-x fs-2"></i>
+								</span>
+							</div>
+						</div>
+					</div>
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span
+								class="required">Full Name</span></label>
 						<div class="col-lg-8">
 							<div class="row">
 								<div class="form-group col-md-4">
 									<label class="d-flex align-items-center form-label">
-									<span class="required">Forename</span>
+										<span class="required">Forename</span>
 									</label>
-									{{ Form::text('firstname', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+									{{ Form::text('firstname', null, array('class' => 'form-control form-control-lg
+									form-control-solid mb-3 mb-lg-0')) }}
 								</div>
 								<div class="form-group col-md-4">
 									<label class="d-flex align-items-center form-label">
-									<span>Middle name(s)</span>
+										<span>Middle name(s)</span>
 									</label>
-									{{ Form::text('middlenames', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+									{{ Form::text('middlenames', null, array('class' => 'form-control form-control-lg
+									form-control-solid mb-3 mb-lg-0')) }}
 								</div>
 								<div class="form-group col-md-4">
 									<label class="d-flex align-items-center form-label">
-									<span class="required">Surname</span>
+										<span class="required">Surname</span>
 									</label>
-									{{ Form::text('lastname', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+									{{ Form::text('lastname', null, array('class' => 'form-control form-control-lg
+									form-control-solid mb-3 mb-lg-0')) }}
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Gender</label>
+						<label
+							class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Gender</label>
 						<div class="col-lg-8">
 							<div class="row">
 								<div class="form-group col-md-12">
-									<select name="gender" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+									<select name="gender" class="form-select form-select-lg form-select-solid"
+										data-control="select2" data-allow-clear="true">
 										<option selected disabled>Select...</option>
-										<option value="Male" @if($employee->employment === 'Male') selected @endif>Male</option>
-										<option value="Female" @if($employee->employment === 'Female') selected @endif>Female</option>
+										<option value="Male" @if($employee->employment === 'Male') selected @endif>Male
+										</option>
+										<option value="Female" @if($employee->employment === 'Female') selected
+											@endif>Female</option>
 									</select>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Nationality</label>
-						<div class="col-lg-8">
-							<div class="row">
-                                <div class="form-group col-md-12">
-									{!! Form::select('nationality', config('nationalities'), null, ['class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0']) !!}
-								</div>
-							</div>
-						</div>
-					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Marital Status</label>
+						<label
+							class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Nationality</label>
 						<div class="col-lg-8">
 							<div class="row">
 								<div class="form-group col-md-12">
-									<select name="marital_status" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+									<select name="nationality" class="form-select form-select-lg form-select-solid"
+										data-control="select2" data-allow-clear="true">
 										<option disabled>Select...</option>
-                                        @foreach(config('marital_statuses') as $status)
-                                            <option value="{{$status}}" @if($employee->marital_status === $status) selected @endif>{{$status}}</option>
-                                        @endforeach
+										@foreach(config('nationalities') as $nation)
+										<option value="{{$nation}}" @if($employee->nationality === $nation) selected
+											@endif >{{$nation}}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Date of Birth</label>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Marital
+							Status</label>
 						<div class="col-lg-8">
 							<div class="row">
 								<div class="form-group col-md-12">
-                                    {{Form::text('dob',null,array('id' => 'employeeDob', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0'))}}
+									<select name="marital_status" class="form-select form-select-lg form-select-solid"
+										data-control="select2" data-allow-clear="true">
+										<option selected disabled>Select...</option>
+										@foreach(config('marital_statuses') as $status)
+										<option value="{{$status}}" @if($employee->marital_status === $status) selected
+											@endif>{{$status}}</option>
+										@endforeach
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Date of
+							Birth</label>
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="form-group col-md-12">
+									{{Form::text('dob',null,array('id' => 'employeeDob', 'class' => 'form-control
+									form-control-lg form-control-solid mb-3 mb-lg-0'))}}
 								</div>
 							</div>
 						</div>
 					</div>
 					@if(Auth::user()->company)
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Company</label>
+						<label
+							class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Company</label>
 						<div class="col-lg-8 fv-row">
 							<span class="fw-bolder text-gray-800 fs-6">{{ Auth::user()->company->name }}</span>
 						</div>
@@ -139,25 +177,30 @@
 					@endif
 					<div class="row mb-7 d-flex h-100">
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
-						<span class="required">Contact Phone</span></label>
+							<span class="required">Contact Phone</span></label>
 						<div class="col-lg-8 d-flex align-items-center">
-							<input type="text" name="phone" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $employee->phone }}" data-inputmask="'mask': '99999999999'">
+							<input type="text" name="phone"
+								class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+								value="{{ $employee->phone }}" data-inputmask="'mask': '99999999999'">
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">
-						<span class="required">Email</span>
+							<span class="required">Email</span>
 						</label>
 						<div class="col-lg-8">
-							{{ Form::text('email', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+							{{ Form::text('email', null, array('class' => 'form-control form-control-lg
+							form-control-solid mb-3 mb-lg-0')) }}
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Address</label>
+						<label
+							class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Address</label>
 						<div class="col-lg-8">
 							<div class="row mb-10">
 								<div class="form-group col-md-12">
-									<a href="#" class="btn btn-light-primary fw-bolder w-100" data-bs-toggle="modal" data-bs-target="#kt_modal_postcode">Search address</a>
+									<a href="#" class="btn btn-light-primary fw-bolder w-100" data-bs-toggle="modal"
+										data-bs-target="#kt_modal_postcode">Search address</a>
 								</div>
 							</div>
 							<div class="row">
@@ -172,41 +215,50 @@
 							<div class="row mb-7">
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									Building Name / Number
+										Building Name / Number
 									</label>
-									{{ Form::text('line_1', null, array('id' => 'address_line_1', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '6')) }}
+									{{ Form::text('line_1', null, array('id' => 'address_line_1', 'class' =>
+									'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' =>
+									'6')) }}
 								</div>
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									Line 2
+										Line 2
 									</label>
-									{{ Form::text('line_2', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Dale Road')) }}
+									{{ Form::text('line_2', null, array('class' => 'form-control form-control-lg
+									form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Dale Road')) }}
 								</div>
 							</div>
 							<div class="row mb-7">
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									Town
+										Town
 									</label>
-									{{ Form::text('town', null, array('id' => 'posttown', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Chesterfield')) }}
+									{{ Form::text('town', null, array('id' => 'posttown', 'class' => 'form-control
+									form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Chesterfield'))
+									}}
 								</div>
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									County
+										County
 									</label>
-									{{ Form::text('county', null, array('id' => 'county', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Derbyshire')) }}
+									{{ Form::text('county', null, array('id' => 'county', 'class' => 'form-control
+									form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Derbyshire')) }}
 								</div>
 							</div>
 							<div class="row">
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									Postcode
+										Postcode
 									</label>
-									{{ Form::text('postcode', null, array('id' => 'postcode', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'S18 1XJ')) }}
+									{{ Form::text('postcode', null, array('id' => 'postcode', 'class' => 'form-control
+									form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'S18 1XJ')) }}
 								</div>
 								<div class="form-group col-md-6">
 									<label class="form-label required">Country</label>
-									<select name="country" disabled value="United Kingdom" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="false">
+									<select name="country" disabled value="United Kingdom"
+										class="form-select form-select-lg form-select-solid" data-control="select2"
+										data-placeholder="Select..." data-allow-clear="true" data-hide-search="false">
 										<option></option>
 										<option value="Afganistan">Afghanistan</option>
 										<option value="Albania">Albania</option>
@@ -457,119 +509,137 @@
 									</select>
 								</div>
 							</div>
-                            <div class="row">
-                                <div class="form-group col-md-6">
-									<label class="form-label required">Nationality</label>
-                                    <select name="nationality" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
-										<option disabled>Select...</option>
-                                        @foreach(config('nationalities') as $nation)
-                                            <option value="{{$nation}}" @if($employee->nationality === $nation) selected @endif >{{$nation}}</option>
-                                        @endforeach
-									</select>
-								</div>
-                            </div>
-
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Position</label>
+						<label
+							class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Position</label>
 						<div class="col-lg-8">
-							{{ Form::text('position', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Training Manager')) }}
+							{{ Form::text('position', null, array('class' => 'form-control form-control-lg
+							form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Training Manager')) }}
 						</div>
 					</div>
 
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Employment Details</label>
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Employment
+							Details</label>
 						<div class="col-lg-8">
 							<div class="row mb-7">
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									Start Date
+										Start Date
 									</label>
-									<input name="start_date" id="employeeStart" type="text" class="form-control flatpickr-input form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($employee->start_date){{ $employee->start_date->format('j-n-Y') }}@endif">
+									<input name="start_date" id="employeeStart" type="text"
+										class="form-control flatpickr-input form-control-lg form-control-solid mb-3 mb-lg-0"
+										value="@if($employee->start_date){{ $employee->start_date->format('j-n-Y') }}@endif">
 								</div>
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									End Date
+										End Date
 									</label>
-									<input name="end_date" id="tenderStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="@if($employee->end_date){{ $employee->end_date->format('j-n-Y') }}@endif">
+									<input name="end_date" id="tenderStart" type="text"
+										class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+										value="@if($employee->end_date){{ $employee->end_date->format('j-n-Y') }}@endif">
 								</div>
 							</div>
 							<div class="row mb-7">
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									Salary
+										Salary
 									</label>
-									{{ Form::text('salary', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '26,500' )) }}
+									{{ Form::text('salary', null, array('class' => 'form-control form-control-lg
+									form-control-solid mb-3 mb-lg-0', 'placeholder' => '26,500' )) }}
 								</div>
 								<div class="form-group col-md-6">
 									<label class="d-flex align-items-center form-label">
-									Employment Status
+										Employment Status
 									</label>
-									<select name="employment" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
+									<select name="employment" class="form-select form-select-lg form-select-solid"
+										data-control="select2" data-allow-clear="true">
 										<option selected disabled>Select...</option>
-										<option value="Full Time" @if($employee->employment === 'Full Time') selected @endif>Full Time</option>
-										<option value="Part Time" @if($employee->employment === 'Part Time') selected @endif>Part Time</option>
-										<option value="Fixed-term" @if($employee->employment === 'Fixed-term') selected @endif>Fixed-term</option>
-										<option value="Freelancer / Contractor" @if($employee->employment === 'Freelancer / Contractor') selected @endif>Freelancer / Contractor</option>
-										<option value="Agency" @if($employee->employment === 'Agency') selected @endif>Agency</option>
+										<option value="Full Time" @if($employee->employment === 'Full Time') selected
+											@endif>Full Time</option>
+										<option value="Part Time" @if($employee->employment === 'Part Time') selected
+											@endif>Part Time</option>
+										<option value="Fixed-term" @if($employee->employment === 'Fixed-term') selected
+											@endif>Fixed-term</option>
+										<option value="Freelancer / Contractor" @if($employee->employment ===
+											'Freelancer / Contractor') selected @endif>Freelancer / Contractor</option>
+										<option value="Agency" @if($employee->employment === 'Agency') selected
+											@endif>Agency</option>
 									</select>
 								</div>
 							</div>
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">National Insurance</label>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">National
+							Insurance</label>
 						<div class="col-lg-8">
-							{{ Form::text('national_insurance', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'IN-S57P')) }}
+							{{ Form::text('national_insurance', null, array('class' => 'form-control form-control-lg
+							form-control-solid mb-3 mb-lg-0', 'placeholder' => 'IN-S57P')) }}
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Driving License Number</label>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Driving
+							License Number</label>
 						<div class="col-lg-8">
-							{{ Form::text('driving_license_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'INS57P')) }}
+							{{ Form::text('driving_license_number', null, array('class' => 'form-control form-control-lg
+							form-control-solid mb-3 mb-lg-0', 'placeholder' => 'INS57P')) }}
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Citb Number</label>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Citb
+							Number</label>
 						<div class="col-lg-8">
-							{{ Form::text('citb_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Citb Number')) }}
+							{{ Form::text('citb_number', null, array('class' => 'form-control form-control-lg
+							form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Citb Number')) }}
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">NONC Number</label>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">NONC
+							Number</label>
 						<div class="col-lg-8">
-							{{ Form::text('nocn_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Nonc Number')) }}
+							{{ Form::text('nocn_number', null, array('class' => 'form-control form-control-lg
+							form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Nonc Number')) }}
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">NPORS Number</label>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">NPORS
+							Number</label>
 						<div class="col-lg-8">
-							{{ Form::text('npors_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'NPORS Number')) }}
+							{{ Form::text('npors_number', null, array('class' => 'form-control form-control-lg
+							form-control-solid mb-3 mb-lg-0', 'placeholder' => 'NPORS Number')) }}
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">EUSR Number</label>
+					<div class="row mb-7 d-flex h-100">
+						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">EUSR
+							Number</label>
 						<div class="col-lg-8">
-							{{ Form::text('eusr_number', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'EUSR Number')) }}
+							{{ Form::text('eusr_number', null, array('class' => 'form-control form-control-lg
+							form-control-solid mb-3 mb-lg-0', 'placeholder' => 'EUSR Number')) }}
 						</div>
 					</div>
-                    <div class="row mb-7 d-flex h-100">
+					<div class="row mb-7 d-flex h-100">
 						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">ULN</label>
 						<div class="col-lg-8">
-							{{ Form::text('uln', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'ULN')) }}
+							{{ Form::text('uln', null, array('class' => 'form-control form-control-lg form-control-solid
+							mb-3 mb-lg-0', 'placeholder' => 'Unique Learner Number')) }}
 						</div>
 					</div>
 					<div class="row mb-7 d-flex h-100">
-						<label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Department</label>
+						<label
+							class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Department</label>
 						<div class="col-lg-8">
 							<div class="row">
 								<div class="form-group col-md-12">
-									<select name="department_id" class="form-select form-select-lg form-select-solid" data-control="select2" data-allow-clear="true">
-									<option selected disabled>Select...</option>
-									@foreach($departments as $item)
-									    <option value="{{ $item->id }}" @if(optional($employee->department)->id === $item->id) selected @endif>{{ $item->name }}</option>
-									@endforeach
+									<select name="department_id" class="form-select form-select-lg form-select-solid"
+										data-control="select2" data-allow-clear="true">
+										<option selected disabled>Select...</option>
+										@foreach($departments as $item)
+										<option value="{{ $item->id }}" @if(optional($employee->department)->id ===
+											$item->id) selected @endif>{{ $item->name }}</option>
+										@endforeach
 									</select>
 								</div>
 							</div>
@@ -580,7 +650,8 @@
 					<button type="submit" class="btn btn-primary align-self-center">Update</button>
 					{{ Form::close() }}
 					@include('partials.global.postcode-search')
-					{{ Form::model($employee, array('route' => array('employees.destroy', $employee->id), 'method' => 'DELETE', 'class' => 'd-inline')) }}
+					{{ Form::model($employee, array('route' => array('employees.destroy', $employee->id), 'method' =>
+					'DELETE', 'class' => 'd-inline')) }}
 					<button type="submit" class="btn btn-danger align-self-center">Delete</button>
 					{{ Form::close() }}
 				</div>
