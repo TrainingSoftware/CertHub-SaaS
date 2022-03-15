@@ -28,7 +28,7 @@
             if(isset($course['category_id'])){
                  $route = route('training.commercial',$course['slug']);
              }
-            if(isset($course['card_type_id'])){
+            if(isset($course['card_type_id']) && !isset($course['category_id'])){
                  $route = route('training.nvq',$course['slug']);
              }
             @endphp
