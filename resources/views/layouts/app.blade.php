@@ -1,57 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<base href="">
-		<title>@yield('title') | CertHub</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="shortcut icon" href="/assets/favicon.ico" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-		<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
-		<link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
-		@yield('extra-css')
-		@stack('extra-css')
-		@livewireStyles
-	</head>
-	<body id="kt_body">
-		<div class="d-flex flex-column flex-root">
-			<div class="page d-flex flex-row flex-column-fluid">
-				@include('partials.layout.aside-menu')
-				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-					@include('partials.layout.header')
-					@yield('content')
-					@include('partials.layout.footer')
-				</div>
+
+<head>
+	<base href="">
+	<title>@yield('title') | CertHub</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" href="/assets/favicon.ico" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+	<link href="/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+	<link href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+	<link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
+	@yield('extra-css')
+	@stack('extra-css')
+	@livewireStyles
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+</head>
+
+<body id="kt_body">
+	<div class="d-flex flex-column flex-root">
+		<div class="page d-flex flex-row flex-column-fluid">
+			@include('partials.layout.aside-menu')
+			<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+				@include('partials.layout.header')
+				@yield('content')
+				@include('partials.layout.footer')
 			</div>
 		</div>
-		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-			<span class="svg-icon">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
-					<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
-				</svg>
-			</span>
-		</div>
-		<script>
-			var hostUrl = "assets/";
-		</script>
-		<script src="/assets/plugins/global/plugins.bundle.js"></script>
-		<script src="/assets/js/scripts.bundle.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="/assets/js/custom.js"></script>
-        @if(!Auth::user()->isAdmin())
-		@include('partials.global.global-search')
-        @endif
-		@if(request()->is('tenders/*'))
-		    @if(!Route::is('tenders.create') && !Route::is('tenders.map'))
-		        @include('partials.tenders.search-modal')
-		    @endif
-		@endif
-		@if(\Route::is('tenders.show'))
-		<script>
-			"use strict";
+	</div>
+	<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+		<span class="svg-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+				<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)"
+					fill="black" />
+				<path
+					d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z"
+					fill="black" />
+			</svg>
+		</span>
+	</div>
+	<script>
+		var hostUrl = "assets/";
+	</script>
+	<script src="/assets/plugins/global/plugins.bundle.js"></script>
+	<script src="/assets/js/scripts.bundle.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+		integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="/assets/js/custom.js"></script>
+	@if(!Auth::user()->isAdmin())
+	@include('partials.global.global-search')
+	@endif
+	@if(request()->is('tenders/*'))
+	@if(!Route::is('tenders.create') && !Route::is('tenders.map'))
+	@include('partials.tenders.search-modal')
+	@endif
+	@endif
+	@if(\Route::is('tenders.show'))
+	<script>
+		"use strict";
 			var KTProjectOverview = (function () {
 			    var t = KTUtil.getCssVariableValue("--bs-primary"),
 			        e = KTUtil.getCssVariableValue("--bs-light-primary"),
@@ -104,19 +112,20 @@
 			KTUtil.onDOMContentLoaded(function () {
 			    KTProjectOverview.init();
 			});
-		</script>
-		@endif
-		<script src="/assets/js/custom/widgets.js"></script>
-		<script src="/assets/js/widgets.bundle.js"></script>
-		<script src="/assets/js/custom/apps/chat/chat.js"></script>
-		<script src="/assets/js/custom/modals/create-app.js"></script>
-		<script src="/assets/js/custom/modals/upgrade-plan.js"></script>
-		<script src="/assets/js/custom/account/api-keys/api-keys.js"></script>
-		<script src="/assets/js/custom/modals/create-api-key.js"></script>
+	</script>
+	@endif
+	<script src="/assets/js/custom/widgets.js"></script>
+	<script src="/assets/js/widgets.bundle.js"></script>
+	<script src="/assets/js/custom/apps/chat/chat.js"></script>
+	<script src="/assets/js/custom/modals/create-app.js"></script>
+	<script src="/assets/js/custom/modals/upgrade-plan.js"></script>
+	<script src="/assets/js/custom/account/api-keys/api-keys.js"></script>
+	<script src="/assets/js/custom/modals/create-api-key.js"></script>
 
-		@if(\Route::is('employees.edit') or \Route::is('tenders.edit') or \Route::is('providers.edit') or \Route::is('employee.contact.edit') or \Route::is('tenders.contact.edit'))
-		<script>
-			$(function() {
+	@if(\Route::is('employees.edit') or \Route::is('tenders.edit') or \Route::is('providers.edit') or
+	\Route::is('employee.contact.edit') or \Route::is('tenders.contact.edit'))
+	<script>
+		$(function() {
 			             var api_key = "{{ env('ALLIES_API')}}";
 
 			             $(document).ready(function() {
@@ -281,11 +290,11 @@
 			             }
 
 			         });
-		</script>
-		@endif
-		@if ($message = Session::get('success'))
-		<script>
-			toastr.options = {
+	</script>
+	@endif
+	@if ($message = Session::get('success'))
+	<script>
+		toastr.options = {
 			    "closeButton": true,
 			    "debug": false,
 			    "newestOnTop": true,
@@ -304,11 +313,11 @@
 			};
 
 			toastr.success("{{ $message }}");
-		</script>
-		@endif
-		@if ($message = Session::get('error'))
-		<script>
-			toastr.options = {
+	</script>
+	@endif
+	@if ($message = Session::get('error'))
+	<script>
+		toastr.options = {
 			    "closeButton": true,
 			    "debug": false,
 			    "newestOnTop": true,
@@ -327,22 +336,23 @@
 			};
 
 			toastr.error("{{ $message }}");
-		</script>
-		@endif
-		<script>
-			$('#bulkButton').click(function(){
+	</script>
+	@endif
+	<script>
+		$('#bulkButton').click(function(){
 			    $('#bulkAdd').modal({show:true});
 			    $('#addQualificationType').modal({show:false})
 			})
-		</script>
-		@livewireScripts
-        @yield('extra-js')
-		@stack('extra-js')
-        <script>
-            window.livewire.on('qualificationSelected', () => {
+	</script>
+	@livewireScripts
+	@yield('extra-js')
+	@stack('extra-js')
+	<script>
+		window.livewire.on('qualificationSelected', () => {
                  $('#kt_modal_users_search').modal('hide');
             });
-        </script>
+	</script>
 
-	</body>
+</body>
+
 </html>
