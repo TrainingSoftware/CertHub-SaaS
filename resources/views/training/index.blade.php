@@ -145,7 +145,7 @@
 
     $('.multiple-items').slick({
         infinite: true,
-        arrows: true,
+        arrows: false,
         speed: 300,
         slidesToShow: 3,
         slidesToScroll: 3,
