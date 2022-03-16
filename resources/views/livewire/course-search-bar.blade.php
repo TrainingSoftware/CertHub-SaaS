@@ -20,18 +20,18 @@
         @if(!empty($courses))
 
         @foreach($courses as $i => $course)
-            @php
-            $route = null;
-             if(isset($course['cpd_category_id'])){
-                 $route = route('training.cpd',$course['slug']);
-             }
-            if(isset($course['category_id'])){
-                 $route = route('training.commercial',$course['slug']);
-             }
-            if(isset($course['card_type_id']) && !isset($course['category_id'])){
-                 $route = route('training.nvq',$course['slug']);
-             }
-            @endphp
+        @php
+        $route = null;
+        if(isset($course['cpd_category_id'])){
+        $route = route('training.cpd',$course['slug']);
+        }
+        if(isset($course['category_id'])){
+        $route = route('training.commercial',$course['slug']);
+        }
+        if(isset($course['card_type_id']) && !isset($course['category_id'])){
+        $route = route('training.nvq',$course['slug']);
+        }
+        @endphp
         <li class="list-group-item border-0">
             <a href="{{$route}}" class="list-item p-3">{{ $course['name'] }}</a>
         </li>

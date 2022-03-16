@@ -153,6 +153,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
                 Route::get('/cpd/{cpd}',[TrainingController::class,'cpd'])->name('training.cpd');
                 Route::get('/nvq/{nvq}',[TrainingController::class,'nvq'])->name('training.nvq');
                 Route::get('/commercial/{course}',[TrainingController::class,'commercial'])->name('training.commercial');
+                Route::get('/order',[TrainingController::class,'order'])->name('training.order');
 
             });
 

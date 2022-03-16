@@ -70,4 +70,9 @@ class TrainingController extends Controller
         $course = $nvq;
         return view('training.show',compact('course'));
     }
+
+    public function order()
+    {
+        return view('training.order');
+    }
 }
