@@ -153,7 +153,12 @@ Route::group(['middleware' => ['auth','verified']], function () {
                 Route::get('/cpd/{cpd}',[TrainingController::class,'cpd'])->name('training.cpd');
                 Route::get('/nvq/{nvq}',[TrainingController::class,'nvq'])->name('training.nvq');
                 Route::get('/commercial/{course}',[TrainingController::class,'commercial'])->name('training.commercial');
+<<<<<<< HEAD
                 Route::post('/{course}/coursemeta',[TrainingController::class,'coursemeta'])->name('training.coursemeta.search');
+=======
+                Route::get('/order',[TrainingController::class,'order'])->name('training.order');
+
+>>>>>>> 2433ae68f7bd5b0004e3c48316f25fb615ab8dce
             });
 
             Route::get('/billing-portal', function (Request $request) {

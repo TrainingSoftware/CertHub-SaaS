@@ -78,6 +78,7 @@ class TrainingController extends Controller
         $course = $nvq;
         return view('training.show',compact('course'));
     }
+
     public function coursemeta(Course $course)
     {
 
@@ -86,5 +87,10 @@ class TrainingController extends Controller
         $courseMeta = $course->courseMetas()->whereBetween('date',[$start,$end])->where('location_id',request('location'))->get();
 
         return redirect()->back()->with(['courseMeta' => $courseMeta]);
+
+    }
+    public function order()
+    {
+        return view('training.order');
     }
 }
