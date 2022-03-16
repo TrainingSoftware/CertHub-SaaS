@@ -66,22 +66,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="modal fade" tabindex="-1" id="trainingCategories">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content shadow-none">
-                        <div class="modal-body">
-                            <div class="position-relative w-100">
-                                <div class="card mb-7 p-5 border-0">
-                                    @livewire('training-filter')
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            @livewire('training-filter')
 
             @foreach($courseCategory as $category)
             <div class="toolbar d-flex flex-stack p-0 mb-5">
