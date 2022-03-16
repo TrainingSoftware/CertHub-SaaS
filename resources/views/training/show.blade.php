@@ -50,7 +50,7 @@
         <div id="kt_content_container" class="container-xxl">
             <div class="row">
                 <div class="col-9">
-
+                    @if($course->courseMetas)
                     <div id="courseDates">
                         <div class="card mb-7 bg-light">
                             <div class="card-body">
@@ -63,7 +63,10 @@
                                             help provide and facilitate first-class training for your workforce</p>
                                     </div>
                                 </div>
-                                <div class="d-flex align-items-center">
+                                <form action="{{route('training.coursemeta.search',$course)}}" method="POST">
+                                    @csrf
+                                    <div class="d-flex align-items-center">
+
                                     <div class="position-relative col me-md-2">
                                         <span
                                             class="svg-icon svg-icon-3 svg-icon-gray-500 position-absolute top-50 translate-middle ms-6">
@@ -92,17 +95,25 @@
                                             class="form-select form-select-lg form-select-solid bg-white"
                                             data-control="select2" data-placeholder="Select location..."
                                             data-allow-clear="true" data-hide-search="false">
-                                            <option></option>
+                                            @foreach($locations as $location)
+                                            <option value="{{$location->id}}">{{$location->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="position-relative col-3">
                                         <button class="btn btn-block btn-primary py-3">Search Dates</button>
                                     </div>
                                 </div>
+
+                                </form>
+                               @if(session()->has('courseMeta'))
+                                   {{session('courseMeta')}}
+                                   @endif
+
                             </div>
                         </div>
                     </div>
-
+                    @endif
                     <div class="mb-10">
                         <h3>Overview</h3>
                         <div class="text-muted">
@@ -112,7 +123,7 @@
                     <div class="mb-10">
                         <h3>What you will learn</h3>
                         <ul class="list text-muted">
-                            @foreach ($course->agenda as $item )
+                            @foreach (optional($course->agenda) as $item )
                             <li><i class="fa fas-check-circle-o"></i> {{ $item['name'] }}</li>
                             @endforeach
                         </ul>

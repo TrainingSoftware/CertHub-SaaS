@@ -14,6 +14,9 @@ class Course extends Model
     protected $casts = [
         'agenda' => 'array'
     ];
+    protected $with = [
+        'courseMetas'
+    ];
 
     public function duration()
     {

@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\CourseCategory;
 use App\Models\CPD;
 use App\Models\CPDCategory;
+use App\Models\Location;
 use App\Models\NVQ;
 use App\Models\NVQCategory;
 use Illuminate\Http\Request;
@@ -63,11 +64,27 @@ class TrainingController extends Controller
     }
     public function commercial(Course $course)
     {
-         return view('training.show',compact('course'));
+
+         $locations = Location::whereHas('courseMetas')->get();
+         $courseMetas = $course->courseMetas()->pluck('location_id')->toArray();
+         $locations = $locations->filter(function($t) use ($courseMetas){
+                 return in_array($t->id,$courseMetas);
+          });
+
+         return view('training.show',compact('course','locations'));
     }
     public function nvq(NVQ $nvq)
     {
         $course = $nvq;
         return view('training.show',compact('course'));
+    }
+    public function coursemeta(Course $course)
+    {
+
+        $start = request('courseStartDate');
+        $end = request('courseEndDate');
+        $courseMeta = $course->courseMetas()->whereBetween('date',[$start,$end])->where('location_id',request('location'))->get();
+
+        return redirect()->back()->with(['courseMeta' => $courseMeta]);
     }
 }

@@ -153,7 +153,7 @@ Route::group(['middleware' => ['auth','verified']], function () {
                 Route::get('/cpd/{cpd}',[TrainingController::class,'cpd'])->name('training.cpd');
                 Route::get('/nvq/{nvq}',[TrainingController::class,'nvq'])->name('training.nvq');
                 Route::get('/commercial/{course}',[TrainingController::class,'commercial'])->name('training.commercial');
-
+                Route::post('/{course}/coursemeta',[TrainingController::class,'coursemeta'])->name('training.coursemeta.search');
             });
 
             Route::get('/billing-portal', function (Request $request) {
