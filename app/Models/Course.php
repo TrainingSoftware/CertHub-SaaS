@@ -11,6 +11,10 @@ class Course extends Model
     public $connection = "mysql2";
     protected $table = "learnconstruction_learnconstruction_courses";
 
+    protected $casts = [
+        'agenda' => 'array'
+    ];
+
     public function duration()
     {
         return $this->belongsTo(Duration::class,'duration_id');

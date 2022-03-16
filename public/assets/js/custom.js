@@ -57,6 +57,12 @@ $("#trainingStartDate").flatpickr({
 $("#trainingEndDate").flatpickr({
     dateFormat: "d-m-Y"
 });
+$("#courseStartDate").flatpickr({
+    dateFormat: "d-m-Y"
+});
+$("#courseEndDate").flatpickr({
+    dateFormat: "d-m-Y"
+});
 
 
 // Select2
