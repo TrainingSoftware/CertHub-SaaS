@@ -50,7 +50,7 @@
                     <tr>
                         <td>
                             <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
-                                {{date("D M Y",strtotime($meta->date))}}</a>
+                                {{date("D d M, Y",strtotime($meta->date))}}</a>
                         </td>
                         <td>
                             <a href="#"
