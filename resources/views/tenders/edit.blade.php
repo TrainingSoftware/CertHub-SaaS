@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Update ' . $tender->name)
 @section('content')
-    @push('extra-css')
-        <link rel="stylesheet" href="{{asset('assets/css/postcoder-autocomplete.css')}}">
-    @endpush
+@push('extra-css')
+<link rel="stylesheet" href="{{asset('assets/css/postcoder-autocomplete.css')}}">
+@endpush
 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
     <div class="toolbar d-flex flex-stack mb-3 mb-lg-5" id="kt_toolbar">
         <div id="kt_toolbar_container" class="container d-flex flex-stack flex-wrap">
@@ -36,38 +36,47 @@
                     </div>
                 </div>
                 <div class="card-body p-9">
-                    {{ Form::model($tender, array('route' => array('tenders.update', $tender->id), 'method' => 'PUT')) }}
-                    <div class="row mb-20 d-flex h-100">
-                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span class="required">Full Name</span></label>
+                    {{ Form::model($tender, array('route' => array('tenders.update', $tender->id), 'method' => 'PUT'))
+                    }}
+                    <div class="row mb-7 d-flex h-100">
+                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center"><span
+                                class="required">Full Name</span></label>
                         <div class="col-lg-8">
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    {{ Form::text('name', null, array('class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0')) }}
+                                    {{ Form::text('name', null, array('class' => 'form-control form-control-lg
+                                    form-control-solid mb-3 mb-lg-0')) }}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
-                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Tender dates</label>
+                    <div class="row mb-7 d-flex h-100">
+                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Tender
+                            dates</label>
                         <div class="col-lg-8">
-                            <div class="row mb-7">
+                            <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
-                                    Start Date
+                                        Start Date
                                     </label>
-                                    <input name="start_date" id="tenderStart" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $tender->start_date->format('j-n-Y') }}">
+                                    <input name="start_date" id="tenderStart" type="text"
+                                        class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                        value="{{ $tender->start_date->format('j-n-Y') }}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
-                                    End Date
+                                        End Date
                                     </label>
-                                    <input name="end_date" id="tenderExpiry" type="text" class="form-control form-control-lg form-control-solid mb-3 mb-lg-0" value="{{ $tender->end_date->format('j-n-Y') }}">
+                                    <input name="end_date" id="tenderExpiry" type="text"
+                                        class="form-control form-control-lg form-control-solid mb-3 mb-lg-0"
+                                        value="{{ $tender->end_date->format('j-n-Y') }}">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row mb-20 d-flex h-100">
-                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Site Address</label>
+                    <div class="row mb-7 d-flex h-100">
+                        <label class="col-lg-4 fw-bold text-muted justify-content-center align-self-center">Site
+                            Address</label>
                         <div class="col-lg-8">
                             <div class="row mb-10">
                                 <div class="form-group col-md-12">
@@ -86,43 +95,54 @@
                             <div class="row mb-7">
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
-                                    Building Name / Number
+                                        Building Name / Number
                                     </label>
-                                    {{ Form::text('line_1', null, array('id' => 'address_line_1_auto', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => '6')) }}
+                                    {{ Form::text('line_1', null, array('id' => 'address_line_1_auto', 'class' =>
+                                    'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' =>
+                                    '6')) }}
                                 </div>
                                 <input type="hidden" name="latitude" id="latitude">
-                                 <input type="hidden" name="longitude" id="longitude">
+                                <input type="hidden" name="longitude" id="longitude">
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
-                                    Line 2
+                                        Line 2
                                     </label>
-                                    {{ Form::text('line_2', null, array('id' => 'address_line_2_auto','class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Dale Road')) }}
+                                    {{ Form::text('line_2', null, array('id' => 'address_line_2_auto','class' =>
+                                    'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' =>
+                                    'Dale Road')) }}
                                 </div>
                             </div>
                             <div class="row mb-7">
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
-                                    Town
+                                        Town
                                     </label>
-                                    {{ Form::text('town', null, array('id' => 'city_auto', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Chesterfield')) }}
+                                    {{ Form::text('town', null, array('id' => 'city_auto', 'class' => 'form-control
+                                    form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Chesterfield'))
+                                    }}
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
-                                    County
+                                        County
                                     </label>
-                                    {{ Form::text('county', null, array('id' => 'county_auto', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Derbyshire')) }}
+                                    {{ Form::text('county', null, array('id' => 'county_auto', 'class' => 'form-control
+                                    form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'Derbyshire')) }}
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6">
                                     <label class="d-flex align-items-center form-label">
-                                    Postcode
+                                        Postcode
                                     </label>
-                                    {{ Form::text('postcode', null, array('id' => 'postcode_auto', 'class' => 'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' => 'S18 1XJ')) }}
+                                    {{ Form::text('postcode', null, array('id' => 'postcode_auto', 'class' =>
+                                    'form-control form-control-lg form-control-solid mb-3 mb-lg-0', 'placeholder' =>
+                                    'S18 1XJ')) }}
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label class="form-label required">Country</label>
-                                    <select name="country" disabled value="United Kingdom" class="form-select form-select-lg form-select-solid" data-control="select2" data-placeholder="Select..." data-allow-clear="true" data-hide-search="false">
+                                    <select name="country" disabled value="United Kingdom"
+                                        class="form-select form-select-lg form-select-solid" data-control="select2"
+                                        data-placeholder="Select..." data-allow-clear="true" data-hide-search="false">
                                         <option></option>
                                         <option value="Afganistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>
@@ -378,17 +398,21 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary align-self-center">Update</button>
-                {{ Form::close() }}
-                    <button class="btn btn-danger align-self-center" data-bs-toggle="modal" data-bs-target="#kt_modal_confirm_delete">Delete</button>
+                    {{ Form::close() }}
+                    <button class="btn btn-danger align-self-center" data-bs-toggle="modal"
+                        data-bs-target="#kt_modal_confirm_delete">Delete</button>
                     <div class="modal fade" id="kt_modal_confirm_delete" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered mw-800px">
                             <div class="modal-content">
                                 <div class="modal-header pb-0 border-0 justify-content-end">
                                     <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
                                         <span class="svg-icon svg-icon-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black" />
-                                                <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none">
+                                                <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                                    transform="rotate(-45 6 17.3137)" fill="black" />
+                                                <rect x="7.41422" y="6" width="16" height="2" rx="1"
+                                                    transform="rotate(45 7.41422 6)" fill="black" />
                                             </svg>
                                         </span>
                                     </div>
@@ -396,15 +420,19 @@
                                 <div class="modal-body scroll-y pt-0 pb-15">
                                     <div class="mw-lg-600px mx-auto">
                                         <div class="text-center">
-                                            <h1 class="mb-3">Delete <span class="text-danger">{{ $tender->name }}</span>?</h1>
+                                            <h1 class="mb-3">Delete <span class="text-danger">{{ $tender->name
+                                                    }}</span>?</h1>
                                             <div class="text-muted fw-bold fs-5">
-                                                Are you sure you want to delete {{ $tender->name }}? This action cannot be undone.
+                                                Are you sure you want to delete {{ $tender->name }}? This action cannot
+                                                be undone.
                                             </div>
                                             <div class="text-center mt-10">
-                                            {{ Form::model($tender, array('route' => array('tenders.destroy', $tender->id), 'method' => 'DELETE',)) }}
-                                                <button class="btn btn-danger fw-bolder" type="submit">Confirm delete</button>
-                                            {{ Form::close() }}
-                                        </div>
+                                                {{ Form::model($tender, array('route' => array('tenders.destroy',
+                                                $tender->id), 'method' => 'DELETE',)) }}
+                                                <button class="btn btn-danger fw-bolder" type="submit">Confirm
+                                                    delete</button>
+                                                {{ Form::close() }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -419,9 +447,9 @@
 
 @endsection
 @push('extra-js')
-     <script src="{{asset('assets/js/postcoder-autocomplete.js')}}"></script>
-     <script>
-            // Choose the element we will use as the search box
+<script src="{{asset('assets/js/postcoder-autocomplete.js')}}"></script>
+<script>
+    // Choose the element we will use as the search box
             var autocomplete_input = document.getElementById("postcoder_autocomplete");
             var autocomplete_label = document.getElementById("postcoder_autocomplete_label");
             var autocomplete_wrapper = document.getElementById("address_finder");
@@ -459,5 +487,5 @@
                 return true;
 
             }
-    </script>
+</script>
 @endpush

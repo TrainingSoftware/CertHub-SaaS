@@ -1,6 +1,4 @@
 <div class="card mb-5 mb-xl-8">
-
-    <!--begin::Header-->
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bolder fs-3 mb-1">Renewal offers</span>
@@ -25,14 +23,9 @@
             </div>
         </div>
     </div>
-    <!--end::Header-->
-    <!--begin::Body-->
     <div class="card-body py-3">
-        <!--begin::Table container-->
         <div class="table-responsive">
-            <!--begin::Table-->
             <table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
-                <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted">
                         <th class="" wire:click="sortBy('date')">Date <i class="{{$sortDirection == " asc"
@@ -43,27 +36,27 @@
                                 ? 'fa fa-angle-down' : 'fa fa-angle-up' }}"></i></th>
                     </tr>
                 </thead>
-                <!--end::Table head-->
-                <!--begin::Table body-->
                 <tbody>
                     @foreach($courseMetas as $meta)
                     <tr>
                         <td>
-                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
-                                {{date("D d M, Y",strtotime($meta->date))}}</a>
+                            <span class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                                {{date("D d M, Y",strtotime($meta->date))}}
+                            </span>
                         </td>
                         <td>
-                            <a href="#"
-                                class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{optional($meta->location)->name}}</a>
+                            <span
+                                class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">{{optional($meta->location)->name}}
+                            </span>
                         </td>
                         <td>
-                            <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">2
-                                {{optional($meta->duration)->name}}</a>
+                            <span class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">2
+                                Day(s)
+                            </span>
                         </td>
                         <td>
-                            <a href="#"
-                                class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">£{{$meta->price}}
-                            </a>
+                            <span class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">£{{$meta->price}}
+                            </span>
                         </td>
                         <td class="text-end">
                             <a href="https://certhub.co/order/{{$meta->id}}" target="__blank"
@@ -73,14 +66,10 @@
                     @endforeach
 
                 </tbody>
-                <!--end::Table body-->
             </table>
             {{$courseMetas->links()}}
-            <!--end::Table-->
         </div>
-        <!--end::Table container-->
     </div>
-    <!--begin::Body-->
 </div>
 
 @push('extra-js')

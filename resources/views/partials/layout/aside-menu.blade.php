@@ -155,6 +155,7 @@
                         </div>
                     </div>
                 </div>
+                {{--
                 <div class="menu-item {{ (request()->is('training')) ? 'hover show' : '' }}">
                     <a class="menu-link" href="/training">
                         <span class="menu-icon">
@@ -170,6 +171,7 @@
                         <span class="menu-title">Training</span>
                     </a>
                 </div>
+                --}}
                 <div data-kt-menu-trigger="click"
                     class="menu-item menu-accordion {{ (request()->is('providers*')) ? 'hover show' : '' }} ">
                     <span class="menu-link">
