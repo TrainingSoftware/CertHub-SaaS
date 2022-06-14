@@ -35,7 +35,7 @@
                 <!--begin::Table head-->
                 <thead>
                     <tr class="fw-bolder text-muted">
-                        <th class="" wire:click="sortBy('date')">Date<i class="{{$sortDirection == " asc"
+                        <th class="" wire:click="sortBy('date')">Date <i class="{{$sortDirection == " asc"
                                 ? 'fa fa-angle-down' : 'fa fa-angle-up' }}"></i></th>
                         <th class="">Location</th>
                         <th class="">Duration</th>
@@ -50,7 +50,7 @@
                     <tr>
                         <td>
                             <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
-                                {{date("d-m-Y",strtotime($meta->date))}}</a>
+                                {{date("D M Y",strtotime($meta->date))}}</a>
                         </td>
                         <td>
                             <a href="#"
